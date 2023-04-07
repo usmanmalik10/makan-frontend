@@ -1,0 +1,80 @@
+.logout-outer-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 60%;
+  background: #f6f6f6 0% 0% no-repeat padding-box;
+  box-shadow: 0px -3px 20px #dbdada40;
+  border-radius: 38px;
+  height: auto;
+  width: 400px;
+  padding: 40px;
+}
+
+.logout-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logout-inner-container h1 {
+  margin-top: -20px;
+  font-size: 50px;
+}
+.logout-inner-container h2 {
+  margin-top: -20px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.logout-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-button {
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  color: white;
+  background: transparent
+    linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%;
+  border-radius: 12px;
+  opacity: 1;
+  font-size: 16px;
+  margin-right: 30px;
+}
+
+.logout-button {
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  color: red;
+  border: 2px solid #e8080c;
+  border-radius: 12px;
+  margin-right: 40px;
+  opacity: 1;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 900px) {
+  .logout-outer-container {
+    left: 50%;
+    width: 280px;
+  }
+
+  .cancel-button {
+    width: 120px;
+    height: 50px;
+    margin-right: 00px;
+  }
+
+  .logout-button {
+    width: 120px;
+    height: 50px;
+    margin-right: 40px;
+  }
+}

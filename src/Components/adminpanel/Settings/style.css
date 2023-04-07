@@ -1,0 +1,91 @@
+.settings-settings h1 {
+  margin-top: 00px;
+  font-size: 26px;
+  font-family: "Poppins";
+}
+.settings-settings p {
+  text-align: left;
+  font-size: 24px;
+  font-family: "Montserrat";
+  letter-spacing: 0px;
+  color: #1b292b;
+  opacity: 1;
+  font-weight: 600;
+}
+
+.settings-settings input {
+  width: 67%;
+  height: 80px;
+  border: none;
+  border-radius: 14px;
+  opacity: 1;
+  font-size: 20px;
+  padding: 0px 20px;
+}
+
+.settings-settings input:focus {
+  outline: none;
+}
+
+.settings-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.first-button {
+  width: 209px;
+  height: 83px;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  color: white;
+  background: transparent
+    linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%;
+  border-radius: 12px;
+  opacity: 1;
+  font-size: 16px;
+}
+
+.second-button {
+  width: 209px;
+  height: 83px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: red;
+  border: 2px solid #e8080c;
+  border-radius: 12px;
+  margin-right: 40px;
+  opacity: 1;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 640px) {
+  .settings-settings input {
+    width: 80%;
+    height: 60px;
+    font-size: 16px;
+    padding: 0px 14px;
+  }
+
+  .settings-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 30px;
+  }
+
+  .first-button {
+    width: 160px;
+    height: 70px;
+  }
+
+  .second-button {
+    width: 160px;
+    height: 70px;
+    margin-right: 14px;
+  }
+}
