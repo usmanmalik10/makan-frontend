@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const nodemailer = require("nodemailer");
 var smtpTransport = require('nodemailer-smtp-transport');
 const path = require("path");
+const { userValidationRules, validate} = require('../utils/validater')
 
 
 const storage = multer.diskStorage({
@@ -22,11 +23,8 @@ const upload = multer({
     storage: storage,
 });
 
-router.post('/create', upload.single("profile"), async function (req, res) {
-    console.log("*********11111111111*********", req.file);
-    // if (!req.file) {
-    //     throw new Error('No file uploaded.')
-    // }
+router.post('/signup',userValidationRules(), validate, async function (req, res) {
+
     console.log("***req.body****", req.body);
     const { email, password, username, role, address } = req.body
 
@@ -39,8 +37,8 @@ router.post('/create', upload.single("profile"), async function (req, res) {
         const data = new user({
             username,
             email,
-            password: hashedPassword,
-            profile_image: `http://localhost:4000/profile/${req.file.filename}`,
+            password: hasedpassword,
+            // profile_image: `http://localhost:4000/profile/${req.file.filename}`,
             role,
             address
         })
@@ -57,12 +55,6 @@ router.post('/create', upload.single("profile"), async function (req, res) {
         });
 
     } catch (err) {
-        if (err.code === 'ENOENT') {
-            return res.status(400).json({
-                status: false,
-                message: 'File not found.',
-            })
-        }
         res.status(500).json({
             status: false,
             message: err.message
