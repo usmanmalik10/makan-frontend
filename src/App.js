@@ -53,8 +53,7 @@ function App() {
         <Route path="/realestate" element={<Realestate/>} />
         <Route path="/contactus" element={<Contactus/>} />
         <Route path="/paintstores" element={<Paintstores/>} />
-        
-        {/* <Route path="/busisnesssignup" element={<Busisnesssignup />}/> */}
+        <Route path="/busisnesssignup" element={<Busisnesssignup />}/>
       </Routes>
       <Footer/>
       
