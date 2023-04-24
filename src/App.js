@@ -38,6 +38,13 @@ import {Busisnesssignup} from "./Components/Busisness/Busisnessauthscreen/Busisn
 
 /* BUsisness Side Routes*/ 
 
+const ROLES = {
+  'User': 2001,
+  'Editor': 1984,
+  'Admin': 5150
+}
+
+
 function App() {
   const location = useLocation();
   return (
