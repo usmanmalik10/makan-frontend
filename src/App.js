@@ -38,140 +38,206 @@ import {Busisnesssignup} from "./Components/Busisness/Busisnessauthscreen/Busisn
 
 /* BUsisness Side Routes*/ 
 
+import Layout from "./Routes/Layout";
+import RequireAuth from "./Routes/RequireAuth";
+import Unauthorized from "./Routes/Unauthorized";
+import Missing from "./Routes/Missing";
+
 const ROLES = {
+
+  'Admin': 5150,
+  'Realestate': 123,
+  'Business': 124,
   'User': 2001,
-  'Editor': 1984,
-  'Admin': 5150
 }
 
 
 function App() {
-  const location = useLocation();
+
   return (
-    <>
-
-    {/* Website Routes */}
-
-      <Routes>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* public routes */}
+        <Route path="business-login" element={<Busisnesslogin />} />
+        <Route path="business-register" element={<Busisnesssignup />} />
         <Route path="/" element={<Home />} />
-        <Route path="/aboutus" element={<About />} />
-        <Route path="/services" element={<Services/>} />
-        <Route path="/ourteam" element={<Ourteam/>} />
-        <Route path="/realestate" element={<Realestate/>} />
-        <Route path="/contactus" element={<Contactus/>} />
-        <Route path="/paintstores" element={<Paintstores/>} />
-        <Route path="/busisnesssignup" element={<Busisnesssignup />}/>
-      </Routes>
-      <Footer/>
-      
 
-      {/* Real Estate Dashboard Routes */}
+        {/* <Route path="linkpage" element={<LinkPage />} /> */}
+        <Route path="unauthorized" element={<Unauthorized />} />
 
+        {/* we want to protect these routes */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
+          <Route path="/" element={<Home />} />
+        </Route>
 
-      {/* <div className="App">
-        {location.pathname === "/Estatelogin" ? (
-          <Routes>
-            <Route path="/Estatelogin" element={<Estatelogin />} />
-          </Routes>
-        ) : (
-          <div className="main-wrapper">
-            <Grid container>
-              <Grid item xs={12} sm={12} md={3} lg={2.7}>
-                <Navbar />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                md={9}
-                lg={9.3}
-                className="right-panel-wrapper"
-              >
-                <Routes>
-                  <Route path="/" element={<Esatatealldata />} />
-                  <Route path="/Forrent" element={<Forrent />} />
-                  <Route path="/Forsale" element={<Forsale />} />
-                  <Route path="/plotssale" element={<Plotssale />} />
-                </Routes>
-              </Grid>
-            </Grid>
-          </div>
-        )}
-      </div> */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.Business]} />}>
+          <Route path="/Busisnessprofile" element={<Busisnessprofile />} />
+        </Route>
 
-       {/* <div className="App">
-        {location.pathname === "/Userlogin" ? (
-          <Routes>
-            <Route path="/Userlogin" element={<Userlogin />} />
-          </Routes>
-        ) : (
-          <div className="main-wrapper">
-            <Grid container>
-              <Grid item xs={12} sm={12} md={3} lg={2.7}>
-                <UserNavbar />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                md={9}
-                lg={9.3}
-                className="right-panel-wrapper"
-              >
-                <Routes>
-                  <Route path="/" element={<Userprofile />} />
-                  <Route path="/myorders" element={< Orders />} />
-                  <Route path="/previousorders" element={<Oldorders />} />
-                </Routes>
-              </Grid>
-            </Grid>
-          </div>
-        )}
-      </div> */}
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
+          <Route path="editor" element={<Editor />} />
+        </Route> */}
 
 
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+          <Route path="admin" element={<Admin />} />
+        </Route> */}
 
-          {/* Busisness Dashboard Routes */}
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}>
+          <Route path="lounge" element={<Lounge />} />
+        </Route> */}
 
-
-            {/* <div className="App">
-            
-            
-        {location.pathname === "/Busisnesslogin" ? (
-          <Routes>
-            <Route path="/Busisnesslogin" element={<Busisnesslogin />} />
-            
-          </Routes>
-        ) : (
-          <div className="main-wrapper">
-            <Grid container>
-              <Grid item xs={12} sm={12} md={3} lg={2.7}>
-                <BusisnessNavbar />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                md={9}
-                lg={9.3}
-                className="right-panel-wrapper"
-              >
-                <Routes>
-                  <Route path="/" element={<Busisnessprofile />} />
-                  <Route path="/Newadd" element={<Newadd />} />
-                  <Route path="/Activeadds" element={<Activeadd />} /> 
-                  
-                </Routes>
-              </Grid>
-            </Grid>
-            
-          </div>
-        )}
-       </div>  */}
-
-
-    </>
+        {/* catch all */}
+        <Route path="*" element={<Missing />} />
+      </Route>
+    </Routes>
   );
 }
 
 export default App;
+
+
+
+// const ROLES = {
+
+//   'Website': 1984,
+//   'Admin': 5150,
+//   'Realestate': 123,
+//   'Business': 124,
+//   'User': 2001,
+//   // '': 125,
+//   // '': 126,
+//   // '': 127,
+// }
+
+
+// function App() {
+//   const location = useLocation();
+//   return (
+//     <>
+
+//     {/* Website Routes */}
+
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/aboutus" element={<About />} />
+//         <Route path="/services" element={<Services/>} />
+//         <Route path="/ourteam" element={<Ourteam/>} />
+//         <Route path="/realestate" element={<Realestate/>} />
+//         <Route path="/contactus" element={<Contactus/>} />
+//         <Route path="/paintstores" element={<Paintstores/>} />
+//         <Route path="/busisnesssignup" element={<Busisnesssignup />}/>
+//       </Routes>
+//       <Footer/>
+      
+
+//       {/* Real Estate Dashboard Routes */}
+
+
+//       {/* <div className="App">
+//         {location.pathname === "/Estatelogin" ? (
+//           <Routes>
+//             <Route path="/Estatelogin" element={<Estatelogin />} />
+//           </Routes>
+//         ) : (
+//           <div className="main-wrapper">
+//             <Grid container>
+//               <Grid item xs={12} sm={12} md={3} lg={2.7}>
+//                 <Navbar />
+//               </Grid>
+//               <Grid
+//                 item
+//                 xs={12}
+//                 sm={12}
+//                 md={9}
+//                 lg={9.3}
+//                 className="right-panel-wrapper"
+//               >
+//                 <Routes>
+//                   <Route path="/" element={<Esatatealldata />} />
+//                   <Route path="/Forrent" element={<Forrent />} />
+//                   <Route path="/Forsale" element={<Forsale />} />
+//                   <Route path="/plotssale" element={<Plotssale />} />
+//                 </Routes>
+//               </Grid>
+//             </Grid>
+//           </div>
+//         )}
+//       </div> */}
+
+//        {/* <div className="App">
+//         {location.pathname === "/Userlogin" ? (
+//           <Routes>
+//             <Route path="/Userlogin" element={<Userlogin />} />
+//           </Routes>
+//         ) : (
+//           <div className="main-wrapper">
+//             <Grid container>
+//               <Grid item xs={12} sm={12} md={3} lg={2.7}>
+//                 <UserNavbar />
+//               </Grid>
+//               <Grid
+//                 item
+//                 xs={12}
+//                 sm={12}
+//                 md={9}
+//                 lg={9.3}
+//                 className="right-panel-wrapper"
+//               >
+//                 <Routes>
+//                   <Route path="/" element={<Userprofile />} />
+//                   <Route path="/myorders" element={< Orders />} />
+//                   <Route path="/previousorders" element={<Oldorders />} />
+//                 </Routes>
+//               </Grid>
+//             </Grid>
+//           </div>
+//         )}
+//       </div> */}
+
+
+
+//           {/* Busisness Dashboard Routes */}
+
+
+//             {/* <div className="App">
+            
+            
+//         {location.pathname === "/Busisnesslogin" ? (
+//           <Routes>
+//             <Route path="/Busisnesslogin" element={<Busisnesslogin />} />
+            
+//           </Routes>
+//         ) : (
+//           <div className="main-wrapper">
+//             <Grid container>
+//               <Grid item xs={12} sm={12} md={3} lg={2.7}>
+//                 <BusisnessNavbar />
+//               </Grid>
+//               <Grid
+//                 item
+//                 xs={12}
+//                 sm={12}
+//                 md={9}
+//                 lg={9.3}
+//                 className="right-panel-wrapper"
+//               >
+//                 <Routes>
+//                   <Route path="/" element={<Busisnessprofile />} />
+//                   <Route path="/Newadd" element={<Newadd />} />
+//                   <Route path="/Activeadds" element={<Activeadd />} /> 
+                  
+//                 </Routes>
+//               </Grid>
+//             </Grid>
+            
+//           </div>
+//         )}
+//        </div>  */}
+
+
+//     </>
+//   );
+// }
+
+// export default App;

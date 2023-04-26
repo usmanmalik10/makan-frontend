@@ -9,8 +9,10 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import useAuth from "../../../hooks/useAuth";
 
 export const Busisnesslogin = () => {
+  const { setAuth } = useAuth();
     const [eye, setEye] = useState();
   const navigate = useNavigate();
   return (
