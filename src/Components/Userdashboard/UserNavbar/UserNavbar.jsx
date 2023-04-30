@@ -5,14 +5,15 @@ import { RiNewspaperLine } from "react-icons/ri";
 // import { RiSettingsLine } from "react-icons/ri";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
-import "./style.css";
+import "./userstyle.css";
+
 
 const UserNavbar = () => {
   const navList = [
     {
       icon: BiHomeSmile,
       text: "Profile",
-      route: "/",
+      route: "/userprofile",
     },
     {
       icon: TbUsers,

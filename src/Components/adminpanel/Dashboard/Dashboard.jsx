@@ -4,6 +4,8 @@ import { FiUsers } from "react-icons/fi";
 import { MdOutlineBusinessCenter } from "react-icons/md";
 import { FaStore } from "react-icons/fa";
 import "./style.css";
+import Navbar from '../Navbar/Navbar';
+
 const Dashboard = () => {
   const dummyCards = [
     {
@@ -26,19 +28,23 @@ const Dashboard = () => {
     },
   ];
   return (
-    <div>
-      <h1 className="dashboard-header-text">Dashboard</h1>
-      <div className="card-container">
-        {dummyCards.map((e, i) => (
-          <Cards
-            icon={e.icon}
-            stats={e.stats}
-            description={e.description}
-            backgroundColor={e.backgroundColor}
-          />
-        ))}
+    <div className="dashboard_wrapper">
+      <div><Navbar /></div>
+      <div>
+        <h1 className="dashboard-header-text">Dashboard</h1>
+        <div className="card-container">
+          {dummyCards.map((e, i) => (
+            <Cards
+              icon={e.icon}
+              stats={e.stats}
+              description={e.description}
+              backgroundColor={e.backgroundColor}
+            />
+          ))}
+        </div>
       </div>
     </div>
+
   );
 };
 

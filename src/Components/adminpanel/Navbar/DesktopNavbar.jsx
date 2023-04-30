@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import logoicon from "../../Assets/Auth-Screen/logoicon.png";
+import logoicon from "../../../Assets/Auth-Screen/logoicon.png";
 import { BiLogOut } from "react-icons/bi";
 import "./style.css";
 

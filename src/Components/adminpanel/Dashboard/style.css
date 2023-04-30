@@ -53,3 +53,10 @@
   border-radius: 26px;
   opacity: 1;
 }
+.dashboard_wrapper{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

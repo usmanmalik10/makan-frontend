@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import heroimg from "../../../images/abouthero.png";
 import Video from "../../../images/companyvideo.mp4"
+import Footer from "../Footer/Footer";
 export const Aboutcomponent = () => {
   return (
     <div>
@@ -64,6 +65,7 @@ export const Aboutcomponent = () => {
           </Row>
         </Container>
       </section>
+      <div><Footer/></div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Navbar = () => {
     {
       icon: BiHomeSmile,
       text: "Dashboard",
-      route: "/",
+      route: "/estatealldata",
     },
     {
       icon: TbUsers,

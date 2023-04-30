@@ -28,20 +28,24 @@ import {Oldorders} from "./Pages/Userportal/Oldorders"
 import {Userlogin} from "./Components/Userdashboard/Userauthscreen/Userlogin"
 
 /* Busisness Routes*/
-import BusisnessNavbar from "./Components/Busisness/BusisnessNavbar/BusisnessNavbar"
-import { Busisnesslogin } from "./Components/Busisness/Busisnessauthscreen/Busisnesslogin";
-import { Newadd } from "./Pages/Busisnessportal/Newadd";
-import { Activeadd } from "./Pages/Busisnessportal/Activeadd";
-import { Busisnessprofile } from "./Pages/Busisnessportal/Busisnessprofile";
+import BusinessNavbar from "./Components/Business/BusinessNavbar/BusinessNavbar"
+// import { Businesslogin } from "./Components/Business/Businessauthscreen/Businesslogin";
+import { Newadd } from "./Pages/Businessportal/Newadd";
+import { Activeadd } from "./Pages/Businessportal/Activeadd";
+import { Businessprofile } from "./Pages/Businessportal/Businessprofile";
 import { Paintstores } from "./Pages/Paintstores";
-import {Busisnesssignup} from "./Components/Busisness/Busisnessauthscreen/Busisnesssignup"
+// import {Businesssignup} from "./Components/Business/Businessauthscreen/Businesssignup"
 
 /* BUsisness Side Routes*/ 
+
+import AdminDashboard from "./Components/adminpanel/Dashboard/Dashboard";
 
 import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
+import { Previousorders } from "./Components/Userdashboard/Usercomponents/Previousorders";
+import { Alldata } from "./Pages/Realestatedashboard/Alldata";
 
 const ROLES = {
 
@@ -53,30 +57,67 @@ const ROLES = {
 
 
 function App() {
-
+  const location = useLocation();
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
-        <Route path="business-login" element={<Busisnesslogin />} />
-        <Route path="business-register" element={<Busisnesssignup />} />
+        {/* <Route path="/business-login" element={<Businesslogin />} />
+        <Route path="/business-register" element={<Businesssignup />} /> */}
         <Route path="/" element={<Home />} />
+        <Route path="/aboutus" element={<About />} />
+        <Route path="/services" element={<Services/>} />
+        <Route path="/ourteam" element={<Ourteam/>} />
+        <Route path="/realestate" element={<Realestate/>} />
+        <Route path="/contactus" element={<Contactus/>} />
+
+        //User
+
+        <Route path="/userprofile" element={<Userprofile />} />
+        <Route path="/previousorders" element={<Oldorders />} />
+        <Route path="/myorders" element={<Orders />} />
+
+        //Realstate
+
+        <Route path="/estatealldata" element={<Alldata />} />
+        <Route path="/forrent" element={<Forrent />} />
+        <Route path="/forsale" element={<Forsale />} />
+        <Route path="/plotssale" element={<Plotssale />} />
+
+        //Business
+
+        <Route path="/business-profile" element={<Businessprofile />} />
+        <Route path="/new-add" element={<Newadd />} />
+        <Route path="/active-adds" element={<Activeadd />} />
+
+        //Admin
+
+        {/* <Route path="/business-profile" element={<Businessprofile />} />
+        <Route path="/new-add" element={<Newadd />} />
+        <Route path="/active-adds" element={<Activeadd />} /> */}
 
         {/* <Route path="linkpage" element={<LinkPage />} /> */}
         <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/userprofile" element={<Userprofile />} />
+          <Route path="/myorders" element={< Orders />} />
+          <Route path="/previousorders" element={<Oldorders />} /> */}
         </Route>
 
         <Route element={<RequireAuth allowedRoles={[ROLES.Business]} />}>
-          <Route path="/Busisnessprofile" element={<Busisnessprofile />} />
+          {/* <Route path="/Businessprofile" element={<Businessprofile />} />
+          <Route path="/Newadd" element={<Newadd />} />
+          <Route path="/Activeadds" element={<Activeadd />} /> */}
         </Route>
 
-        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
-          <Route path="editor" element={<Editor />} />
-        </Route> */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.Realestate]} />}>
+          <Route path="/realstate" element={<Esatatealldata />} />
+          <Route path="/Forrent" element={<Forrent />} />
+          <Route path="/Forsale" element={<Forsale />} />
+          <Route path="/plotssale" element={<Plotssale />} />
+        </Route>
 
 
         {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
@@ -236,6 +277,40 @@ export default App;
 //        </div>  */}
 
 
+//             {/* <div className="App">
+            
+            
+//         {location.pathname === "/Busisnesslogin" ? (
+//           <Routes>
+//             <Route path="/Busisnesslogin" element={<Busisnesslogin />} />
+            
+//           </Routes>
+//         ) : (
+//           <div className="main-wrapper">
+//             <Grid container>
+//               <Grid item xs={12} sm={12} md={3} lg={2.7}>
+//                 <BusisnessNavbar />
+//               </Grid>
+//               <Grid
+//                 item
+//                 xs={12}
+//                 sm={12}
+//                 md={9}
+//                 lg={9.3}
+//                 className="right-panel-wrapper"
+//               >
+//                 <Routes>
+//                   <Route path="/" element={<Busisnessprofile />} />
+//                   <Route path="/Newadd" element={<Newadd />} />
+//                   <Route path="/Activeadds" element={<Activeadd />} /> 
+                  
+//                 </Routes>
+//               </Grid>
+//             </Grid>
+            
+//           </div>
+//         )}
+//        </div>  */}
 //     </>
 //   );
 // }

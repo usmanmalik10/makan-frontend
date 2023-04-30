@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import logoicon from "../../../images/logoicon.png";
 import { BiLogOut } from "react-icons/bi";
-import "./style.css";
+import "./userstyle.css";
 
 const DesktopNavbar = (props) => {
   const navigate = useNavigate();
