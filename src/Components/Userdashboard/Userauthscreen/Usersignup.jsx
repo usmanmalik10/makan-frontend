@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 
-export const Businesssignup = () => {
+export const Usersignup = () => {
 
     const [eye, setEye] = useState();
     const navigate = useNavigate();

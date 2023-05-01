@@ -7,7 +7,7 @@ import { Services } from "./Pages/Services/Services";
 import { Ourteam } from "./Pages/Ourteam/Ourteam";
 import { Realestate } from "./Pages/Realestate/Realestate";
 import { Contactus } from "./Pages/Contactus/Contactus";
-import Footer from "./Components/Website/Footer/Footer";
+import { Login } from "./Components/Auth/login";
 
 import { Grid } from "@mui/material";
 
@@ -18,6 +18,7 @@ import { Forsale } from "./Pages/Realestatedashboard/Forsale";
 import { Plotssale } from "./Pages/Realestatedashboard/Plotssale";
 import { Esatatealldata } from "./Components/Realestatepanel/Forrent/Esatatealldata";
 import { Estatelogin } from "./Components/Realestatepanel/Estateauthscreen/Estatelogin";
+import { Estatesignup } from "./Components/Realestatepanel/Estateauthscreen/Estatesignup";
 
  
 /* User Side Routes*/  
@@ -26,15 +27,15 @@ import {Userprofile} from "./Pages/Userportal/Userprofile";
 import {Orders} from "./Pages/Userportal/Orders";
 import {Oldorders} from "./Pages/Userportal/Oldorders"
 import {Userlogin} from "./Components/Userdashboard/Userauthscreen/Userlogin"
+import {Usersignup} from "./Components/Userdashboard/Userauthscreen/Usersignup"
 
 /* Busisness Routes*/
 import BusinessNavbar from "./Components/Business/BusinessNavbar/BusinessNavbar"
-// import { Businesslogin } from "./Components/Business/Businessauthscreen/Businesslogin";
 import { Newadd } from "./Pages/Businessportal/Newadd";
 import { Activeadd } from "./Pages/Businessportal/Activeadd";
 import { Businessprofile } from "./Pages/Businessportal/Businessprofile";
 import { Paintstores } from "./Pages/Paintstores";
-// import {Businesssignup} from "./Components/Business/Businessauthscreen/Businesssignup"
+import {Businesssignup} from "./Components/Business/Businessauthscreen/Businesssignup";
 
 /* BUsisness Side Routes*/ 
 
@@ -62,8 +63,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
-        {/* <Route path="/business-login" element={<Businesslogin />} />
-        <Route path="/business-register" element={<Businesssignup />} /> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/business-register" element={<Businesssignup />} />
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/services" element={<Services/>} />
@@ -72,13 +73,13 @@ function App() {
         <Route path="/contactus" element={<Contactus/>} />
 
         //User
-
+        <Route path="/user-register" element={<Usersignup />} />
         <Route path="/userprofile" element={<Userprofile />} />
         <Route path="/previousorders" element={<Oldorders />} />
         <Route path="/myorders" element={<Orders />} />
 
         //Realstate
-
+        <Route path="/estate-register" element={<Estatesignup />} />
         <Route path="/estatealldata" element={<Alldata />} />
         <Route path="/forrent" element={<Forrent />} />
         <Route path="/forsale" element={<Forsale />} />

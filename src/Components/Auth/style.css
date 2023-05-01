@@ -1,0 +1,187 @@
+.login-wrapper {
+    height: 100%;
+    overflow: hidden;
+    background: transparent
+      linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+      no-repeat padding-box;
+  }
+  
+  .left-wrapper {
+    position: relative;
+  }
+  
+  .left-sub-wrapper {
+    position: relative;
+  }
+  
+  .hand-image {
+    position: relative;
+    right: -40%;
+    top: 20px;
+    object-fit: contain;
+    width: 60%;
+  }
+  
+  .homelogo-image {
+    position: absolute;
+    right: 26%;
+    top: 28%;
+    object-fit: contain;
+    width: 20%;
+    z-index: 1;
+  }
+  
+  .right-form-main-wrapper {
+    height: 100vh ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .right-form-wrapper {
+    z-index: 1;
+    background-color: #ffffff;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 100vh;
+  }
+  .right-form-container {
+    position: relative;
+  }
+  .login-icon {
+    position: absolute;
+    left: -60px;
+    top: 20px;
+    width: 280px;
+    height: 180px;
+  }
+  .login-text {
+    margin-top: 70px;
+    font-size: 62px;
+  
+    background: transparent
+      linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+      no-repeat padding-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 8px 4px 6px #00000029;
+  }
+  
+  .filldetails-text {
+    opacity: 0.8;
+    margin-top: -10px;
+    font-size: 20px;
+    font-family: "Poppins";
+  }
+  
+  .login-input_container {
+  }
+  
+  .login-inputfield-container-2 {
+    margin-top: 16px;
+    position: relative;
+  }
+  
+  .login-inputicon {
+    position: absolute;
+    top: 29px;
+    left: 22px;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    color: #1b292b;
+  }
+  
+  .login-inputicon-eye {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 28px;
+    font-size: 24px;
+    color: #1b292b;
+    opacity: 0.5;
+  }
+  
+  .login-inputfield-1 {
+    width: 320px;
+    height: 79px;
+    background-color: #f6f6f6;
+    border-radius: 28px;
+    border: none;
+    padding: 0 58px;
+    font-size: 16px;
+    font-family: "Montserrat";
+    letter-spacing: 0px;
+    color: #1b292b;
+  }
+  
+  .login-inputfield-1:focus {
+    outline: none;
+  }
+  
+  .forgotpassword-container {
+    text-align: right;
+  }
+  
+  .forgotpassword-container > p {
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Poppins";
+    color: black;
+  }
+  
+  .login-button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .login-button > button {
+    width: 220px;
+    height: 60px;
+    background: transparent
+      linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+      no-repeat padding-box;
+    border-radius: 20px;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .signup-right-form-wrapper {
+    z-index: 1;
+    background-color: #ffffff;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 850px;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .right-form-wrapper {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    .login-button {
+      margin-top: 0px;
+    }
+    .login-button > button {
+      width: 180px;
+      height: 50px;
+    }
+    .login-inputfield-1 {
+      width: 200px;
+      height: 60px;
+      border-radius: 22px;
+    }
+    .login-inputicon {
+      top: 19px;
+    }
+  
+    .login-inputicon-eye {
+      top: 18px;
+    }
+    .left-wrapper {
+      display: none;
+    }
+  }
+  

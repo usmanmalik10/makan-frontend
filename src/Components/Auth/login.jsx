@@ -1,21 +1,35 @@
-
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
-import LoginPic from "../../../images/LoginPic.png";
-import handicon from "../../../images/handicon.png";
-import Lock from "../../../images/Lock.png";
-import Inbox from "../../../images/Inbox.png";
-import homelogo from "../../../images/logoicon.png";
+import LoginPic from "../../images/LoginPic.png";
+import handicon from "../../images/handicon.png";
+import Lock from "../../images/Lock.png";
+import Inbox from "../../images/Inbox.png";
+import homelogo from "../../images/logoicon.png";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import useAuth from "../../hooks/useAuth";
+
+export const Login = () => {
+
+  const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
 
 
-export const Businesssignup = () => {
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+
+          // setAuth({ user, pwd, roles, accessToken });
+          // setUser('');
+          // setPwd('');
+
+      }
+
 
     const [eye, setEye] = useState();
-    const navigate = useNavigate();
+
   return (
     <div className="login-wrapper">
     <Grid container>
@@ -32,16 +46,16 @@ export const Businesssignup = () => {
         sm={12}
         md={6}
         lg={6}
-        className="signup-right-form-wrapper "
+        className="right-form-wrapper "
       >
         <div className="right-form-main-wrapper">
           <div className="right-form-container">
             <img src={LoginPic} alt="" className="login-icon" />
-            <h1 className="login-text">Sign Up</h1>
+            <h1 className="login-text">Log In</h1>
           </div>
 
           <div className="right-form-container">
-            <p className="filldetails-text">Fill your details to Sign Up</p>
+            <p className="filldetails-text">Fill your details to login in</p>
           </div>
 
           <div className="login-input_container">
@@ -74,39 +88,12 @@ export const Businesssignup = () => {
                 />
               )}
             </div>
-            <div className="login-inputfield-container-2">
-              <img src={Inbox} className="login-inputicon" />
-              <input
-                className="login-inputfield-1"
-                required
-                type="shop name"
-                placeholder="Shop Name"
-              />
-            </div>
-            <div className="login-inputfield-container-2">
-              <img src={Inbox} className="login-inputicon" />
-              <input
-                className="login-inputfield-1"
-                required
-                type="location"
-                placeholder="Location"
-              />
-            </div>
-            <div className="login-inputfield-container-2">
-              <img src={Inbox} className="login-inputicon" />
-              <input
-                className="login-inputfield-1"
-                required
-                type="phone"
-                placeholder="Phone No"
-              />
-            </div>
             <div className="forgotpassword-container">
-              <p>LogIn Now</p>
+              <p>Forgot Password?</p>
             </div>
 
             <div className="login-button">
-              <button onClick={() => navigate("/")}>Sign Up</button>
+              <button onClick={() => navigate("/")}>Login</button>
             </div>
           </div>
         </div>
