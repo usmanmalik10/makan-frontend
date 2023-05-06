@@ -12,17 +12,22 @@ const Navbar = () => {
     {
       icon: BiHomeSmile,
       text: "Dashboard",
-      route: "/",
+      route: "/admin-profile",
     },
     {
       icon: TbUsers,
       text: "Users",
-      route: "/userslist",
+      route: "/user-list",
     },
     {
       icon: RiNewspaperLine,
-      text: "Gig Approval",
-      route: "/gigapprovallist",
+      text: "Business",
+      route: "/businesses",
+    },
+    {
+      icon: RiNewspaperLine,
+      text: "Real Estate",
+      route: "/real-estate",
     },
     {
       icon: RiSettingsLine,

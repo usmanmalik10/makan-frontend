@@ -39,7 +39,6 @@ import {Businesssignup} from "./Components/Business/Businessauthscreen/Businesss
 
 /* BUsisness Side Routes*/ 
 
-import AdminDashboard from "./Components/adminpanel/Dashboard/Dashboard";
 
 import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
@@ -47,6 +46,11 @@ import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
 import { Previousorders } from "./Components/Userdashboard/Usercomponents/Previousorders";
 import { Alldata } from "./Pages/Realestatedashboard/Alldata";
+import { Adminprofile } from "./Pages/Adminportal/Adminprofile";
+import { Businesses } from "./Pages/Adminportal/Businesses";
+import { Users } from "./Pages/Adminportal/Users";
+import { RealEstate } from "./Pages/Adminportal/Realestate";
+import { Settings } from "./Pages/Adminportal/Settings";
 
 const ROLES = {
 
@@ -93,9 +97,11 @@ function App() {
 
         //Admin
 
-        {/* <Route path="/business-profile" element={<Businessprofile />} />
-        <Route path="/new-add" element={<Newadd />} />
-        <Route path="/active-adds" element={<Activeadd />} /> */}
+        <Route path="/admin-profile" element={<Adminprofile />} />
+        <Route path="/user-list" element={<Users />} />
+        <Route path="/businesses" element={<Businesses />} />
+        <Route path="/real-estate" element={<RealEstate />} />
+        <Route path="/settings" element={<Settings />} />
 
         {/* <Route path="linkpage" element={<LinkPage />} /> */}
         <Route path="unauthorized" element={<Unauthorized />} />

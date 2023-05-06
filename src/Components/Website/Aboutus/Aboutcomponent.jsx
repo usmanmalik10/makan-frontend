@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import heroimg from "../../../images/abouthero.png";
-import Video from "../../../images/companyvideo.mp4"
+import AboutVideo from "../../../images/companyvideo.mp4"
+import ReactPlayer from 'react-player';
 import Footer from "../Footer/Footer";
 export const Aboutcomponent = () => {
   return (
@@ -12,9 +13,17 @@ export const Aboutcomponent = () => {
             <Col>
               {/* <img className="about-hero-img" src={heroimg} alt="hero" /> */}
               {/* <video>
-                <source src={video} type="video/mp4" />
+                <source src={Video} type="video/mp4" />
               </video> */}
-              <video src={Video} autoPlay="true" />
+           <ReactPlayer
+          playing={false}
+          controls={false}
+          className="video_player"
+          url={AboutVideo}
+          width="100%"
+          height="472px"
+        />
+              {/* <video className="media_player" src={AboutVideo} autoPlay="true" /> */}
             </Col>
           </Row>
         </Container>

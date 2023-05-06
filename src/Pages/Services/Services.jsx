@@ -10,10 +10,12 @@ import { Servicesmarbles } from '../../Components/Website/Services/Servicesmarbl
 import { Servicespainters } from '../../Components/Website/Services/Servicespainters'
 import { Servicesplumber } from '../../Components/Website/Services/Servicesplumber'
 import { Servicessteelwelders } from '../../Components/Website/Services/Servicessteelwelders'
+import Header from '../../Components/Website/Header/Header'
 
 export const Services = () => {
   return (
     <div>
+        <Header/>
         <Serviceshero/>
         <Servicesarchitects />
         <Servicesplumber/>
