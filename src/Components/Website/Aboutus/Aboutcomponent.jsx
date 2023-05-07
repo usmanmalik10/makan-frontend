@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import heroimg from "../../../images/abouthero.png";
+// import heroimg from "../../../images/abouthero.png";
 import AboutVideo from "../../../images/companyvideo.mp4"
 import ReactPlayer from 'react-player';
 import Footer from "../Footer/Footer";
@@ -11,18 +11,19 @@ export const Aboutcomponent = () => {
         <Container fluid>
           <Row>
             <Col>
-              {/* <img className="about-hero-img" src={heroimg} alt="hero" /> */}
-              {/* <video>
-                <source src={Video} type="video/mp4" />
-              </video> */}
-           <ReactPlayer
-          playing={false}
-          controls={false}
-          className="video_player"
-          url={AboutVideo}
-          width="100%"
-          height="472px"
-        />
+              <div className="cover_div">
+                <ReactPlayer
+                  playing={true} 
+                  loop={true} 
+                  controls={false}
+                  autoplay={true}
+                  muted
+                  className="video_player"
+                  url={AboutVideo}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
               {/* <video className="media_player" src={AboutVideo} autoPlay="true" /> */}
             </Col>
           </Row>
@@ -74,7 +75,7 @@ export const Aboutcomponent = () => {
           </Row>
         </Container>
       </section>
-      <div><Footer/></div>
+      <div><Footer /></div>
     </div>
   );
 };
