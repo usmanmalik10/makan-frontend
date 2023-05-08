@@ -9,7 +9,7 @@ export const Contact = () => {
       <section>
         <Container fluid>
           <Row>
-            <Col>
+            <Col className="col-padding">
               <img className="contact-hero-img" src={img} alt="i" />
             </Col>
           </Row>

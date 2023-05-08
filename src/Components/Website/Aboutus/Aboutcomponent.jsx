@@ -21,7 +21,7 @@ export const Aboutcomponent = () => {
       <section>
         <Container fluid>
           <Row>
-            <Col>
+            <Col className="col-padding">
               <div className="cover_div">
                 <ReactPlayer
                   playing={true} 
