@@ -30,7 +30,7 @@ export const Team = () => {
             <Row>
             {data.map((post) => {
             return (
-                <Col>
+                <Col lg={4} md={6} sm={12}>
                          <Card className="store-card">
                   <Card.Img className="team-cardimg" variant="top" src={post.image} />
                   <Card.Body>
