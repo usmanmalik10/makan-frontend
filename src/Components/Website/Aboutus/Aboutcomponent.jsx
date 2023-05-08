@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 // import heroimg from "../../../images/abouthero.png";
 import AboutVideo from "../../../images/companyvideo.mp4"
 import ReactPlayer from 'react-player';
 import Footer from "../Footer/Footer";
+
 export const Aboutcomponent = () => {
+  const [muted, setMuted] = useState(true);
+  const [fullscreen, setFullscreen] = useState(false);
+
+  const handleToggleMute = () => setMuted(current => !current);
+
+  const handleFullscreen = event => {
+    event.preventDefault();
+    setMuted(false);
+    setFullscreen(true);
+  };
   return (
     <div>
       <section>
@@ -17,12 +28,15 @@ export const Aboutcomponent = () => {
                   loop={true} 
                   controls={false}
                   autoplay={true}
-                  // muted
+                  muted={muted}
+                  fullscreen={fullscreen}
+                  onToggleMute={handleToggleMute}
                   className="video_player"
                   url={AboutVideo}
                   width="100%"
                   height="100%"
                 />
+                 <a href="#" onClick={handleFullscreen}>Show Fullscreen</a>
               </div>
               {/* <video className="media_player" src={AboutVideo} autoPlay="true" /> */}
             </Col>
