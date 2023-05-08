@@ -17,7 +17,7 @@ export const Aboutcomponent = () => {
                   loop={true} 
                   controls={false}
                   autoplay={true}
-                  muted
+                  // muted
                   className="video_player"
                   url={AboutVideo}
                   width="100%"
