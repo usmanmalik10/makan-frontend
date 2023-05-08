@@ -10,7 +10,7 @@ export const Team = () => {
         <section className='pt-5 pb-5'>
         <Container fluid>
             <Row>
-                <Col>
+                <Col className="col-padding">
                     
                         <img className='team-hero-img' src={heroimg} alt="hi" />
                    

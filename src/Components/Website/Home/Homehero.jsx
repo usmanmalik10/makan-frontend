@@ -20,7 +20,7 @@ const Hero = () => {
     <div>
       <Container fluid>
         <Row>
-          <Col>
+          <Col className="col-padding">
             <div>
               <Slider {...settings}>
                 <div>

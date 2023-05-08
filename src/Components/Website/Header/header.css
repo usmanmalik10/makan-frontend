@@ -23,8 +23,10 @@
 }
 .title{
   color: #FFFFFF;
-  font-size: 36px;
+  font-size: 22px;
   font-weight:500;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
 }
 .nav_links{
   display: flex;
@@ -32,9 +34,21 @@
   align-items: center;
   gap: 20px;
   color: #FFFFFF;
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  /* margin-top: 3px; */
+  text-decoration: none;
+}
+.nav_links:hover{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 500;
+  /* margin-top: 3px; */
+  text-decoration: none;
 }
 .f_click {
   position: absolute;

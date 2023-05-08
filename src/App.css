@@ -1,4 +1,9 @@
-
+.slick-next:before, .slick-prev:before{
+  display: none !important;
+}
+.col-padding{
+padding: 0px !important;
+}
 .slick-next{
   right: 0px !important;
 }

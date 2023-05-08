@@ -17,18 +17,18 @@ const Header = ({ showF }) => {
       <div className="header-section dis2">
         <div className="logo_div">
           <div>
-            <img className="logo" width={90} src={Logo} alt="logo"></img>
+            <img className="logo" width={60} src={Logo} alt="logo"></img>
           </div>
           <div className="title">Makan Manager</div>
        
         </div>
         <div className="nav_links">
-            <Link to="/"><div>Home</div></Link>
-            <div><NavLink to="/aboutus">About-Us</NavLink></div>
-            <div><NavLink to="/contactus">Contact-Us</NavLink></div>
-            <div><NavLink to="/ourteam">Ourteam</NavLink></div>
-            <div><NavLink to="/services">Services</NavLink></div>
-            <div><NavLink to="/realestate">RealEstate</NavLink></div>
+            <Link className="nav_links" to="/"><div>Home</div></Link>
+            <div><NavLink className="nav_links" to="/aboutus">About-Us</NavLink></div>
+            <div><NavLink  className="nav_links" to="/contactus">Contact-Us</NavLink></div>
+            <div><NavLink className="nav_links" to="/ourteam">Ourteam</NavLink></div>
+            <div><NavLink className="nav_links"to="/services">Services</NavLink></div>
+            <div><NavLink  className="nav_links" to="/realestate">RealEstate</NavLink></div>
           </div>
         <div className="buttons_div d-flex">
           {showF ?
