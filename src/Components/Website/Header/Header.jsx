@@ -69,14 +69,15 @@ const Header = ({ showF }) => {
       </div>
 
       <div className="mob_nav dis-mob2">
-        <Navbar bg="light" expand="lg">
-          <Container>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Brand href="#home">
+        <Navbar className="bg_color" bg="light" expand="lg">
+          <Container fluid className="nav_padding">
+          <Navbar.Brand href="#home">
               <div className="mob_logo">
                 <img className="logo" width={60} src={Logo} alt="logo"></img>
+                <div className="title">Makan Manager</div>
               </div>
             </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="#home">
@@ -96,7 +97,14 @@ const Header = ({ showF }) => {
                       Sign Up
                     </button>
                   </div>
-                
+                  <div className="nav_links_mob">
+            <Link className="nav_links_mob" to="/"><div>Home</div></Link>
+            <div><NavLink className="nav_links_mob" to="/aboutus">About-Us</NavLink></div>
+            <div><NavLink  className="nav_links_mob" to="/contactus">Contact-Us</NavLink></div>
+            <div><NavLink className="nav_links_mob" to="/ourteam">Ourteam</NavLink></div>
+            <div><NavLink className="nav_links_mob"to="/services">Services</NavLink></div>
+            <div><NavLink  className="nav_links_mob" to="/realestate">RealEstate</NavLink></div>
+          </div>
                  
                 </Nav.Link>
               </Nav>
