@@ -118,6 +118,22 @@
   .login-inputfield-1:focus {
     outline: none;
   }
+
+  .login-inputfield-select{
+    width: 320px;
+    height: 79px;
+    background-color: #f6f6f6;
+    border-radius: 28px;
+    border: none;
+    padding: 0 58px;
+    font-size: 16px;
+    font-family: "Montserrat";
+    letter-spacing: 0px;
+    color: #1b292b;
+  }
+  .login-inputfield-select:focus {
+    outline: none;
+  }
   
   .forgotpassword-container {
     text-align: right;

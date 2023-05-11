@@ -55,7 +55,6 @@ export const Newad = () => {
                   type="text"
                   placeholder="Product Name"
                   required
-                  v
                 />
               </div>
             </Col>
