@@ -7,24 +7,27 @@ import Inbox from "../../images/Inbox.png";
 import homelogo from "../../images/logoicon.png";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
-import "./style.css";
+import {FaUserAlt} from "react-icons/fa";
+import {ImUsers} from "react-icons/im";
+import {FiPhone} from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { login } from "../../features/auth/authSlice";
-import useAuth from "../../hooks/useAuth";
+import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../Common/spinner/spinner";
+import "./style.css";
+import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
 
-export const Login = () => {
+export const Signup = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
+  console.log(formData);
   const { username, password } = formData;
   const [eye, setEye] = useState();
 
-  const { setAuth } = useAuth();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { user, isLoading, isError, isSuccess, message} = useSelector(
     (state) => state.auth
   );
 
@@ -33,9 +36,9 @@ export const Login = () => {
       toast.error(message);
     }
     if (isSuccess || user) {
-
-      navigate("/home");
+       navigate("/login");
     }
+    dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onChange = (e) => {
@@ -49,22 +52,19 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // setAuth({ username, password, roles, accessToken });
-    // setUser('');
-    // setPwd('');
-
-    const loginData = {
+    const userData = {
       username,
       password,
     };
-
-    await dispatch(login(loginData)).unwrap();
-  }
+    console.log("userData", userData);
+    
+    await dispatch(register(userData)).unwrap();
+    
+  };
 
   if (isLoading) {
-    return <Spinner />;
+    return  <Spinner/>
   }
-
   return (
     <div className="login-wrapper">
       <Grid container>
@@ -81,19 +81,28 @@ export const Login = () => {
           sm={12}
           md={6}
           lg={6}
-          className="right-form-wrapper "
+          className="signup-right-form-wrapper "
         >
           <div className="right-form-main-wrapper">
             <div className="right-form-container">
               <img src={LoginPic} alt="" className="login-icon" />
-              <h1 className="login-text">Log In</h1>
+              <h1 className="login-text">Sign Up</h1>
             </div>
 
             <div className="right-form-container">
-              <p className="filldetails-text">Fill your details to login in</p>
+              <p className="filldetails-text">Fill your details to Sign Up</p>
             </div>
 
             <div className="login-input_container">
+              <div className="login-inputfield-container-2">
+                {<FaUserAlt className="login-inputicon"/>}
+                <input
+                  className="login-inputfield-1"
+                  required
+                  type="email"
+                  placeholder="User Name"
+                />
+              </div>
               <div className="login-inputfield-container-2">
                 <img src={Inbox} className="login-inputicon" />
                 <input
@@ -123,20 +132,33 @@ export const Login = () => {
                   />
                 )}
               </div>
-              <div className="description">
-                  <div className="signup_text">Don't have an account? </div>
-                  <div className="signup_link">
-                    <Link className="signup_link" to="/register">
-                      <div>SignUp</div>
-                    </Link>
-                  </div>
-                </div>
-              <div className="forgotpassword-container">
-                <p>Forgot Password?</p>
+              <div className="login-inputfield-container-2">
+              {<ImUsers className="login-inputicon"/>}
+                
+                  <Form.Select className="login-inputfield-select">
+                    <option>Select Role</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+              
               </div>
+              <div className="login-inputfield-container-2">
+              {<FiPhone className="login-inputicon"/>}
+                <input
+                  className="login-inputfield-1"
+                  required
+                  type="phone"
+                  placeholder="Phone No"
+                />
+              </div>
+              <div className="description">
+                  <div className="login_text">Already have an account? </div>
+                  <div className="login_link"><Link className="login_link" to="/login"><div>Login</div></Link></div>
+                </div>
 
               <div className="login-button">
-                <button onClick={() => navigate("/")}>Login</button>
+                <button onClick={() => navigate("/")}>Sign Up</button>
               </div>
             </div>
           </div>

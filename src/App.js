@@ -8,6 +8,7 @@ import { Ourteam } from "./Pages/Ourteam/Ourteam";
 import { Realestate } from "./Pages/Realestate/Realestate";
 import { Contactus } from "./Pages/Contactus/Contactus";
 import { Login } from "./Components/Auth/login";
+import { Signup } from "./Components/Auth/signup";
 
 
 /* Real Estate Routes*/ 
@@ -67,7 +68,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route path="/login" element={<Login />} />
-        <Route path="/business-register" element={<Businesssignup />} />
+        <Route path="/register" element={<Signup />} />
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/services" element={<Services/>} />
