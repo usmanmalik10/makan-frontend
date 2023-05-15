@@ -24,6 +24,7 @@ export const Signup = () => {
   console.log(formData);
   const { username, password } = formData;
   const [eye, setEye] = useState();
+  const [role, setRole] = useState('');
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -62,10 +63,16 @@ export const Signup = () => {
     
   };
 
+  const handleChange = (event) => {
+    setRole(event.target.value);
+  };
+
   if (isLoading) {
     return  <Spinner/>
   }
   return (
+    <>
+    <form onSubmit={handleSubmit}>
     <div className="login-wrapper">
       <Grid container>
         <Grid item xs={12} sm={12} md={6} lg={6} className="left-wrapper">
@@ -99,7 +106,11 @@ export const Signup = () => {
                 <input
                   className="login-inputfield-1"
                   required
-                  type="email"
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={onChange}
                   placeholder="User Name"
                 />
               </div>
@@ -109,6 +120,10 @@ export const Signup = () => {
                   className="login-inputfield-1"
                   required
                   type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={onChange}
                   placeholder="Email Address"
                 />
               </div>
@@ -118,6 +133,10 @@ export const Signup = () => {
                   className="login-inputfield-1"
                   required
                   type={eye ? "text" : "password"}
+                  id="password"
+                      name="password"
+                      value={password}
+                      onChange={onChange}
                   placeholder="Password"
                 />
                 {eye ? (
@@ -135,11 +154,11 @@ export const Signup = () => {
               <div className="login-inputfield-container-2">
               {<ImUsers className="login-inputicon"/>}
                 
-                  <Form.Select className="login-inputfield-select">
+                  <Form.Select value={role} onChange={handleChange} className="login-inputfield-select">
                     <option>Select Role</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">user</option>
+                    <option value="2">business</option>
+                    <option value="3">realestate</option>
                   </Form.Select>
               
               </div>
@@ -158,12 +177,14 @@ export const Signup = () => {
                 </div>
 
               <div className="login-button">
-                <button onClick={() => navigate("/")}>Sign Up</button>
+                <button type="submit" onClick={() => navigate("/")}>Sign Up</button>
               </div>
             </div>
           </div>
         </Grid>
       </Grid>
     </div>
+    </form>
+    </>
   )
 }
