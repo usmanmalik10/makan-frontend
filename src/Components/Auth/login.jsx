@@ -97,7 +97,7 @@ export const Login = () => {
 
                 <div className="login-input_container">
                   <div className="login-inputfield-container-2">
-                    <img src={Inbox} className="login-inputicon" />
+                    <img src={Inbox} className="login-inputicon" alt="icon" />
                     <input
                       className="login-inputfield-1"
                       required
@@ -110,7 +110,7 @@ export const Login = () => {
                     />
                   </div>
                   <div className="login-inputfield-container-2">
-                    <img src={Lock} className="login-inputicon" />
+                    <img src={Lock} className="login-inputicon" alt="icon" />
                     <input
                       className="login-inputfield-1"
                       required
