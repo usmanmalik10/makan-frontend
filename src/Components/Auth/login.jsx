@@ -9,34 +9,37 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { login } from "../../features/auth/authSlice";
 import useAuth from "../../hooks/useAuth";
+import authService from "../../features/auth/authService";
 import Spinner from "../Common/spinner/spinner";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+
+// const LOGIN_URL = '/auth';
 
 export const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { email, password } = formData;
   const [eye, setEye] = useState();
+  const [username, setUsername] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [roles, setRoles] = useState('');
+  const [accessToken, setAccessToken] = useState('');
 
   const { setAuth } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
   useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
     if (isSuccess || user) {
-
-      navigate("/home");
+      navigate(from, { replace: true });
     }
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  }, [user, isError, isSuccess, message, navigate, dispatch, from]);
 
   const onChange = (e) => {
     console.log(e.target.name);
@@ -49,14 +52,28 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // setAuth({ username, password, roles, accessToken });
-    // setUser('');
-    // setPwd('');
-
     const loginData = {
       email,
       password,
     };
+
+    authService.login(loginData).then((response) => {
+      console.log("responselogin", response)
+      const username = response?.data?.username;
+      console.log("username",username);
+      // setUsername(username);
+      const password = response?.data?.password;
+      console.log("password",password);
+      // setPwd(pwd);
+      const roles = response?.data?.role;
+      console.log("roles",roles);
+      // setRoles(roles);
+      const accessToken = response?.token;
+      console.log("accessToken",accessToken);
+      localStorage.setItem('accessToken', accessToken);
+      // setAccessToken(accessToken);
+      setAuth({ username, password, roles, accessToken });
+    });
 
     await dispatch(login(loginData)).unwrap();
   }
@@ -146,7 +163,7 @@ export const Login = () => {
                   </div>
 
                   <div className="login-button">
-                    <button type="submit" onClick={() => navigate("/")}>Login</button>
+                    <button type="submit" >Login</button>
                   </div>
                 </div>
               </div>

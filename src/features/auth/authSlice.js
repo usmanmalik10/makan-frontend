@@ -42,17 +42,17 @@ export const login = createAsyncThunk(
     try {
       // Call API to install user
       const response = await authService.login(loginData);
-      const objectSchema = JSON.parse(response.objectSchema);
-      // console.log("objectSchema",objectSchema);
-      // Get the token value
-      const token = objectSchema["access-token"];
-      // console.log("token",token);
-      // Store the token in the local storage
-      localStorage.setItem('loginToken', token);
       return response.data;
     } catch (error) {
-      console.error(error);
-      return rejectWithValue(error.response.data);
+      console.log({error});
+      const message =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+              console.log({message});
+      return rejectWithValue(message);
     }
   }
 );

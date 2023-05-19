@@ -20,9 +20,9 @@ import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 
 export const Signup = () => {
-  const [formData, setFormData] = useState({ username: "", email: "", password: "", role:"", phone:"" });
+  const [formData, setFormData] = useState({ username: "", email: "", password: "", role:"", phone:"", address:"" });
   console.log(formData);
-  const { username, email, password, role, phone } = formData;
+  const { username, email, password, role, phone, address } = formData;
   const [eye, setEye] = useState();
 
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export const Signup = () => {
       toast.error(message);
     }
     if (isSuccess || user) {
-      navigate("/login");
+      // navigate("/login");
     }
     dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch]);
@@ -57,7 +57,8 @@ export const Signup = () => {
       email,
       password,
       role,
-      phone
+      phone,
+      address
     };
     console.log("userData", userData);
 
@@ -154,9 +155,9 @@ export const Signup = () => {
 
                     <Form.Select value={role} onChange={onChange} name="role" className="login-inputfield-select">
                       <option>Select Role</option>
-                      <option value="1">user</option>
-                      <option value="2">business</option>
-                      <option value="3">realestate</option>
+                      <option value="user">user</option>
+                      <option value="business">business</option>
+                      <option value="real_estate">real_estate</option>
                     </Form.Select>
 
                   </div>
@@ -173,13 +174,26 @@ export const Signup = () => {
                       placeholder="Phone No"
                     />
                   </div>
+                  <div className="login-inputfield-container-2">
+                    {<FiPhone className="login-inputicon" />}
+                    <input
+                      className="login-inputfield-1"
+                      required
+                      type="text"
+                      id="address"
+                      name="address"
+                      value={address}
+                      onChange={onChange}
+                      placeholder="Address"
+                    />
+                  </div>
                   <div className="description">
                     <div className="login_text">Already have an account? </div>
                     <div className="login_link"><Link className="login_link" to="/login"><div>Login</div></Link></div>
                   </div>
 
                   <div className="login-button">
-                    <button type="submit" onClick={() => navigate("/")}>Sign Up</button>
+                    <button type="submit" >Sign Up</button>
                   </div>
                 </div>
               </div>

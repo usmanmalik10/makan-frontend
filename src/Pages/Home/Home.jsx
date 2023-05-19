@@ -5,7 +5,7 @@ import Homehero from "../../Components/Website/Home/Homehero";
 import { Mmhomes } from "../../Components/Website/Home/Mmhomes";
 import { Ourprojects } from "../../Components/Website/Home/Ourprojects";
 import { Ourstore } from "../../Components/Website/Home/Ourstore";
-import { Ourteam } from "../../Components/Website/Home/Ourteam";
+// import { Ourteam } from "../../Components/Website/Home/Ourteam";
 import { Realestate } from "../../Components/Website/Home/Realestate";
 import Header from "../../Components/Website/Header/Header";
 import Testimoninals from "../../Components/Website/Testimoninals/Testimoninals";
@@ -20,7 +20,7 @@ const Hero = () => {
       <Ourstore />
       <Realestate />
       <Ourprojects />
-      <Ourteam />
+      {/* <Ourteam /> */}
       <Completedprojects /> 
       <Testimoninals/>
       <Footer/>

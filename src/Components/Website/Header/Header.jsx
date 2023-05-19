@@ -26,7 +26,7 @@ const Header = ({ showF }) => {
           <Link className="nav_links" to="/"><div>Home</div></Link>
           <div><NavLink className="nav_links" to="/aboutus">About-Us</NavLink></div>
           <div><NavLink className="nav_links" to="/contactus">Contact-Us</NavLink></div>
-          <div><NavLink className="nav_links" to="/ourteam">Ourteam</NavLink></div>
+          {/* <div><NavLink className="nav_links" to="/ourteam">Ourteam</NavLink></div> */}
           <div><NavLink className="nav_links" to="/services">Services</NavLink></div>
           <div><NavLink className="nav_links" to="/realestate">RealEstate</NavLink></div>
         </div>
