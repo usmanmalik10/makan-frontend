@@ -42,6 +42,7 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
+import { Servicesprof } from "./Components/Services/Servicescomp/Servicesprof";
 
 const ROLES = {
 
@@ -84,6 +85,12 @@ function App() {
         {/*//Business*/}
 
         <Route path="/business-profile" element={<Businessprofile />} />
+        <Route path="/new-add" element={<Newadd />} />
+        <Route path="/active-adds" element={<Activeadd />} />
+
+        {/*//Services*/}
+
+        <Route path="/services-profile" element={<Servicesprof />} />
         <Route path="/new-add" element={<Newadd />} />
         <Route path="/active-adds" element={<Activeadd />} />
 
