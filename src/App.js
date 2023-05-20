@@ -30,6 +30,12 @@ import { Newadd } from "./Pages/Businessportal/Newadd";
 import { Activeadd } from "./Pages/Businessportal/Activeadd";
 import { Businessprofile } from "./Pages/Businessportal/Businessprofile";
 
+/* Services Routes*/
+import { NewaddServices }  from "./Pages/Servicesportal/Newadd";
+import  { ActiveaddServices }  from "./Pages/Servicesportal/Activeadd";
+import { Servicesprofile } from './Pages/Servicesportal/Servicesprofile';
+
+
 
 /* BUsisness Side Routes*/ 
 import Layout from "./Routes/Layout";
@@ -42,8 +48,7 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
-import { Servicesprof } from "./Components/Services/Servicescomp/Servicesprof";
-import { Storesprof } from "./Components/Stores/Storescomp/Storesprof";
+
 
 const ROLES = {
 
@@ -91,15 +96,15 @@ function App() {
 
         {/*//Services*/}
 
-        <Route path="/services-profile" element={<Servicesprof />} />
-        <Route path="/new-add" element={<Newadd />} />
-        <Route path="/active-adds" element={<Activeadd />} />
+        <Route path="/services-profile" element={<Servicesprofile />} />
+        <Route path="/new-add-services" element={<NewaddServices />} />
+        <Route path="/active-adds-services" element={<ActiveaddServices />} />
 
         {/*//Stores*/}
 
-        <Route path="/stores-profile" element={<Storesprof />} />
+        {/* <Route path="/stores-profile" element={<Storesprof />} />
         <Route path="/new-add" element={<Newadd />} />
-        <Route path="/active-adds" element={<Activeadd />} />
+        <Route path="/active-adds" element={<Activeadd />} /> */}
         
 
         {/*//Admin*/}

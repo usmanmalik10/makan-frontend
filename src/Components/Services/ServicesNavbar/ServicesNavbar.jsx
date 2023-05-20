@@ -12,17 +12,17 @@ const ServicesNavbar = () => {
     {
       icon: BiHomeSmile,
       text: "Dashboard",
-      route: "/business-profile",
+      route: "/services-profile",
     },
     {
       icon: TbUsers,
       text: "New Add",
-      route: "/new-add",
+      route: "/new-add-services",
     },
     {
       icon: RiNewspaperLine,
       text: "Active Adds",
-      route: "/active-adds",
+      route: "/active-adds-services",
     },
     // {
     //   icon: RiSettingsLine,
