@@ -43,6 +43,7 @@ import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
 import { Servicesprof } from "./Components/Services/Servicescomp/Servicesprof";
+import { Storesprof } from "./Components/Stores/Storescomp/Storesprof";
 
 const ROLES = {
 
@@ -93,6 +94,13 @@ function App() {
         <Route path="/services-profile" element={<Servicesprof />} />
         <Route path="/new-add" element={<Newadd />} />
         <Route path="/active-adds" element={<Activeadd />} />
+
+        {/*//Stores*/}
+
+        <Route path="/stores-profile" element={<Storesprof />} />
+        <Route path="/new-add" element={<Newadd />} />
+        <Route path="/active-adds" element={<Activeadd />} />
+        
 
         {/*//Admin*/}
 
