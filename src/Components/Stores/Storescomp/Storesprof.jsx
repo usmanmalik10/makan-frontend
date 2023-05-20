@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Businessprof = () => {
+export const Storesprof = () => {
   return (
-    <div>Businessprof</div>
+    <div>Storesprof</div>
   )
 }
