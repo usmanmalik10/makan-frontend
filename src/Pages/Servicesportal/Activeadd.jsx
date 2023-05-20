@@ -1,16 +1,16 @@
 import React from 'react'
-import { Activead } from '../../Components/Business/Businesscomp/Activead'
+import { Activead } from '../../Components/Services/Servicescomp/Activead'
 import { Grid } from "@mui/material";
-import BusinessNavbar from '../../Components/Business/BusinessNavbar/BusinessNavbar';
+import ServicesNavbar from '../../Components/Services/ServicesNavbar/ServicesNavbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
 
-export const Activeadd = () => {
+export const ActiveaddServices = () => {
   return (
     <div className='main-wrapper'>
     <Grid container>
                   <Grid item xs={12} sm={12} md={3} lg={2.7}>
-                    <BusinessNavbar />
+                    <ServicesNavbar />
                   </Grid>
                   <Grid
                     item
