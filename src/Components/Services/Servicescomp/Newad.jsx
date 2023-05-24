@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 export const Newad = () => {
@@ -21,24 +21,38 @@ export const Newad = () => {
                 </label>
                 <br />
                 <select className="business-inputs">
-                  <option>Select Category</option>
-                  <option>Marble & Tiles</option>
-                  <option>Sanatory</option>
-                  <option>Wood Store</option>
-                  <option>Building Material</option>
-                  <option>Paint Stores</option>
-                  <option>Steel Pipe</option>
-                  <option>Iron Store</option>
-                  <option>Welding Shop</option>
-                  <option>Aluminium & Glass</option>
-                  <option>HardWare</option>
-                  <option>Brick Work's</option>
-                  <option>Steel Shop</option>
-                  <option>Electronics</option>
-                  <option>Glass Item's</option>
-                  <option>Paint Stores</option>
-                  <option>Boring Material's</option>
-                  <option>Ceramics</option>
+                <option>Select Category</option>
+                  <option>Mason</option>
+                  <option>Marble & Tiles  Fixer</option>
+                  <option>Plumber</option>
+                  <option>Contractor</option>
+                  <option>Engineer</option>
+                  <option>Architect</option>
+                  <option>Carpenter</option>
+                  <option>Wood Cutter</option>
+                  <option>Painter</option>
+                  <option>Polish Man (Furniture)</option>
+                  <option>Steel Polish</option>
+                  <option>Welder</option>
+                  <option>Molding Worker</option>
+                  <option>Leith Machine Operator</option>
+                  <option>Aluminum Fixer</option>
+                  <option>Glass Fixer</option>
+                  <option>Glass Cutting & Polish</option>
+                  <option>Glass Painter</option>
+                  <option>Glass Paper & Designer</option>
+                  <option>Electrician</option>
+                  <option>AC Technician</option>
+                  <option>Electric Engineer</option>
+                  <option>Solar Installer</option>
+                  <option>Boring Workers</option>
+                  <option>Interior Designer</option>
+                  <option>Termite Treatment</option>
+                  <option>Gardener</option>
+                  <option>Landscape Architect</option>
+                  <option>House Cleaner</option>
+                  <option>AC Cleaner</option>
+                  <option>Marble Polish</option>
                 </select>
               </div>
             </Col>
@@ -46,14 +60,14 @@ export const Newad = () => {
               <div>
                 <label className="business-labels">
                   <span className="business-label-headings">
-                    Product Name :{" "}
+                    Contractor Name: 
                   </span>
                 </label>
                 <br />
                 <input
                   className="business-inputs"
                   type="text"
-                  placeholder="Product Name"
+                  placeholder="Contractor Name"
                   required
                 />
               </div>
@@ -64,14 +78,14 @@ export const Newad = () => {
               <div>
                 <label className="business-labels">
                   <span className="business-label-headings">
-                    Company Name:{" "}
+                    Contact Number :
                   </span>
                 </label>
                 <br />
                 <input
                   className="business-inputs"
-                  type="text"
-                  placeholder="Company Name"
+                  type="number"
+                  placeholder="Contact number"
                   required
                 />
               </div>
@@ -79,104 +93,14 @@ export const Newad = () => {
             <Col lg={6} md={6} sm={12}>
               <div>
                 <label className="business-labels">
-                  <span className="business-label-headings">Price : </span>
+                  <span className="business-label-headings">Address : </span>
                 </label>
                 <br />
                 <input
                   className="business-inputs"
-                  type="text"
-                  placeholder="Price"
-                  required
-                />
-              </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
-              </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
-              </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
-              </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
-              </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Shop Name</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Shop Name"
-                  className="business-inputs"
-                />
-              </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Address
-                  </span>
-                </label>{" "}
-                <br />
-                <input
                   type="text"
                   placeholder="Address"
-                  className="business-inputs"
+                  required
                 />
               </div>
             </Col>
@@ -184,30 +108,39 @@ export const Newad = () => {
           <Row className="pt-4">
             <Col lg={6} md={6} sm={12}>
               <div>
+                
                 <label className="business-labels">
-                  <span className="business-label-headings"></span>
-                </label>{" "}
+                  <span className="business-label-headings">
+                   Area of services :
+                  </span>
+                </label>
                 <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
+                <select className="business-inputs">
+                <option>Area of services</option>
+                  <option>Sahiwal City</option>
+                  <option>Sahiwal Division</option>
+                  <option>Punjab</option>
+                  <option>Pakistan</option>
+                  </select>
               </div>
+
             </Col>
             <Col lg={6} md={6} sm={12}>
               <div>
+                
                 <label className="business-labels">
                   <span className="business-label-headings">
-                    Product Detail
+                   Charging Schedule :
                   </span>
-                </label>{" "}
+                </label>
                 <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
+                <select className="business-inputs">
+                <option>Charging Schedule</option>
+                  <option>Hourly</option>
+                  <option>Daily</option>
+                  <option>Contract</option>
+                  <option>Square Feet</option>
+                  </select>
               </div>
             </Col>
           </Row>
@@ -215,62 +148,23 @@ export const Newad = () => {
             <Col lg={6} md={6} sm={12}>
               <div>
                 <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
+                  <span className="business-label-headings">Labor Rate :</span>
                 </label>{" "}
                 <br />
                 <input
                   type="text"
-                  placeholder="Warranty"
+                  placeholder="Labor Rate"
                   className="business-inputs"
                 />
               </div>
             </Col>
             <Col lg={6} md={6} sm={12}>
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
+               <input type="submit" />
               </div>
             </Col>
           </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
-              </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
-              </div>
-            </Col>
-          </Row>
+          
         </Container>
       </section>
     </div>
