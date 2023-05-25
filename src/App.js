@@ -35,6 +35,10 @@ import { NewaddServices }  from "./Pages/Servicesportal/Newadd";
 import  { ActiveaddServices }  from "./Pages/Servicesportal/Activeadd";
 import { Servicesprofile } from './Pages/Servicesportal/Servicesprofile';
 
+/* Stores Routes*/
+import { NewaddStores }  from "./Pages/Storesportal/NewaddStores";
+import  { ActiveaddStores }  from "./Pages/Storesportal/ActiveaddStores";
+import { Storesprofile } from './Pages/Storesportal/Storesprofile';
 
 
 /* BUsisness Side Routes*/ 
@@ -102,9 +106,9 @@ function App() {
 
         {/*//Stores*/}
 
-        {/* <Route path="/stores-profile" element={<Storesprof />} />
-        <Route path="/new-add" element={<Newadd />} />
-        <Route path="/active-adds" element={<Activeadd />} /> */}
+        <Route path="/stores-profile" element={<Storesprofile />} />
+        <Route path="/new-add-stores" element={<NewaddStores />} />
+        <Route path="/active-adds-stores" element={<ActiveaddStores />} />
         
 
         {/*//Admin*/}

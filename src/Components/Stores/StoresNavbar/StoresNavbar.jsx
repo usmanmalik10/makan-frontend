@@ -12,17 +12,17 @@ const StoresNavbar = () => {
     {
       icon: BiHomeSmile,
       text: "Dashboard",
-      route: "/business-profile",
+      route: "/stores-profile",
     },
     {
       icon: TbUsers,
       text: "New Add",
-      route: "/new-add",
+      route: "/new-add-stores",
     },
     {
       icon: RiNewspaperLine,
       text: "Active Adds",
-      route: "/active-adds",
+      route: "/active-adds-stores",
     },
     // {
     //   icon: RiSettingsLine,

@@ -1,16 +1,16 @@
 import React from 'react'
-import { Businessprof } from '../../Components/Business/Businesscomp/Businessprof'
+import { Storesprof } from '../../Components/Stores/Storescomp/Storesprof';
 import { Grid } from "@mui/material";
-import BusinessNavbar from '../../Components/Business/BusinessNavbar/BusinessNavbar';
+import StoresNavbar from '../../Components/Stores/StoresNavbar/StoresNavbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
 
-export const Businessprofile = () => {
+export const Storesprofile = () => {
   return (
     <div className='main-wrapper'>
     <Grid container>
                   <Grid item xs={12} sm={12} md={3} lg={2.7}>
-                    <BusinessNavbar />
+                    <StoresNavbar />
                   </Grid>
                   <Grid
                     item
@@ -20,10 +20,9 @@ export const Businessprofile = () => {
                     lg={9.3}
                     className="right-panel-wrapper"
                   >
-                    <Businessprof />
+                    <Storesprof />
                   </Grid>
                 </Grid>
     </div>
-    // <div><Businessprof /></div>
   )
 }
