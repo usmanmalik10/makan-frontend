@@ -21,8 +21,33 @@ const Navbar = () => {
     },
     {
       icon: RiNewspaperLine,
-      text: "Business",
-      route: "/businesses",
+      text: "Services",
+      route: "/services",
+      submenu: [ // Add submenu for the "Users" menu item
+      {
+        text: "Submenu 1",
+        route: "/submenu-1",
+      },
+      {
+        text: "Submenu 2",
+        route: "/submenu-2",
+      },
+    ],
+    },
+    {
+      icon: RiNewspaperLine,
+      text: "Stores",
+      route: "/stores",
+      submenu: [ // Add submenu for the "Users" menu item
+      {
+        text: "Submenu 1",
+        route: "/submenu-1",
+      },
+      {
+        text: "Submenu 2",
+        route: "/submenu-2",
+      },
+    ],
     },
     {
       icon: RiNewspaperLine,
@@ -35,6 +60,7 @@ const Navbar = () => {
       route: "/settings",
     },
   ];
+
   return (
     <div>
       <div className="mobile-navbar">

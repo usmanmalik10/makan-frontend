@@ -72,6 +72,44 @@
   font-size: 20px;
 }
 
+/* Add styles for active and inactive states */
+.nav-item {
+  color: rgb(207, 207, 207);
+}
+
+.nav-item.active {
+  color: white;
+}
+
+/* Add styles for dropdown icon */
+.dropdown-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Add styles for submenu */
+.submenu {
+  position: absolute; /* Position the submenu below the menu */
+  left: 0;
+  width: 25%; /* Adjust the width as needed */
+  height: auto;
+  background-color: #ffffff; 
+  border: 1px solid #dddddd; /* Add border to the submenu */
+  padding: 10px 0px 0px 40px;
+  z-index: 10; /* Set a higher z-index to ensure the submenu appears above other elements */
+}
+
+.submenu p {
+  margin: 0;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.submenu p:hover {
+  background-color: #f5f5f5; /* Add a hover effect to submenu items */
+}
 .mobile-navbar {
   display: none;
 }
@@ -80,6 +118,7 @@
   color: white;
   font-size: 30px;
 }
+
 
 @media screen and (max-width: 900px) {
   .mobile-navbar {

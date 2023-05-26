@@ -80,17 +80,16 @@ function App() {
         <Route path="/contactus" element={<Contactus/>} />
 
         {/*//User*/}
-        {/* <Route path="/user-register" element={<Usersignup />} />
+        {/* <Route path="/user-register" element={<Usersignup />} /> */}
         <Route path="/userprofile" element={<Userprofile />} />
         <Route path="/previousorders" element={<Oldorders />} />
-        <Route path="/myorders" element={<Orders />} /> */}
+        <Route path="/myorders" element={<Orders />} />
 
         {/*//Realstate*/}
-        {/* <Route path="/estate-register" element={<Estatesignup />} />
         <Route path="/estatealldata" element={<Alldata />} />
         <Route path="/forrent" element={<Forrent />} />
         <Route path="/forsale" element={<Forsale />} />
-        <Route path="/plotssale" element={<Plotssale />} /> */}
+        <Route path="/plotssale" element={<Plotssale />} />
 
         {/*//Business*/}
 
@@ -113,11 +112,11 @@ function App() {
 
         {/*//Admin*/}
 
-        {/* <Route path="/admin-profile" element={<Adminprofile />} />
+        <Route path="/admin-profile" element={<Adminprofile />} />
         <Route path="/user-list" element={<Users />} />
         <Route path="/businesses" element={<Businesses />} />
         <Route path="/real-estate" element={<RealEstate />} />
-        <Route path="/settings" element={<Settings />} /> */}
+        <Route path="/settings" element={<Settings />} />
 
 
         <Route path="unauthorized" element={<Unauthorized />} />
