@@ -29,6 +29,11 @@ const Navbar = () => {
       text: "Plots For Sale",
       route: "/plotssale",
     },
+    {
+      icon: RiSettingsLine,
+      text: "Plots For Rent",
+      route: "/plotforrent",
+    },
   ];
   return (
     <div>

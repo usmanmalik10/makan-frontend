@@ -52,6 +52,7 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
+import PlotforRent from "./Pages/Realestatedashboard/PlotforRent";
 
 
 const ROLES = {
@@ -139,6 +140,7 @@ function App() {
         <Route path="/forrent" element={<Forrent />} />
         <Route path="/forsale" element={<Forsale />} />
         <Route path="/plotssale" element={<Plotssale />} />
+        <Route path="/plotforrent" element={<PlotforRent />} />
         </Route>
 
 
