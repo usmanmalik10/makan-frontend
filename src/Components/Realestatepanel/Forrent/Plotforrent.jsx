@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Plotforrent = () => {
+export const Plotforrent = () => {
+
   const [plotnumber, setplotnumber] = useState("");
   const [location, setlocation] = useState("");
   const [size, setsize] = useState("");
@@ -306,4 +307,4 @@ const Plotforrent = () => {
   );
 };
 
-export default Plotforrent;
+

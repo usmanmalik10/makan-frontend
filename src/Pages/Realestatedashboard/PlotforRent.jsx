@@ -4,8 +4,8 @@ import { Grid } from "@mui/material";
 import RealStateNavbar from '../../Components/Realestatepanel/Navbar/Navbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
-const PlotforRent = () => {
-  
+
+export const PlotforRent = () => {
 
   return (
     <div className='main-wrapper'>
@@ -27,5 +27,3 @@ const PlotforRent = () => {
     </div>
   )
 }
-
-export default PlotforRent
