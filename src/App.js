@@ -59,6 +59,8 @@ const ROLES = {
   'Admin': 5150,
   'Realestate': 123,
   'Business': 124,
+  'Services': 124,
+  'Stores': 124,
   'User': 2001,
 }
 
