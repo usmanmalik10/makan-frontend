@@ -27,6 +27,7 @@ export const Login = () => {
   const [accessToken, setAccessToken] = useState('');
 
   const { setAuth } = useAuth();
+  console.log()
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -35,11 +36,11 @@ export const Login = () => {
     (state) => state.auth
   );
 
-  useEffect(() => {
-    if (isSuccess || user) {
-      navigate(from, { replace: true });
-    }
-  }, [user, isError, isSuccess, message, navigate, dispatch, from]);
+  // useEffect(() => {
+  //   if (isSuccess || user) {
+  //     navigate(from, { replace: true });
+  //   }
+  // }, [user, isError, isSuccess, message, navigate, dispatch, from]);
 
   const onChange = (e) => {
     console.log(e.target.name);
@@ -57,6 +58,14 @@ export const Login = () => {
       password,
     };
 
+    const roleroute = {
+      admin:'/admin-profile',
+      user: '/user-profile',
+      real_estate:'/estatealldata',
+      services:'/services-profile',
+      stores:'/stores-profile',
+    };
+    
     authService.login(loginData).then((response) => {
       console.log("responselogin", response)
       const username = response?.data?.username;
@@ -73,6 +82,8 @@ export const Login = () => {
       localStorage.setItem('accessToken', accessToken);
       // setAccessToken(accessToken);
       setAuth({ username, password, roles, accessToken });
+      navigate(roleroute[roles], { replace: true });
+      console.log("rolesafter",roles);
     });
 
     await dispatch(login(loginData)).unwrap();
