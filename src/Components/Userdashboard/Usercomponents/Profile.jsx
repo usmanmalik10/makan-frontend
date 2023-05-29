@@ -6,7 +6,6 @@ export const Profile = () => {
     <>
       <section>
         <Container>
-            <Row>
               <Row>
                 <Col>
                   <div>
@@ -14,6 +13,7 @@ export const Profile = () => {
                   </div>
                 </Col>
               </Row>
+              <Row>
               <Col>
                   <h4>Name</h4><br/>
                   <p>Muhammad Ahmad</p>

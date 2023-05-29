@@ -26,7 +26,7 @@
   color: #ffffff;
 }
 .nav-icon {
-  padding-right: 20px;
+  /* padding-right: 20px; */
   color: rgb(207, 207, 207);
   font-size: 20px;
 }
@@ -53,21 +53,25 @@
 
 .logout-wrapper {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
   width: 400px;
   padding-left: 50px;
-  align-items: center;
   margin-bottom: 34px;
   position: absolute;
   bottom: 0;
 }
+
 .logout-wrapper > p {
   color: rgb(207, 207, 207);
   font-size: 16px;
   font-family: "Poppins";
   cursor: pointer;
+  margin-bottom: 0px !important;
 }
+
 .logout-icon {
-  padding-right: 20px;
   color: rgb(207, 207, 207);
   font-size: 20px;
 }

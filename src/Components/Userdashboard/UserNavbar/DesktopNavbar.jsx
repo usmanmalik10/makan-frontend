@@ -34,7 +34,7 @@ const DesktopNavbar = (props) => {
         </div>
       </div>
       <div className="logout-wrapper">
-        <BiLogOut className="logout-icon" />
+        <BiLogOut size={16.67} className="logout-icon" />
         <p onClick={() => navigate("/Userlogin")}>Logout</p>
       </div>
     </>

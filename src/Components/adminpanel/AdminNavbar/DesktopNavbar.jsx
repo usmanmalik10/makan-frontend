@@ -3,7 +3,7 @@ import { useLocation, useNavigate, Link, NavLink, } from "react-router-dom";
 import logoicon from "../../../Assets/Auth-Screen/logoicon.png";
 import { BiLogOut } from "react-icons/bi";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"; // Added dropdown icons
-// import { AiOutlineHome, AiOutlineUser, AiOutlineBank, AiOutlineSetting } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineUser, AiOutlineBank, AiOutlineSetting } from "react-icons/ai";
 import { RiArticleLine } from "react-icons/ri";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";

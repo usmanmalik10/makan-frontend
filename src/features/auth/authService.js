@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USERS_BASE_URL } from "../../Components/constants/config/config.dev";
+import { USERS_BASE_URL } from "../../Components/Constants/Config/config.dev";
 import { toast } from "react-toastify";
 
 const API_URL_1 = `${USERS_BASE_URL}/user/signup`;
