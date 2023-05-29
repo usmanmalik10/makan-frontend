@@ -159,7 +159,6 @@ export const Signup = () => {
                       <option>Select Role</option>
                       <option value="user">user</option>
                       <option value="real_estate">real_estate</option>
-                      {/* <option value="business">business</option> */}
                       <option value="services">services</option>
                       <option value="stores">stores</option>
                     </Form.Select>

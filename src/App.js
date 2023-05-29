@@ -34,11 +34,6 @@ import {Userprofile} from "./Pages/Userportal/Userprofile";
 import {Orders} from "./Pages/Userportal/Orders";
 import {Oldorders} from "./Pages/Userportal/Oldorders"
 
-/* Busisness Routes*/
-import { Newadd } from "./Pages/Businessportal/Newadd";
-import { Activeadd } from "./Pages/Businessportal/Activeadd";
-import { Businessprofile } from "./Pages/Businessportal/Businessprofile";
-
 /* Services Routes*/
 import { NewaddServices }  from "./Pages/Servicesportal/Newadd";
 import  { ActiveaddServices }  from "./Pages/Servicesportal/Activeadd";
@@ -59,7 +54,6 @@ const ROLES = {
   'Admin': 5150,
   'User': 2001,
   'Realestate': 123,
-  'Business': 1245,
   'Services': 1346,
   'Stores': 1447,
 }
@@ -102,12 +96,6 @@ function App() {
         <Route path="/forsale" element={<Forsale />} />
         <Route path="/plotssale" element={<Plotssale />} />
         <Route path="/plotforrent" element={<PlotforRent />} />
-        </Route>
-
-        <Route element={<RequireAuth allowedRoles={[ROLES.Business]} />}>
-        <Route path="/Business-profile" element={<Businessprofile />} />
-        <Route path="/new-add" element={<Newadd />} />
-        <Route path="/active-adds" element={<Activeadd />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={[ROLES.Services]} />}>
