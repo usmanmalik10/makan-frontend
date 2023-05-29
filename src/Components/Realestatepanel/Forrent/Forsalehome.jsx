@@ -42,7 +42,7 @@ export const Forsalehome = () => {
         <Container>
           <Row>
             <Col>
-              <h1>For Rent</h1>
+              <h1>For Sale</h1>
             </Col>
           </Row>
           <Row>
