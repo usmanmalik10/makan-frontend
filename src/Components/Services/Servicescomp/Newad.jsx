@@ -32,6 +32,7 @@ export const Newad = () => {
                   <option>Wood Cutter</option>
                   <option>Painter</option>
                   <option>Polish Man (Furniture)</option>
+                  <option>Steel Fixer / Welder</option>
                   <option>Steel Polish</option>
                   <option>Welder</option>
                   <option>Molding Worker</option>
