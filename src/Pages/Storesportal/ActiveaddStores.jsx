@@ -1,5 +1,5 @@
 import React from 'react'
-import { Activead } from '../../Components/Business/Businesscomp/Activead'
+import { Activead } from '../../Components/Stores/Storescomp/Activead'
 import { Grid } from "@mui/material";
 import StoresNavbar from '../../Components/Stores/StoresNavbar/StoresNavbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"

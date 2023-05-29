@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 export const Newad = () => {
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const handleDropdownClick = (id) => {
+    if (openDropdown === id) {
+      setOpenDropdown(null);
+    } else {
+      setOpenDropdown(id);
+    }
+  };
+
   return (
     <div>
       <section>
@@ -16,260 +27,5001 @@ export const Newad = () => {
               <div>
                 <label className="business-labels">
                   <span className="business-label-headings">
-                   Select Catergory :
+                    Select Catergory :
                   </span>
                 </label>
                 <br />
-                <select className="business-inputs">
-                  <option>Select Category</option>
-                  <option>Marble & Tiles</option>
-                  <option>Sanatory</option>
-                  <option>Wood Store</option>
-                  <option>Building Material</option>
-                  <option>Paint Stores</option>
-                  <option>Steel Pipe</option>
-                  <option>Iron Store</option>
-                  <option>Welding Shop</option>
-                  <option>Aluminium & Glass</option>
-                  <option>HardWare</option>
-                  <option>Brick Work's</option>
-                  <option>Steel Shop</option>
-                  <option>Electronics</option>
-                  <option>Glass Item's</option>
-                  <option>Paint Stores</option>
-                  <option>Boring Material's</option>
-                  <option>Ceramics</option>
+                <select
+                  value={openDropdown}
+                  onChange={(e) => handleDropdownClick(e.target.value)}
+                  className="business-inputs"
+                >
+                  <option value="">Select Category</option>
+                  <option value="dropdown1">Building Material</option>
+                  <option value="dropdown2">Bricks</option>
+                  <option value="dropdown3">Marble/Tiles</option>
+                  <option value="dropdown4">Ceramics</option>
+                  <option value="dropdown5">Sanitary</option>
+                  <option value="dropdown6">Boring Material</option>
+                  <option value="dropdown7">Wood </option>
+                  <option value="dropdown8">Timber</option>
+                  <option value="dropdown9">Paint</option>
+                  <option value="dropdown10">Steel</option>
+                  <option value="dropdown11">Iron</option>
+                  <option value="dropdown12">Aluminum</option>
+                  <option value="dropdown13">Glass</option>
+                  <option value="dropdown14">Hardware</option>
+                  <option value="dropdown15">Electronics</option>
+                  <option value="dropdown16">Electric</option>
+                  <option value="dropdown17">Wall Panelling</option>
+                  <option value="dropdown18">Solar System</option>
+                  <option value="dropdown19">Nursery</option>
+                  <option value="dropdown20">Concrete Plant</option>
+                  <option value="dropdown21">Interior Decoration</option>
+                  <option value="dropdown22">Lights</option>
+                  <option value="dropdown23">Furniture</option>
+                  <option value="dropdown24">Security</option>
+                  <option value="dropdown25">Termite Protection</option>
                 </select>
               </div>
             </Col>
-            <Col lg={6} md={6} sm={12}>
-              <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Name :{" "}
-                  </span>
-                </label>
-                <br />
-                <input
-                  className="business-inputs"
-                  type="text"
-                  placeholder="Product Name"
-                  required
-                />
-              </div>
-            </Col>
           </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
+          <Row>
+            {openDropdown === "dropdown1" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Company Name:{" "}
-                  </span>
-                </label>
-                <br />
-                <input
-                  className="business-inputs"
-                  type="text"
-                  placeholder="Company Name"
-                  required
-                />
+                {/* Dropdown Content for Building Material */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Quantity:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Quantity"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Category:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Category"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Weight:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Weight"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col>
+                        <input type="submit" />
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
+            )}
+
+            {openDropdown === "dropdown2" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Price : </span>
-                </label>
-                <br />
-                <input
-                  className="business-inputs"
-                  type="text"
-                  placeholder="Price"
-                  required
-                />
+                {/* Dropdown Content for Bricks */}
+                <Container>
+                  <Row>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Shop Name:
+                          </span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="Shop Name"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Contact Number:
+                          </span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="Contact Number"
+                          required
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Shop Address:
+                          </span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="Shop Address"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Area of services :
+                          </span>
+                        </label>
+                        <br />
+                        <select className="business-inputs">
+                          <option>Area of services</option>
+                          <option>Sahiwal City</option>
+                          <option>Sahiwal Division</option>
+                          <option>Punjab</option>
+                          <option>Pakistan</option>
+                        </select>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">NTN:</span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="NTN"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Product Name :
+                          </span>
+                        </label>
+                        <br />
+                        <select className="business-inputs">
+                          <option>Product Name</option>
+                          <option>Brick</option>
+                          <option>Tile</option>
+                          <option>Gutka</option>
+                          <option>Brick Ballast</option>
+                        </select>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Grade:
+                          </span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="Grade"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Price:
+                          </span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="Price"
+                          required
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">
+                            Quantity:
+                          </span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="Quantity"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6} md={6} sm={12}>
+                      <div>
+                        <label className="business-labels">
+                          <span className="business-label-headings">Size:</span>
+                        </label>
+                        <br />
+                        <input
+                          className="business-inputs"
+                          type="text"
+                          placeholder="Size"
+                          required
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <input type="submit" />
+                    </Col>
+                  </Row>
+                </Container>
               </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
+            )}
+
+            {openDropdown === "dropdown3" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Marble & Tiles */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Thickness</option>
+                            <option>3MM</option>
+                            <option>4MM</option>
+                            <option>5MM</option>
+                            <option>6MM</option>
+                            <option>7MM</option>
+                            <option>8MM</option>
+                            <option>9MM</option>
+                          </select>
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Dimension:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Dimension"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Grade:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Grade"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <input type="submit" />
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown4" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Ceramics */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Grade:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Grade"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <input type="submit" />
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown5" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Sanitary */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Length:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Length"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Thickness"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <input type="submit" />
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown6" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Boring Material */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Dia:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Dia"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Depth:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Depth"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <Col>
+                          <input type="submit" />
+                        </Col>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown7" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Shop Name</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Shop Name"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for wood */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Dimension:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Dimension"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Thickness"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <Col>
+                          <input type="submit" />
+                        </Col>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown8" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Address
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Address"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for TImber */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Wood Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Wood Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price: (per cubic feet)
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Dimension:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Dimension"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <input type="submit" />
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown9" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings"></span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Painty */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Size</option>
+                            <option>Quarter</option>
+                            <option>Liter</option>
+                            <option>Gallon</option>
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Large</option>
+                          </select>
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Category:
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Category</option>
+                            <option>Emulsion</option>
+                            <option>Weather Sheet</option>
+                            <option>Wood Paint</option>
+                            <option>Wood Sealer</option>
+                            <option>Deco Paint</option>
+                            <option>Warnish</option>
+                            <option>Polish</option>
+                            <option>Premier</option>
+                            <option>Spray</option>
+                            <option>Wall Putty</option>
+                            <option>Paint Remover</option>
+                            <option>Filler</option>
+                            <option>Silicon</option>
+                            <option>Glue</option>
+                            <option>Paint Gloves</option>
+                            <option>Paint Cloths</option>
+                            <option>Duct Tape</option>
+                            <option>Mask</option>
+                            <option>Roller</option>
+                            <option>Roller Frame</option>
+                            <option>Roller Cover</option>
+                            <option>Wire Brush</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Type :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Type</option>
+                            <option>Matt</option>
+                            <option>High Gross</option>
+                          </select>
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <input type="submit" />
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown10" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Steel */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Quantity:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Quantity"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Category:
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Category</option>
+                            <option>Stainless Steel</option>
+                            <option>Magnet Steel</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Dimension:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Dimension"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Length:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Length"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <input type="submit" />
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown11" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Iron */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Dimension:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Dimension"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Thickness"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown12" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Aluminum */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Thickness"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Weight:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Weight"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Length:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Length"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Fitting:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Fitting"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-          </Row>
-          <Row className="pt-4">
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown13" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">Warranty</span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Warranty"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Glass */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Thickness"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Tempered :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Tempered</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
+            )}
+            {openDropdown === "dropdown14" && (
               <div>
-                <label className="business-labels">
-                  <span className="business-label-headings">
-                    Product Detail
-                  </span>
-                </label>{" "}
-                <br />
-                <input
-                  type="text"
-                  placeholder="Product Detail"
-                  className="business-inputs"
-                />
+                {/* Dropdown Content for Hardware */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size: (inches)
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Thickness"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                            Weight:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Weight"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Type:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Type"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                            Quantity:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Quantity"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
               </div>
-            </Col>
+            )}
+            {openDropdown === "dropdown15" && (
+              <div>
+                {/* Dropdown Content for Electronics */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Warranty:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Warranty"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              After sale services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>After sale services</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            
+                          </select>
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown16" && (
+              <div>
+                {/* Dropdown Content for Electric */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Length:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Length"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Material:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Material"
+                            required
+                          />
+                        </div>
+                        
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                      <div>
+                          <input type="submit" />
+                        </div>
+                        </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown17" && (
+              <div>
+                {/* Dropdown Content for Wall Panelling */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                    
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown18" && (
+              <div>
+                {/* Dropdown Content for Solar System */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                   
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown19" && (
+              <div>
+                {/* Dropdown Content for Nursery */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Plant Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Plant Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Plant Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Plant Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                   
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown20" && (
+              <div>
+                {/* Dropdown Content for Concrete Plant */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Type:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Type"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                      <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown21" && (
+              <div>
+                {/* Dropdown Content for Interior Decoration */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Size:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Size"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                   
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown22" && (
+              <div>
+                {/* Dropdown Content for Lights */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                            Type:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Type"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown23" && (
+              <div>
+                {/* Dropdown Content for Furniture */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Dimension:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Dimension"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Thickness:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Thickness"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Color:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Color"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown24" && (
+              <div>
+                {/* Dropdown Content for Security */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    
+                    <Row>
+                     
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
+            {openDropdown === "dropdown25" && (
+              <div>
+                {/* Dropdown Content for Termite Protection */}
+                <section className="pt-4">
+                  <Container>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Contact Number:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Contact Number"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Shop Address:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Shop Address"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Area of services :
+                            </span>
+                          </label>
+                          <br />
+                          <select className="business-inputs">
+                            <option>Area of services</option>
+                            <option>Sahiwal City</option>
+                            <option>Sahiwal Division</option>
+                            <option>Punjab</option>
+                            <option>Pakistan</option>
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              NTN:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="NTN"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Product Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Product Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Company Name:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Company Name"
+                            required
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Price:
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            className="business-inputs"
+                            type="text"
+                            placeholder="Price"
+                            required
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    
+                    <Row>
+                      
+                      <Col lg={6} md={6} sm={12}>
+                        <div>
+                          <input type="submit" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </section>
+              </div>
+            )}
           </Row>
         </Container>
       </section>

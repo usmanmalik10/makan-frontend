@@ -9,10 +9,9 @@ const Spinner = () => {
       <div className="logo_div">
               <img width={60} src={logo} className="logo" alt="logo" />
               <div className="text_wrap">
-                <div className="text">SNGPL</div>
-                <div className="sub_text">
-                  SUI NORTHERN GAS PIPE LINE LIMITED
-                </div>
+                <div className="text">Makan Manager</div>
+                {/* <div className="sub_text">
+                </div> */}
               </div>
             </div>
     <RotatingLines

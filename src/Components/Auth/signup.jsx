@@ -11,7 +11,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { ImUsers } from "react-icons/im";
 import { FiPhone } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../Common/spinner/spinner";
@@ -25,21 +25,23 @@ export const Signup = () => {
   const { username, email, password, role, phone, address } = formData;
   const [eye, setEye] = useState();
 
+  const location = useLocation(); // Use useLocation to access location object
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/login";
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
-  useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
-    if (isSuccess || user) {
-      // navigate("/login");
-    }
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  // useEffect(() => {
+  //   if (isError) {
+  //     toast.error(message);
+  //   }
+  //   if (isSuccess || user) {
+  //     // navigate("/login");
+  //   }
+  //   dispatch(reset())
+  // }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onChange = (e) => {
     console.log(e.target.name);
@@ -63,7 +65,7 @@ export const Signup = () => {
     console.log("userData", userData);
 
     await dispatch(register(userData)).unwrap();
-
+    navigate(from, { replace: true });
   };
 
   if (isLoading) {
@@ -156,8 +158,9 @@ export const Signup = () => {
                     <Form.Select value={role} onChange={onChange} name="role" className="login-inputfield-select">
                       <option>Select Role</option>
                       <option value="user">user</option>
-                      <option value="business">business</option>
                       <option value="real_estate">real_estate</option>
+                      <option value="services">services</option>
+                      <option value="stores">stores</option>
                     </Form.Select>
 
                   </div>
