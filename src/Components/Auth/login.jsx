@@ -70,12 +70,15 @@ export const Login = () => {
       console.log("responselogin", response)
       const username = response?.data?.username;
       console.log("username",username);
+      localStorage.setItem('username', username);
       // setUsername(username);
       const password = response?.data?.password;
       console.log("password",password);
+      localStorage.setItem('password', password);
       // setPwd(pwd);
       const roles = response?.data?.role;
       console.log("roles",roles);
+      localStorage.setItem('roles', roles);
       // setRoles(roles);
       const accessToken = response?.token;
       console.log("accessToken",accessToken);
