@@ -7,11 +7,12 @@ const Spinner = () => {
   return (
     <div className="loding_wrap">
       <div className="logo_div">
-              <img width={60} src={logo} className="logo" alt="logo" />
+              <img width={100} src={logo} className="logo" alt="logo" />
               <div className="text_wrap">
                 <div className="text">Makan Manager</div>
-                {/* <div className="sub_text">
-                </div> */}
+                <div className="sub_text">
+                  Anything you want
+                </div>
               </div>
             </div>
     <RotatingLines

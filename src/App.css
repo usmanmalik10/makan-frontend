@@ -1,3 +1,20 @@
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f6f6f6;
+}
+
+.guest-analysis-wrapper::-webkit-scrollbar-track,
+.ant-table-body::-webkit-scrollbar-track {
+  background: grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f0090d;
+  border-radius: 6px;
+}
 .slick-next:before, .slick-prev:before{
   display: none !important;
 }
