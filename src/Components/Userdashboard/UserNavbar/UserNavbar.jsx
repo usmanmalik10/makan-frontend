@@ -13,7 +13,7 @@ const UserNavbar = () => {
     {
       icon: BiHomeSmile,
       text: "Profile",
-      route: "/userprofile",
+      route: "/user-profile",
     },
     {
       icon: TbUsers,

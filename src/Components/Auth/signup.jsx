@@ -4,7 +4,7 @@ import LoginPic from "../../images/LoginPic.png";
 import handicon from "../../images/handicon.png";
 import Lock from "../../images/Lock.png";
 import Inbox from "../../images/Inbox.png";
-import homelogo from "../../images/logoicon.png";
+import homelogo from "../../Assets/Home-Screen/homelogo.png";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
