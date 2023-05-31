@@ -31,6 +31,14 @@
   font-size: 20px;
 }
 .nav-text {
+  width: 70px;
+  color: rgb(207, 207, 207);
+  font-family: "Poppins";
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sub-nav-text{
   color: rgb(207, 207, 207);
   font-family: "Poppins";
   font-size: 14px;
@@ -56,11 +64,14 @@
   justify-content: flex-start;
   align-items: center;
   gap: 12px;
-  width: 400px;
+  width: 25%;
   padding-left: 50px;
   margin-bottom: 34px;
   position: absolute;
   bottom: 0;
+  color: #ffffff;
+  background-color: transparent;
+  border: 0px;
 }
 
 .logout-wrapper > p {
@@ -69,6 +80,7 @@
   font-family: "Poppins";
   cursor: pointer;
   margin-bottom: 0px !important;
+  color: #ffffff;
 }
 
 .logout-icon {
@@ -97,12 +109,13 @@
 .submenu {
   position: absolute; /* Position the submenu below the menu */
   left: 0;
-  width: 25%; /* Adjust the width as needed */
-  height: auto;
-  background-color: #ffffff; 
-  border: 1px solid #dddddd; /* Add border to the submenu */
+  width: 25%;
+  height: 50vh;
+  background-color: #f0090d; 
   padding: 10px 0px 0px 40px;
   z-index: 10; /* Set a higher z-index to ensure the submenu appears above other elements */
+  overflow-y: auto;
+  border-radius: 6px;
 }
 
 .submenu p {
@@ -130,5 +143,19 @@
   }
   .desktop-navbar {
     display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1900px) {
+  .submenu {
+    position: absolute; /* Position the submenu below the menu */
+    left: 0;
+    width: 22.5% !important;
+    height: 50vh;
+    background-color: #f0090d; 
+    padding: 10px 0px 0px 40px;
+    z-index: 10; /* Set a higher z-index to ensure the submenu appears above other elements */
+    overflow-y: auto;
+    border-radius: 6px;
   }
 }

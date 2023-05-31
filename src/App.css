@@ -3,7 +3,9 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f6f6f6;
+  background: transparent
+  linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+  no-repeat padding-box;
 }
 
 .guest-analysis-wrapper::-webkit-scrollbar-track,
@@ -12,7 +14,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #f0090d;
+  background-color: #f6f6f6;
   border-radius: 6px;
 }
 .slick-next:before, .slick-prev:before{
