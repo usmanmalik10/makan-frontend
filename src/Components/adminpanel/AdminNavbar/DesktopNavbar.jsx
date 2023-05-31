@@ -61,6 +61,7 @@ const DesktopNavbar = (props) => {
           <div className="nav-links">
             {props.navList.map((item) => (
               <div className="sub-nav-link" key={item.route}>
+                <item.icon className="nav-icon" />
                 <div
                   className={`nav-item ${location.pathname === item.route ? "active" : ""}`}
                   onClick={() => navigate(item.route)}
@@ -83,7 +84,7 @@ const DesktopNavbar = (props) => {
                       <div className="submenu">
                         {item.submenu.map((subitem) => (
                           <p
-                            className="nav-text"
+                            className="sub-nav-text"
                             key={subitem.route}
                             onClick={() => navigate(subitem.route)}
                           >
@@ -100,10 +101,10 @@ const DesktopNavbar = (props) => {
           </div>
         </div>
       </div>
-      <div className="logout-wrapper">
-        <BiLogOut className="logout-icon" />
-        <button onClick={onlogout}>Logout</button>
-      </div>
+      <button className="logout-wrapper" onClick={onlogout}>
+        <div><BiLogOut className="logout-icon" /></div>
+        <div>Logout</div>
+      </button>
     </>
   );
 };
