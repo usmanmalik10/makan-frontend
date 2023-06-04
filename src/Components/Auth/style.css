@@ -234,6 +234,74 @@
   overflow-y: auto;
   padding-top: 100px;
 }
+.social_buttons {
+  width: 80%;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 29px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+  .google_button {
+    width: 47%;
+    height: 65px;
+    background-color: #e3e3e3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    /* padding: 0 10px 0 10px; */
+    border-radius: 50px;
+  }
+    .google_logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .google_des {
+      font-family: 'Nunito Sans', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      text-transform: capitalize;
+      color: #585858;
+    }
+  
+
+  .facebook_button {
+    width: 47%;
+    height: 65px;
+    background-color: #e3e3e3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    /* padding: 0 10px 0 10px; */
+    border-radius: 50px;
+  }
+    .facebook_logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .facebook_des {
+      font-family: 'Nunito Sans', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      text-transform: capitalize;
+      color: #585858;
+    }
 
 @media screen and (max-width: 900px) {
   .right-form-wrapper {

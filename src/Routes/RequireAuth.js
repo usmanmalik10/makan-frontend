@@ -3,14 +3,16 @@ import useAuth from "../hooks/useAuth";
 
 const RequireAuth = ({ allowedRoles }) => {
     const { auth, loading } = useAuth();
+    const token = localStorage.getItem('accessToken')
     const location = useLocation();
 
     if (loading) {
         // Add a loading state or component while authentication status is being determined
         return <div>Loading...</div>;
     }
+    console.log(token)
 
-    if (!auth.username) {
+    if (!token) {
         // User is not authenticated, redirect to the login page
         return <Navigate to="/login" state={{ from: location }} replace />;
     }

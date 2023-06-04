@@ -30,11 +30,12 @@
     color: #ffffff;
     font-size: 20px;
   }
-  .nav-text {
+  .nav-text-R {
     color: rgb(207, 207, 207);
     font-family: "Poppins";
     font-size: 14px;
     cursor: pointer;
+    margin-bottom: 0px !important;
   }
   
   .sub-nav-link {

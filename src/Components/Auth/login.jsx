@@ -14,6 +14,8 @@ import useAuth from "../../hooks/useAuth";
 import authService from "../../features/auth/authService";
 import Spinner from "../Common/spinner/spinner";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import google_logo from "../../Assets/Auth-Screen/Group 46060.png";
+import facebook_logo from "../../Assets/Auth-Screen/Group 46061.png";
 
 // const LOGIN_URL = '/auth';
 
@@ -179,7 +181,22 @@ export const Login = () => {
                   <div className="login-button">
                     <button type="submit" >Login</button>
                   </div>
+               
                 </div>
+                <div className="social_buttons">
+                <div className="google_button">
+                  <div className="google_logo">
+                    <img src={google_logo} alt="google_logo" />
+                  </div>
+                  <div className="google_des">continue with google</div>
+                </div>
+                <div className="facebook_button">
+                  <div className="facebook_logo">
+                    <img src={facebook_logo} alt="facebook_logo" />
+                  </div>
+                  <div className="facebook_des">continue with facebook</div>
+                </div>
+              </div>
               </div>
             </Grid>
           </Grid>

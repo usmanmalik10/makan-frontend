@@ -3,10 +3,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 import logoicon from "../../../images/logoicon.png";
 import { BiLogOut } from "react-icons/bi";
 import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, reset } from "../../../features/auth/authSlice";
 
 const DesktopNavbar = (props) => {
+  
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const onlogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+      }
+
   return (
     <>
       <div className="navbar-wrappper">
@@ -20,7 +30,7 @@ const DesktopNavbar = (props) => {
               <div className="sub-nav-link" key={item.route}>
                 <item.icon className="nav-icon" />
                 <p
-                  className="nav-text"
+                  className="nav-text-R"
                   onClick={() => navigate(item.route)}
                   style={{
                     color: location.pathname === item.route && "white",
@@ -33,10 +43,10 @@ const DesktopNavbar = (props) => {
           </div>
         </div>
       </div>
-      <div className="logout-wrapper">
-        <BiLogOut className="logout-icon" />
-        <p onClick={() => navigate("/Estatelogin")}>Logout</p>
-      </div>
+      <button className="logout-wrapper" onClick={onlogout}>
+        <div><BiLogOut className="logout-icon" /></div>
+        <div>Logout</div>
+      </button>
     </>
   );
 };
