@@ -3,10 +3,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 import logoicon from "../../../images/logoicon.png";
 import { BiLogOut } from "react-icons/bi";
 import "./userstyle.css";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, reset } from "../../../features/auth/authSlice";
 
 const DesktopNavbar = (props) => {
+  
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const onlogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+      }
+
   return (
     <>
       <div className="navbar-wrappper">
@@ -33,10 +43,10 @@ const DesktopNavbar = (props) => {
           </div>
         </div>
       </div>
-      <div className="logout-wrapper">
-        <BiLogOut size={16.67} className="logout-icon" />
-        <p onClick={() => navigate("/Userlogin")}>Logout</p>
-      </div>
+      <button className="logout-wrapper" onClick={onlogout}>
+        <div><BiLogOut className="logout-icon" /></div>
+        <div>Logout</div>
+      </button>
     </>
   );
 };
