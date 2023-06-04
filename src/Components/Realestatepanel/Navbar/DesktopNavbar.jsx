@@ -30,7 +30,7 @@ const DesktopNavbar = (props) => {
               <div className="sub-nav-link" key={item.route}>
                 <item.icon className="nav-icon" />
                 <p
-                  className="nav-text"
+                  className="nav-text-R"
                   onClick={() => navigate(item.route)}
                   style={{
                     color: location.pathname === item.route && "white",
