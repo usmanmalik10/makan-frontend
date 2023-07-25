@@ -57,6 +57,27 @@ export const login = createAsyncThunk(
   }
 );
 
+export const refreshtoken = createAsyncThunk(
+  'auth/refreshtoken',
+  async (_, { rejectWithValue }) => {
+    try {
+      // Call API to install user
+      const response = await authService.refreshtoken();
+      return response.data;
+    } catch (error) {
+      console.log({error});
+      const message =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+              console.log({message});
+      return rejectWithValue(message);
+    }
+  }
+);
+
   export const logout = createAsyncThunk(
     'auth/logout',
     async (_, { rejectWithValue }) => {
@@ -112,6 +133,21 @@ export const authSlice = createSlice({
         state.user = action.meta.arg;
       })
       .addCase(login.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.user = null
+      })
+      .addCase(refreshtoken.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(refreshtoken.fulfilled, (state, action) => {
+        console.log({action})
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.user = action.meta.arg;
+      })
+      .addCase(refreshtoken.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
