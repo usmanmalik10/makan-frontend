@@ -12,9 +12,9 @@ const API_URL_4 = `${USERS_BASE_URL}/v1/service/64b43eb224eae8b93fe5cf42`;
 
 const API_URL_5 = `${USERS_BASE_URL}/v1/service/64b43eb224eae8b93fe5cf42`;
 
-const createservice = async () => {
+const createservice = async (serviceData) => {
   try {
-    const response = await axios.post(API_URL_1);
+    const response = await axios.post(API_URL_1, serviceData);
     return response.data;
   } catch (error) {
     console.log("error",error)
