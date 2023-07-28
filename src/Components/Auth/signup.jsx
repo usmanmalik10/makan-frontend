@@ -22,9 +22,9 @@ import google_logo from "../../Assets/Auth-Screen/Group 46060.png";
 import facebook_logo from "../../Assets/Auth-Screen/Group 46061.png";
 
 export const Signup = () => {
-  const [formData, setFormData] = useState({ username: "", email: "", password: "", role:"", phone:"", address:"" });
+  const [formData, setFormData] = useState({ username: "", email: "", password: "", role:"", phoneNumber:"", address:"" });
   console.log(formData);
-  const { username, email, password, role, phone, address } = formData;
+  const { username, email, password, role, phoneNumber, address } = formData;
   const [eye, setEye] = useState();
 
   const location = useLocation(); // Use useLocation to access location object
@@ -61,7 +61,7 @@ export const Signup = () => {
       email,
       password,
       role,
-      phone,
+      phoneNumber,
       address
     };
     console.log("userData", userData);
@@ -160,9 +160,9 @@ export const Signup = () => {
                     <Form.Select value={role} onChange={onChange} name="role" className="login-inputfield-select">
                       <option>Select Role</option>
                       <option value="user">user</option>
-                      <option value="real_estate">real_estate</option>
-                      <option value="services">services</option>
-                      <option value="stores">stores</option>
+                      <option value="shopKeeper">Business</option>
+                      <option value="realEstate">RealEstate</option>
+                      <option value="serviceProvider">Service</option>
                     </Form.Select>
 
                   </div>
@@ -171,10 +171,10 @@ export const Signup = () => {
                     <input
                       className="login-inputfield-1"
                       required
-                      type="phone"
-                      id="phone"
-                      name="phone"
-                      value={phone}
+                      type="phoneNumber"
+                      id="phoneNumber"
+                      name="phoneNumber"
+                      value={phoneNumber}
                       onChange={onChange}
                       placeholder="Phone No"
                     />

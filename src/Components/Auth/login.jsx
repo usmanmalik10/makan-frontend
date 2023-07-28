@@ -32,7 +32,7 @@ export const Login = () => {
   console.log()
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
@@ -63,26 +63,26 @@ export const Login = () => {
     const roleroute = {
       admin:'/admin-profile',
       user: '/user-profile',
-      real_estate:'/estatealldata',
-      services:'/services-profile',
-      stores:'/stores-profile',
+      realEstate:'/estatealldata',
+      serviceProvider:'/services-profile',
+      shopKeeper:'/stores-profile',
     };
     
     authService.login(loginData).then((response) => {
       console.log("responselogin", response)
-      const username = response?.data?.username;
+      const username = response?.user?.username;
       console.log("username",username);
       localStorage.setItem('username', username);
       // setUsername(username);
-      const password = response?.data?.password;
+      const password = response?.user?.password;
       console.log("password",password);
       localStorage.setItem('password', password);
       // setPwd(pwd);
-      const roles = response?.data?.role;
+      const roles = response?.user?.role;
       console.log("roles",roles);
       localStorage.setItem('roles', roles);
       // setRoles(roles);
-      const accessToken = response?.token;
+      const accessToken = response?.tokens?.access;
       console.log("accessToken",accessToken);
       localStorage.setItem('accessToken', accessToken);
       // setAccessToken(accessToken);
