@@ -6,7 +6,7 @@ import { createservice } from "../../../features/serviceprovider/serviceprovider
 import Spinner from "../../Common/spinner/spinner";
 import Form from 'react-bootstrap/Form';
 
- const Newad = () => {
+export const Newad = () => {
 
   const [formData, setFormData] = useState({
     contractorName: "",
@@ -40,6 +40,7 @@ import Form from 'react-bootstrap/Form';
       [e.target.name]: e.target.value,
     }));
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,7 +84,7 @@ import Form from 'react-bootstrap/Form';
                       </span>
                     </label>
                     <br />
-                    <Form.select
+                    <Form.Select
                       className="business-inputs"
                       // value={category}
                       onChange={onChange}
@@ -122,7 +123,7 @@ import Form from 'react-bootstrap/Form';
                       <option>House Cleaner</option>
                       <option>AC Cleaner</option>
                       <option>Marble Polish</option>
-                    </Form.select>
+                    </Form.Select>
                   </div>
                 </Col>
                 <Col lg={6} md={6} sm={12}>
@@ -157,7 +158,7 @@ import Form from 'react-bootstrap/Form';
                     <br />
                     <input
                       className="business-inputs"
-                      type="number"
+                      type="text"
                       placeholder="Contact number"
                       required
                       name="contectNumber"
@@ -197,7 +198,7 @@ import Form from 'react-bootstrap/Form';
                       </span>
                     </label>
                     <br />
-                    <Form.select
+                    <Form.Select
                       className="business-inputs"
                       value={areaOfService}
                       onChange={onChange}
@@ -208,7 +209,7 @@ import Form from 'react-bootstrap/Form';
                       <option>Sahiwal Division</option>
                       <option>Punjab</option>
                       <option>Pakistan</option>
-                    </Form.select>
+                    </Form.Select>
                   </div>
                 </Col>
                 <Col lg={6} md={6} sm={12}>
@@ -219,7 +220,7 @@ import Form from 'react-bootstrap/Form';
                       </span>
                     </label>
                     <br />
-                    <Form.select
+                    <Form.Select
                       className="business-inputs"
                       value={chargingSchedule}
                       onChange={onChange}
@@ -230,7 +231,7 @@ import Form from 'react-bootstrap/Form';
                       <option>Daily</option>
                       <option>Contract</option>
                       <option>Square Feet</option>
-                    </Form.select>
+                    </Form.Select>
                   </div>
                 </Col>
               </Row>
@@ -266,7 +267,6 @@ import Form from 'react-bootstrap/Form';
         </div>
       </form>
     </>
-  )
-}
+  );
+};
 
-export default Newad;
