@@ -6,7 +6,7 @@ import { createservice } from "../../../features/serviceprovider/serviceprovider
 import Spinner from "../../Common/spinner/spinner";
 import Form from 'react-bootstrap/Form';
 
- const Newad = () => {
+export const Newad = () => {
 
   const [formData, setFormData] = useState({
     contractorName: "",
@@ -269,4 +269,4 @@ import Form from 'react-bootstrap/Form';
   )
 }
 
-export default Newad;
+

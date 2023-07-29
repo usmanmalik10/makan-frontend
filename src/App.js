@@ -35,7 +35,7 @@ import {Orders} from "./Pages/Userportal/Orders";
 import {Oldorders} from "./Pages/Userportal/Oldorders"
 
 /* Services Routes*/
-import  NewaddServices   from "./Pages/Servicesportal/NewaddServices";
+import { NewaddServices }  from "./Pages/Servicesportal/NewaddServices";
 import  { ActiveaddServices }  from "./Pages/Servicesportal/Activeadd";
 import { Servicesprofile } from './Pages/Servicesportal/Servicesprofile';
 

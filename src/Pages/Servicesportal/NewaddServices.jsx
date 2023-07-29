@@ -1,11 +1,11 @@
 import React from 'react'
-import  Newad  from '../../Components/Services/Servicescomp/Newad'
+import  { Newad}   from '../../Components/Services/Servicescomp/Newad';
 import { Grid } from "@mui/material";
 import ServicesNavbar from '../../Components/Services/ServicesNavbar/ServicesNavbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
 
-const NewaddServices = () => {
+export const NewaddServices = () => {
   return (
     <>
     <div className='main-wrapper'>
@@ -30,4 +30,3 @@ const NewaddServices = () => {
   )
 }
 
-export default NewaddServices;
