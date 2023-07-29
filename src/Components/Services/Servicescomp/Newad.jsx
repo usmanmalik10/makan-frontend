@@ -8,6 +8,9 @@ import Form from 'react-bootstrap/Form';
 
 export const Newad = () => {
 
+  const token = localStorage.getItem("accessToken");
+  console.log('checktoken', token)
+
   const [formData, setFormData] = useState({
     contractorName: "",
     areaOfService: "",
@@ -40,6 +43,7 @@ export const Newad = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,8 +58,18 @@ export const Newad = () => {
     };
     console.log("serviceData", serviceData);
 
-    await dispatch(createservice(serviceData)).unwrap();
+    //  await dispatch(createservice(serviceData, token)).unwrap();
+
     // navigate(from, { replace: true });
+    try {
+      console.log("serviceData", serviceData);
+      await dispatch(createservice(serviceData, token)).unwrap();
+      // Success: The service was created, you can handle the fulfilled state if needed.
+      // navigate(from, { replace: true });
+    } catch (error) {
+      // Error: Handle the error state here, show an error message, or log the error.
+      console.error('Error occurred while creating the service:', error);
+    }
   };
 
   if (isLoading) {
@@ -83,7 +97,7 @@ export const Newad = () => {
                       </span>
                     </label>
                     <br />
-                    <Form.select
+                    <Form.Select
                       className="business-inputs"
                       // value={category}
                       onChange={onChange}
@@ -122,7 +136,7 @@ export const Newad = () => {
                       <option>House Cleaner</option>
                       <option>AC Cleaner</option>
                       <option>Marble Polish</option>
-                    </Form.select>
+                    </Form.Select>
                   </div>
                 </Col>
                 <Col lg={6} md={6} sm={12}>
@@ -157,7 +171,7 @@ export const Newad = () => {
                     <br />
                     <input
                       className="business-inputs"
-                      type="number"
+                      type="text"
                       placeholder="Contact number"
                       required
                       name="contectNumber"
@@ -197,7 +211,7 @@ export const Newad = () => {
                       </span>
                     </label>
                     <br />
-                    <Form.select
+                    <Form.Select
                       className="business-inputs"
                       value={areaOfService}
                       onChange={onChange}
@@ -208,7 +222,7 @@ export const Newad = () => {
                       <option>Sahiwal Division</option>
                       <option>Punjab</option>
                       <option>Pakistan</option>
-                    </Form.select>
+                    </Form.Select>
                   </div>
                 </Col>
                 <Col lg={6} md={6} sm={12}>
@@ -219,7 +233,7 @@ export const Newad = () => {
                       </span>
                     </label>
                     <br />
-                    <Form.select
+                    <Form.Select
                       className="business-inputs"
                       value={chargingSchedule}
                       onChange={onChange}
@@ -230,7 +244,7 @@ export const Newad = () => {
                       <option>Daily</option>
                       <option>Contract</option>
                       <option>Square Feet</option>
-                    </Form.select>
+                    </Form.Select>
                   </div>
                 </Col>
               </Row>
@@ -266,7 +280,6 @@ export const Newad = () => {
         </div>
       </form>
     </>
-  )
-}
-
+  );
+};
 

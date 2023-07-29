@@ -1,6 +1,8 @@
 import axios from "axios";
 import { USERS_BASE_URL } from "../../Components/Constants/Config/config.dev";
 
+const token = localStorage.getItem("accessToken");
+// console.log('checktoken', token)
 
 const API_URL_1 = `${USERS_BASE_URL}/v1/service`;
 
@@ -12,9 +14,13 @@ const API_URL_4 = `${USERS_BASE_URL}/v1/service/64b43eb224eae8b93fe5cf42`;
 
 const API_URL_5 = `${USERS_BASE_URL}/v1/service/64b43eb224eae8b93fe5cf42`;
 
-const createservice = async (serviceData) => {
+const createservice = async (serviceData, token) => {
   try {
-    const response = await axios.post(API_URL_1, serviceData);
+    const response = await axios.post(API_URL_1, serviceData, {
+      headers: {
+        'Token': `${token}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.log("error",error)

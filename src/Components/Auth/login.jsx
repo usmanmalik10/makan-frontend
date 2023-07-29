@@ -82,7 +82,7 @@ export const Login = () => {
       console.log("roles",roles);
       localStorage.setItem('roles', roles);
       // setRoles(roles);
-      const accessToken = response?.tokens?.access;
+      const accessToken = response?.tokens?.access?.token;
       console.log("accessToken",accessToken);
       localStorage.setItem('accessToken', accessToken);
       // setAccessToken(accessToken);

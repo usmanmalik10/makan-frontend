@@ -6,10 +6,10 @@ import serviceproviderService from "./serviceproviderService";
 
 export const createservice = createAsyncThunk(
   'serviceprovider/createservice',
-  async (serviceData, { rejectWithValue }) => {
+  async (serviceData, token, { rejectWithValue }) => {
     try {
       // Call API to subscribe user
-      const response = await serviceproviderService.createservice(serviceData);
+      const response = await serviceproviderService.createservice(serviceData, token);
       console.log({ response })
       return response;
     } catch (error) {
