@@ -1,9 +1,6 @@
 import axios from "axios";
 import { USERS_BASE_URL } from "../../Components/Constants/Config/config.dev";
 
-const token = localStorage.getItem("accessToken");
-// console.log('checktoken', token)
-
 const API_URL_1 = `${USERS_BASE_URL}/v1/service`;
 
 const API_URL_2 = `${USERS_BASE_URL}/v1/service?limit=10&page=1`;
@@ -18,7 +15,7 @@ const createservice = async (serviceData, token) => {
   try {
     const response = await axios.post(API_URL_1, serviceData, {
       headers: {
-        'Token': `${token}`
+        'authorization': `Bearer ${token}`
       }
     });
     return response.data;

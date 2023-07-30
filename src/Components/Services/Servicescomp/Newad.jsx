@@ -43,14 +43,14 @@ export const Newad = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const serviceData = {
       contractorName,
-      areaOfService,
+      areaOfService: [areaOfService],
       contectNumber,
       address,
       laborRates,
@@ -58,18 +58,8 @@ export const Newad = () => {
     };
     console.log("serviceData", serviceData);
 
-    //  await dispatch(createservice(serviceData, token)).unwrap();
+    await dispatch(createservice(serviceData, token)).unwrap();
 
-    // navigate(from, { replace: true });
-    try {
-      console.log("serviceData", serviceData);
-      await dispatch(createservice(serviceData, token)).unwrap();
-      // Success: The service was created, you can handle the fulfilled state if needed.
-      // navigate(from, { replace: true });
-    } catch (error) {
-      // Error: Handle the error state here, show an error message, or log the error.
-      console.error('Error occurred while creating the service:', error);
-    }
   };
 
   if (isLoading) {

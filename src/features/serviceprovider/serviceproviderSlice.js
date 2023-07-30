@@ -1,197 +1,162 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import serviceproviderService from "./serviceproviderService";
 
+const user = JSON.parse(localStorage.getItem("user"));
 
+const initialState = {
+  user: user || null,
+  isLoading: false,
+  isSuccess: false,
+  isError: false,
+  message: "",
+  services: [], // An array to store the list of services
+  selectedService: null, // A single service object
+};
 
+// Thunk to create a new service
 export const createservice = createAsyncThunk(
-  'serviceprovider/createservice',
+  "serviceprovider/createservice",
   async (serviceData, token, { rejectWithValue }) => {
     try {
-      // Call API to subscribe user
       const response = await serviceproviderService.createservice(serviceData, token);
-      console.log({ response })
       return response;
     } catch (error) {
-      console.log({ error });
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      console.log({ message });
-      return rejectWithValue(message);
-
+      return rejectWithValue(getErrorMessage(error));
     }
   }
 );
 
+// Thunk to fetch the list of services
 export const showservice = createAsyncThunk(
-  'serviceprovider/showservices',
+  "serviceprovider/showservice",
   async (_, { rejectWithValue }) => {
     try {
-      // Call API to install user
       const response = await serviceproviderService.showservice();
       return response;
     } catch (error) {
-      console.log({ error });
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      console.log({ message });
-      return rejectWithValue(message);
+      return rejectWithValue(getErrorMessage(error));
     }
   }
 );
 
+// Thunk to fetch a single service by ID
 export const getservice = createAsyncThunk(
-  'serviceprovider/getservice',
-  async (_, { rejectWithValue }) => {
+  "serviceprovider/getservice",
+  async (serviceId, { rejectWithValue }) => {
     try {
-      // Call API to install user
-
-      const response = await serviceproviderService.getservice();
-      window.location.reload();
-      return response.data;
+      const response = await serviceproviderService.getservice(serviceId);
+      return response;
     } catch (error) {
-      console.log({ error });
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      console.log({ message });
-      return rejectWithValue(message);
+      return rejectWithValue(getErrorMessage(error));
     }
   }
 );
 
+// Thunk to update a service
 export const updateservice = createAsyncThunk(
-  'serviceprovider/updateservice',
-  async (_, { rejectWithValue }) => {
+  "serviceprovider/updateservice",
+  async (serviceData, { rejectWithValue }) => {
     try {
-      // Call API to install user
-      const response = await serviceproviderService.updateservice();
+      const response = await serviceproviderService.updateservice(serviceData);
       return response;
     } catch (error) {
-      console.log({ error });
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      console.log({ message });
-      return rejectWithValue(message);
+      return rejectWithValue(getErrorMessage(error));
     }
   }
 );
 
+// Thunk to delete a service
 export const deleteservice = createAsyncThunk(
-  'serviceprovider/deleteservice',
-  async (_, { rejectWithValue }) => {
+  "serviceprovider/deleteservice",
+  async (serviceId, { rejectWithValue }) => {
     try {
-      // Call API to install user
-      const response = await serviceproviderService.deleteservice();
+      const response = await serviceproviderService.deleteservice(serviceId);
       return response;
     } catch (error) {
-      console.log({ error });
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      console.log({ message });
-      return rejectWithValue(message);
+      return rejectWithValue(getErrorMessage(error));
     }
   }
 );
 
+const getErrorMessage = (error) =>
+  (error.response && error.response.data && error.response.data.message) ||
+  error.message ||
+  error.toString();
 
-export const serviceproviderSlice = createSlice({
+const serviceproviderSlice = createSlice({
   name: "serviceprovider",
-  initialState: {
-    isLoading: false,
-    isError: null,
-    message: "",
-  },
- 
+  initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(createservice.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(createservice.fulfilled, (state, action) => {
-        console.log({ action })
         state.isLoading = false;
         state.isSuccess = true;
-        // state.message = 'Pending orders fetched successfully';
-        state.createservice = action.payload;
+        state.services.push(action.payload);
       })
       .addCase(createservice.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.error.message;
-        state.createservice = null
+        state.message = action.payload;
       })
       .addCase(showservice.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(showservice.fulfilled, (state, action) => {
-        console.log({ action })
         state.isLoading = false;
         state.isSuccess = true;
-        state.showservice = action.payload;
+        state.services = action.payload;
       })
       .addCase(showservice.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        state.showservice = null
       })
       .addCase(getservice.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getservice.fulfilled, (state, action) => {
-        console.log({ action })
         state.isLoading = false;
         state.isSuccess = true;
-        state.getservice = action.payload;
+        state.selectedService = action.payload;
       })
       .addCase(getservice.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        state.getservice = null
       })
-      .addCase(updateservice .pending, (state) => {
+      .addCase(updateservice.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(updateservice .fulfilled, (state, action) => {
-        console.log({ action })
+      .addCase(updateservice.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.updateservice  = action.payload;
+        // Update the corresponding service in the services array
+        const updatedIndex = state.services.findIndex(
+          (service) => service.id === action.payload.id
+        );
+        if (updatedIndex !== -1) {
+          state.services[updatedIndex] = action.payload;
+        }
       })
-      .addCase(updateservice .rejected, (state, action) => {
+      .addCase(updateservice.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
       })
-      .addCase(deleteservice .pending, (state) => {
+      .addCase(deleteservice.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteservice .fulfilled, (state, action) => {
-        console.log({ action })
+      .addCase(deleteservice.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.deleteservice = action.payload;
+        // Remove the deleted service from the services array
+        state.services = state.services.filter(
+          (service) => service.id !== action.payload.id
+        );
       })
       .addCase(deleteservice.rejected, (state, action) => {
         state.isLoading = false;
@@ -200,7 +165,5 @@ export const serviceproviderSlice = createSlice({
       });
   },
 });
-
-// export const { setPendingOrders, setCompletedOrders, setOrderStatus, setGetCount } = adminSlice.actions;
 
 export default serviceproviderSlice.reducer;
