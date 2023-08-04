@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Servicesprof.scss";
 import service_image from "../../../Assets/Services-Screen/Group 46137.png";
 import { Container, Row, Col } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { showservice } from "../../../features/serviceprovider/serviceproviderSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
-import { USERS_BASE_URL } from "../../Constants/Config/config.dev";
+import { USERS_BASE_URL } from "../../constants/config/config.dev";
 
 export const Servicesprof = () => {
 
