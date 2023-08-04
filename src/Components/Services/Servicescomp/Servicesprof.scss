@@ -1,0 +1,28 @@
+.Service_section {
+  width: 100%;
+  height: auto;
+ 
+
+  .service_deatil {
+    width: 100%;
+    height: auto;
+    padding: 0px 20px 0px 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 50px;
+    
+
+    .service_image {
+      width: 100%;
+      height: 395px;
+      border-radius: 20px;
+    }
+
+    .des{
+      padding: 0px 0px 0px 10px;
+    }
+    
+  }
+}

@@ -11,9 +11,9 @@ const API_URL_4 = `${USERS_BASE_URL}/v1/service/64b43eb224eae8b93fe5cf42`;
 
 const API_URL_5 = `${USERS_BASE_URL}/v1/service/64b43eb224eae8b93fe5cf42`;
 
-const createservice = async (serviceData, token) => {
+const createservice =  (serviceData, token) => {
   try {
-    const response = await axios.post(API_URL_1, serviceData, {
+    const response =  axios.post(API_URL_1, serviceData, {
       headers: {
         'authorization': `Bearer ${token}`
       }
@@ -25,11 +25,13 @@ const createservice = async (serviceData, token) => {
   }
 };
 
-const showservice = async () => {
+const showservice = async (token, limit, page, sortBy, category) => {
   try {
-    const response = await axios.get(API_URL_2);
-
-   
+    const response = await axios.get(API_URL_2, {
+      headers: {
+        'authorization': `Bearer ${token}`
+      }
+    });
 console.log("response",response.data)
     return response.data;
   } catch (error) {

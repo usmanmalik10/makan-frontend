@@ -13,25 +13,35 @@ const initialState = {
   selectedService: null, // A single service object
 };
 
-// Thunk to create a new service
 export const createservice = createAsyncThunk(
-  "serviceprovider/createservice",
-  async (serviceData, token, { rejectWithValue }) => {
+  'serviceprovider/createservice',
+  async (serviceData, token, {rejectWithValue}) => {
     try {
+      // Call API to subscribe user
       const response = await serviceproviderService.createservice(serviceData, token);
-      return response;
+      console.log({response})
+      return response.data;
     } catch (error) {
-      return rejectWithValue(getErrorMessage(error));
+      console.log({error});
+      const message =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+              console.log({message});
+      return rejectWithValue(message);
+      
     }
-  }
+    } 
 );
 
 // Thunk to fetch the list of services
 export const showservice = createAsyncThunk(
   "serviceprovider/showservice",
-  async (_, { rejectWithValue }) => {
+  async (token, limit, page, sortBy, category, { rejectWithValue }) => {
     try {
-      const response = await serviceproviderService.showservice();
+      const response = await serviceproviderService.showservice(token, limit, page, sortBy, category);
       return response;
     } catch (error) {
       return rejectWithValue(getErrorMessage(error));
@@ -84,7 +94,7 @@ const getErrorMessage = (error) =>
   error.toString();
 
 const serviceproviderSlice = createSlice({
-  name: "serviceprovider",
+  name: 'serviceprovider',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -95,7 +105,7 @@ const serviceproviderSlice = createSlice({
       .addCase(createservice.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.services.push(action.payload);
+        state.services = action.payload;
       })
       .addCase(createservice.rejected, (state, action) => {
         state.isLoading = false;

@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import "./Newad.scss";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { createservice } from "../../../features/serviceprovider/serviceproviderSlice";
-import Spinner from "../../Common/spinner/spinner";
-import Form from 'react-bootstrap/Form';
+import Spinner2 from "../../Common/spinner2/spinner2";
+import serviceproviderService from "../../../features/serviceprovider/serviceproviderService";
 
 export const Newad = () => {
 
   const token = localStorage.getItem("accessToken");
-  console.log('checktoken', token)
+  // console.log('checktoken', token)
 
+  const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
+    category: "",
     contractorName: "",
     areaOfService: "",
     contectNumber: "",
@@ -21,6 +24,7 @@ export const Newad = () => {
   });
   console.log(formData);
   const {
+    category,
     contractorName,
     areaOfService,
     contectNumber,
@@ -32,9 +36,7 @@ export const Newad = () => {
   const location = useLocation(); // Use useLocation to access location object
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.serviceprovider
-  );
+  const { isLoading, isError, isSuccess, message } = useSelector((state) => state.serviceprovider);
 
   const onChange = (e) => {
     console.log(e.target.name);
@@ -49,6 +51,7 @@ export const Newad = () => {
     e.preventDefault();
 
     const serviceData = {
+      category,
       contractorName,
       areaOfService: [areaOfService],
       contectNumber,
@@ -58,12 +61,25 @@ export const Newad = () => {
     };
     console.log("serviceData", serviceData);
 
-    await dispatch(createservice(serviceData, token)).unwrap();
+    // await dispatch(createservice(serviceData, token)).unwrap();
+    // navigate(from, { replace: true });
+    // console.log("serviceData here", serviceData);
+    dispatch(createservice(serviceData, token)).then(()=> serviceproviderService.createservice(serviceData, token));
+    // Success: The service was created, you can handle the fulfilled state if needed.
+    // navigate(from, { replace: true });
 
   };
 
+    const handleImageUpload = (event) => {
+      // Here, you can handle the uploaded image(s).
+      const files = event.target.files;
+      console.log(files); // This will log the FileList object, which contains the selected image(s).
+      // You can now perform any further processing, such as uploading the image to a server, displaying a preview, etc.
+    };
+
+
   if (isLoading) {
-    return <Spinner />;
+    return <Spinner2 />;
   }
 
 
@@ -74,8 +90,14 @@ export const Newad = () => {
           <section>
             <Container>
               <Row>
-                <Col>
+                <Col lg={6} md={6} sm={12}>
                   <h4>Product Images</h4>
+                  <Form.Group controlId="formFileMultiple" className="mb-3 image-inner-field"> 
+                    <label className="business-labels">
+                      <span className="business-label-headings">Choose image(s) to Upload</span>
+                    </label>
+                    <Form.Control className="image-inputfield-select" type="file" multiple onChange={handleImageUpload} />
+                  </Form.Group>
                 </Col>
               </Row>
               <Row className="pt-4">
@@ -88,10 +110,11 @@ export const Newad = () => {
                     </label>
                     <br />
                     <Form.Select
-                      className="business-inputs"
-                      // value={category}
+                      className="select-inputfield-select"
+                      value={category}
                       onChange={onChange}
                       name="category"
+                      placeholder="Select Category"
                     >
                       <option>Select Category</option>
                       <option>Mason</option>
@@ -202,10 +225,11 @@ export const Newad = () => {
                     </label>
                     <br />
                     <Form.Select
-                      className="business-inputs"
+                      className="select-inputfield-select"
                       value={areaOfService}
                       onChange={onChange}
                       name="areaOfService"
+                      placeholder="Area of services"
                     >
                       <option>Area of services</option>
                       <option>Sahiwal City</option>
@@ -224,16 +248,17 @@ export const Newad = () => {
                     </label>
                     <br />
                     <Form.Select
-                      className="business-inputs"
+                      className="select-inputfield-select"
                       value={chargingSchedule}
                       onChange={onChange}
                       name="chargingSchedule"
+                      placeholder="Charging Schedule"
                     >
                       <option>Charging Schedule</option>
-                      <option>Hourly</option>
-                      <option>Daily</option>
-                      <option>Contract</option>
-                      <option>Square Feet</option>
+                      <option>hourly</option>
+                      <option>daily</option>
+                      <option>contract</option>
+                      <option>squareFeet</option>
                     </Form.Select>
                   </div>
                 </Col>
@@ -261,7 +286,7 @@ export const Newad = () => {
                 </Col>
                 <Col lg={6} md={6} sm={12}>
                   <div className="login-button">
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" >Submit</button>
                   </div>
                 </Col>
               </Row>
@@ -270,6 +295,6 @@ export const Newad = () => {
         </div>
       </form>
     </>
-  );
-};
+  )
+}
 
