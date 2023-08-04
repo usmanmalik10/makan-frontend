@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { useLocation, useNavigate, Link, NavLink, } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import logoicon from "../../../Assets/Auth-Screen/logoicon.png";
 import { BiLogOut } from "react-icons/bi";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"; // Added dropdown icons
-import { AiOutlineHome, AiOutlineUser, AiOutlineBank, AiOutlineSetting } from "react-icons/ai";
-import { RiArticleLine } from "react-icons/ri";
+// import { AiOutlineHome, AiOutlineUser, AiOutlineBank, AiOutlineSetting } from "react-icons/ai";
+// import { RiArticleLine } from "react-icons/ri";
 import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logout, reset } from "../../../features/auth/authSlice";
 
 const DesktopNavbar = (props) => {

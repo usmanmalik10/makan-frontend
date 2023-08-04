@@ -27,7 +27,7 @@ import { Alldata } from "./Pages/Realestatedashboard/Alldata";
 import { Forrent } from "./Pages/Realestatedashboard/Forrent";
 import { Forsale } from "./Pages/Realestatedashboard/Forsale";
 import { Plotssale } from "./Pages/Realestatedashboard/Plotssale";
-import { PlotforRent } from "./Pages/Realestatedashboard/Plotforrent";
+import { PlotforRent } from "./Pages/Realestatedashboard/PlotforRent";
 
 /* User Side Routes*/
 import { Userprofile } from "./Pages/Userportal/Userprofile";
