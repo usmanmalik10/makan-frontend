@@ -1,38 +1,74 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { createrealestate } from "../../../features/realestate/realestateSlice";
+import Spinner2 from "../../Common/spinner2/spinner2";
+import realestateService from "../../../features/realestate/realestateService";
+import { plotforrent } from "../../constants/config/config.dev";
+
 
 export const Plotforrent = () => {
 
-  const [plotnumber, setplotnumber] = useState("");
-  const [location, setlocation] = useState("");
-  const [size, setsize] = useState("");
-  const [price, setprice] = useState("");
-  const [contactnumber, setcontactnumber] = useState("");
+  const token = localStorage.getItem("accessToken");
+  console.log('checktoken', token)
 
-  const onchangeplotnumber = (e) => {
-    setplotnumber(([e.target.name] = [e.target.value]));
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [formData, setFormData] = useState({
+    address: "",
+    location: "",
+    size: "",
+    contectNumber: "",
+    bedRooms: "",
+    price: "",
+    details: { story:"" },
+  });
+  console.log(formData);
+  const { address, location, size, contectNumber, bedRooms, price, details } =
+    formData;
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.realestate
+  );
+
+  const onChange = (e) => {
+    console.log(e.target.name);
+    setFormData((preState) => ({
+      ...preState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const onchangelocation = (e) => {
-    setlocation(([e.target.name] = [e.target.value]));
-  };
-  const onchangesize = (e) => {
-    setsize(([e.target.name] = e.target.value));
-  };
-  const onchangeprice = (e) => {
-    setprice(([e.target.name] = [e.target.value]));
-  };
-  const onchangecontactnumber = (e) => {
-    setcontactnumber(([e.target.name] = [e.target.value]));
-  };
-
-  const handlesubmitt = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const propertydescription = {
+      ...plotforrent,
+      address,
+      location,
+      size,
+      contectNumber,
+      bedRooms,
+      price,
+      details,
+    };
+    console.log("propertydescription", propertydescription);
+
+    // await dispatch(createrealestate(houseforrent, token)).unwrap();
+
+    dispatch(createrealestate(propertydescription, token)).then(() =>
+      realestateService.createrealestate(propertydescription, token)
+    );
   };
+
   return (
+    <>
+    <form onSubmit={handleSubmit}>
+      
     <div>
-      {" "}
       <section>
         <Container>
           <Row>
@@ -58,9 +94,9 @@ export const Plotforrent = () => {
                   type="text"
                   placeholder="Plot Number"
                   required
-                  value={plotnumber}
-                  name="plotnumber"
-                  onChange={(e) => onchangeplotnumber(e)}
+                  value={address}
+                  name="address"
+                  onChange={onChange}
                 />
               </div>
             </Col>
@@ -70,12 +106,12 @@ export const Plotforrent = () => {
                   <span className="estate-label-headings"> Location :</span>
                 </label>{" "}
                 <br />
-                <select
+                <Form.Select
                   className="estate-inputs"
                   name="location"
                   required
                   value={location}
-                  onChange={(e) => onchangelocation(e)}
+                  onChange={onChange}
                 >
                   <option>Location</option>
                   <option value="farid town">Farid Town</option>
@@ -220,7 +256,7 @@ export const Plotforrent = () => {
                     Razzaq Villas Madhali Road
                   </option>
                   <option value="Ahmar Block ">Ahmar Block Madhali Road</option>
-                </select>
+                </Form.Select>
               </div>
             </Col>
           </Row>
@@ -231,12 +267,12 @@ export const Plotforrent = () => {
                   <span className="estate-label-headings">Size : </span>
                 </label>
                 <br />
-                <select
+                <Form.Select
                   className="estate-inputs"
                   name="size"
                   required
                   value={size}
-                  onChange={(e) => onchangesize(e)}
+                  onChange={onChange}
                 >
                   <option value="size"> Size</option>
                   <option value="3 Marla"> 3 Marla</option>
@@ -252,7 +288,7 @@ export const Plotforrent = () => {
                   <option value="3 Marla"> 3 Kanal</option>
                   <option value="3 Marla"> 4 Kanal</option>
                   <option value="3 Marla"> 5 Kanal</option>
-                </select>
+                </Form.Select>
               </div>
             </Col>
             <Col lg={6} md={6} sm={12}>
@@ -268,7 +304,7 @@ export const Plotforrent = () => {
                   required
                   value={price}
                   name="price"
-                  onChange={(e) => onchangeprice(e)}
+                  onChange={onChange}
                 />
               </div>
             </Col>
@@ -287,23 +323,23 @@ export const Plotforrent = () => {
                   type="number"
                   placeholder="Enter Number"
                   required
-                  value={contactnumber}
-                  name="contactnumber"
-                  onChange={(e) => onchangecontactnumber(e)}
+                  value={contectNumber}
+                  name="contectNumber"
+                  onChange={onChange}
                 />
               </div>
             </Col>
             <Col lg={6} md={6} sm={12}>
-              <div className="estate-button-div">
-                <Link to="/" className="estate-button" onClick={handlesubmitt}>
-                  Submit
-                </Link>
-              </div>
+            <div className="login-button">
+                    <button type="submit">Submit</button>
+                  </div>
             </Col>
           </Row>
         </Container>
       </section>
     </div>
+    </form>
+    </>
   );
 };
 

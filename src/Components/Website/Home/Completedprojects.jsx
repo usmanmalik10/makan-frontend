@@ -20,7 +20,7 @@ export const Completedprojects = () => {
           </Col>
           <Col lg={5} md={5} sm={12}>
             <div>
-              <h1 className="home-allheadings">Completed Projects</h1>
+              <h1 className="home_completed_heading">Completed Projects</h1>
             </div>
           </Col>
           <Col lg={2} md={2} sm={12}>
@@ -34,17 +34,17 @@ export const Completedprojects = () => {
         </Row>
 
         <Row className="pt-5">
-          <Col lg={4} md={6} sm={12}>
+          <Col lg={4} md={4} sm={12}>
             <div>
               <img className="home-project-image" alt="im" src={p1} />
             </div>
           </Col>
-          <Col lg={4} md={6} sm={12}>
+          <Col lg={4} md={4} sm={12}>
             <div>
               <img className="home-project-image" alt="im" src={p2} />
             </div>
           </Col>
-          <Col lg={4} md={6} sm={12}>
+          <Col lg={4} md={4} sm={12}>
             <div>
               <img className="home-project-image" alt="im" src={p3} />
             </div>
@@ -52,17 +52,17 @@ export const Completedprojects = () => {
         </Row>
         <div className="pt-4">
           <Row>
-            <Col lg={4} md={6} sm={12}>
+            <Col lg={4} md={4} sm={12}>
               <div>
                 <img className="home-project-image" alt="im" src={p4} />
               </div>
             </Col>
-            <Col lg={4} md={6} sm={12}>
+            <Col lg={4} md={4} sm={12}>
               <div>
                 <img className="home-project-image" alt="im" src={p5} />
               </div>
             </Col>
-            <Col lg={4} md={6} sm={12}>
+            <Col lg={4} md={4} sm={12}>
               <div>
                 <img className="home-project-image" alt="im" src={p6} />
               </div>

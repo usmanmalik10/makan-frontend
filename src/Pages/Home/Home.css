@@ -1,0 +1,125 @@
+
+
+.hero-image1{
+  width: 100% !important;
+  height: 500px;
+}
+.hero-text-div{
+  position: absolute;
+  top: 50%;
+}
+.hero-text{
+  margin-left: 50px;
+  color: red;
+  font-weight: 700;
+}
+
+
+
+.homepage-allsection{
+  padding: 30px 0px;
+}
+
+
+/* store section */
+
+home_store_section{
+  padding: 25px 0px;
+}
+ .side-img-div{
+     margin: auto;
+     text-align: end;
+   }
+   .store-sideimage{
+     width: 80px;
+     height: 80px;
+   }
+   .home_store_heading{
+ margin-top: 14px ;
+   }
+   .store-card{
+     padding-top: 20px;
+     width: 350px !important;
+     /* border-radius: 20px !important; */
+     border: 0px !important;
+   }
+   .store-names{
+     text-align: center;
+     font-size: 28px !important;
+     font-family: 'Times New Roman', Times, serif;
+     font-style: italic;
+   }
+  /* End */
+
+ /* RealEstate */
+ .real_home_heading{
+  margin-top: 14px;
+ }
+
+
+ /* End */
+
+ /* Our Proejcts */
+.our_project_home{
+  margin-top: 14px;
+}
+ 
+ 
+  .home-project-image{
+    width: 100% !important;
+  }
+  .viewall-div{
+    margin-top: 30px;
+    text-align: end;
+  }
+  .team-viewall{
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    
+  }
+  .project-cardimg{
+    border-radius: 30px !important;
+  }
+  /* end */
+
+  /* Completed Projects */
+  .home_completed_heading{
+    margin-top: 14px;
+  }
+  /* End */
+  
+  
+  .viewall-div{
+    margin-top: 30px;
+    text-align: end;
+  }
+  .team-viewall{
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    
+  }
+  .project-cardimg{
+    border-radius: 30px !important;
+  }
+
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+
+.store-card{
+    width: 300px !important;
+}
+
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .store-card{
+        width: 230px !important;
+    }
+
+}
+@media screen and (min-width: 425px) and (max-width: 767px) {
+
+}
