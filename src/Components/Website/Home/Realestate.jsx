@@ -15,7 +15,7 @@ export const Realestate = () => {
             </div>
           </Col>
           <Col lg={5} md={5} sm={12}>
-            <h1 className="home-allheadings">Real Estate</h1>
+            <h1 className="real_home_heading">Real Estate</h1>
           </Col>
           <Col lg={2} md={2} sm={12}>
             <div className="viewall-div">
@@ -36,13 +36,13 @@ export const Realestate = () => {
                     <Card.Title>{post.houseno}</Card.Title>
                     <Card.Text>
                       <p>
-                        <b>{post.price}</b>
+                        {post.price}
                       </p>
                       <p>
-                        <b>{post.area}</b>
+                        {post.area}
                       </p>
                       <p>
-                        <b>{post.address}</b>
+                        {post.address}
                       </p>
                     </Card.Text>
                   </Card.Body>

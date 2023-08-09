@@ -5,6 +5,7 @@ import img2 from "../../../images/homehero2.jpg";
 import img3 from "../../../images/homehero3.jpg";
 import { Container, Row, Col } from "react-bootstrap";
 
+
 const Hero = () => {
   const settings = {
     dots: false,
@@ -17,7 +18,7 @@ const Hero = () => {
     autoplaySpeed: 3000,
   };
   return (
-    <div>
+    <div >
       <Container fluid>
         <Row>
           <Col className="col-padding">

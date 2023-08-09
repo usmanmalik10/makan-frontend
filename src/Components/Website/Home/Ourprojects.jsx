@@ -13,7 +13,7 @@ export const Ourprojects = () => {
           <div className='side-img-div'><img className="store-sideimage" src={logo} alt="log" /></div>
           </Col>
           <Col lg={5} md={5} sm={12}>
-            <h1 className='home-allheadings'>Our Projects</h1>
+            <h1 className='our_project_home'>Our Projects</h1>
           </Col>
           <Col lg={2} md={2} sm={12}>
             <div className="viewall-div">

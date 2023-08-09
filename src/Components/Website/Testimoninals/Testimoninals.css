@@ -98,3 +98,9 @@ h2::after {
 .carousel-indicators li.active {		
 	background: #888;		
 }
+@media screen and (min-width: 425px) and (max-width: 767px) {
+	.carousel{
+		width: auto !important;
+	}
+    
+}

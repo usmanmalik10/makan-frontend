@@ -6,12 +6,12 @@ import shopService from "./shopService";
 
 export const createshop = createAsyncThunk(
   'shop/createshop',
-  async (_, { rejectWithValue }) => {
+  async (token, { rejectWithValue }) => {
     try {
       // Call API to subscribe user
-      const response = await shopService.createshop();
+      const response = await shopService.createshop(token);
       console.log({ response })
-      return response;
+      return response.data;
     } catch (error) {
       console.log({ error });
       const message =

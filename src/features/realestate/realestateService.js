@@ -12,9 +12,13 @@ const API_URL_4 = `${USERS_BASE_URL}/v1/real-estate/64b58b656da8a7eeb6513420`;
 
 const API_URL_5 = `${USERS_BASE_URL}/v1/real-estate/64b58b6e6da8a7eeb6513423`;
 
-const createrealestate = async () => {
+const createrealestate = async (propertydescription, token) => {
   try {
-    const response = await axios.post(API_URL_1);
+    const response = await axios.post(API_URL_1, propertydescription, {
+      headers: {
+        'authorization': `Bearer ${token}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.log("error",error)
