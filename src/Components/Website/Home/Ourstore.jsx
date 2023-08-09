@@ -5,6 +5,8 @@ import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
 import { data } from "./Storehomedata";
 import { Link } from "react-router-dom";
+
+
 export const Ourstore = () => {
   const settings = {
     dots: false,
@@ -15,6 +17,33 @@ export const Ourstore = () => {
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 3000,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          // dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   return (
     <section className="homepage-allsection">
@@ -26,9 +55,10 @@ export const Ourstore = () => {
             </div>
           </Col>
           <Col lg={5} md={5} sm={12}>
-            <div>
-              <h1 className="home-allheadings">Our Store's</h1>
-            </div>
+            
+              <h1 className="home_store_heading">Our Store's</h1>
+              
+            
           </Col>
           <Col lg={2} md={2} sm={12}>
             <div className="viewall-div">

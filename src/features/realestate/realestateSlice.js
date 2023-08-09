@@ -6,12 +6,12 @@ import realestateService from "./realestateService";
 
 export const createrealestate = createAsyncThunk(
   'realestate/createrealestate',
-  async (_, { rejectWithValue }) => {
+  async (propertydescription, token, { rejectWithValue }) => {
     try {
       // Call API to subscribe user
-      const response = await realestateService.createrealestate();
+      const response = await realestateService.createrealestate(propertydescription, token);
       console.log({ response })
-      return response;
+      return response.data;
     } catch (error) {
       console.log({ error });
       const message =

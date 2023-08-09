@@ -26,83 +26,17 @@ padding: 0px !important;
 .slick-next{
   right: 0px !important;
 }
-.hero-image1{
-  width: 100% !important;
-  height: 500px;
-}
-.hero-text-div{
-  position: absolute;
-  top: 50%;
-}
-.hero-text{
-  margin-left: 50px;
-  color: whitesmoke;
-  font-weight: 700;
-}
-.home-allheadings{
-  margin-top: 12px;
-}
 
-.mmproject-heading{
- text-align: center;
-}
-.mm-image{
-  width: 100% !important;
-  height:400px!important; 
-  border-radius: 40px;
-}
-.mm-heading{
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  margin-top: 30%;
-}
 /* store section */
 
-.side-img-div{
-  margin: auto;
-  text-align: end;
-}
-.store-sideimage{
-  width: 80px;
-  height: 80px;
-}
-.store-card{
-  padding-top: 20px;
-  width: 350px !important;
-  /* border-radius: 20px !important; */
-  border: 0px !important;
-}
-.store-names{
-  text-align: center;
-  font-size: 28px !important;
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-}
-.homepage-allsection{
-  padding: 30px 0px;
-}
+
+
 .team-home-image{
   width: 100% !important;
   height: 100% !important;
   border-radius: 20px;
 }
-.home-project-image{
-  width: 100% !important;
-}
-.viewall-div{
-  margin-top: 30px;
-  text-align: end;
-}
-.team-viewall{
-  color: black;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  
-}
-.project-cardimg{
-  border-radius: 30px !important;
-}
+
 /* About Us */
 .cover_div {
   width: 100%;
@@ -178,9 +112,7 @@ padding: 0px !important;
 .contact-hero-img{
  width: 100% !important;
 }
-.message-heading{
 
-}
 .contactus-input{
   width: 300px;
   height: 40px;
@@ -314,38 +246,3 @@ padding: 0px !important;
 
 
 
-/* Footer */
-.footer-section{
-  background: url(../src/images/footerbackground.png);
-  height: 550px;
-  background-size: cover;
-  /* opacity: 0.9; */
-  /* background-color: black !important; */
-}
-.footer-listdiv{
-  padding: 90px 0px;
-}
-.footer-heading{
-  margin-left: 20px;
-  color: whitesmoke;
-}
-.footerlist-type{
-  list-style-type: none;
-}
-.footer-list{
-  padding: 5px 0px;
-}
-.list-text{
-  text-decoration: none;
-  color: whitesmoke;
-  font-weight: 600;
-  font-size: 15px;
-}
-.list-text:hover{
-  text-decoration: none;
-  color: whitesmoke;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-/* Footer End */

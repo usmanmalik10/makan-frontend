@@ -1,42 +1,72 @@
 import React, {useState} from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { createrealestate } from "../../../features/realestate/realestateSlice";
+import Spinner2 from "../../Common/spinner2/spinner2";
+import realestateService from "../../../features/realestate/realestateService";
+import { homeforsale } from "../../constants/config/config.dev";
+
+
 export const Forsalehome = () => {
-    const [housenumber, sethousenumber] = useState("");
-    const [location, setlocation] = useState("");
-    const [size, setsize] = useState("");
-    const [selectbedrooms, setselectbedrooms] = useState("");
-    const [detail, setdetail] = useState("");
-    const [price, setprice] = useState("");
-    const [contactnumber, setcontactnumber] = useState("");
 
-    const onchangehousenumber = (e) => {
-        sethousenumber(([e.target.name] = [e.target.value]));
-    };
-    const onchangelocation = (e) =>{
-        setlocation(([e.target.name] = [e.target.value]));
-    };
-    const onchangesize = (e) => {
-        setsize(([e.target.name] = [e.target.value]));
-    };
-    const onchangeselectbedrooms = (e) =>{
-        setselectbedrooms(([e.target.name] = [e.target.value]));
-    };
-    const onchangedetail = (e) => {
-        setdetail(([e.target.name] = [e.target.value]));
-    };
+  const token = localStorage.getItem("accessToken");
+  console.log('checktoken', token)
 
-    const onchangeprice = (e) =>{
-        setprice(([e.target.name] = [e.target.value]));
-    };
-    const onchangecontactnumber = (e) =>{
-        setcontactnumber(([e.target.name]= [e.target.value]))
-    };
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [formData, setFormData] = useState({
+    address: "",
+    location: "",
+    size: "",
+    contectNumber: "",
+    bedRooms: "",
+    price: "",
+    details: { story:"" },
+  });
+  console.log(formData);
+  const { address, location, size, contectNumber, bedRooms, price, details } =
+    formData;
 
-    const handlesubmitt = (e) =>{
-        e.preventDefault();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.realestate
+  );
+
+  const onChange = (e) => {
+    console.log(e.target.name);
+    setFormData((preState) => ({
+      ...preState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const propertydescription = {
+      ...homeforsale,
+      address,
+      location,
+      size,
+      contectNumber,
+      bedRooms,
+      price,
+      details,
     };
+    console.log("propertydescription", propertydescription);
+
+    // await dispatch(createrealestate(houseforrent, token)).unwrap();
+
+    dispatch(createrealestate(propertydescription, token)).then(() =>
+      realestateService.createrealestate(propertydescription, token)
+    );
+  };
+   
   return (
+    <>
+    <form onSubmit={handleSubmit}>
     <div>
       <section>
         <Container>
@@ -63,9 +93,9 @@ export const Forsalehome = () => {
                   type="text"
                   placeholder="House Number"
                   required
-                  value={housenumber}
-                  name="housenumber"
-                  onChange={(e) => onchangehousenumber(e)}
+                  value={address}
+                  name="address"
+                  onChange={onChange}
                 />
               </div>
             </Col>
@@ -75,7 +105,7 @@ export const Forsalehome = () => {
                   <span className="estate-label-headings"> Location :</span>
                 </label>{" "}
                 <br />
-                <select className="estate-inputs" name="location" required value={location} onChange={(e) => onchangelocation(e)}>
+                <Form.Select className="estate-inputs" name="location" required value={location} onChange={onChange}>
                 <option>Location</option>
                   <option value="farid town">Farid Town</option>
                   <option value="tariq bin ziad colony"> Tariq Bin Ziad Colony</option>
@@ -130,7 +160,7 @@ export const Forsalehome = () => {
                   <option value="Azan City">Azan City GT Road Near Usmania Restaurant</option>
                   <option value="Razzaq Villas">Razzaq Villas Madhali Road</option>
                   <option value="Ahmar Block ">Ahmar Block  Madhali Road</option>
-                </select>
+                </Form.Select>
               </div>
             </Col>
           </Row>
@@ -141,7 +171,7 @@ export const Forsalehome = () => {
                   <span className="estate-label-headings">Size : </span>
                 </label>
                 <br />
-                <select className="estate-inputs" name="size" required value={size} onChange={(e) => onchangesize(e)}>
+                <Form.Select className="estate-inputs" name="size" required value={size} onChange={onChange}>
                   <option value="size"> Size</option>
                   <option value="3 Marla"> 3 Marla</option>
                   <option value="4 Marla"> 4 Marla</option>
@@ -156,7 +186,7 @@ export const Forsalehome = () => {
                   <option value="3 Marla"> 3 Kanal</option>
                   <option value="3 Marla"> 4 Kanal</option>
                   <option value="3 Marla"> 5 Kanal</option>
-                </select>
+                </Form.Select>
               </div>
             </Col>
             <Col lg={6} md={6} sm={12}>
@@ -167,16 +197,16 @@ export const Forsalehome = () => {
                   </span>
                 </label>
                 <br />
-                <select className="estate-inputs" name="selectbedrooms" required value={selectbedrooms} onChange={(e) => onchangeselectbedrooms(e)}>
+                <Form.Select className="estate-inputs" name="bedRooms" required value={bedRooms} onChange={onChange}>
                   <option value="detail"> Select Bedrooms</option>
-                  <option value="Two Bedrooms"> Two Bedrooms</option>
-                  <option value="ThreeBedrooms"> Three Bedrooms</option>
-                  <option value="Four Bedrooms"> Four Bedrooms</option>
-                  <option value=" Five Bedrooms"> Five Bedrooms</option>
-                  <option value=" Six Bedrooms"> Six Bedrooms</option>
-                  <option value="Seven Bedrooms"> Seven Bedrooms</option>
-                  <option value=" EightBedrooms"> Eight Bedrooms</option>
-                </select>
+                  <option value="2"> 2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </Form.Select>
               </div>
             </Col>
           </Row>
@@ -187,11 +217,11 @@ export const Forsalehome = () => {
                   <span className="estate-label-headings"> Detail : </span>
                 </label>
                 <br />
-                <select className="estate-inputs" name="detail>" required value={detail} onChange={(e) => onchangedetail(e)}>
+                <Form.Select className="estate-inputs" name="details.story>" required value={details.story} onChange={onChange}>
                   <option value="detail"> Detail</option>
                   <option value="Single Story"> Single Story</option>
                   <option value="Double Story"> Double Story</option>
-                </select>
+                </Form.Select>
               </div>
             </Col>
             <Col lg={6} md={6} sm={12}>
@@ -207,7 +237,7 @@ export const Forsalehome = () => {
                   required
                   name="price"
                   value={price}
-                  onChange={(e) => onchangeprice(e)}
+                  onChange={onChange}
                 />
               </div>
             </Col>
@@ -226,23 +256,23 @@ export const Forsalehome = () => {
                   className="estate-inputs"
                   type="number"
                   placeholder="Enter Number"
-                  name="contactnumber"
-                  value={contactnumber}
+                  name="contectNumber"
+                  value={contectNumber}
                   required
-                  onChange={(e) => onchangecontactnumber(e)}
+                  onChange={onChange}
                 />
               </div>
             </Col>
             <Col lg={6} md={6} sm={12}>
-              <div className="estate-button-div">
-                <Link to="/" className="estate-button" onClick={handlesubmitt}>
-                  Submit
-                </Link>
-              </div>
+            <div className="login-button">
+                    <button type="submit">Submit</button>
+                  </div>
             </Col>
           </Row>
         </Container>
       </section>
     </div>
+    </form>
+    </>
   );
 };

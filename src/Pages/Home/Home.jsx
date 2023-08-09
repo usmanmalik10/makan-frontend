@@ -10,13 +10,14 @@ import { Realestate } from "../../Components/Website/Home/Realestate";
 import Header from "../../Components/Website/Header/Header";
 import Testimoninals from "../../Components/Website/Testimoninals/Testimoninals";
 import Footer from "../../Components/Website/Footer/Footer";
+import './Home.css'
 
 const Hero = () => {
   return (
     <>
       <Header/>
       <Homehero />
-      <Mmhomes />
+      {/* <Mmhomes /> */}
       <Ourstore />
       <Realestate />
       <Ourprojects />
