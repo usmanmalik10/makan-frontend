@@ -6,12 +6,12 @@ import shopService from "./shopService";
 
 export const createshop = createAsyncThunk(
   'shop/createshop',
-  async (token, { rejectWithValue }) => {
+  async (token, shopdata, { rejectWithValue }) => {
     try {
       // Call API to subscribe user
-      const response = await shopService.createshop(token);
+      const response = await shopService.createshop(token, shopdata);
       console.log({ response })
-      return response.data;
+      return response;
     } catch (error) {
       console.log({ error });
       const message =
@@ -124,22 +124,22 @@ export const shopSlice = createSlice({
  
   extraReducers: (builder) => {
     builder
-      .addCase(createshop.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(createshop.fulfilled, (state, action) => {
-        console.log({ action })
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.message = 'Pending orders fetched successfully';
-        state.createshop = action.payload;
-      })
-      .addCase(createshop.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.message = action.error.message;
-        state.createshop = null
-      })
+    .addCase(createshop.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+      state.isSuccess = false;
+    })
+    .addCase(createshop.fulfilled, (state) => {
+      state.isLoading = false;
+      state.isError = false;
+      state.isSuccess = true;
+    })
+    .addCase(createshop.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.isSuccess = false;
+      state.message = action.payload || "An error occurred.";
+    })
       .addCase(showshop.pending, (state) => {
         state.isLoading = true;
       })
