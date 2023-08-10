@@ -11,7 +11,7 @@ export const createshop = createAsyncThunk(
       // Call API to subscribe user
       const response = await shopService.createshop(token, shopdata);
       console.log({ response })
-      return response;
+      return response.data;
     } catch (error) {
       console.log({ error });
       const message =
