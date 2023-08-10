@@ -10,15 +10,15 @@ export const Mmhomes = () => {
       <section className="homepage-allsection">
         <Container  className="homepage-allcontainers" >
           <Row >
-            <Col lg={5} md={5} sm={12}>
+            <Col lg={5} md={5} sm={5} xs={5}>
               <div className="side-img-div">
                 <img className="store-sideimage" src={logo} alt="log" />
               </div>
             </Col>
-            <Col lg={5} md={5} sm={12}>
+            <Col lg={5} md={5} sm={5} xs={5}>
               <h1 className="home-allheadings">Makan Manager Project</h1>
             </Col>
-            <Col lg={2} md={2} sm={12}>
+            <Col lg={2} md={2} sm={2} xs={2}>
             <div className="viewall-div">
               <Link to="/" className="team-viewall"> View All</Link>
             </div>

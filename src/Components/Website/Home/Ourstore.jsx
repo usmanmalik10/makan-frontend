@@ -49,18 +49,18 @@ export const Ourstore = () => {
     <section className="homepage-allsection">
       <Container>
         <Row>
-          <Col lg={5} md={5} sm={12}>
+          <Col lg={5} md={5} sm={4} xs={4}>
             <div className="side-img-div">
               <img className="store-sideimage" src={logo} alt="log" />
             </div>
           </Col>
-          <Col lg={5} md={5} sm={12}>
+          <Col lg={5} md={5} sm={4} xs={4}>
             
               <h1 className="home_store_heading">Our Store's</h1>
               
             
           </Col>
-          <Col lg={2} md={2} sm={12}>
+          <Col lg={2} md={2} sm={4} xs={4}>
             <div className="viewall-div">
               <Link to="/" className="team-viewall">
                 {" "}
