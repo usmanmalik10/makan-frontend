@@ -13,17 +13,17 @@ export const Completedprojects = () => {
     <section className="homepage-allsection">
       <Container>
         <Row>
-          <Col lg={5} md={5} sm={12}>
+          <Col lg={5} md={5} sm={3} xs={3}>
             <div className="side-img-div">
               <img className="store-sideimage" src={logo} alt="log" />
             </div>
           </Col>
-          <Col lg={5} md={5} sm={12}>
+          <Col lg={5} md={5} sm={5} xs={5}>
             <div>
               <h1 className="home_completed_heading">Completed Projects</h1>
             </div>
           </Col>
-          <Col lg={2} md={2} sm={12}>
+          <Col lg={2} md={2} sm={4} xs={4}>
             <div className="viewall-div">
               <Link to="/" className="team-viewall">
                 {" "}

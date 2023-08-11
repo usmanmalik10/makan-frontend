@@ -1,10 +1,21 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { createshop } from "../../../features/shop/shopSlice";
+import Spinner2 from "../../Common/spinner2/spinner2";
+import shopService from "../../../features/shop/shopService";
+import { shopdetail } from "../../constants/config/config.dev";
+
+
 
 export const Newad = () => {
-  const [openDropdown, setOpenDropdown] = useState(null);
+  
+  const token = localStorage.getItem("accessToken");
+  console.log('checktoken', token)
 
+  const [openDropdown, setOpenDropdown] = useState(null);
   const handleDropdownClick = (id) => {
     if (openDropdown === id) {
       setOpenDropdown(null);
@@ -12,6 +23,62 @@ export const Newad = () => {
       setOpenDropdown(id);
     }
   };
+
+ 
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [formData, setFormData] = useState({
+    areaOfService: "",
+    shopName: "",
+    productName: "",
+    address:"",
+    contectNumber: "",
+    companyName: "",
+    price: "",
+    NTN:"",
+    details: { },
+  });
+  console.log(formData);
+  const { areaOfService, shopName, productName, address, contectNumber, companyName, price, NTN, details,} = formData;
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.shop
+  );
+
+
+  const onChange = (e) => {
+    console.log(e.target.name);
+    setFormData((preState) => ({
+      ...preState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmitbuildingmaterial = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+      ...shopdetail,
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details},
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+    console.log("checktoken11", token);
+  };
+
 
   return (
     <div>
@@ -69,204 +136,230 @@ export const Newad = () => {
           <Row>
             {openDropdown === "dropdown1" && (
               <div>
-                {/* Dropdown Content for Building Material */}
-                <section className="pt-4">
-                  <Container>
-                    <Row>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Shop Name:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Shop Name"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Contact Number:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Contact Number"
-                            required
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Shop Address:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Shop Address"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Area of services :
-                            </span>
-                          </label>
-                          <br />
-                          <select className="business-inputs">
-                            <option>Area of services</option>
-                            <option>Sahiwal City</option>
-                            <option>Sahiwal Division</option>
-                            <option>Punjab</option>
-                            <option>Pakistan</option>
-                          </select>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              NTN:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="NTN"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Product Name:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Product Name"
-                            required
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Company Name
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Company Name"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Price:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Price"
-                            required
-                          />
-                        </div>
-                      </Col>
-                    </Row>
+                <form onSubmit={handleSubmitbuildingmaterial}>
+                  {/* Dropdown Content for Building Material */}
+                  <section className="pt-4">
+                    <Container>
+                      <Row>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Shop Name:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Shop Name"
+                              required
+                              name="shopName"
+                              value={shopName}
+                              onChange={onChange}
+                            />
+                          </div>
+                        </Col>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Contact Number:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Contact Number"
+                              required
+                              value={contectNumber}
+                              name="contectNumber"
+                              onChange={onChange}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Shop Address:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Shop Address"
+                              required
+                              name="address"
+                              value={address}
+                              onChange={onChange}
+                            />
+                          </div>
+                        </Col>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Area of services :
+                              </span>
+                            </label>
+                            <br />
+                            <Form.Select className="business-inputs" value={areaOfService} name="areaOfService" onChange={onChange}>
+                              <option>Area of services</option>
+                              <option>Sahiwal City</option>
+                              <option>Sahiwal Division</option>
+                              <option>Punjab</option>
+                              <option>Pakistan</option>
+                            </Form.Select>
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                NTN:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="NTN"
+                              required
+                              name="NTN"
+                              value={NTN}
+                              onChange={onChange}
+                            />
+                          </div>
+                        </Col>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Product Name:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Product Name"
+                              required
+                              name="productName"
+                              value={productName}
+                              onChange={onChange}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Company Name
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Company Name"
+                              required
+                              name="companyName"
+                              value={companyName}
+                              onChange={onChange}
+                            />
+                          </div>
+                        </Col>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Price:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Price"
+                              required
+                              value={price}
+                              name="price"
+                              onChange={onChange}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
 
-                    <Row>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Quantity:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Quantity"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Category:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Category"
-                            required
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <label className="business-labels">
-                            <span className="business-label-headings">
-                              Weight:
-                            </span>
-                          </label>
-                          <br />
-                          <input
-                            className="business-inputs"
-                            type="text"
-                            placeholder="Weight"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col>
-                        <input type="submit" />
-                      </Col>
-                    </Row>
-                  </Container>
-                </section>
+                      <Row>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Quantity:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Quantity"
+                              required
+                              
+                            />
+                          </div>
+                        </Col>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Category:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Category"
+                              required
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Weight:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Weight"
+                              required
+                            />
+                          </div>
+                        </Col>
+                        <Col>
+                          <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </section>
+                </form>
               </div>
             )}
 
@@ -2508,7 +2601,7 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
                               Weight:
@@ -2542,7 +2635,7 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
                               Fitting:
@@ -2559,7 +2652,6 @@ export const Newad = () => {
                       </Col>
                     </Row>
                     <Row>
-                      
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <input type="submit" />
@@ -2764,7 +2856,7 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
                               Tempered :
@@ -2775,7 +2867,6 @@ export const Newad = () => {
                             <option>Tempered</option>
                             <option>Yes</option>
                             <option>No</option>
-                            
                           </select>
                         </div>
                       </Col>
@@ -2985,10 +3076,10 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
-                            Weight:
+                              Weight:
                             </span>
                           </label>
                           <br />
@@ -3019,10 +3110,10 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
-                            Quantity:
+                              Quantity:
                             </span>
                           </label>
                           <br />
@@ -3224,7 +3315,7 @@ export const Newad = () => {
                     </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
                               After sale services :
@@ -3235,7 +3326,6 @@ export const Newad = () => {
                             <option>After sale services</option>
                             <option>Yes</option>
                             <option>No</option>
-                            
                           </select>
                         </div>
                       </Col>
@@ -3443,7 +3533,7 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
                               Material:
@@ -3457,15 +3547,14 @@ export const Newad = () => {
                             required
                           />
                         </div>
-                        
                       </Col>
                     </Row>
                     <Row>
                       <Col>
-                      <div>
+                        <div>
                           <input type="submit" />
                         </div>
-                        </Col>
+                      </Col>
                     </Row>
                   </Container>
                 </section>
@@ -3648,7 +3737,6 @@ export const Newad = () => {
                       </Col>
                     </Row>
                     <Row>
-                    
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <input type="submit" />
@@ -3819,12 +3907,11 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <input type="submit" />
                         </div>
                       </Col>
                     </Row>
-                   
                   </Container>
                 </section>
               </div>
@@ -3989,12 +4076,11 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <input type="submit" />
                         </div>
                       </Col>
                     </Row>
-                   
                   </Container>
                 </section>
               </div>
@@ -4159,12 +4245,11 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                      <div>
+                        <div>
                           <input type="submit" />
                         </div>
                       </Col>
                     </Row>
-                  
                   </Container>
                 </section>
               </div>
@@ -4311,7 +4396,7 @@ export const Newad = () => {
                         </div>
                       </Col>
                     </Row>
-                   
+
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -4452,7 +4537,7 @@ export const Newad = () => {
                         <div>
                           <label className="business-labels">
                             <span className="business-label-headings">
-                            Type:
+                              Type:
                             </span>
                           </label>
                           <br />
@@ -4481,7 +4566,7 @@ export const Newad = () => {
                         </div>
                       </Col>
                     </Row>
-                    
+
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -4854,9 +4939,8 @@ export const Newad = () => {
                         </div>
                       </Col>
                     </Row>
-                    
+
                     <Row>
-                     
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <input type="submit" />
@@ -5009,9 +5093,8 @@ export const Newad = () => {
                         </div>
                       </Col>
                     </Row>
-                    
+
                     <Row>
-                      
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <input type="submit" />
