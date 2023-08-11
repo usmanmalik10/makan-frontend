@@ -18,7 +18,6 @@ const createshop = async (token, shopdata) => {
       headers: {
         'authorization': `Bearer ${token}`
       }
-      
     });
     console.log("checkresponse", response);
     return response.data;

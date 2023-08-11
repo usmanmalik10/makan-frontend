@@ -75,8 +75,7 @@ export const Newad = () => {
 
     // await dispatch(createshop(shopdata, token)).unwrap();
 
-    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
-    console.log("checktoken11", token);
+    dispatch(createshop(shopdata)).then(() => shopService.createshop(shopdata));
   };
 
 
