@@ -6,10 +6,10 @@ import shopService from "./shopService";
 
 export const createshop = createAsyncThunk(
   'shop/createshop',
-  async (token, shopdata, { rejectWithValue }) => {
+  async (token,  { rejectWithValue }) => {
     try {
       // Call API to subscribe user
-      const response = await shopService.createshop(token, shopdata);
+      const response = await shopService.createshop(token);
       console.log({ response })
       return response.data;
     } catch (error) {
@@ -151,10 +151,11 @@ export const shopSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
     })
-    .addCase(createshop.fulfilled, (state) => {
+    .addCase(createshop.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isError = false;
       state.isSuccess = true;
+      state.createshop = action.payload;
     })
     .addCase(createshop.rejected, (state, action) => {
       state.isLoading = false;

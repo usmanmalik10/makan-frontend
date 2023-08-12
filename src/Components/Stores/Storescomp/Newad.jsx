@@ -60,7 +60,7 @@ export const Newad = () => {
     e.preventDefault();
 
     const shopdata = {
-      ...shopdetail,
+    
       areaOfService:[areaOfService],
       shopName,
       productName,
@@ -75,13 +75,15 @@ export const Newad = () => {
 
     // await dispatch(createshop(shopdata, token)).unwrap();
 
-    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
-    console.log("checktoken11", token);
+    await dispatch(createshop( token)).then(() => shopService.createshop(token));
+  
   };
-
+  if (isLoading) {
+    return <Spinner2 />;
+  }
 
   return (
-    <div>
+    <>
       <section>
         <Container>
           <Row>
@@ -312,7 +314,7 @@ export const Newad = () => {
                               className="business-inputs"
                               type="text"
                               placeholder="Quantity"
-                              required
+                              // required
                               
                             />
                           </div>
@@ -329,7 +331,7 @@ export const Newad = () => {
                               className="business-inputs"
                               type="text"
                               placeholder="Category"
-                              required
+                              // required
                             />
                           </div>
                         </Col>
@@ -347,7 +349,7 @@ export const Newad = () => {
                               className="business-inputs"
                               type="text"
                               placeholder="Weight"
-                              required
+                              // required
                             />
                           </div>
                         </Col>
@@ -5108,6 +5110,6 @@ export const Newad = () => {
           </Row>
         </Container>
       </section>
-    </div>
+    </>
   );
 };
