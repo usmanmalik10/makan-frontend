@@ -37,34 +37,7 @@ padding: 0px !important;
   border-radius: 20px;
 }
 
-/* About Us */
-.cover_div {
-  width: 100%;
-  /* height: calc(100vh - 102px); */
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: #0f1837;
-  align-items: center;
-  border-radius: 4px;
-}
-.video_player {
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-}
-.about-hero{
-  width: 100% !important;
-}
-.aboutus-section{
-  padding: 100px 0px;
-}
-.aboutus-paragraphs{
-  font-size: 17px;
-  margin-left: 20px;
-  
-  
-}
-/* AboutUs End */
+
 
 
 /* Services */
@@ -106,54 +79,9 @@ padding: 0px !important;
 
 /* Our Team page End */
 /* Contact Us */
-.contactus-section{
-  padding: 50px 0px;
-}
-.contact-hero-img{
- width: 100% !important;
-}
 
-.contactus-input{
-  width: 300px;
-  height: 40px;
-  border-radius: 20px;
-  padding-left: 10px;
-  margin-top: 10px;
-  border: 1px solid #f0090d !important;
-}
-.contact-messagearea{
-  width: 300px;
-  height: 150px;
-  border-radius: 20px;
-  padding-left: 10px;
-  margin-top: 10px;
-  border: 1px solid #f0090d !important;
- 
-}
-.message-button-div{
-  margin-top: 40px;
-  margin-left: 22px;
-}
-.contactus-button{
-  padding: 11px 60px;
-  background: transparent
-  linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
-  no-repeat padding-box;
-  border-radius: 30px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-.contactus-button:hover{
-  padding: 11px 60px;
-  background: transparent
-  linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
-  no-repeat padding-box;
-  border-radius: 30px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+
+
 /* Contact Us End */
 
 /* wrapper */

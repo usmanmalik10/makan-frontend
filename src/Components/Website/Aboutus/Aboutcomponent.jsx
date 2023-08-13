@@ -4,12 +4,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import AboutVideo from "../../../images/companyvideo.mp4"
 import ReactPlayer from 'react-player';
 import Footer from "../Footer/Footer";
+import "./Aboutus.scss";
 
 export const Aboutcomponent = () => {
 
   return (
     <div>
-      <section>
+      <section className="aboutus_page">
         <Container fluid>
           <Row>
             <Col className="col-padding">
@@ -63,7 +64,7 @@ export const Aboutcomponent = () => {
               <h2>Vision</h2>
               <p className="aboutus-paragraphs">
                 To be a world class premier digital platform for Real Estate
-                services and supplies
+                services and supplies.
               </p>
             </Col>
           </Row>
@@ -73,7 +74,7 @@ export const Aboutcomponent = () => {
               <p className="aboutus-paragraphs">
                 To offer an elite, optimal and 360-degree real estate experience
                 to customers, investors, builders and developers, through a
-                state-of-the-art online solution
+                state-of-the-art online solution.
               </p>
             </Col>
           </Row>

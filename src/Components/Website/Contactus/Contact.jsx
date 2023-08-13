@@ -2,15 +2,16 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import img from "../../../images/abouthero.png";
 import { Link } from "react-router-dom";
+import "./Contactus.scss";
 
 export const Contact = () => {
   return (
     <div>
-      <section>
+      <section className="contact_first-sec">
         <Container fluid>
           <Row>
             <Col className="col-padding">
-              <img className="contact-hero-img" src={img} alt="i" />
+              <img className="contact_hero_img" src={img} alt="i" />
             </Col>
           </Row>
         </Container>
@@ -38,7 +39,7 @@ export const Contact = () => {
             <Col lg={6} md={6} sm={12}>
               <div>
                 <h2>Contact Us</h2>
-                <p>For any query or complaint, please feel free to contact us; <br/>
+                <p className="contact_query">For any query or complaint, please feel free to contact us; <br/>
                 Location: 	23-C First Floor, Fateh Sher Road, Sahiwal <br/>
                 Phone:		+92 3 111 444 666 <br/>
                 Email Address:	info@makanmanager.com

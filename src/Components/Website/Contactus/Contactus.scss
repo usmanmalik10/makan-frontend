@@ -1,0 +1,78 @@
+contact_first-sec{
+    .contact_hero_img{
+        width: 100%;
+       }
+       .col-padding{
+        padding: 0px !important;
+        }
+}
+.contactus-section{
+    padding: 50px 0px;
+
+    .contactus-input{
+        width: 300px;
+        height: 40px;
+        border-radius: 20px;
+        padding-left: 10px;
+        margin-top: 10px;
+        border: 1px solid #f0090d !important;
+        margin-left: 20px;
+      }
+      .contact-messagearea{
+        width: 300px;
+        height: 150px;
+        border-radius: 20px;
+        padding-left: 10px;
+        margin-top: 10px;
+        border: 1px solid #f0090d !important;
+        margin-left: 20px;
+       
+      }
+      .message-button-div{
+        margin-top: 40px;
+        margin-left: 44px;
+      }
+      .contactus-button{
+        padding: 11px 60px;
+        background: transparent
+        linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+        no-repeat padding-box;
+        border-radius: 30px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .contactus-button:hover{
+        padding: 11px 60px;
+        background: transparent
+        linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+        no-repeat padding-box;
+        border-radius: 30px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .contact_query{
+        font-style: oblique;
+        font-weight: 600;
+        margin-left: 10%;
+        font-size: 16px;
+      }
+}
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .contact_hero_img{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .contact_hero_img{
+        width: 100%;
+    }
+    .contactus-input{
+        width: 250px !important;
+    }
+    .contact-messagearea{
+        width: 250px !important;
+    }
+}

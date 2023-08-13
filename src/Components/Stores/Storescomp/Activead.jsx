@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../constants/config/config.dev";
+import "./Activeadd.scss"
+
 export const Activead = () => {
 
   const token = localStorage.getItem("accessToken");
@@ -47,19 +49,29 @@ export const Activead = () => {
 
   return (
     <>
-    <section>
+    <section className="active_sec">
       <Container>
         <Row>
           <Col>
-            <h1>All Add's</h1>
+            <h1 className="active_head">Active Add's</h1>
           </Col>
         </Row>
         <Row>
         {data.map((ad) => (
           <Col lg={4} md={4} sm={12} xs={12}>
             <Card key={ad._id} >
+            <Card.Img   />
               <Card.Body>
-                <Card.Title> Shop Name{ad.shopName}</Card.Title>
+              <Card.Text>
+                  <p className="active_card_text">Shop Name : {ad.shopName}</p>
+                  <p className="active_card_text"> Product Name : {ad.productName}</p>
+                  <p className="active_card_text">Price: {ad.price}</p>
+                  <p className="active_card_text">Address: {ad.address}</p>
+                  <p className="active_card_text">Area of Service: {ad.areaOfService.join(", ")}</p>
+                  <p className="active_card_text"> Contact Number: {ad.contectNumber}</p>
+                  <p className="active_card_text">Company Name: {ad.companyName}</p>
+                </Card.Text>
+                {/* <Card.Title> Shop Name{ad.shopName}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{ad.productName}</Card.Subtitle>
                 <Card.Text>Price: {ad.price}</Card.Text>
                 <Card.Text>Address: {ad.address}</Card.Text>
@@ -67,7 +79,7 @@ export const Activead = () => {
                   <Card.Text>Area of Service: {ad.areaOfService.join(", ")}</Card.Text>
                 )}
                 {ad.contectNumber && <Card.Text>Contact Number: {ad.contectNumber}</Card.Text>}
-                {ad.companyName && <Card.Text>Company Name: {ad.companyName}</Card.Text>}
+                {ad.companyName && <Card.Text>Company Name: {ad.companyName}</Card.Text>} */}
               </Card.Body>
             </Card>
           </Col>
