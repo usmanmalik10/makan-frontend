@@ -289,17 +289,17 @@ export const Forrenthome = () => {
                       <option value="size"> Size</option>
                       <option value="3 Marla"> 3 Marla</option>
                       <option value="4 Marla"> 4 Marla</option>
-                      <option value="3 Marla"> 5 Marla</option>
-                      <option value="3 Marla"> 7 Marla</option>
-                      <option value="3 Marla"> 8 Marla</option>
-                      <option value="3 Marla"> 10 Marla</option>
-                      <option value="3 Marla"> 12 Marla</option>
-                      <option value="3 Marla"> 15 Marla</option>
-                      <option value="3 Marla"> 1 kanal</option>
-                      <option value="3 Marla"> 2 Kanal</option>
-                      <option value="3 Marla"> 3 Kanal</option>
-                      <option value="3 Marla"> 4 Kanal</option>
-                      <option value="3 Marla"> 5 Kanal</option>
+                      <option value="5 Marla"> 5 Marla</option>
+                      <option value="7 Marla"> 7 Marla</option>
+                      <option value="8 Marla"> 8 Marla</option>
+                      <option value="10 Marla"> 10 Marla</option>
+                      <option value="12 Marla"> 12 Marla</option>
+                      <option value="15 Marla"> 15 Marla</option>
+                      <option value="1 Kanal"> 1 kanal</option>
+                      <option value="2 Kanal"> 2 Kanal</option>
+                      <option value="3 Kanal"> 3 Kanal</option>
+                      <option value="4 Kanal"> 4 Kanal</option>
+                      <option value="5 Kanal"> 5 Kanal</option>
                     </select>
                   </div>
                 </Col>
@@ -338,7 +338,7 @@ export const Forrenthome = () => {
                       <span className="estate-label-headings"> Detail : </span>
                     </label>
                     <br />
-                    <Form.Select
+                     <Form.Select
                     className="estate-inputs"
                     name="details.story"
                     required
@@ -347,9 +347,11 @@ export const Forrenthome = () => {
                     placeholder="Select Detail"
                   >
                     <option>Select Detail</option>
-                    <option>Single Story</option>
-                    <option>Double Story</option>
-                  </Form.Select>
+                    <option value="1">Single Story</option>
+                    <option value="2">Double Story</option> 
+                  </Form.Select> 
+              
+
                   </div>
                 </Col>
                 <Col lg={6} md={6} sm={12}>
