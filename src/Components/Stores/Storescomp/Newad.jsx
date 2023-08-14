@@ -74,7 +74,7 @@ export const Newad = () => {
 
     // await dispatch(createshop(shopdata, token)).unwrap();
 
-    dispatch(createshop(shopdata)).then(() => shopService.createshop(token, shopdata));
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
   };
   if (isLoading) {
     return <Spinner2 />;

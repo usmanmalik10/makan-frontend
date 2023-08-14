@@ -6,10 +6,10 @@ import shopService from "./shopService";
 
 export const createshop = createAsyncThunk(
   'shop/createshop',
-  async (token,  { rejectWithValue }) => {
+  async (shopdata, token, { rejectWithValue }) => {
     try {
       // Call API to subscribe user
-      const response = await shopService.createshop(token, shopdata);
+      const response = await shopService.createshop(shopdata, token);
       //kitna gand machaya hova ha ek api call kay liye 10 jagah say ho kr ja rha ha
       console.log({ response })
       return response;
