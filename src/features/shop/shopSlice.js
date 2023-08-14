@@ -10,6 +10,7 @@ export const createshop = createAsyncThunk(
     try {
       // Call API to subscribe user
       const response = await shopService.createshop(token, shopdata);
+      //kitna gand machaya hova ha ek api call kay liye 10 jagah say ho kr ja rha ha
       console.log({ response })
       return response;
     } catch (error) {

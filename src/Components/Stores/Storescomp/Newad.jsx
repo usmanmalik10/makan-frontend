@@ -75,7 +75,7 @@ export const Newad = () => {
 
     // await dispatch(createshop(shopdata, token)).unwrap();
 
-    dispatch(createshop(shopdata)).then(() => shopService.createshop(shopdata));
+    dispatch(createshop(shopdata)).then(() => shopService.createshop(token, shopdata));
   };
 
 
