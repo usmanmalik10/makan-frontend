@@ -68,19 +68,3 @@ export const plotforrent = {
   }
 };
 
-export const shopdetail = {
-  
-    "shopName" : "basihr son's",
-    "productName": "tiles",
-    "address": "990 Q DHA",
-    "areaOfService": ["Lahore", "Faisalabad"],
-    "contectNumber": "03231212342",
-    "companyName": "star Asia",
-    "price": "100,000",
-    "details": {
-        "key1": "value",
-        "key2": "value",
-        "key3": "value"
-}
-
-}

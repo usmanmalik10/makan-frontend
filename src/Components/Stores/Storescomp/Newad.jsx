@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { createshop } from "../../../features/shop/shopSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import shopService from "../../../features/shop/shopService";
-import { shopdetail } from "../../constants/config/config.dev";
 
 
 
