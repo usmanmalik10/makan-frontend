@@ -52,7 +52,7 @@ export const Forrenthome = () => {
       contectNumber,
       bedRooms,
       price,
-      details,
+      details:{...details}
     };
     console.log("propertydescription", propertydescription);
 
