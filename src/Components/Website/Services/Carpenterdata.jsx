@@ -4,23 +4,29 @@ import cptimg3 from "../../../images/carpenter3.png"
 export const data =[
     {
         "image": cptimg1,
-        "carpentername": "Makan manager",
-        "cptinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "cptprice": " price Rs 5000",
-        "cptlocation" : " Location College Chowk"
+        "carpentername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": cptimg2,
-        "carpentername": "Makan manager",
-        "cptinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "cptprice": " price Rs 5000",
-        "cptlocation" : " Location College Chowk"
+        "carpentername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": cptimg3,
-        "carpentername": "Makan manager",
-        "cptinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "cptprice": " price Rs 5000",
-        "cptlocation" : " Location College Chowk"
+        "carpentername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     }
 ]

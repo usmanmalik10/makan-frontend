@@ -5,30 +5,33 @@ import img3 from "../../../images/realestate1.png"
 export const saledata =[
     {
         "image": img1,
-        "housenumber": "House No 32",
-        "location": "Farid Town Stop No 10",
-        "detail": " Double Story well furnished",
-        "size": "7 Marla",
-        "price" : "RS 7500000",
-        "contact" : " 03xx-xxxxxxx"
+        "housenumber": "",
+        "location": "",
+        "detail": "",
+        "size" :"",
+        "price" : "",
+        "contact" : " ",
+        "bedrooms" : ""
     },
     {
         "image": img2,
-        "housenumber": "House No 32",
-        "location": "Farid Town Stop No 10",
-        "detail": " Double Story well furnished",
-        "size": "7 Marla",
-        "price" : "RS 7500000",
-        "contact" : " 03xx-xxxxxxx"
+        "housenumber": "",
+        "location": "",
+        "detail": "",
+        "size" :"",
+        "price" : "",
+        "contact" : " ",
+        "bedrooms" : ""
     },
     {
         "image": img3,
-        "housenumber": "House No 32",
-        "location": "Farid Town Stop No 10",
-        "detail": " Double Story well furnished",
-        "size": "7 Marla",
-        "price" : "RS 7500000",
-        "contact" : " 03xx-xxxxxxx"
+        "housenumber": "",
+        "location": "",
+        "detail": "",
+        "size" :"",
+        "price" : "",
+        "contact" : " ",
+        "bedrooms" : ""
     }
 
 ]

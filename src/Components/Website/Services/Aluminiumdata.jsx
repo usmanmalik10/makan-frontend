@@ -4,23 +4,29 @@ import alimg3 from "../../../images/aluminium3.png"
 export const data =[
     {
         "image": alimg1,
-        "aluminiumworkername": "Makan manager",
-        "alinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "alprice": " price Rs 5000",
-        "allocation" : " Location College Chowk"
+        "aluminiumworkername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": alimg2,
-        "aluminiumworkername": "Makan manager",
-        "alinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "alprice": " price Rs 5000",
-        "allocation" : " Location College Chowk"
+        "aluminiumworkername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": alimg3,
-        "aluminiumworkername": "Makan manager",
-        "alinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "alprice": " price Rs 5000",
-        "allocation" : " Location College Chowk"
+        "aluminiumworkername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     }
 ]

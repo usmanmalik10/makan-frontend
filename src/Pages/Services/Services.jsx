@@ -11,6 +11,8 @@ import { Servicespainters } from '../../Components/Website/Services/Servicespain
 import { Servicesplumber } from '../../Components/Website/Services/Servicesplumber'
 import { Servicessteelwelders } from '../../Components/Website/Services/Servicessteelwelders'
 import Header from '../../Components/Website/Header/Header'
+import Footer from "../../Components/Website/Footer/Footer";
+
 
 export const Services = () => {
   return (
@@ -27,6 +29,7 @@ export const Services = () => {
         <Servicesglassfixers />
         <Servicesaluminum />
         <Servicesmarbles />
+        <Footer/>
         
     </div>
   )

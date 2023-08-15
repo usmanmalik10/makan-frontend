@@ -4,23 +4,29 @@ import cimg3 from "../../../images/contractor3.png"
 export const data =[
     {
         "image": cimg1,
-        "contractorname": "Makan manager",
-        "cinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "cprice": " price Rs 5000",
-        "clocation" : " Location College Chowk"
+        "contractorname": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": cimg2,
-        "contractorname": "Makan manager",
-        "cinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "cprice": " price Rs 5000",
-        "clocation" : " Location College Chowk"
+        "contractorname": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": cimg3,
-        "contractorname": "Makan manager",
-        "cinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "cprice": " price Rs 5000",
-        "clocation" : " Location College Chowk"
+        "contractorname": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     }
 ]

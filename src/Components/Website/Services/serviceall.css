@@ -1,0 +1,17 @@
+
+
+    .service_all_see_div{
+        text-align: end;
+    }
+    .service_all_see{
+        
+        font-style: oblique;
+        font-size: 16px;
+        text-decoration: underline;
+        color: black;
+    }
+    .service_all_data{
+        font-style: oblique;
+        font-weight: 600;
+        margin-bottom: 2px;
+    }

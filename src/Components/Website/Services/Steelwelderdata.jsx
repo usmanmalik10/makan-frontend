@@ -4,23 +4,29 @@ import swimg3 from "../../../images/welder3.png"
 export const data =[
     {
         "image": swimg1,
-        "weldername": "Makan manager",
-        "swinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "swprice": " price Rs 5000",
-        "swlocation" : " Location College Chowk"
+        "weldername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": swimg2,
-        "weldername": "Makan manager",
-        "swinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "swprice": " price Rs 5000",
-        "swlocation" : " Location College Chowk"
+        "weldername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": swimg3,
-        "weldername": "Makan manager",
-        "swinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "swprice": " price Rs 5000",
-        "swlocation" : " Location College Chowk"
+        "weldername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     }
 ]

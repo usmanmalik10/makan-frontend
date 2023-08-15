@@ -2,6 +2,9 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import { data } from './painters'
+import "./serviceall.css";
+import { Link } from 'react-router-dom';
+
 export const Servicespainters = () => {
   return (
     <div>
@@ -10,24 +13,28 @@ export const Servicespainters = () => {
                 <Col>
                     <h1>Painters</h1>
                 </Col>
+                <Col>
+                <div className='service_all_see_div'>
+                <Link to="/" className='service_all_see'>see all</Link>
+                </div>
+                </Col>
             </Row>
             <Row>
             {data.map((post) => {
             return (
-                <Col>
+                <Col lg={4} md={4} sm={12} xs={12}>
                          <Card className="store-card">
                   <Card.Img className="img" variant="top" src={post.image} />
                   <Card.Body>
-                    <Card.Title>{post.paintername}</Card.Title>
+                   
                     <Card.Text>
-                      <p>
-                        <b>{post.ptinfo}</b>
-                      </p>
+                   <p className='service_all_data'> Painter Name : {post.paintername}</p>
+                      <p className='service_all_data'>Contact Number : {post.contact}</p>
+                      <p className='service_all_data'>Address : {post.location} </p>
+                      <p className='service_all_data'>Area Of Service : {post.areaofservice}</p>
+                      <p className='service_all_data'>Charging Schedule : {post.chargingschedule}</p>
+                      <p className='service_all_data'>Price : {post.rate}</p>
                     </Card.Text>
-                    <Card.Footer>
-                        {post.ptprice}
-                        {post.ptlocation}
-                    </Card.Footer>
                   </Card.Body>
                 </Card>
                 </Col>

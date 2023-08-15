@@ -5,14 +5,16 @@ import sidelogo from "../../../images/sidelogo.png"
 import { Card } from 'react-bootstrap'
 import { data } from './Estaterentdata'
 import { saledata } from './Estatesaledata'
+import "./Realestate.scss"
+
 export const Realestatehero = () => {
   return (
     <div>
-        <section>
+        <section className='real_estate_sec'>
             <Container fluid>
                 <Row>
                     <Col>
-                        <img src={img} alt="im" />
+                        <img className='estate_hero_img' src={img} alt="im" />
                     </Col>
                 </Row>
             </Container>
@@ -26,29 +28,29 @@ export const Realestatehero = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <h1>For Rent</h1>
+                            <h1>House For Rent</h1>
                         </Col>
                     </Row>
                     <Row>
                     {data.map((post) => {
             return (
-                <Col>
+                <Col lg={4} md={4} sm={12} xs={12}>
                          <Card className="store-card">
                   <Card.Img className="img" variant="top" src={post.image} />
                   <Card.Body>
-                    <Card.Title>{post.housenumber}</Card.Title>
+                   
                     <Card.Text>
-                      <p>
-                        <b>{post.location}</b>
+                      <p className='estate_rent'> House Number : {post.housenumber}</p>
+                      <p className='estate_rent'>
+                        Address : {post.location}
                       </p>
-                      <p>{post.detail}</p>
-                      <p>{post.size}</p>
-                      <p>{post.rent}</p>
+                      <p className='estate_rent'>Size : {post.size}</p>
+                      <p className='estate_rent'> Bedrooms : {post.bedrooms}</p>
+                      <p className='estate_rent'> Detail : {post.detail}</p>
+                      <p className='estate_rent'> Rent : Rs / {post.rent}</p>
+                      <p className='estate_rent'>  Contact Number : {post.contact}</p>
                     </Card.Text>
-                    <Card.Footer>
-                        {post.contact}
-                        
-                    </Card.Footer>
+                    
                   </Card.Body>
                 </Card>
                 </Col>
@@ -59,29 +61,27 @@ export const Realestatehero = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <h1>For Sale</h1>
+                            <h1>House For Sale</h1>
                         </Col>
                     </Row>
                     <Row>
                     {saledata.map((post) => {
             return (
-                <Col>
+                <Col lg={4} md={4} sm={12} xs={12}>
                          <Card className="store-card">
                   <Card.Img className="img" variant="top" src={post.image} />
                   <Card.Body>
-                    <Card.Title>{post.housenumber}</Card.Title>
-                    <Card.Text>
-                      <p>
-                        <b>{post.location}</b>
+                  <Card.Text>
+                      <p className='estate_rent'> House Number : {post.housenumber}</p>
+                      <p className='estate_rent'>
+                        Address : {post.location}
                       </p>
-                      <p>{post.detail}</p>
-                      <p>{post.size}</p>
-                      <p>{post.price}</p>
+                      <p className='estate_rent'>Size : {post.size}</p>
+                      <p className='estate_rent'> Bedrooms : {post.bedrooms}</p>
+                      <p className='estate_rent'> Detail : {post.detail}</p>
+                      <p className='estate_rent'> Price : Rs / {post.price}</p>
+                      <p className='estate_rent'>  Contact Number : {post.contact}</p>
                     </Card.Text>
-                    <Card.Footer>
-                        {post.contact}
-                        
-                    </Card.Footer>
                   </Card.Body>
                 </Card>
                 </Col>

@@ -4,23 +4,29 @@ import pimg3 from "../../../images/plumber3.png"
 export const data =[
     {
         "image": pimg1,
-        "plumbername": "Makan manager",
-        "pinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "pprice": " price Rs 5000",
-        "plocation" : " Location College Chowk"
+        "plumbername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": pimg2,
-        "plumbername": "Makan manager",
-        "pinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "pprice": " price Rs 5000",
-        "plocation" : " Location College Chowk"
+        "plumbername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     },
     {
         "image": pimg3,
-        "plumbername": "Makan manager",
-        "pinfo": "Lorem Ipsum doloer sit amet consectetur adipcisng sed diam oumary",
-        "pprice": " price Rs 5000",
-        "plocation" : " Location College Chowk"
+        "plumbername": "",
+        "contact" : "",
+        "areaofservice": "",
+        "chargingschedule": "",
+        "rate" : "",
+        "location" : ""
     }
 ]
