@@ -14,13 +14,12 @@ const API_URL_5 = `${USERS_BASE_URL}/v1/shop/64b59ad471fb58fed54928d9`;
 
 const API_URL_6 = `${USERS_BASE_URL}/v1/shop/userId`;
 
-const createshop = async (token) => {
+const createshop = async (shopdata, token) => {
   try {
-    const response = await axios.post(API_URL_1, {
+    const response = await axios.post(API_URL_1, shopdata, {
       headers: {
         'authorization': `Bearer ${token}`
       }
-      
     });
     console.log("checkresponse", response);
     return response.data;

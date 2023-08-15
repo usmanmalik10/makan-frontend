@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { createshop } from "../../../features/shop/shopSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import shopService from "../../../features/shop/shopService";
-import { shopdetail } from "../../constants/config/config.dev";
 
 
 
@@ -75,8 +74,7 @@ export const Newad = () => {
 
     // await dispatch(createshop(shopdata, token)).unwrap();
 
-    await dispatch(createshop( token)).then(() => shopService.createshop(token));
-  
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
   };
   if (isLoading) {
     return <Spinner2 />;

@@ -45,6 +45,7 @@ export const Esatatealldata = () => {
       }
     };
 
+    console.log({homeforrentdata})
     fetchDatahomeforrent();
 
     const fetchDatahomeforsale = async () => {

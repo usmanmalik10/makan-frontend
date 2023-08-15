@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Footer.scss'
+import logo from "../../../Assets/Home-Screen/Group 46112.png";
 
 const Footer = () => {
   return (
@@ -9,6 +10,11 @@ const Footer = () => {
         <section className='footer-section'>
             <Container>
                 <Row>
+                <Col lg={3} md={6} sm={12}>
+                    <div className='footer-listdiv'>
+                       <img src={logo} alt="log" />
+                        </div>
+                    </Col>
                     <Col lg={3} md={6} sm={12}>
                         <div className='footer-listdiv'>
                             <h4 className='footer-heading'>Services</h4>
@@ -105,11 +111,7 @@ const Footer = () => {
                                 </ul>
                         </div>
                     </Col>
-                    <Col lg={3} md={6} sm={12}>
-                    <div className='footer-listdiv'>
-                        <h4 className='footer-heading'>News Letter</h4>
-                        </div>
-                    </Col>
+                  
                 </Row>
             </Container>
         </section>
