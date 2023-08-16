@@ -208,7 +208,375 @@ export const Newad = () => {
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
   };
+
   const handleSubmittimber = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitpaint = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+  const handleSubmitsteel = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+  const handleSubmitiron = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+  const handleSubmitaluminum = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+  const handleSubmitglass = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmithardware = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitelectronics = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitelectric = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+  const handleSubmitwallpanelling = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitsolarsytem = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitnursery = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitconcreteplant = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+  const handleSubmitinteriordecoration = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+  const handleSubmitlights = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitfurniture = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmitsecurity = async (e) => {
+    e.preventDefault();
+
+    const shopdata = {
+    
+      areaOfService:[areaOfService],
+      shopName,
+      productName,
+      address,
+      contectNumber,
+      companyName,
+      price,
+      NTN,
+      details:{...details}
+    };
+    console.log("shopdata", shopdata);
+
+    // await dispatch(createshop(shopdata, token)).unwrap();
+
+    dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+  };
+
+  const handleSubmittermiteprotection = async (e) => {
     e.preventDefault();
 
     const shopdata = {
@@ -2160,8 +2528,9 @@ export const Newad = () => {
             )}
             {openDropdown === "dropdown9" && (
               <div>
-                {/* Dropdown Content for Painty */}
+                {/* Dropdown Content for Paint */}
                 <section className="pt-4">
+                  <form onSubmit={handleSubmitpaint}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -2177,6 +2546,10 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
+
                           />
                         </div>
                       </Col>
@@ -2193,6 +2566,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2211,6 +2587,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2222,7 +2601,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -2246,6 +2625,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2262,6 +2644,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2280,6 +2665,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2296,6 +2684,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2309,7 +2700,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="details.key1" value={details.key1} onChange={onChange}>
                             <option>Size</option>
                             <option>Quarter</option>
                             <option>Liter</option>
@@ -2328,7 +2719,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="details.key2" value={details.key2} onChange={onChange}>
                             <option>Category</option>
                             <option>Emulsion</option>
                             <option>Weather Sheet</option>
@@ -2365,7 +2756,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="details.key3" value={details.key3} onChange={onChange}>
                             <option>Type</option>
                             <option>Matt</option>
                             <option>High Gross</option>
@@ -2373,10 +2764,13 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <input type="submit" />
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -2384,6 +2778,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Steel */}
                 <section className="pt-4">
+                  <form onSubmit={handleSubmitsteel}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -2399,6 +2794,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2415,6 +2813,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2433,6 +2834,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2444,7 +2848,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="aresOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -2468,6 +2872,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2484,6 +2891,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2502,6 +2912,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2518,6 +2931,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2536,6 +2952,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Quantity"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2547,7 +2966,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="details.key2" value={details.key2} onChange={onChange}>
                             <option>Category</option>
                             <option>Stainless Steel</option>
                             <option>Magnet Steel</option>
@@ -2569,6 +2988,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2585,16 +3007,22 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
+                            name="details.key4"
+                            value={details.key4}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                     </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
-                        <input type="submit" />
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -2602,6 +3030,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Iron */}
                 <section className="pt-4">
+                  <form onSubmit={handleSubmitiron}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -2617,6 +3046,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2633,6 +3065,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2651,6 +3086,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2662,7 +3100,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="aresOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -2686,6 +3124,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2702,6 +3143,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2720,6 +3164,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2736,6 +3183,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2754,6 +3204,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2770,6 +3223,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2788,16 +3244,20 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -2805,6 +3265,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Aluminum */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitaluminum}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -2820,6 +3281,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2836,6 +3300,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2854,6 +3321,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2865,7 +3335,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -2889,6 +3359,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2905,6 +3378,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2923,6 +3399,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2939,6 +3418,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2957,6 +3439,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2973,6 +3458,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -2991,6 +3479,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3007,6 +3498,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Weight"
                             required
+                            name="details.key4"
+                            value={details.key4}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3025,6 +3519,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
+                            name="details.key5"
+                            value={details.key5}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3041,25 +3538,31 @@ export const Newad = () => {
                             type="text"
                             placeholder="Fitting"
                             required
+                            name="details.key6"
+                            value={details.key6}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                     </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
             {openDropdown === "dropdown13" && (
               <div>
                 {/* Dropdown Content for Glass */}
+                
                 <section className="pt-4">
+                <form onSubmit={handleSubmitglass}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -3075,6 +3578,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3091,6 +3597,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3109,6 +3618,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3120,7 +3632,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -3144,6 +3656,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3160,6 +3675,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3178,6 +3696,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3194,6 +3715,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3212,6 +3736,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3228,6 +3755,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3246,6 +3776,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3257,7 +3790,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="details.key4" value={details.key4} onChange={onChange}>
                             <option>Tempered</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -3267,12 +3800,13 @@ export const Newad = () => {
                     </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -3280,6 +3814,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Hardware */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmithardware}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -3295,6 +3830,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3311,6 +3849,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3329,6 +3870,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3340,7 +3884,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -3364,6 +3908,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3380,6 +3927,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3398,6 +3948,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3414,6 +3967,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3432,6 +3988,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3448,6 +4007,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3466,6 +4028,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3482,6 +4047,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Weight"
                             required
+                            name="details.key4"
+                            value={details.key4}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3500,6 +4068,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
+                            name="details.key5"
+                            value={details.key5}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3516,18 +4087,22 @@ export const Newad = () => {
                             type="text"
                             placeholder="Quantity"
                             required
+                            name="details.key6"
+                            value={details.key6}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                     </Row>
                     <Row>
                       <Col>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -3535,6 +4110,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Electronics */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitelectronics}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -3550,6 +4126,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3566,6 +4145,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3584,6 +4166,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3595,7 +4180,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -3619,6 +4204,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3635,6 +4223,10 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
+
                           />
                         </div>
                       </Col>
@@ -3653,6 +4245,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3669,6 +4264,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3687,6 +4285,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3703,6 +4304,10 @@ export const Newad = () => {
                             type="text"
                             placeholder="Warranty"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
+
                           />
                         </div>
                       </Col>
@@ -3716,7 +4321,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="details.key3" value={details.key3} onChange={onChange}>
                             <option>After sale services</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -3724,12 +4329,13 @@ export const Newad = () => {
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -3737,6 +4343,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Electric */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitelectric}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -3752,6 +4359,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3768,6 +4378,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3786,6 +4399,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3797,7 +4413,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -3821,6 +4437,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3837,6 +4456,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3855,6 +4477,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3871,6 +4496,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3889,6 +4517,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3905,6 +4536,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3923,6 +4557,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3939,18 +4576,22 @@ export const Newad = () => {
                             type="text"
                             placeholder="Material"
                             required
+                            name="details.key4"
+                            value={details.key4}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                     </Row>
                     <Row>
                       <Col>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -3958,6 +4599,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Wall Panelling */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitwallpanelling}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -3973,6 +4615,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -3989,6 +4634,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4007,6 +4655,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4018,7 +4669,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -4042,6 +4693,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4058,6 +4712,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4076,6 +4733,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4092,6 +4752,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4110,6 +4773,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4126,18 +4792,22 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                     </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -4145,6 +4815,8 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Solar System */}
                 <section className="pt-4">
+
+                <form onSubmit={handleSubmitsolarsytem}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -4160,6 +4832,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4176,6 +4851,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4194,6 +4872,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4205,7 +4886,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -4229,6 +4910,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4245,6 +4929,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4263,6 +4950,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4279,6 +4969,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4297,16 +4990,20 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -4314,6 +5011,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Nursery */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitnursery}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -4329,6 +5027,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4345,6 +5046,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4363,6 +5067,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4374,7 +5081,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -4398,6 +5105,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4414,6 +5124,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Plant Name"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4432,6 +5145,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Plant Size"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4448,6 +5164,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4466,16 +5185,20 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -4483,6 +5206,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Concrete Plant */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitconcreteplant}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -4498,6 +5222,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4514,6 +5241,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4532,6 +5262,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4543,7 +5276,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs"  name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -4567,6 +5300,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4583,6 +5319,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4601,6 +5340,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4617,6 +5359,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4635,16 +5380,20 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -4652,6 +5401,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Interior Decoration */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitinteriordecoration}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -4667,6 +5417,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4683,6 +5436,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4701,6 +5457,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4712,7 +5471,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -4736,6 +5495,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4752,6 +5514,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4770,6 +5535,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4786,6 +5554,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4805,16 +5576,20 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -4837,6 +5612,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4853,6 +5631,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4871,6 +5652,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4882,7 +5666,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -4906,6 +5690,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4922,6 +5709,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4940,6 +5730,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4956,6 +5749,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -4975,13 +5771,16 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
@@ -4992,6 +5791,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Furniture */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitfurniture}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -5007,6 +5807,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5023,6 +5826,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5041,6 +5847,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5052,7 +5861,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -5076,6 +5885,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5092,6 +5904,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5110,6 +5925,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5126,6 +5944,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5144,6 +5965,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
+                            name="details.key1"
+                            value={details.key1}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5160,6 +5984,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
+                            name="details.key2"
+                            value={details.key2}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5178,16 +6005,20 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
+                            name="details.key3"
+                            value={details.key3}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -5195,6 +6026,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Security */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmitsecurity}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -5210,6 +6042,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5226,6 +6061,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5244,6 +6082,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5255,7 +6096,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -5279,6 +6120,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5295,6 +6139,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5313,6 +6160,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5329,6 +6179,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5336,12 +6189,13 @@ export const Newad = () => {
 
                     <Row>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
@@ -5349,6 +6203,7 @@ export const Newad = () => {
               <div>
                 {/* Dropdown Content for Termite Protection */}
                 <section className="pt-4">
+                <form onSubmit={handleSubmittermiteprotection}>
                   <Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -5364,6 +6219,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Name"
                             required
+                            name="shopName"
+                            value={shopName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5380,6 +6238,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Contact Number"
                             required
+                            name="contectNumber"
+                            value={contectNumber}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5398,6 +6259,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Shop Address"
                             required
+                            name="address"
+                            value={address}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5409,7 +6273,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" name="areaOfService" value={areaOfService} onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -5433,6 +6297,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="NTN"
                             required
+                            name="NTN"
+                            value={NTN}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5449,6 +6316,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Product Name"
                             required
+                            name="productName"
+                            value={productName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5467,6 +6337,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Company Name"
                             required
+                            name="companyName"
+                            value={companyName}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5483,6 +6356,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Price"
                             required
+                            name="price"
+                            value={price}
+                            onChange={onChange}
                           />
                         </div>
                       </Col>
@@ -5490,12 +6366,13 @@ export const Newad = () => {
 
                     <Row>
                       <Col lg={6} md={6} sm={12}>
-                        <div>
-                          <input type="submit" />
-                        </div>
+                      <div className="login-button">
+                            <button type="submit">Submit</button>
+                          </div>
                       </Col>
                     </Row>
                   </Container>
+                  </form>
                 </section>
               </div>
             )}
