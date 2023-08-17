@@ -118,22 +118,22 @@ export const Newad = () => {
                     >
                       <option>Select Category</option>
                       <option>Mason</option>
-                      <option>Marble & Tiles Fixer</option>
-                      <option>Plumber</option>
-                      <option>Contractor</option>
-                      <option>Engineer</option>
-                      <option>Architect</option>
-                      <option>Carpenter</option>
+                      <option value="marble">Marble & Tiles Fixer</option>
+                      <option value="plumber">Plumber</option>
+                      <option value="contractor">Contractor</option>
+                      <option value="engineer">Engineer</option>
+                      <option value="architect">Architect</option>
+                      <option value="carpenter">Carpenter</option>
                       <option>Wood Cutter</option>
-                      <option>Painter</option>
+                      <option value="painter">Painter</option>
                       <option>Polish Man (Furniture)</option>
                       <option>Steel Fixer / Welder</option>
                       <option>Steel Polish</option>
-                      <option>Welder</option>
+                      <option value="steelwelder">Welder</option>
                       <option>Molding Worker</option>
                       <option>Leith Machine Operator</option>
-                      <option>Aluminum Fixer</option>
-                      <option>Glass Fixer</option>
+                      <option value="aluminium">Aluminum Fixer</option>
+                      <option value="glassfixer">Glass Fixer</option>
                       <option>Glass Cutting & Polish</option>
                       <option>Glass Painter</option>
                       <option>Glass Paper & Designer</option>

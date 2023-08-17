@@ -36,6 +36,7 @@ home_store_section{
    }
    .home_store_heading{
  margin-top: 14px ;
+ font-style: oblique;
    }
    .store-card{
      padding-top: 20px;
@@ -53,8 +54,14 @@ home_store_section{
   /* End */
 
  /* RealEstate */
+ .estate-card{
+  width: 100%;
+  padding-top: 20px;
+  border: 0px !important;
+ }
  .real_home_heading{
   margin-top: 14px;
+  font-style: oblique;
  }
 .estate_ineer_text{
   font-weight: 600;
@@ -68,6 +75,7 @@ home_store_section{
  /* Our Proejcts */
 .our_project_home{
   margin-top: 14px;
+  font-style: oblique;
 }
  
  
@@ -104,6 +112,7 @@ home_store_section{
   /* Completed Projects */
   .home_completed_heading{
     margin-top: 14px;
+    font-style: oblique;
   }
   /* End */
   
@@ -123,6 +132,27 @@ home_store_section{
     border-radius: 30px !important;
   }
 
+  /* DailyRates Section */
+
+  .daily_rate_sec{
+    padding: 50px 0px;
+  }
+  .daily_rates_heading{
+    text-align: center;
+    font-style: oblique;
+  }
+
+  /* END */
+
+  /* Cost Estimation */
+  .cost_section{
+    padding: 50px 0px;
+  }
+  .cost_heading{
+    text-align: center;
+    font-style: oblique;
+  }
+  /* End */
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
 
