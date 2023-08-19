@@ -22,15 +22,16 @@
 .card-description {
   width: 50px;
   color: white;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   flex-wrap: wrap;
   display: flex;
   align-items: center;
   text-align: center;
-  margin-top: -30px;
+  /* margin-top: -30px; */
   justify-content: center;
   font-family: "Poppins", sans-serif;
+  /* margin-top: 20px; */
 }
 
 .card-container {
@@ -43,7 +44,7 @@
 .card-wrapper {
   margin-right: 40px;
   margin-top: 10px;
-  width: 140px;
+  width: 200px;
   height: 200px;
   display: flex;
   justify-content: center;

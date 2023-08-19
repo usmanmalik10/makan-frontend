@@ -71,6 +71,16 @@ export const Storesprof = () => {
                   <p className="store_card_text"> Contact Number: {ad.contectNumber}</p>
                   <p className="store_card_text">Company Name: {ad.companyName}</p>
                 </Card.Text>
+                <Card.Text>
+                      <div className="store_lower_buttons">
+                    <div className="store_update_button">
+                    <button type="submit" >Update</button>
+                  </div>
+                  <div className="store_update_button">
+                    <button type="submit" >Delete</button>
+                  </div>
+                  </div>
+                    </Card.Text>
                 {/* <Card.Title> </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                 <Card.Text> </Card.Text>

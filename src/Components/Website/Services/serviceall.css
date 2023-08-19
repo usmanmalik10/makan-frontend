@@ -1,5 +1,12 @@
 
-
+.all_architect_data{
+    padding: 30px 0px 30px 0px;
+}
+.all_architects_heading{
+    text-align: center;
+    margin: 20px 0px;
+    font-style: oblique;
+}
     .service_all_see_div{
         text-align: end;
     }

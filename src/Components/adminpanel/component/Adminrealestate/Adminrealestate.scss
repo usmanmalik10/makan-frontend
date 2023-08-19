@@ -1,31 +1,16 @@
-.estate_all_section{
+.admin_real_sec{
 
-.all_house_rent{
-    font-weight: 600;
+.admin_real_card{
     font-style: oblique;
+    font-weight: 600;
     margin-bottom: 2px;
 }
-.all_house_sale{
-    font-weight: 600;
-    font-style: oblique;
-    margin-bottom: 2px;
-}
-.all_plot_sale{
-    font-weight: 600;
-    font-style: oblique;
-    margin-bottom: 2px;
-}
-.all_plot_rent{
-    font-weight: 600;
-    font-style: oblique;
-    margin-bottom: 2px;
-}
-.estate_lower_buttons{
+.admin_estate_lower_buttons{
     display: flex;
     flex-direction: row;
    gap: 30%;
-  }
-  .est_lw_button > button{
+}
+.admin_est_lw_button > button{
     width: 100px;
       height: 30px;
       background: transparent

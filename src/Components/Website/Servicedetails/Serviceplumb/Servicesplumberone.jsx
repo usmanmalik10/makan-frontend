@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from 'react-bootstrap'
-import { Card } from 'react-bootstrap'
-import "./serviceall.css";
-import { Link } from 'react-router-dom';
-import Spinner2 from "../../Common/spinner2/spinner2";
+import Header from '../../Header/Header'
+import Footer from '../../Footer/Footer'
+import { Col, Container, Row } from 'react-bootstrap'
+import Spinner2 from "../../../Common/spinner2/spinner2";
 import axios from "axios";
-import { USERS_BASE_URL } from "../../constants/config/config.dev";
-import service_image from "../../../Assets/Services-Screen/Group 46137.png";
+import { USERS_BASE_URL } from "../../../constants/config/config.dev";
+import service_image from "../../../../Assets/Services-Screen/Group 46137.png";
+import { Card } from 'react-bootstrap'
 
-export const Servicesplumber = () => {
 
-  const token = localStorage.getItem("accessToken");
+export const Servicesplumberone = () => {
+    const token = localStorage.getItem("accessToken");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +21,7 @@ export const Servicesplumber = () => {
           `${USERS_BASE_URL}/v1/service`,
           {
             params: {
-              limit: 3,
+              limit: 12,
               page: 1,
               sortBy: "createdAt:desc",
               category: "plumber",
@@ -48,42 +48,16 @@ export const Servicesplumber = () => {
   }
 
   return (
-    <div>
-      <Container>
-        <Row>
-          <Col>
-              <h1>Plumber</h1>
-          </Col>
-          <Col>
-                <div className='service_all_see_div'>
-                <Link to="/service-plumber" className='service_all_see'>see all</Link>
-                </div>
-                </Col>
-        </Row>
-        {/* <Row>
-        {data.map((serviceProvider) => (
-            
-                <Col lg={4} md={4} sm={12} xs={12}>
-                         <Card key={serviceProvider._id} className="store-card">
-                  <Card.Img className="img" variant="top" src={post.image} />
-                  <Card.Body>
-                    
-                    <Card.Text>
-                   <p className='service_all_data'> Plumber Name : {post.plumbername}</p>
-                      <p className='service_all_data'>Contact Number : {post.contact}</p>
-                      <p className='service_all_data'>Address : {post.location} </p>
-                      <p className='service_all_data'>Area Of Service : {post.areaofservice}</p>
-                      <p className='service_all_data'>Charging Schedule : {post.chargingschedule}</p>
-                      <p className='service_all_data'>Price : {post.rate}</p>
-                    </Card.Text>
-                 
-                  </Card.Body>
-                </Card>
-                </Col>
-                 
-                })}
-        </Row> */}
-        <Row className="pt-3">
+    <>
+        <Header />
+            <section>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h1>Plumbers</h1>
+                        </Col>
+                    </Row>
+                    <Row className="pt-3">
             {data.map((serviceProvider) => (
               <Col lg={4} md={4} sm={12} xs={12}>
                 <Card key={serviceProvider._id} className="service_card">
@@ -138,7 +112,9 @@ export const Servicesplumber = () => {
               </Col>
             ))}
           </Row>
-      </Container>
-    </div>
+                </Container>
+            </section>
+        <Footer />
+    </>
   )
 }

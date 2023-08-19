@@ -152,6 +152,20 @@ home_store_section{
     text-align: center;
     font-style: oblique;
   }
+  .cost_lables{
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-style: oblique;
+
+  }
+  .cost_inputs{
+    width: 300px !important;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid red;
+    padding: 2px 10px;
+  }
   /* End */
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {

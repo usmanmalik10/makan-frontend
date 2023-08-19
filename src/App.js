@@ -21,7 +21,7 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
-
+import { Adminarchitect } from "./Pages/Adminportal/Adminarchitect";
 /* Real Estate Routes*/
 import { Alldata } from "./Pages/Realestatedashboard/Alldata";
 import { Forrent } from "./Pages/Realestatedashboard/Forrent";
@@ -49,6 +49,9 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
+import { Servicearchitecture } from "./Components/Website/Servicedetails/Servicearchitecture/Servicearchitecture";
+import { Servicesplumberone } from "./Components/Website/Servicedetails/Serviceplumb/Servicesplumberone";
+
 
 const ROLES = {
   'Admin': 5150,
@@ -74,6 +77,8 @@ function App() {
           <Route path="/realestate" element={<Realestate />} />
           <Route path="/contactus" element={<Contactus />} />
           <Route path="unauthorized" element={<Unauthorized />} />
+          <Route path="/service-architecture" element={<Servicearchitecture />}/>
+          <Route path="/service-plumber" element={<Servicesplumberone />} />
 
           {/* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
@@ -82,6 +87,9 @@ function App() {
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
+            <Route  path="/admin-architect" element={<Adminarchitect />}/>
+
+
           </Route>
 
           <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>

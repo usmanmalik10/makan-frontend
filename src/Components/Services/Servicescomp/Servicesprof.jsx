@@ -105,6 +105,17 @@ export const Servicesprof = () => {
                           {serviceProvider.laborRates}
                         </span>
                       </p>
+                      
+                    </Card.Text>
+                    <Card.Text>
+                      <div className="card_lower_buttons">
+                    <div className="update_button">
+                    <button type="submit" >Update</button>
+                  </div>
+                  <div className="update_button">
+                    <button type="submit" >Delete</button>
+                  </div>
+                  </div>
                     </Card.Text>
                   </Card.Body>
                 </Card>

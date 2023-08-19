@@ -58,7 +58,7 @@ export const Servicesarchitects = () => {
                 </Col>
                 <Col>
                 <div className='service_all_see_div'>
-                <Link to="/" className='service_all_see'>see all</Link>
+                <Link to="/service-architecture" className='service_all_see'>see all</Link>
                 </div>
                 </Col>
             </Row>

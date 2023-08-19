@@ -170,6 +170,16 @@ export const Esatatealldata = () => {
                         Contact Number : {houseData.contectNumber}
                       </p>
                     </Card.Text>
+                    <Card.Text>
+                      <div className="estate_lower_buttons">
+                    <div className="est_lw_button">
+                    <button type="submit" >Update</button>
+                  </div>
+                  <div className="est_lw_button">
+                    <button type="submit" >Delete</button>
+                  </div>
+                  </div>
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               
@@ -200,6 +210,16 @@ export const Esatatealldata = () => {
                     <p className="all_house_sale">Price : Rs/ {houseData.price}</p>
                     <p className="all_house_sale">Contact Number : {houseData.contectNumber} </p>
                   </Card.Text>
+                  <Card.Text>
+                      <div className="estate_lower_buttons">
+                    <div className="est_lw_button">
+                    <button type="submit" >Update</button>
+                  </div>
+                  <div className="est_lw_button">
+                    <button type="submit" >Delete</button>
+                  </div>
+                  </div>
+                    </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -227,6 +247,16 @@ export const Esatatealldata = () => {
                     <p className="all_plot_sale">Price : Rs/ {houseData.price}</p>
                     <p className="all_plot_sale">Contact Number : {houseData.contectNumber} </p>
                   </Card.Text>
+                  <Card.Text>
+                      <div className="estate_lower_buttons">
+                    <div className="est_lw_button">
+                    <button type="submit" >Update</button>
+                  </div>
+                  <div className="est_lw_button">
+                    <button type="submit" >Delete</button>
+                  </div>
+                  </div>
+                    </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -254,6 +284,16 @@ export const Esatatealldata = () => {
                     <p className="all_plot_rent">Rent : Rs/ {houseData.price}</p>
                     <p className="all_plot_rent">Contact Number : {houseData.contectNumber}</p>
                   </Card.Text>
+                  <Card.Text>
+                      <div className="estate_lower_buttons">
+                    <div className="est_lw_button">
+                    <button type="submit" >Update</button>
+                  </div>
+                  <div className="est_lw_button">
+                    <button type="submit" >Delete</button>
+                  </div>
+                  </div>
+                    </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
