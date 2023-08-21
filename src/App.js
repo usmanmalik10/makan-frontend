@@ -103,7 +103,7 @@ function App() {
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
-            <Route  path="/admin-architect" element={<Adminarchitect />}/>
+            <Route path="/admin-architect" element={<Adminarchitect />}/>
 
 
           </Route>
