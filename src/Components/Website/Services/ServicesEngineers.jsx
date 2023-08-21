@@ -55,7 +55,7 @@ export const ServicesEngineers = () => {
           </Col>
           <Col>
                 <div className='service_all_see_div'>
-                <Link to="/" className='service_all_see'>see all</Link>
+                <Link to="/all-engineers" className='service_all_see'>see all</Link>
                 </div>
                 </Col>
         </Row>

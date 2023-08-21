@@ -56,32 +56,11 @@ export const Servicessteelwelders = () => {
           </Col>
           <Col>
                 <div className='service_all_see_div'>
-                <Link to="/" className='service_all_see'>see all</Link>
+                <Link to="/all-steelwelder" className='service_all_see'>see all</Link>
                 </div>
                 </Col>
         </Row>
-        {/* <Row>
-        {data.map((post) => {
-            return (
-                <Col lg={4} md={4} sm={12} xs={12}>
-                         <Card className="store-card">
-                  <Card.Img className="img" variant="top" src={post.image} />
-                  <Card.Body>
-                    
-                    <Card.Text>
-                   <p className='service_all_data'> Contractor Name : {post.weldername}</p>
-                      <p className='service_all_data'>Contact Number : {post.contact}</p>
-                      <p className='service_all_data'>Address : {post.location} </p>
-                      <p className='service_all_data'>Area Of Service : {post.areaofservice}</p>
-                      <p className='service_all_data'>Charging Schedule : {post.chargingschedule}</p>
-                      <p className='service_all_data'>Price : {post.rate}</p>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-                </Col>
-                 );
-                })}
-        </Row> */}
+      
          <Row className="pt-3">
             {data.map((serviceProvider) => (
               <Col lg={4} md={4} sm={12} xs={12}>

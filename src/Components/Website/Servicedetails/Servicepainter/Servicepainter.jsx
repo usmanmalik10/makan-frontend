@@ -9,44 +9,43 @@ import service_image from "../../../../Assets/Services-Screen/Group 46137.png";
 import { Card } from 'react-bootstrap'
 
 
-export const Servicesplumberone = () => {
+export const Servicepainter = () => {
     const token = localStorage.getItem("accessToken");
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${USERS_BASE_URL}/v1/service`,
-          {
-            params: {
-              limit: 12,
-              page: 1,
-              sortBy: "createdAt:desc",
-              category: "plumber",
-            },
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setData(response.data?.data?.docs);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-        // Handle the error here, such as displaying an error message
-      }
-    };
-
-    fetchData();
-  }, [token]);
-
-  if (isLoading) {
-    return <Spinner2 />;
-  }
-
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            `${USERS_BASE_URL}/v1/service`,
+            {
+              params: {
+                limit: 12,
+                page: 1,
+                sortBy: "createdAt:desc",
+                category: "painter",
+              },
+              headers: {
+                authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          setData(response.data?.data?.docs);
+          setIsLoading(false);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          setIsLoading(false);
+          // Handle the error here, such as displaying an error message
+        }
+      };
+  
+      fetchData();
+    }, [token]);
+  
+    if (isLoading) {
+      return <Spinner2 />;
+    }
   return (
     <>
         <Header />
@@ -54,7 +53,7 @@ export const Servicesplumberone = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <h1 className=" services_all_pages_heading">Plumbers</h1>
+                            <h1 className=" services_all_pages_heading">Painters</h1>
                         </Col>
                     </Row>
                     <Row className="pt-3">

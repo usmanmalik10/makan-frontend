@@ -51,6 +51,14 @@ import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
 import { Servicearchitecture } from "./Components/Website/Servicedetails/Servicearchitecture/Servicearchitecture";
 import { Servicesplumberone } from "./Components/Website/Servicedetails/Serviceplumb/Servicesplumberone";
+import { Serviceengineer } from "./Components/Website/Servicedetails/Serviceengineer/Serviceengineer";
+import { Servicecontractor } from "./Components/Website/Servicedetails/Servicecontractors/Servicecontractor";
+import { Servicecarpenter } from "./Components/Website/Servicedetails/Servicecarpenter/Servicecarpenter";
+import { Servicepainter } from "./Components/Website/Servicedetails/Servicepainter/Servicepainter";
+import { Servicesteel } from "./Components/Website/Servicedetails/Servicesteelwelder/Servicesteel";
+import { Serviceglassfixer } from "./Components/Website/Servicedetails/Serviceglassfixer/Serviceglassfixer";
+import { Servicealuminum } from "./Components/Website/Servicedetails/Servicealuminum/Servicealuminum";
+import { Servicemarble } from "./Components/Website/Servicedetails/Servicemarble/Servicemarble";
 
 
 const ROLES = {
@@ -79,6 +87,14 @@ function App() {
           <Route path="unauthorized" element={<Unauthorized />} />
           <Route path="/service-architecture" element={<Servicearchitecture />}/>
           <Route path="/service-plumber" element={<Servicesplumberone />} />
+          <Route path="/all-engineers" element={<Serviceengineer />} />
+          <Route path="/all-contractors" element={<Servicecontractor />} />
+          <Route path="/all=carpenter" element={<Servicecarpenter />} />
+          <Route path="/all-painters" element={<Servicepainter />} />
+          <Route path="/all-steelwelder" element={<Servicesteel />} />
+          <Route path="/all-glassfixer" element={<Serviceglassfixer />} />
+          <Route path="/all-aluminums" element={<Servicealuminum />} />
+          <Route path="/all-marbles" element={<Servicemarble />} />
 
           {/* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>

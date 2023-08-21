@@ -1,0 +1,23 @@
+.service_all_pages_sec{
+    padding: 50px 0px;
+}
+.services_all_pages_heading{
+    text-align: center;
+    font-style: oblique;
+
+}
+
+.all_servicespage_card{
+    border: 0px !important;
+    margin-top: 50px;
+    box-shadow: 3px 3px  whitesmoke;
+}
+.servicepage_all_data{
+    font-style: oblique;
+    margin-bottom: 2px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+
+
