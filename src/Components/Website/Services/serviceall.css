@@ -7,6 +7,14 @@
     margin: 20px 0px;
     font-style: oblique;
 }
+.service_all_main_headings{
+    font-style: oblique;
+    padding: 20px 0px;
+    margin-left: 20px;
+}
+.services_card{
+    border: 0px !important;
+}
     .service_all_see_div{
         text-align: end;
     }

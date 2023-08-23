@@ -117,38 +117,38 @@ export const Newad = () => {
                       placeholder="Select Category"
                     >
                       <option>Select Category</option>
-                      <option>Mason</option>
+                      <option value="mason">Mason</option>
                       <option value="marble">Marble & Tiles Fixer</option>
                       <option value="plumber">Plumber</option>
                       <option value="contractor">Contractor</option>
                       <option value="engineer">Engineer</option>
                       <option value="architect">Architect</option>
                       <option value="carpenter">Carpenter</option>
-                      <option>Wood Cutter</option>
+                      <option value="woodcutter">Wood Cutter</option>
                       <option value="painter">Painter</option>
-                      <option>Polish Man (Furniture)</option>
+                      <option value="polishman">Polish Man (Furniture)</option>
                       <option>Steel Fixer / Welder</option>
-                      <option>Steel Polish</option>
+                      <option value="steelpolish">Steel Polish</option>
                       <option value="steelwelder">Welder</option>
-                      <option>Molding Worker</option>
-                      <option>Leith Machine Operator</option>
+                      <option value="moldingworker">Molding Worker</option>
+                      <option value="leathmachineoperator">Leith Machine Operator</option>
                       <option value="aluminium">Aluminum Fixer</option>
                       <option value="glassfixer">Glass Fixer</option>
-                      <option>Glass Cutting & Polish</option>
-                      <option>Glass Painter</option>
-                      <option>Glass Paper & Designer</option>
-                      <option>Electrician</option>
-                      <option>AC Technician</option>
-                      <option>Electric Engineer</option>
-                      <option>Solar Installer</option>
-                      <option>Boring Workers</option>
-                      <option>Interior Designer</option>
-                      <option>Termite Treatment</option>
-                      <option>Gardener</option>
-                      <option>Landscape Architect</option>
-                      <option>House Cleaner</option>
-                      <option>AC Cleaner</option>
-                      <option>Marble Polish</option>
+                      <option value="glasscuttingpolish">Glass Cutting & Polish</option>
+                      <option value="glasspainter">Glass Painter</option>
+                      <option value="glasspaperdesigner">Glass Paper & Designer</option>
+                      <option value="electrician">Electrician</option>
+                      <option value="actechnician">AC Technician</option>
+                      <option value="electricengineer">Electric Engineer</option>
+                      <option value="solarinstaller">Solar Installer</option>
+                      <option value="boringworker">Boring Workers</option>
+                      <option value="interiordesigner">Interior Designer</option>
+                      <option value="termitetreatment">Termite Treatment</option>
+                      <option value="gardener">Gardener</option>
+                      <option value="landscapearchitecture">Landscape Architect</option>
+                      <option value="housecleaner">House Cleaner</option>
+                      <option value="accleaner">AC Cleaner</option>
+                      <option value="marblepolish">Marble Polish</option>
                     </Form.Select>
                   </div>
                 </Col>
