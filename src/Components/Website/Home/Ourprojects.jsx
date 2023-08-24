@@ -9,13 +9,13 @@ export const Ourprojects = () => {
     <section className="homepage-allsection">
       <Container className="homepage-allcontainers">
         <Row>
-          <Col lg={5} md={5} sm={12}>
+          <Col lg={5} md={5} sm={4} xs={4}>
           <div className='side-img-div'><img className="store-sideimage" src={logo} alt="log" /></div>
           </Col>
-          <Col lg={5} md={5} sm={12}>
+          <Col lg={5} md={5} sm={4} xs={4}>
             <h1 className='our_project_home'>Our Projects</h1>
           </Col>
-          <Col lg={2} md={2} sm={12}>
+          <Col lg={2} md={2} sm={4} xs={4}>
             <div className="viewall-div">
               <Link to="/" className="team-viewall"> View All</Link>
             </div>
@@ -28,16 +28,19 @@ export const Ourprojects = () => {
                 <Card className="store-card">
                   <Card.Img className="project-cardimg" variant="top" src={post.image} />
                   <Card.Body>
-                    <Card.Title>{post.societyname}</Card.Title>
+                    <Card.Title className="society_name">{post.societyname}</Card.Title>
                     <Card.Text>
-                      <p>
-                        <b>{post.marla}</b>
+                      <p className="project_inner_text"> 
+                      {post.marla}
                       </p>
-                      <p>
-                        <b>{post.kanal}</b>
+                      <p className="project_inner_text">
+                        {post.kanal}
                       </p>
-                      <p>
-                        <b>{post.detail}</b>
+                      <p className="project_inner_text">
+                        {post.shops}
+                      </p>
+                      <p className="project_inner_text">
+                        {post.detail}
                       </p>
                     </Card.Text>
                   </Card.Body>

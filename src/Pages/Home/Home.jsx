@@ -11,6 +11,8 @@ import Header from "../../Components/Website/Header/Header";
 import Testimoninals from "../../Components/Website/Testimoninals/Testimoninals";
 import Footer from "../../Components/Website/Footer/Footer";
 import './Home.css'
+import { Dailyrates } from "../../Components/Website/Home/Dailyrates";
+import { Costestimation } from "../../Components/Website/Home/Costestimation";
 
 const Hero = () => {
   return (
@@ -23,6 +25,8 @@ const Hero = () => {
       <Ourprojects />
       {/* <Ourteam /> */}
       <Completedprojects /> 
+      {/* <Dailyrates /> */}
+      <Costestimation/>
       <Testimoninals/>
       <Footer/>
     </>

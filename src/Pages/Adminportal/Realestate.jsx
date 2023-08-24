@@ -1,9 +1,9 @@
 import React from 'react'
-import  Dashboard  from '../../Components/adminpanel/Dashboard/Dashboard';
 import { Grid } from "@mui/material";
 import AdminNavbar from '../../Components/adminpanel/AdminNavbar/Navbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
+import { Adminrealestate } from '../../Components/adminpanel/component/Adminrealestate/Adminrealestate';
 
 export const RealEstate = () => {
   return (
@@ -20,7 +20,7 @@ export const RealEstate = () => {
                     lg={9.3}
                     className="right-panel-wrapper"
                   >
-                    <Dashboard />
+                    <Adminrealestate/>
                   </Grid>
                 </Grid>
     </div>

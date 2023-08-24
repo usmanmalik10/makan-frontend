@@ -73,6 +73,10 @@ export const Login = () => {
       const username = response?.user?.username;
       console.log("username",username);
       localStorage.setItem('username', username);
+
+      const Userid = response?.user?.id;
+      console.log("Userid",Userid);
+      localStorage.setItem('Userid', Userid);
       // setUsername(username);
       const password = response?.user?.password;
       console.log("password",password);

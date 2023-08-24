@@ -12,13 +12,14 @@ const API_URL_4 = `${USERS_BASE_URL}/v1/shop/64b59ad471fb58fed54928d9`;
 
 const API_URL_5 = `${USERS_BASE_URL}/v1/shop/64b59ad471fb58fed54928d9`;
 
-const createshop = async (token, shopdata) => {
+const API_URL_6 = `${USERS_BASE_URL}/v1/shop/userId`;
+
+const createshop = async (shopdata, token) => {
   try {
     const response = await axios.post(API_URL_1, shopdata, {
       headers: {
         'authorization': `Bearer ${token}`
       }
-      
     });
     console.log("checkresponse", response);
     return response.data;
@@ -70,13 +71,28 @@ const deleteshop = async () => {
     return error;
   }
 };
-
+const getshopbyuserid = async (token) => {
+  try {
+    const response = await axios.post(API_URL_6, {
+      headers: {
+        'authorization': `Bearer ${token}`
+      }
+      
+    });
+    console.log("checkresponse", response);
+    return response.data;
+  } catch (error) {
+    console.log("error",error)
+    return error;
+  }
+};
 const shopService = {
   createshop,
 	showshop,
 	getshop,
   updateshop,
-  deleteshop
+  deleteshop,
+  getshopbyuserid
 };
 
 export default shopService;

@@ -1,6 +1,6 @@
 // const host = window.location.origin;
 
-export const USERS_BASE_URL = "http://18.223.113.33:4000";
+export const USERS_BASE_URL = "/api/";
 
 
 
@@ -68,19 +68,3 @@ export const plotforrent = {
   }
 };
 
-export const shopdetail = {
-  
-    "shopName" : "basihr son's",
-    "productName": "tiles",
-    "address": "990 Q DHA",
-    "areaOfService": ["Lahore", "Faisalabad"],
-    "contectNumber": "03231212342",
-    "companyName": "star Asia",
-    "price": "100,000",
-    "details": {
-        "key1": "value",
-        "key2": "value",
-        "key3": "value"
-}
-
-}

@@ -22,7 +22,7 @@ const Navbar = () => {
     {
       icon: RiNewspaperLine,
       text: "Services",
-      route: "/services",
+      // route: "/services",
       submenu: [ // Add submenu for the "Users" menu item
       {
         text: "Mason",
@@ -46,7 +46,7 @@ const Navbar = () => {
       },
       {
         text: "Architect",
-        route: "/architect",
+        route: "/admin-architect",
       },
       {
         text: "Carpenter",

@@ -203,6 +203,4 @@ export const realestateSlice = createSlice({
   },
 });
 
-// export const { setPendingOrders, setCompletedOrders, setOrderStatus, setGetCount } = adminSlice.actions;
-
 export default realestateSlice.reducer;

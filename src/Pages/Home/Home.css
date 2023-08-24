@@ -36,12 +36,14 @@ home_store_section{
    }
    .home_store_heading{
  margin-top: 14px ;
+ font-style: oblique;
    }
    .store-card{
      padding-top: 20px;
      width: 350px !important;
      /* border-radius: 20px !important; */
      border: 0px !important;
+     /* background-color: red; */
    }
    .store-names{
      text-align: center;
@@ -52,21 +54,44 @@ home_store_section{
   /* End */
 
  /* RealEstate */
+ .estate-card{
+  width: 100%;
+  padding-top: 20px;
+  border: 0px !important;
+ }
  .real_home_heading{
   margin-top: 14px;
+  font-style: oblique;
  }
-
+.estate_ineer_text{
+  font-weight: 600;
+  margin-bottom: 2px;
+  font-style: italic;
+  
+}
 
  /* End */
 
  /* Our Proejcts */
 .our_project_home{
   margin-top: 14px;
+  font-style: oblique;
 }
  
  
   .home-project-image{
     width: 100% !important;
+  }
+  .society_name{
+
+    text-align: center;
+    font-style: italic;
+    font-size: 24px !important;
+  }
+  .project_inner_text{
+    font-style: italic;
+    margin-bottom: 2px;
+    font-weight: 600;
   }
   .viewall-div{
     margin-top: 30px;
@@ -87,6 +112,7 @@ home_store_section{
   /* Completed Projects */
   .home_completed_heading{
     margin-top: 14px;
+    font-style: oblique;
   }
   /* End */
   
@@ -106,6 +132,41 @@ home_store_section{
     border-radius: 30px !important;
   }
 
+  /* DailyRates Section */
+
+  .daily_rate_sec{
+    padding: 50px 0px;
+  }
+  .daily_rates_heading{
+    text-align: center;
+    font-style: oblique;
+  }
+
+  /* END */
+
+  /* Cost Estimation */
+  .cost_section{
+    padding: 50px 0px;
+  }
+  .cost_heading{
+    text-align: center;
+    font-style: oblique;
+  }
+  .cost_lables{
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-style: oblique;
+
+  }
+  .cost_inputs{
+    width: 300px !important;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid red;
+    padding: 2px 10px;
+  }
+  /* End */
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
 
@@ -118,8 +179,69 @@ home_store_section{
     .store-card{
         width: 230px !important;
     }
+    .society_name{
+      font-size: 20px !important;
+    }
+    .home_store_heading{
+      margin-top: 23px;
+      font-size: 30px !important;
+    }
+    .real_home_heading{
+      margin-top: 23px;
+      font-size: 30px !important;
+    }
+    .our_project_home{
+      margin-top: 23px;
+      font-size: 30px !important;
+    }
+    .home_completed_heading{
+      font-size: 30px !important;
+      margin-top: 23px;
+    }
+    .hero-image1{
+      height: 350px !important;
+    }
+  
 
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
-
+  .side-img-div{
+    text-align: center;
+  }
+  
+  .store-sideimage{
+    width: 65px !important;
+    height: 65px !important;
+    /* margin-left: 20px; */
+  }
+  .home_store_heading{
+    font-size: 23px;
+    margin-top: 20px;
+  }
+  .real_home_heading{
+    font-size: 23px;
+    margin-top: 19px;
+  }
+  .our_project_home{
+    font-size: 21px;
+    margin-top: 19px;
+  }
+  .home_completed_heading{
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .viewall-div{
+    margin-top: 20px;
+    text-align: center;
+  }
+  .team-viewall{
+    font-size: 12px;
+    font-style: italic;
+  }
+  .store-card{
+    width: 100% !important;
+  }
+  .hero-image1{
+    height: 300px !important;
+  }
 }

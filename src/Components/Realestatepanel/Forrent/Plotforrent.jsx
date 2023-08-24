@@ -73,7 +73,7 @@ export const Plotforrent = () => {
         <Container>
           <Row>
             <Col>
-              <h1>Plots For Sale</h1>
+              <h1>Plots For Rent</h1>
             </Col>
           </Row>
           <Row>

@@ -6,12 +6,13 @@ import shopService from "./shopService";
 
 export const createshop = createAsyncThunk(
   'shop/createshop',
-  async (token, shopdata, { rejectWithValue }) => {
+  async (shopdata, token, { rejectWithValue }) => {
     try {
       // Call API to subscribe user
-      const response = await shopService.createshop(token, shopdata);
+      const response = await shopService.createshop(shopdata, token);
+      //kitna gand machaya hova ha ek api call kay liye 10 jagah say ho kr ja rha ha
       console.log({ response })
-      return response.data;
+      return response;
     } catch (error) {
       console.log({ error });
       const message =
@@ -22,7 +23,6 @@ export const createshop = createAsyncThunk(
         error.toString();
       console.log({ message });
       return rejectWithValue(message);
-
     }
   }
 );
@@ -113,13 +113,37 @@ export const deleteshop = createAsyncThunk(
   }
 );
 
+export const getshopbyuserid = createAsyncThunk(
+  'shop/getshopbyuserid',
+  async (token, { rejectWithValue }) => {
+    try {
+      // Call API to subscribe user
+      const response = await shopService.getshopbyuserid(token);
+      console.log({ response })
+      return response.data;
+    } catch (error) {
+      console.log({ error });
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      console.log({ message });
+      return rejectWithValue(message);
+
+    }
+  }
+);
 
 export const shopSlice = createSlice({
   name: "shop",
   initialState: {
     isLoading: false,
-    isError: null,
+    isError: false,
+    isSuccess: false,
     message: "",
+    shopData: null,
   },
  
   extraReducers: (builder) => {
@@ -129,16 +153,15 @@ export const shopSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
     })
-    .addCase(createshop.fulfilled, (state) => {
+    .addCase(createshop.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.isError = false;
       state.isSuccess = true;
+      state.shopData = action.payload;
     })
     .addCase(createshop.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.isSuccess = false;
-      state.message = action.payload || "An error occurred.";
+      state.message = action.payload;
     })
       .addCase(showshop.pending, (state) => {
         state.isLoading = true;
@@ -199,10 +222,25 @@ export const shopSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
         state.deleteshop = null
+      })
+      .addCase(getshopbyuserid.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+      })
+      .addCase(getshopbyuserid.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+      })
+      .addCase(getshopbyuserid.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.payload || "An error occurred.";
       });
   },
 });
 
-// export const { setPendingOrders, setCompletedOrders, setOrderStatus, setGetCount } = adminSlice.actions;
 
 export default shopSlice.reducer;

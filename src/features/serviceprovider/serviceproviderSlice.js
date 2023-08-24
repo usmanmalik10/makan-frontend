@@ -88,6 +88,18 @@ export const deleteservice = createAsyncThunk(
   }
 );
 
+export const getservicebyuserid = createAsyncThunk(
+  "serviceprovider/getservicebyuserid",
+  async (token, limit, page, sortBy, userId, { rejectWithValue }) => {
+    try {
+      const response = await serviceproviderService.getservicebyuserid(token, limit, page, sortBy, userId);
+      return response;
+    } catch (error) {
+      return rejectWithValue(getErrorMessage(error));
+    }
+  }
+);
+
 const getErrorMessage = (error) =>
   (error.response && error.response.data && error.response.data.message) ||
   error.message ||
@@ -172,7 +184,21 @@ const serviceproviderSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-      });
+      })
+
+      .addCase(getservicebyuserid.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getservicebyuserid.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.services = action.payload;
+      })
+      .addCase(getservicebyuserid.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
   },
 });
 

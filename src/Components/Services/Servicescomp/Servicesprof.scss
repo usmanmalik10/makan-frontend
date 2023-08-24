@@ -1,28 +1,64 @@
 .Service_section {
   width: 100%;
   height: auto;
+  padding: 20px 0px;
  
 
-  .service_deatil {
-    width: 100%;
-    height: auto;
-    padding: 0px 20px 0px 20px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 50px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin-bottom: 50px;
+  // .service_deatil {
+  //   width: 100%;
+  //   height: auto;
+  //   padding: 0px 20px 0px 20px;
+  //   border-top-left-radius: 20px;
+  //   border-bottom-left-radius: 50px;
+  //   border-top-right-radius: 20px;
+  //   border-bottom-right-radius: 20px;
+  //   margin-bottom: 50px;
     
 
-    .service_image {
-      width: 100%;
-      height: 395px;
-      border-radius: 20px;
-    }
+  //   .service_image {
+  //     width: 100%;
+  //     height: 395px;
+  //     border-radius: 20px;
+  //   }
 
-    .des{
-      padding: 0px 0px 0px 10px;
-    }
+  //   .des{
+  //     padding: 0px 0px 0px 10px;
+  //   }
     
+  // }
+  .service_allads_heading{
+    text-align: center;
+    font-style: oblique;
   }
+  .service_card{
+    margin-top: 10px;
+  }
+  .service_profile_inner{
+    font-weight: 600;
+    font-style: oblique;
+    margin-bottom: 2px;
+  }
+.card_inner_text{
+  font-weight: 400;
+}
+.card_lower_buttons{
+  display: flex;
+  flex-direction: row;
+ gap: 30%;
+}
+.update_button > button{
+  width: 100px;
+    height: 30px;
+    background: transparent
+      linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+      no-repeat padding-box;
+    border-radius: 20px;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
 }
