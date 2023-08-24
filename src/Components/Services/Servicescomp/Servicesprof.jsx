@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Servicesprof.scss";
 import service_image from "../../../Assets/Services-Screen/Group 46137.png";
 import { Container, Row, Col } from "react-bootstrap";
-<<<<<<< HEAD
-=======
 import { useDispatch, useSelector } from "react-redux";
->>>>>>> 57ccd9c0285ea55cdaef415c13818614a3406eb5
 import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../constants/config/config.dev";
