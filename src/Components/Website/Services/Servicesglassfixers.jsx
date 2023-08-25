@@ -52,7 +52,7 @@ export const Servicesglassfixers = () => {
       <Container>
         <Row>
           <Col>
-            <h1>Glass Fixers</h1>
+            <h1 className="service_all_main_headings">Glass Fixers</h1>
           </Col>
           <Col>
                 <div className='service_all_see_div'>
@@ -61,10 +61,10 @@ export const Servicesglassfixers = () => {
                 </Col>
         </Row>
        
-         <Row className="pt-3">
+         <Row>
             {data.map((serviceProvider) => (
               <Col lg={4} md={4} sm={12} xs={12}>
-                <Card key={serviceProvider._id} className="service_card">
+                <Card key={serviceProvider._id} className="services_card">
                   <Card.Img src={service_image} alt="service image" />
                   <Card.Body>
                     <Card.Text>
