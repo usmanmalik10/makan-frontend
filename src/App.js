@@ -52,12 +52,65 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
+{/* Admin services imports starts */}
 import { Adminmason } from "./Pages/Adminportal/Adminmason";
 import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
 import { Adminplumber } from "./Pages/Adminportal/Adminplumber";
 import { Admincontractor } from "./Pages/Adminportal/Admincontractor";
 import { Adminengineer } from "./Pages/Adminportal/Adminengineers";
 import { Adminarchitect } from "./Pages/Adminportal/Adminarchitect";
+import { Admincarpenter } from "./Pages/Adminportal/Admincarpenter";
+import { Adminwoodcutter } from "./Pages/Adminportal/Adminwoodcutter";
+import { Adminpainter } from "./Pages/Adminportal/Adminpainter";
+import { Adminpolishman } from "./Pages/Adminportal/Adminpolishman";
+import { Adminsteelfixer } from "./Pages/Adminportal/Adminsteelfixer";
+import { Adminsteelpolish } from "./Pages/Adminportal/Adminsteelpolish";
+import { Adminwelder } from "./Pages/Adminportal/Adminwelder";
+import { Adminmoldingworker } from "./Pages/Adminportal/Adminmoldingworker";
+import { Adminleithmachineoperator } from "./Pages/Adminportal/Adminleithmachineoperator";
+import { Adminaluminumfixer } from "./Pages/Adminportal/Adminaluminumfixer";
+import { Adminglassfixer } from "./Pages/Adminportal/Adminglassfixer";
+import { Adminglasscutterandpolish } from "./Pages/Adminportal/Adminglasscuttingandpolish";
+import { Adminglasspainter } from "./Pages/Adminportal/Adminglasspainter";
+import { Adminglasspaperanddesign } from "./Pages/Adminportal/Adminglasspaperanddesign";
+import { Adminelectrician } from "./Pages/Adminportal/AdminElectrician";
+import { Adminactechnician } from "./Pages/Adminportal/Adminactechnician";
+import { Adminelectricengineer } from "./Pages/Adminportal/Adminelectricengineer";
+import { Adminsolarinstaller } from "./Pages/Adminportal/Adminsolarinstaller";
+import { Adminboringworker } from "./Pages/Adminportal/Adminboringworker";
+import { Admininteriordesigner } from "./Pages/Adminportal/Admininteriordesigner";
+import { Admintermitetreatment } from "./Pages/Adminportal/Admintermitetreatment";
+import { Admingardener } from "./Pages/Adminportal/Admingardener";
+import { Adminlandscapearchitect } from "./Pages/Adminportal/Adminlandscapearchitect";
+import { Adminhousecleaner } from "./Pages/Adminportal/Adminhousecleaner";
+{/* Admin services imports ends */}
+{/* Admin stores imports starts */}
+// import { Adminbuildingmaterial } from "./Pages/Adminportal/Adminbuildingmaterial";
+// import { Adminbricks } from "./Pages/Adminportal/Adminbricks";
+// import { Adminmarbleandtilestore } from "./Pages/Adminportal/Adminmarbleandtilestore";
+// import { Adminceramics } from "./Pages/Adminportal/Adminceramics";
+// import { Adminsanitary } from "./Pages/Adminportal/Adminsanitary";
+// import { Adminboringmaterial } from "./Pages/Adminportal/Adminboringmaterial";
+// import { Adminwood } from "./Pages/Adminportal/Adminwood";
+// import { Admintimber } from "./Pages/Adminportal/Admintimber";
+// import { Adminpaintstore } from "./Pages/Adminportal/Adminpaintstore";
+// import { Adminsteelstore } from "./Pages/Adminportal/Adminsteelstore";
+// import { Adminiron } from "./Pages/Adminportal/Adminiron";
+// import { Adminaluminumstore } from "./Pages/Adminportal/Adminaluminumstore";
+// import { Adminglassstore } from "./Pages/Adminportal/Adminglassstore";
+// import { Adminhardware } from "./Pages/Adminportal/Adminhardware";
+// import { Adminelectronics } from "./Pages/Adminportal/Adminelectronics";
+// import { Adminelectric } from "./Pages/Adminportal/Adminelectric";
+// import { Adminwallpanelling } from "./Pages/Adminportal/Adminwallpanelling";
+// import { Adminsolarsystem } from "./Pages/Adminportal/Adminsolarsystem";
+// import { Adminnursery } from "./Pages/Adminportal/Adminnursery";
+// import { Adminconcreteplant } from "./Pages/Adminportal/Adminconcreteplant";
+// import { Admininteriordecoration } from "./Pages/Adminportal/Admininteriordecoration";
+// import { Adminlights } from "./Pages/Adminportal/Adminlights";
+// import { Adminfurniture } from "./Pages/Adminportal/Adminfurniture";
+// import { Adminsecurity } from "./Pages/Adminportal/Adminsecurity";
+// import { Admintermiteprotection } from "./Pages/Adminportal/Admintermiteprotection";
+{/* Admin stores imports ends */}
 
 /* Real Estate Routes*/
 import { Alldata } from "./Pages/Realestatedashboard/Alldata";
@@ -86,32 +139,6 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
-import { Adminactechnician } from "./Pages/Adminportal/Adminactechnician";
-import { Adminaluminumfixer } from "./Pages/Adminportal/Adminaluminumfixer";
-import { Adminboringworker } from "./Pages/Adminportal/Adminboringworker";
-import { Admincarpenter } from "./Pages/Adminportal/Admincarpenter";
-import { Adminelectricengineer } from "./Pages/Adminportal/Adminelectricengineer";
-import { Adminelectrician } from "./Pages/Adminportal/AdminElectrician";
-import { Admingardener } from "./Pages/Adminportal/Admingardener";
-import { Adminglasscutterandpolish } from "./Pages/Adminportal/Adminglasscuttingandpolish";
-import { Adminglassfixer } from "./Pages/Adminportal/Adminglassfixer";
-import { Adminglasspainter } from "./Pages/Adminportal/Adminglasspainter";
-import { Adminhousecleaner } from "./Pages/Adminportal/Adminhousecleaner";
-import { Adminglasspaperanddesign } from "./Pages/Adminportal/Adminglasspaperanddesign";
-import { Admininteriordesigner } from "./Pages/Adminportal/Admininteriordesigner";
-import { Adminleithmachineoperator } from "./Pages/Adminportal/Adminleithmachineoperator";
-import { Adminwoodcutter } from "./Pages/Adminportal/Adminwoodcutter";
-import { Adminlandscapearchitect } from "./Pages/Adminportal/Adminlandscapearchitect";
-import { Adminwelder } from "./Pages/Adminportal/Adminwelder";
-import { Admintermitetreatment } from "./Pages/Adminportal/Admintermitetreatment";
-import { Adminsteelpolish } from "./Pages/Adminportal/Adminsteelpolish";
-import { Adminsteelfixer } from "./Pages/Adminportal/Adminsteelfixer";
-import { Adminsolarinstaller } from "./Pages/Adminportal/Adminsolarinstaller";
-import { Adminpolishman } from "./Pages/Adminportal/Adminpolishman";
-import { Adminpainter } from "./Pages/Adminportal/Adminpainter";
-import { Adminmoldingworker } from "./Pages/Adminportal/Adminmoldingworker";
-
-
 
 
 const ROLES = {
@@ -184,7 +211,6 @@ function App() {
             <Route path="/admin-contractor" element={<Admincontractor />}/>
             <Route path="/admin-engineer" element={<Adminengineer />}/>
             <Route path="/admin-architect" element={<Adminarchitect />}/>
-
             <Route path="/admin-carpenter" element={<Admincarpenter />}/>
             <Route path="/admin-wood-cutter" element={<Adminwoodcutter />}/>
             <Route path="/admin-painter" element={<Adminpainter />}/>
@@ -212,6 +238,31 @@ function App() {
             {/* Admin services routes ends */}
 
             {/* Admin stores routes starts */}
+            {/* <Route path="/admin-building-material" element={<Adminbuildingmaterial />}/>
+            <Route path="/admin-bricks" element={<Adminbricks />}/>
+            <Route path="/admin-marble-tile" element={<Adminmarbleandtilestore />}/>
+            <Route path="/admin-ceramics" element={<Adminceramics />}/>
+            <Route path="/admin-sanitary" element={<Adminsanitary />}/>
+            <Route path="/admin-boring-material" element={<Adminboringmaterial />}/>
+            <Route path="/admin-wood" element={<Adminwood />}/>
+            <Route path="/admin-timber" element={<Admintimber />}/>
+            <Route path="/admin-paint" element={<Adminpaintstore />}/>
+            <Route path="/admin-steel" element={<Adminsteelstore />}/>
+            <Route path="/admin-iron" element={<Adminiron />}/>
+            <Route path="/admin-aluminum" element={<Adminaluminumstore />}/>
+            <Route path="/admin-glass" element={<Adminglassstore />}/>
+            <Route path="/admin-hardware" element={<Adminhardware />}/>
+            <Route path="/admin-electronics" element={<Adminelectronics />}/>
+            <Route path="/admin-electric" element={<Adminelectric />}/>
+            <Route path="/admin-wall-panelling" element={<Adminwallpanelling />}/>
+            <Route path="/admin-solar-system" element={<Adminsolarsystem />}/>
+            <Route path="/admin-nursery" element={<Adminnursery />}/>
+            <Route path="/admin-concrete-plant" element={<Adminconcreteplant />}/>
+            <Route path="/admin-interior-decoration" element={<Admininteriordecoration />}/>
+            <Route path="/admin-lights" element={<Adminlights />}/>
+            <Route path="/admin-furniture" element={<Adminfurniture />}/>
+            <Route path="/admin-security" element={<Adminsecurity />}/>
+            <Route path="/admin-termite-protection" element={<Admintermiteprotection />}/> */}
             {/* Admin stores routes ends */}
           </Route>
 
