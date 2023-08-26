@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminglasspaperanddesigner = () => {
+export const Adminglasspaperanddesigners = () => {
   return (
     <div>Adminglasspaperanddesigner</div>
   )

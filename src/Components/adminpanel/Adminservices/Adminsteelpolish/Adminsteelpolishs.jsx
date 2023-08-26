@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminsteelpolish = () => {
+export const Adminsteelpolishs = () => {
   return (
     <div>Adminsteelpolish</div>
   )

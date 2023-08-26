@@ -86,6 +86,30 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
+import { Adminactechnician } from "./Pages/Adminportal/Adminactechnician";
+import { Adminaluminumfixer } from "./Pages/Adminportal/Adminaluminumfixer";
+import { Adminboringworker } from "./Pages/Adminportal/Adminboringworker";
+import { Admincarpenter } from "./Pages/Adminportal/Admincarpenter";
+import { Adminelectricengineer } from "./Pages/Adminportal/Adminelectricengineer";
+import { Adminelectrician } from "./Pages/Adminportal/AdminElectrician";
+import { Admingardener } from "./Pages/Adminportal/Admingardener";
+import { Adminglasscutterandpolish } from "./Pages/Adminportal/Adminglasscuttingandpolish";
+import { Adminglassfixer } from "./Pages/Adminportal/Adminglassfixer";
+import { Adminglasspainter } from "./Pages/Adminportal/Adminglasspainter";
+import { Adminhousecleaner } from "./Pages/Adminportal/Adminhousecleaner";
+import { Adminglasspaperanddesign } from "./Pages/Adminportal/Adminglasspaperanddesign";
+import { Admininteriordesigner } from "./Pages/Adminportal/Admininteriordesigner";
+import { Adminleithmachineoperator } from "./Pages/Adminportal/Adminleithmachineoperator";
+import { Adminwoodcutter } from "./Pages/Adminportal/Adminwoodcutter";
+import { Adminlandscapearchitect } from "./Pages/Adminportal/Adminlandscapearchitect";
+import { Adminwelder } from "./Pages/Adminportal/Adminwelder";
+import { Admintermitetreatment } from "./Pages/Adminportal/Admintermitetreatment";
+import { Adminsteelpolish } from "./Pages/Adminportal/Adminsteelpolish";
+import { Adminsteelfixer } from "./Pages/Adminportal/Adminsteelfixer";
+import { Adminsolarinstaller } from "./Pages/Adminportal/Adminsolarinstaller";
+import { Adminpolishman } from "./Pages/Adminportal/Adminpolishman";
+import { Adminpainter } from "./Pages/Adminportal/Adminpainter";
+import { Adminmoldingworker } from "./Pages/Adminportal/Adminmoldingworker";
 
 
 
@@ -161,30 +185,30 @@ function App() {
             <Route path="/admin-engineer" element={<Adminengineer />}/>
             <Route path="/admin-architect" element={<Adminarchitect />}/>
 
-            <Route path="/admin-carpenter" element={<Adminarchitect />}/>
-            <Route path="/admin-wood-cutter" element={<Adminarchitect />}/>
-            <Route path="/admin-painter" element={<Adminarchitect />}/>
-            <Route path="/admin-polish-man" element={<Adminarchitect />}/>
-            <Route path="/admin-steel-fixer" element={<Adminarchitect />}/>
-            <Route path="/admin-steel-polish" element={<Adminarchitect />}/>
-            <Route path="/admin-welder" element={<Adminarchitect />}/>
-            <Route path="/admin-molding-worker" element={<Adminarchitect />}/>
-            <Route path="/admin-Leith-machine-operator" element={<Adminarchitect />}/>
-            <Route path="/admin-aluminum-fixer" element={<Adminarchitect />}/>
-            <Route path="/admin-glass-fixer" element={<Adminarchitect />}/>
-            <Route path="/admin-glass-cutting-polish" element={<Adminarchitect />}/>
-            <Route path="/admin-glass-painter" element={<Adminarchitect />}/>
-            <Route path="/admin-glass-designer" element={<Adminarchitect />}/>
-            <Route path="/admin-electrician" element={<Adminarchitect />}/>
-            <Route path="/admin-ac-technician" element={<Adminarchitect />}/>
-            <Route path="/admin-electric-engineer" element={<Adminarchitect />}/>
-            <Route path="/admin-solar-installer" element={<Adminarchitect />}/>
-            <Route path="/admin-boring-workers" element={<Adminarchitect />}/>
-            <Route path="/admin-interior-designer" element={<Adminarchitect />}/>
-            <Route path="/admin-termite-treatment" element={<Adminarchitect />}/>
-            <Route path="/admin-gardener" element={<Adminarchitect />}/>
-            <Route path="/admin-landscape-architect" element={<Adminarchitect />}/>
-            <Route path="/admin-house-cleaner" element={<Adminarchitect />}/>
+            <Route path="/admin-carpenter" element={<Admincarpenter />}/>
+            <Route path="/admin-wood-cutter" element={<Adminwoodcutter />}/>
+            <Route path="/admin-painter" element={<Adminpainter />}/>
+            <Route path="/admin-polish-man" element={<Adminpolishman />}/>
+            <Route path="/admin-steel-fixer" element={<Adminsteelfixer />}/>
+            <Route path="/admin-steel-polish" element={<Adminsteelpolish />}/>
+            <Route path="/admin-welder" element={<Adminwelder />}/>
+            <Route path="/admin-molding-worker" element={<Adminmoldingworker />}/>
+            <Route path="/admin-Leith-machine-operator" element={<Adminleithmachineoperator />}/>
+            <Route path="/admin-aluminum-fixer" element={<Adminaluminumfixer />}/>
+            <Route path="/admin-glass-fixer" element={<Adminglassfixer />}/>
+            <Route path="/admin-glass-cutting-polish" element={<Adminglasscutterandpolish />}/>
+            <Route path="/admin-glass-painter" element={<Adminglasspainter />}/>
+            <Route path="/admin-glass-designer" element={<Adminglasspaperanddesign />}/>
+            <Route path="/admin-electrician" element={<Adminelectrician />}/>
+            <Route path="/admin-ac-technician" element={<Adminactechnician />}/>
+            <Route path="/admin-electric-engineer" element={<Adminelectricengineer />}/>
+            <Route path="/admin-solar-installer" element={<Adminsolarinstaller />}/>
+            <Route path="/admin-boring-workers" element={<Adminboringworker />}/>
+            <Route path="/admin-interior-designer" element={<Admininteriordesigner />}/>
+            <Route path="/admin-termite-treatment" element={<Admintermitetreatment />}/>
+            <Route path="/admin-gardener" element={<Admingardener />}/>
+            <Route path="/admin-landscape-architect" element={<Adminlandscapearchitect />}/>
+            <Route path="/admin-house-cleaner" element={<Adminhousecleaner />}/>
             {/* Admin services routes ends */}
 
             {/* Admin stores routes starts */}

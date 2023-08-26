@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminmoldingworker = () => {
+export const Adminmoldingworkers = () => {
   return (
     <div>Adminmoldingworker</div>
   )

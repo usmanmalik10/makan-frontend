@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminsolarinstaller = () => {
+export const Adminsolarinstallers = () => {
   return (
     <div>Adminsolarinstaller</div>
   )

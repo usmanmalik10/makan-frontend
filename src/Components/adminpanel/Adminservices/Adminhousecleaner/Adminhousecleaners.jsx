@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminhousecleaner = () => {
+export const Adminhousecleaners = () => {
   return (
     <div>Adminhousecleaner</div>
   )

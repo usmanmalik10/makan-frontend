@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminglasspainter = () => {
+export const Adminglasspainters = () => {
   return (
     <div>Adminglasspainter</div>
   )

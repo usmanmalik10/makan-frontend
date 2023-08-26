@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminwelder = () => {
+export const Adminwelders = () => {
   return (
     <div>Adminwelder</div>
   )

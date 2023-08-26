@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminleithmachineoperator = () => {
+export const Adminleithmachineoperators = () => {
   return (
     <div>Adminleithmachineoperator</div>
   )

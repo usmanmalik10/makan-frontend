@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Admincarpenter = () => {
+export const Admincarpenters = () => {
   return (
     <div>Admincarpenter</div>
   )

@@ -3,9 +3,9 @@ import { Grid } from "@mui/material";
 import AdminNavbar from '../../Components/adminpanel/AdminNavbar/Navbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
-import { Adminarchitects } from '../../Components/adminpanel/Adminservices/Adminarchitect/Adminarchitects';
+import { Adminsolarinstallers } from '../../Components/adminpanel/Adminservices/Adminsolarinstaller/Adminsolarinstallers';
 
-export const Adminarchitect = () => {
+export const Adminsolarinstaller = () => {
   return (
     <div className='main-wrapper'>
     <Grid container>
@@ -20,7 +20,7 @@ export const Adminarchitect = () => {
                     lg={9.3}
                     className="right-panel-wrapper"
                   >
-                    <Adminarchitects />
+                    <Adminsolarinstallers />
                   </Grid>
                 </Grid>
     </div>

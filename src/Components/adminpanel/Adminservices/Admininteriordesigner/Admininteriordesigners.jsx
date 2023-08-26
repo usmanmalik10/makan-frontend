@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Admininteriordesigner = () => {
+export const Admininteriordesigners = () => {
   return (
     <div>Admininteriordesigner</div>
   )

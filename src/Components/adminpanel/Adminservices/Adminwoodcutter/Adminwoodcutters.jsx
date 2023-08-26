@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Adminwoodcutter = () => {
+export const Adminwoodcutters = () => {
   return (
     <div>Adminwoodcutter</div>
   )

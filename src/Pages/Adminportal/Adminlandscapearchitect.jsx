@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import AdminNavbar from '../../Components/adminpanel/AdminNavbar/Navbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
-import { Adminarchitects } from '../../Components/adminpanel/Adminservices/Adminarchitect/Adminarchitects';
+import { Adminlandscapearchitects } from '../../Components/adminpanel/Adminservices/Adminlandscapearchitect/Adminlandscapearchitects';
 
 export const Adminlandscapearchitect = () => {
   return (
@@ -20,7 +20,7 @@ export const Adminlandscapearchitect = () => {
                     lg={9.3}
                     className="right-panel-wrapper"
                   >
-                    <Adminarchitects />
+                    <Adminlandscapearchitects />
                   </Grid>
                 </Grid>
     </div>
