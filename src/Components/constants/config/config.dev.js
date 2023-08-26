@@ -1,6 +1,6 @@
-// const host = window.location.origin;
+const host = window.location.origin;
 
-export const USERS_BASE_URL = "/api/";
+// export const USERS_BASE_URL = "/api/";
 
 
 

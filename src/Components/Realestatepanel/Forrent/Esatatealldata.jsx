@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getservicebyuserid } from "../../../features/serviceprovider/serviceproviderSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
-import { USERS_BASE_URL } from "../../constants/config/config.dev";
+import { USERS_BASE_URL } from "../../../constants/config/config.dev";
 
 export const Esatatealldata = () => {
   const token = localStorage.getItem("accessToken");
