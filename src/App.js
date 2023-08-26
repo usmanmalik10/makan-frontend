@@ -139,6 +139,7 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
+import { Allstores } from "./Pages/Stores/Allstores";
 
 
 const ROLES = {
@@ -196,6 +197,7 @@ function App() {
           <Route path="/all-woodcutter" element={<Servwoodcutter />} />
           <Route path="/all-solarinstaller" element={<Servsolarinstaller />} />
           <Route path="/all-termitetreatment" element={<Servtermite />} />
+          <Route path="/all-stores" element={<Allstores />} />
 
           {/* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
