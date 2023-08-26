@@ -52,7 +52,13 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
+import { Adminmason } from "./Pages/Adminportal/Adminmason";
+import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
+import { Adminplumber } from "./Pages/Adminportal/Adminplumber";
+import { Admincontractor } from "./Pages/Adminportal/Admincontractor";
+import { Adminengineer } from "./Pages/Adminportal/Adminengineers";
 import { Adminarchitect } from "./Pages/Adminportal/Adminarchitect";
+
 /* Real Estate Routes*/
 import { Alldata } from "./Pages/Realestatedashboard/Alldata";
 import { Forrent } from "./Pages/Realestatedashboard/Forrent";
@@ -80,8 +86,7 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
-import { Adminmason } from "./Pages/Adminportal/Adminmason";
-import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
+
 
 
 
@@ -148,11 +153,42 @@ function App() {
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
+            {/* Admin services routes starts */}
             <Route path="/admin-mason" element={<Adminmason />}/>
             <Route path="/admin-marble-tile-fixer" element={<Adminmarbleortile />}/>
+            <Route path="/admin-plumber" element={<Adminplumber />}/>
+            <Route path="/admin-contractor" element={<Admincontractor />}/>
+            <Route path="/admin-engineer" element={<Adminengineer />}/>
             <Route path="/admin-architect" element={<Adminarchitect />}/>
 
+            <Route path="/admin-carpenter" element={<Adminarchitect />}/>
+            <Route path="/admin-wood-cutter" element={<Adminarchitect />}/>
+            <Route path="/admin-painter" element={<Adminarchitect />}/>
+            <Route path="/admin-polish-man" element={<Adminarchitect />}/>
+            <Route path="/admin-steel-fixer" element={<Adminarchitect />}/>
+            <Route path="/admin-steel-polish" element={<Adminarchitect />}/>
+            <Route path="/admin-welder" element={<Adminarchitect />}/>
+            <Route path="/admin-molding-worker" element={<Adminarchitect />}/>
+            <Route path="/admin-Leith-machine-operator" element={<Adminarchitect />}/>
+            <Route path="/admin-aluminum-fixer" element={<Adminarchitect />}/>
+            <Route path="/admin-glass-fixer" element={<Adminarchitect />}/>
+            <Route path="/admin-glass-cutting-polish" element={<Adminarchitect />}/>
+            <Route path="/admin-glass-painter" element={<Adminarchitect />}/>
+            <Route path="/admin-glass-designer" element={<Adminarchitect />}/>
+            <Route path="/admin-electrician" element={<Adminarchitect />}/>
+            <Route path="/admin-ac-technician" element={<Adminarchitect />}/>
+            <Route path="/admin-electric-engineer" element={<Adminarchitect />}/>
+            <Route path="/admin-solar-installer" element={<Adminarchitect />}/>
+            <Route path="/admin-boring-workers" element={<Adminarchitect />}/>
+            <Route path="/admin-interior-designer" element={<Adminarchitect />}/>
+            <Route path="/admin-termite-treatment" element={<Adminarchitect />}/>
+            <Route path="/admin-gardener" element={<Adminarchitect />}/>
+            <Route path="/admin-landscape-architect" element={<Adminarchitect />}/>
+            <Route path="/admin-house-cleaner" element={<Adminarchitect />}/>
+            {/* Admin services routes ends */}
 
+            {/* Admin stores routes starts */}
+            {/* Admin stores routes ends */}
           </Route>
 
           <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
