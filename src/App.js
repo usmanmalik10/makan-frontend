@@ -80,6 +80,8 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
+import { Adminmason } from "./Pages/Adminportal/Adminmason";
+import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
 
 
 
@@ -146,6 +148,8 @@ function App() {
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/admin-mason" element={<Adminmason />}/>
+            <Route path="/admin-marble-tile-fixer" element={<Adminmarbleortile />}/>
             <Route path="/admin-architect" element={<Adminarchitect />}/>
 
 

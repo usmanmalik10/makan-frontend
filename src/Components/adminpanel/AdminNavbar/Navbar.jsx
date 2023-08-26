@@ -22,27 +22,27 @@ const Navbar = () => {
     {
       icon: RiNewspaperLine,
       text: "Services",
-      // route: "/services",
+      route: "",
       submenu: [ // Add submenu for the "Users" menu item
       {
         text: "Mason",
-        route: "/mason",
+        route: "/admin-mason",
       },
       {
         text: "Marble/Tile Fixer",
-        route: "/marble/tile-fixer",
+        route: "/admin-marble-tile-fixer",
       },
       {
         text: "Plumber",
-        route: "/plumber",
+        route: "/admin-plumber",
       },
       {
         text: "Contractor",
-        route: "/contractor",
+        route: "/admin-contractor",
       },
       {
         text: "Engineer",
-        route: "/engineer",
+        route: "/admin-engineer",
       },
       {
         text: "Architect",
@@ -50,206 +50,206 @@ const Navbar = () => {
       },
       {
         text: "Carpenter",
-        route: "/carpenter",
+        route: "/admin-carpenter",
       },
       {
         text: "Wood Cutter",
-        route: "/wood-cutter",
+        route: "/admin-wood-cutter",
       },
       {
         text: "Painter",
-        route: "/painter",
+        route: "/admin-painter",
       },
       {
         text: "Polish Man (Furnture)",
-        route: "/polish-man",
+        route: "/admin-polish-man",
       },
       {
         text: "Steel Fixer/Welder",
-        route: "/steel-fixer",
+        route: "/admin-steel-fixer",
       },
       {
         text: "Steel Polish",
-        route: "/steel-polish",
+        route: "/admin-steel-polish",
       },
       {
         text: "Welder",
-        route: "/welder",
+        route: "/admin-welder",
       },
       {
         text: "Molding Worker",
-        route: "/molding-worker",
+        route: "/admin-molding-worker",
       },
       {
         text: "Leith Machine Operator",
-        route: "/Leith-machine-operator",
+        route: "/admin-Leith-machine-operator",
       },
       {
         text: "Aluminum Fixer",
-        route: "/aluminum-fixer",
+        route: "/admin-aluminum-fixer",
       },
       {
         text: "Glass Fixer",
-        route: "/glass-fixer",
+        route: "/admin-glass-fixer",
       },
       {
         text: "Glass Cutting & Polish",
-        route: "/glass-cutting-polish",
+        route: "/admin-glass-cutting-polish",
       },
       {
         text: "Glass Painter",
-        route: "/glass-painter",
+        route: "/admin-glass-painter",
       },
       {
         text: "Glass Paper and Designer",
-        route: "/glass-designer",
+        route: "/admin-glass-designer",
       },
       {
         text: "Electrician",
-        route: "/electrician",
+        route: "/admin-electrician",
       },
       {
         text: "AC Technician",
-        route: "/ac-technician",
+        route: "/admin-ac-technician",
       },
       {
         text: "Electric Engineer",
-        route: "/electric-engineer",
+        route: "/admin-electric-engineer",
       },
       {
         text: "Solar Installer",
-        route: "/solar-installer",
+        route: "/admin-solar-installer",
       },
       {
         text: "Boring Workers",
-        route: "/boring-workers",
+        route: "/admin-boring-workers",
       },
       {
         text: "Interior Designer",
-        route: "/interior-designer",
+        route: "/admin-interior-designer",
       },
       {
         text: "Termite Treatment",
-        route: "/termite-treatment",
+        route: "/admin-termite-treatment",
       },
       {
         text: "Gardener",
-        route: "/gardener",
+        route: "/admin-gardener",
       },
       {
         text: "Landscape Architect",
-        route: "/landscape-architect",
+        route: "/admin-landscape-architect",
       },
       {
         text: "House Cleaner",
-        route: "/house-cleaner",
+        route: "/admin-house-cleaner",
       },
     ],
     },
     {
       icon: RiNewspaperLine,
       text: "Stores",
-      route: "/stores",
+      route: '',
       submenu: [ // Add submenu for the "Users" menu item
       {
         text: "Building Material",
-        route: "/building-material",
+        route: "/admin-building-material",
       },
       {
         text: "Bricks",
-        route: "/bricks",
+        route: "/admin-bricks",
       },
       {
         text: "Marble/Tile",
-        route: "/marble-tile",
+        route: "/admin-marble-tile",
       },
       {
         text: "Ceramics",
-        route: "/ceramics",
+        route: "/admin-ceramics",
       },
       {
         text: "Sanitary",
-        route: "/sanitary",
+        route: "/admin-sanitary",
       },
       {
         text: "Boring Material",
-        route: "/boring-material",
+        route: "/admin-boring-material",
       },
       {
         text: "Wood",
-        route: "/wood",
+        route: "/admin-wood",
       },
       {
         text: "Timber",
-        route: "/timber",
+        route: "/admin-timber",
       },
       {
         text: "Paint",
-        route: "/paint",
+        route: "/admin-paint",
       },
       {
         text: "Steel",
-        route: "/steel",
+        route: "/admin-steel",
       },
       {
         text: "Iron",
-        route: "/iron",
+        route: "/admin-iron",
       },
       {
         text: "Aluminum",
-        route: "/aluminum",
+        route: "/admin-aluminum",
       },
       {
         text: "Glass",
-        route: "/glass",
+        route: "/admin-glass",
       },
       {
         text: "Hardware",
-        route: "/hardware",
+        route: "/admin-hardware",
       },
       {
         text: "Electronics",
-        route: "/electronics",
+        route: "/admin-electronics",
       },
       {
         text: "Electric",
-        route: "/electric",
+        route: "/admin-electric",
       },
       {
         text: "Wall Panelling",
-        route: "/wall-panelling",
+        route: "/admin-wall-panelling",
       },
       {
         text: "Solar System",
-        route: "/solar-system",
+        route: "/admin-solar-system",
       },
       {
         text: "Nursery",
-        route: "/nursery",
+        route: "/admin-nursery",
       },
       {
         text: "Concrete Plant",
-        route: "/concrete-plant",
+        route: "/admin-concrete-plant",
       },
       {
         text: "Interior Decoration",
-        route: "/interior-decoration",
+        route: "/admin-interior-decoration",
       },
       {
         text: "Lights",
-        route: "/lights",
+        route: "/admin-lights",
       },
       {
         text: "Furniture",
-        route: "/furniture",
+        route: "/admin-furniture",
       },
       {
         text: "Security",
-        route: "/security",
+        route: "/admin-security",
       },
       {
         text: "Termite Protection",
-        route: "/termite-protection",
+        route: "/admin-termite-protection",
       },
     ],
     },

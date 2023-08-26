@@ -19,15 +19,9 @@ const DesktopNavbar = (props) => {
     dispatch(reset());
   };
 
-  const toggleSubMenu = (event, route) => {
+  const toggleSubMenu = (event, text) => {
     event.stopPropagation();
-    setShowSubMenu((prevSubMenuState) => {
-      if (prevSubMenuState === route) {
-        return null;
-      } else {
-        return route;
-      }
-    });
+    setShowSubMenu((prevText) => (prevText === text ? null : text));
   };
 
   const handleOutsideClick = (event) => {
@@ -76,9 +70,9 @@ const DesktopNavbar = (props) => {
                     {item.submenu && (
                       <div
                         className="dropdown-icon"
-                        onClick={(event) => toggleSubMenu(event, item.route)}
+                        onClick={(event) => toggleSubMenu(event, item.text)}
                       >
-                        {showSubMenu === item.route ? (
+                        {showSubMenu === item.text ? (
                           <FiChevronUp />
                         ) : (
                           <FiChevronDown />
@@ -95,7 +89,7 @@ const DesktopNavbar = (props) => {
                   {showSubMenu === item.route ? <FiChevronUp /> : <FiChevronDown />}
                 </div>
               )} */}
-              {item.submenu && showSubMenu === item.route && (
+              {item.submenu && showSubMenu === item.text && (
                 <div className="submenu">
                   {item.submenu.map((subitem) => (
                     <p
