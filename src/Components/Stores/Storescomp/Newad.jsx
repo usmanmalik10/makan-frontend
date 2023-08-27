@@ -835,7 +835,7 @@ export const Newad = () => {
                               placeholder="Quantity"
                               required
                               onChange={onChange}
-                              value={details.key1}
+                              value={formData.details.key1}
                               name="details.key1"
                               
                             />
