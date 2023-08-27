@@ -45,6 +45,7 @@ import { Servsteelpolish } from "./Components/Website/Servicedetails/Servicestee
 import { Servwoodcutter } from "./Components/Website/Servicedetails/Servicewoodcutter/Servwoodcutter";
 import { Servsolarinstaller } from "./Components/Website/Servicedetails/Servicesolarinstaller/Servsolarinstaller";
 import { Servtermite } from "./Components/Website/Servicedetails/Servicetermite/Servtermite";
+import { Allstores } from "./Pages/Stores/Allstores";
 
 /* Admin Routes*/
 import { Adminprofile } from "./Pages/Adminportal/Adminprofile";
@@ -139,7 +140,7 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
-import { Allstores } from "./Pages/Stores/Allstores";
+
 
 
 const ROLES = {

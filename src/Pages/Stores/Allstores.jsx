@@ -25,10 +25,13 @@ import { Termiteprotectionstore } from '../../Components/Website/Stores/Termitep
 import { Lightsstore } from '../../Components/Website/Stores/Lightsstore'
 import { Furniturestore } from '../../Components/Website/Stores/Furniturestore'
 import { Securitystore } from '../../Components/Website/Stores/Securitystore'
+import Header from '../../Components/Website/Header/Header'
+import Footer from '../../Components/Website/Footer/Footer'
 
 export const Allstores = () => {
   return (
     <>
+    <Header />
        <Herostores />
        <Marblestore />
        <Bricksstore />
@@ -55,6 +58,7 @@ export const Allstores = () => {
        <Lightsstore />
        <Furniturestore />
        <Securitystore />
+       <Footer />
     </>
   )
 }
