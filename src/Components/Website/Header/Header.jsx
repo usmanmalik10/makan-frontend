@@ -27,8 +27,10 @@ const Header = ({ showF }) => {
           <div><NavLink className="nav_links" to="/aboutus">About-Us</NavLink></div>
           <div><NavLink className="nav_links" to="/contactus">Contact-Us</NavLink></div>
           {/* <div><NavLink className="nav_links" to="/ourteam">Ourteam</NavLink></div> */}
-          <div><NavLink className="nav_links" to="/services">Services</NavLink></div>
+          <div><NavLink className="nav_links" to="/services">Service's</NavLink></div>
+          <div><NavLink className="nav_links" to="/all-stores">Store's</NavLink></div>
           <div><NavLink className="nav_links" to="/realestate">RealEstate</NavLink></div>
+          
         </div>
         <div className="buttons_div d-flex">
           {showF ?
@@ -86,6 +88,7 @@ const Header = ({ showF }) => {
                     <div><NavLink className="nav_links_mob" to="/contactus">Contact-Us</NavLink></div>
                     <div><NavLink className="nav_links_mob" to="/ourteam">Ourteam</NavLink></div>
                     <div><NavLink className="nav_links_mob" to="/services">Services</NavLink></div>
+                    <div><NavLink className="nav_links" to="/all-stores">Store's</NavLink></div>
                     <div><NavLink className="nav_links_mob" to="/realestate">RealEstate</NavLink></div>
                   </div>
 
