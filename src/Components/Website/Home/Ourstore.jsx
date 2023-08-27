@@ -62,7 +62,7 @@ export const Ourstore = () => {
           </Col>
           <Col lg={2} md={2} sm={4} xs={4}>
             <div className="viewall-div">
-              <Link to="/" className="team-viewall">
+              <Link to="/all-stores" className="team-viewall">
                 {" "}
                 View All
               </Link>
@@ -97,7 +97,7 @@ export const Ourstore = () => {
             </div>
           </Col>
         </Row>
-        <Row></Row>
+        
       </Container>
     </section>
   );
