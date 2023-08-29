@@ -12,7 +12,7 @@ const Footer = () => {
                 <Row>
                 <Col lg={3} md={6} sm={12}>
                     <div className='footer-listdiv'>
-                       <img src={logo} alt="log" />
+                       <img className='footer_logo_img' src={logo} alt="log" />
                         </div>
                     </Col>
                     <Col lg={3} md={6} sm={12}>

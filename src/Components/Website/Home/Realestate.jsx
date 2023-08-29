@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import logo from "../../../images/sidelogo.png";
 import Card from "react-bootstrap/Card";
-import { data } from "./Realesatehomedata";
 import { Link } from "react-router-dom";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
@@ -154,44 +153,7 @@ export const Realestate = () => {
             </div>
           </Col>
         </Row>
-        {/* <Row className="pt-5">
-          {data.map((post) => {
-            return (
-              <Col lg={4} md={4} sm={12}>
-                <Card className="store-card">
-                  <Card.Img className="img" variant="top" src={post.image} />
-                  <Card.Body>
-                    <Card.Title></Card.Title>
-                    <Card.Text>
-                      <p className="estate_ineer_text">
-                      {post.houseno}
-                      </p>
-                      <p className="estate_ineer_text">
-                        {post.location}
-                      </p>
-                      <p className="estate_ineer_text">
-                        {post.size}
-                      </p>
-                      <p className="estate_ineer_text">
-                        {post.selectbedrooms} 
-                      </p>
-                      <p className="estate_ineer_text">
-                        {post.detail}
-                      </p>
-                      <p className="estate_ineer_text">
-                        {post.price}
-                      </p>
-                      <p className="estate_ineer_text">
-                        {post.contactnumber}
-                      </p>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })}
-
-        </Row> */}
+     
         <Row>
           <Col lg={3} md={3} sm={12} xs={12}>
           <Row>

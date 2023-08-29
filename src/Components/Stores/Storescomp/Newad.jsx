@@ -55,6 +55,18 @@ export const Newad = () => {
     }));
   };
 
+  const handleDetailsInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      details: {
+        ...prevFormData.details,
+        [name]: value,
+      },
+    }));
+  };
+
   const handleSubmitbuildingmaterial = async (e) => {
     e.preventDefault();
 
@@ -834,9 +846,9 @@ export const Newad = () => {
                               type="text"
                               placeholder="Quantity"
                               required
-                              onChange={onChange}
-                              value={details.key1}
-                              name="details.key1"
+                              onChange={handleDetailsInputChange }
+                              value={formData.details.key1}
+                              name="key1"
                               
                             />
                           </div>
@@ -854,9 +866,9 @@ export const Newad = () => {
                               type="text"
                               placeholder="Category"
                               required
-                              onChange={onChange}
-                              value={details.key2}
-                              name="details.key2"
+                              onChange={handleDetailsInputChange }
+                              value={formData.details.key2}
+                              name="key2"
                             />
                           </div>
                         </Col>
@@ -875,9 +887,9 @@ export const Newad = () => {
                               type="text"
                               placeholder="Weight"
                               required
-                              onChange={onChange}
-                              value={details.key3}
-                              name="details.key3"
+                              onChange={handleDetailsInputChange }
+                              value={formData.details.key3}
+                              name="key3"
                             />
                           </div>
                         </Col>
