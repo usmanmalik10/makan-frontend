@@ -86,7 +86,7 @@ const Header = ({ showF }) => {
                     <Link className="nav_links_mob" to="/"><div>Home</div></Link>
                     <div><NavLink className="nav_links_mob" to="/aboutus">About-Us</NavLink></div>
                     <div><NavLink className="nav_links_mob" to="/contactus">Contact-Us</NavLink></div>
-                    <div><NavLink className="nav_links_mob" to="/ourteam">Ourteam</NavLink></div>
+                    {/* <div><NavLink className="nav_links_mob" to="/ourteam">Ourteam</NavLink></div> */}
                     <div><NavLink className="nav_links_mob" to="/services">Services</NavLink></div>
                     <div><NavLink className="nav_links" to="/all-stores">Store's</NavLink></div>
                     <div><NavLink className="nav_links_mob" to="/realestate">RealEstate</NavLink></div>

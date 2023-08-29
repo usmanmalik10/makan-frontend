@@ -70,16 +70,13 @@ export const Activead = () => {
                   <p className="active_card_text">Area of Service: {ad.areaOfService.join(", ")}</p>
                   <p className="active_card_text"> Contact Number: {ad.contectNumber}</p>
                   <p className="active_card_text">Company Name: {ad.companyName}</p>
+                  <p className="active_card_text">Details Key1: {ad.details.key1}</p>
+                      <p className="active_card_text">Details Key2: {ad.details.key2}</p>
+                      <p className="active_card_text">Details Key3: {ad.details.key3}</p>
+                  
+                  
                 </Card.Text>
-                {/* <Card.Title> Shop Name{ad.shopName}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{ad.productName}</Card.Subtitle>
-                <Card.Text>Price: {ad.price}</Card.Text>
-                <Card.Text>Address: {ad.address}</Card.Text>
-                {ad.areaOfService && (
-                  <Card.Text>Area of Service: {ad.areaOfService.join(", ")}</Card.Text>
-                )}
-                {ad.contectNumber && <Card.Text>Contact Number: {ad.contectNumber}</Card.Text>}
-                {ad.companyName && <Card.Text>Company Name: {ad.companyName}</Card.Text>} */}
+               
               </Card.Body>
             </Card>
           </Col>

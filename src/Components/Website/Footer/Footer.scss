@@ -38,9 +38,29 @@
     .footer-section{
         height: auto;
     }
+    .footer-listdiv{
+      padding: 40px 0px !important;
+    }
   }
   @media screen and (min-width: 425px) and (max-width: 767px) {
     .footer-section{
         height: auto;
+    }
+    .footer-listdiv{
+      padding: 28px 0px !important;
+      text-align: center !important;
+    }
+    .footer_logo_img{
+      width: 100px;
+      
+    }
+  }
+  @media screen and (min-width: 300px) and (max-width: 424px) {
+    .footer-section{
+        height: auto;
+    }
+    .footer-listdiv{
+      padding: 28px 0px !important;
+      text-align: center !important;
     }
   }
