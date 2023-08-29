@@ -846,15 +846,9 @@ export const Newad = () => {
                               type="text"
                               placeholder="Quantity"
                               required
-<<<<<<< HEAD
-                              onChange={onChange}
-                              value={formData.details.key1}
-                              name="details.key1"
-=======
                               onChange={handleDetailsInputChange }
                               value={formData.details.key1}
                               name="key1"
->>>>>>> b9513b6181145557de0aed370bb406676b7c2478
                               
                             />
                           </div>
