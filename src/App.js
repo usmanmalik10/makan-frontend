@@ -52,7 +52,7 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
-{/* Admin services imports starts */}
+/* Admin services imports starts */
 import { Adminmason } from "./Pages/Adminportal/Adminmason";
 import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
 import { Adminplumber } from "./Pages/Adminportal/Adminplumber";
@@ -83,8 +83,8 @@ import { Admintermitetreatment } from "./Pages/Adminportal/Admintermitetreatment
 import { Admingardener } from "./Pages/Adminportal/Admingardener";
 import { Adminlandscapearchitect } from "./Pages/Adminportal/Adminlandscapearchitect";
 import { Adminhousecleaner } from "./Pages/Adminportal/Adminhousecleaner";
-{/* Admin services imports ends */}
-{/* Admin stores imports starts */}
+/* Admin services imports ends */
+/* Admin stores imports starts */
 // import { Adminbuildingmaterial } from "./Pages/Adminportal/Adminbuildingmaterial";
 // import { Adminbricks } from "./Pages/Adminportal/Adminbricks";
 // import { Adminmarbleandtilestore } from "./Pages/Adminportal/Adminmarbleandtilestore";
@@ -110,7 +110,7 @@ import { Adminhousecleaner } from "./Pages/Adminportal/Adminhousecleaner";
 // import { Adminfurniture } from "./Pages/Adminportal/Adminfurniture";
 // import { Adminsecurity } from "./Pages/Adminportal/Adminsecurity";
 // import { Admintermiteprotection } from "./Pages/Adminportal/Admintermiteprotection";
-{/* Admin stores imports ends */}
+/* Admin stores imports ends */
 
 /* Real Estate Routes*/
 import { Alldata } from "./Pages/Realestatedashboard/Alldata";

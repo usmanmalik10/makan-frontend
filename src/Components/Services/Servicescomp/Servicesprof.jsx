@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./Servicesprof.scss";
 import service_image from "../../../Assets/Services-Screen/Group 46137.png";
-import { Container, Row, Col } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import Spinner2 from "../../Common/spinner2/spinner2";
+import { Container, Row, Col, Pagination } from "react-bootstrap";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../constants/config/config.dev";
 import Card from "react-bootstrap/Card";
 
 export const Servicesprof = () => {
-  
   const token = localStorage.getItem("accessToken");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 10; // Number of items per page
+  console.log("Total Pages:", totalPages);
+  console.log("Current Page:", currentPage);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,8 +23,8 @@ export const Servicesprof = () => {
           `${USERS_BASE_URL}/v1/service/userId`,
           {
             params: {
-              limit: 10,
-              page: 1,
+              limit: itemsPerPage,
+              page: currentPage,
               sortBy: "createdAt:desc",
               userId: localStorage.getItem("Userid"),
             },
@@ -31,7 +33,19 @@ export const Servicesprof = () => {
             },
           }
         );
-        setData(response.data?.data?.docs);
+  
+        const responseData = response.data?.data;
+  
+        if (!responseData) {
+          console.error("No data in the response:", response);
+          setIsLoading(false);
+          return;
+        }
+  
+        const totalItems = responseData.total;
+        const totalPages = Math.max(Math.ceil(totalItems / itemsPerPage), 1);
+        setTotalPages(totalPages);
+        setData(responseData.docs);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -39,12 +53,17 @@ export const Servicesprof = () => {
         // Handle the error here, such as displaying an error message
       }
     };
-
+  
     fetchData();
-  }, [token]);
+  }, [token, currentPage]);
+  
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   if (isLoading) {
-    return <Spinner2 />;
+    return <div>Loading...</div>; // Replace with your loading indicator
   }
 
   return (
@@ -58,8 +77,8 @@ export const Servicesprof = () => {
           </Row>
           <Row className="pt-3">
             {data.map((serviceProvider) => (
-              <Col lg={4} md={4} sm={12} xs={12}>
-                <Card key={serviceProvider._id} className="service_card">
+              <Col lg={4} md={4} sm={12} xs={12} key={serviceProvider._id}>
+                <Card className="service_card">
                   <Card.Img src={service_image} alt="service image" />
                   <Card.Body>
                     <Card.Text>
@@ -69,58 +88,55 @@ export const Servicesprof = () => {
                           {serviceProvider.category}
                         </span>
                       </p>
-                      <p className="service_profile_inner">
-                        Contractor Name :{" "}
-                        <span className="card_inner_text">
-                          {serviceProvider.contractorName}{" "}
-                        </span>
-                      </p>
-                      <p className="service_profile_inner">
-                        Conact Number :{" "}
-                        <span className="card_inner_text">
-                          {serviceProvider.contectNumber}
-                        </span>
-                      </p>
-                      <p className="service_profile_inner">
-                        Address :{" "}
-                        <span className="card_inner_text">
-                          {serviceProvider.address}{" "}
-                        </span>
-                      </p>
-                      <p className="service_profile_inner">
-                        Area of Service :{" "}
-                        <span className="card_inner_text">
-                          {serviceProvider.areaOfService.join(", ")}{" "}
-                        </span>
-                      </p>
-                      <p className="service_profile_inner">
-                        Charging Schedule :{" "}
-                        <span className="card_inner_text">
-                          {serviceProvider.chargingSchedule}
-                        </span>{" "}
-                      </p>
-                      <p className="service_profile_inner">
-                        Labor Rate : Rs/{" "}
-                        <span className="card_inner_text">
-                          {serviceProvider.laborRates}
-                        </span>
-                      </p>
-                      
+                      {/* Add other fields here */}
                     </Card.Text>
                     <Card.Text>
                       <div className="card_lower_buttons">
-                    <div className="update_button">
-                    <button type="submit" >Update</button>
-                  </div>
-                  <div className="update_button">
-                    <button type="submit" >Delete</button>
-                  </div>
-                  </div>
+                        <div className="update_button">
+                          <button type="submit">Update</button>
+                        </div>
+                        <div className="update_button">
+                          <button type="submit">Delete</button>
+                        </div>
+                      </div>
                     </Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
             ))}
+          </Row>
+          <Row className="pt-3">
+            <Col>
+              <Pagination>
+                <Pagination.First
+                  onClick={() => handlePageChange(1)}
+                  disabled={currentPage === 1}
+                />
+                <Pagination.Prev
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                />
+
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <Pagination.Item
+                    key={index}
+                    active={index + 1 === currentPage}
+                    onClick={() => handlePageChange(index + 1)}
+                  >
+                    {index + 1}
+                  </Pagination.Item>
+                ))}
+
+                <Pagination.Next
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                />
+                <Pagination.Last
+                  onClick={() => handlePageChange(totalPages)}
+                  disabled={currentPage === totalPages}
+                />
+              </Pagination>
+            </Col>
           </Row>
         </Container>
       </div>
