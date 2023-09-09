@@ -84,32 +84,33 @@ import { Admingardener } from "./Pages/Adminportal/Admingardener";
 import { Adminlandscapearchitect } from "./Pages/Adminportal/Adminlandscapearchitect";
 import { Adminhousecleaner } from "./Pages/Adminportal/Adminhousecleaner";
 /* Admin services imports ends */
+
 /* Admin stores imports starts */
-// import { Adminbuildingmaterial } from "./Pages/Adminportal/Adminbuildingmaterial";
-// import { Adminbricks } from "./Pages/Adminportal/Adminbricks";
-// import { Adminmarbleandtilestore } from "./Pages/Adminportal/Adminmarbleandtilestore";
-// import { Adminceramics } from "./Pages/Adminportal/Adminceramics";
-// import { Adminsanitary } from "./Pages/Adminportal/Adminsanitary";
-// import { Adminboringmaterial } from "./Pages/Adminportal/Adminboringmaterial";
-// import { Adminwood } from "./Pages/Adminportal/Adminwood";
-// import { Admintimber } from "./Pages/Adminportal/Admintimber";
-// import { Adminpaintstore } from "./Pages/Adminportal/Adminpaintstore";
-// import { Adminsteelstore } from "./Pages/Adminportal/Adminsteelstore";
-// import { Adminiron } from "./Pages/Adminportal/Adminiron";
-// import { Adminaluminumstore } from "./Pages/Adminportal/Adminaluminumstore";
-// import { Adminglassstore } from "./Pages/Adminportal/Adminglassstore";
-// import { Adminhardware } from "./Pages/Adminportal/Adminhardware";
-// import { Adminelectronics } from "./Pages/Adminportal/Adminelectronics";
-// import { Adminelectric } from "./Pages/Adminportal/Adminelectric";
-// import { Adminwallpanelling } from "./Pages/Adminportal/Adminwallpanelling";
-// import { Adminsolarsystem } from "./Pages/Adminportal/Adminsolarsystem";
-// import { Adminnursery } from "./Pages/Adminportal/Adminnursery";
-// import { Adminconcreteplant } from "./Pages/Adminportal/Adminconcreteplant";
-// import { Admininteriordecoration } from "./Pages/Adminportal/Admininteriordecoration";
-// import { Adminlights } from "./Pages/Adminportal/Adminlights";
-// import { Adminfurniture } from "./Pages/Adminportal/Adminfurniture";
-// import { Adminsecurity } from "./Pages/Adminportal/Adminsecurity";
-// import { Admintermiteprotection } from "./Pages/Adminportal/Admintermiteprotection";
+import { Adminbuildingmaterial } from "./Pages/Adminportal/Adminbuildingmaterial";
+import { Adminbrick } from "./Pages/Adminportal/Adminbrick";
+import { Adminmarbleandtilestore } from "./Pages/Adminportal/Adminmarbleandtilestore";
+import { Adminceramic } from "./Pages/Adminportal/Adminceramic";
+import { Adminsanitary } from "./Pages/Adminportal/Adminsanitary";
+import { Adminboringmaterial } from "./Pages/Adminportal/Adminboringmaterial";
+import { Adminwood } from "./Pages/Adminportal/Adminwood";
+import { Admintimber } from "./Pages/Adminportal/Admintimber";
+import { Adminpaintstore } from "./Pages/Adminportal/Adminpaintstore";
+import { Adminsteelstore } from "./Pages/Adminportal/Adminsteelstore";
+import { Adminiron } from "./Pages/Adminportal/Adminiron";
+import { Adminaluminumstore } from "./Pages/Adminportal/Adminaluminumstore";
+import { Adminglassstore } from "./Pages/Adminportal/Adminglassstore";
+import { Adminhardware } from "./Pages/Adminportal/Adminhardware";
+import { Adminelectronic } from "./Pages/Adminportal/Adminelectronic";
+import { Adminelectric } from "./Pages/Adminportal/Adminelectric";
+import { Adminwallpanelling } from "./Pages/Adminportal/Adminwallpanelling";
+import { Adminsolarsystem } from "./Pages/Adminportal/Adminsolarsystem";
+import { Adminnursery } from "./Pages/Adminportal/Adminnursery";
+import { Adminconcreteplant } from "./Pages/Adminportal/Adminconcreteplant";
+import { Admininteriordecoration } from "./Pages/Adminportal/Admininteriordecoration";
+import { Adminlight } from "./Pages/Adminportal/Adminlight";
+import { Adminfurniture } from "./Pages/Adminportal/Adminfurniture";
+import { Adminsecurity } from "./Pages/Adminportal/Adminsecurity";
+import { Admintermiteprotection } from "./Pages/Adminportal/Admintermiteprotection";
 /* Admin stores imports ends */
 
 /* Real Estate Routes*/
