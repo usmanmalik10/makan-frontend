@@ -43,8 +43,8 @@
 }
 .card_lower_buttons{
   display: flex;
-  flex-direction: row;
- gap: 30%;
+  justify-content: space-around;
+  align-items: center;
 }
 .update_button > button{
   width: 100px;

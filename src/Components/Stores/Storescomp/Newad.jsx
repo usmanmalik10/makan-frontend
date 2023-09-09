@@ -1083,8 +1083,8 @@ export const Newad = () => {
                           type="text"
                           placeholder="Quantity"
                           required
-                          name="deatils.key1"
-                          value={details.key1}
+                          name="key1"
+                          value={formData.details.key1}
                           onChange={onChange}
                         />
                       </div>
@@ -1100,8 +1100,8 @@ export const Newad = () => {
                           type="text"
                           placeholder="Size"
                           required
-                          name="details.key2"
-                          value={details.key2}
+                          name="key2"
+                          value={formData.details.key2}
                           onChange={onChange}
                         />
                       </div>
@@ -1289,7 +1289,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key1" value={details.key1} onChange={onchange}>
+                          <select className="business-inputs" name="key1" value={formData.details.key1} onChange={onchange}>
                             <option>Thickness</option>
                             <option>3MM</option>
                             <option>4MM</option>
@@ -1314,8 +1314,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -1335,8 +1335,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="deatails.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -1354,8 +1354,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Grade"
                             required
-                            value={details.key4}
-                            name="details.key4"
+                            value={formData.details.key4}
+                            name="key4"
                             onChange={onChange}
                           />
                         </div>
@@ -1552,8 +1552,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -1571,8 +1571,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Grade"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -1769,8 +1769,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -1788,8 +1788,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -1809,8 +1809,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -1828,8 +1828,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            value={details.key4}
-                            name="details.key4"
+                            value={formData.details.key4}
+                            name="key4"
                             onChange={onChange}
                           />
                         </div>
@@ -2025,8 +2025,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -2044,8 +2044,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dia"
                             required
-                            name="deatils.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={ formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -2065,8 +2065,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Depth"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -2262,8 +2262,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
 
                           />
@@ -2282,8 +2282,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -2303,8 +2303,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -2460,8 +2460,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Wood Name"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -2500,8 +2500,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -2519,8 +2519,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -2712,7 +2712,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key1" value={details.key1} onChange={onChange}>
+                          <select className="business-inputs" name="key1" value={formData.details.key1} onChange={onChange}>
                             <option>Size</option>
                             <option>Quarter</option>
                             <option>Liter</option>
@@ -2731,7 +2731,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key2" value={details.key2} onChange={onChange}>
+                          <select className="business-inputs" name="key2" value={formData.details.key2} onChange={onChange}>
                             <option>Category</option>
                             <option>Emulsion</option>
                             <option>Weather Sheet</option>
@@ -2768,7 +2768,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key3" value={details.key3} onChange={onChange}>
+                          <select className="business-inputs" name="key3" value={formData.details.key3} onChange={onChange}>
                             <option>Type</option>
                             <option>Matt</option>
                             <option>High Gross</option>
@@ -2964,8 +2964,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Quantity"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -2978,7 +2978,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key2" value={details.key2} onChange={onChange}>
+                          <select className="business-inputs" name="key2" value={formData.details.key2} onChange={onChange}>
                             <option>Category</option>
                             <option>Stainless Steel</option>
                             <option>Magnet Steel</option>
@@ -3000,8 +3000,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -3019,8 +3019,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key4"
-                            value={details.key4}
+                            name="key4"
+                            value={formData.details.key4}
                             onChange={onChange}
                           />
                         </div>
@@ -3216,8 +3216,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -3235,8 +3235,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -3256,8 +3256,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -3451,8 +3451,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -3470,8 +3470,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -3491,8 +3491,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -3510,8 +3510,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Weight"
                             required
-                            name="details.key4"
-                            value={details.key4}
+                            name="key4"
+                            value={formData.details.key4}
                             onChange={onChange}
                           />
                         </div>
@@ -3531,8 +3531,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key5"
-                            value={details.key5}
+                            name="key5"
+                            value={formData.details.key5}
                             onChange={onChange}
                           />
                         </div>
@@ -3550,8 +3550,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Fitting"
                             required
-                            name="details.key6"
-                            value={details.key6}
+                            name="key6"
+                            value={formData.details.key6}
                             onChange={onChange}
                           />
                         </div>
@@ -3767,8 +3767,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -3788,8 +3788,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -3802,7 +3802,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key4" value={details.key4} onChange={onChange}>
+                          <select className="business-inputs" name="key4" value={formData.details.key4} onChange={onChange}>
                             <option>Tempered</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -4000,8 +4000,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -4019,8 +4019,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -4040,8 +4040,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -4059,8 +4059,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Weight"
                             required
-                            name="details.key4"
-                            value={details.key4}
+                            name="key4"
+                            value={formData.details.key4}
                             onChange={onChange}
                           />
                         </div>
@@ -4080,8 +4080,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
-                            name="details.key5"
-                            value={details.key5}
+                            name="key5"
+                            value={formData.details.key5}
                             onChange={onChange}
                           />
                         </div>
@@ -4099,8 +4099,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Quantity"
                             required
-                            name="details.key6"
-                            value={details.key6}
+                            name="key6"
+                            value={formData.details.key6}
                             onChange={onChange}
                           />
                         </div>
@@ -4297,8 +4297,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -4316,8 +4316,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Warranty"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
 
                           />
@@ -4333,7 +4333,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key3" value={details.key3} onChange={onChange}>
+                          <select className="business-inputs" name="key3" value={formData.details.key3} onChange={onChange}>
                             <option>After sale services</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -4529,8 +4529,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -4548,8 +4548,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -4569,8 +4569,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -4588,8 +4588,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Material"
                             required
-                            name="details.key4"
-                            value={details.key4}
+                            name="key4"
+                            value={formData.details.key4}
                             onChange={onChange}
                           />
                         </div>
@@ -4785,8 +4785,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -4804,8 +4804,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -5002,8 +5002,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -5136,8 +5136,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Plant Name"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -5157,8 +5157,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Plant Size"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -5197,8 +5197,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
@@ -5352,8 +5352,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -5392,8 +5392,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -5547,8 +5547,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -5588,8 +5588,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -5742,8 +5742,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -5783,8 +5783,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -5977,8 +5977,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key1"
-                            value={details.key1}
+                            name="key1"
+                            value={formData.details.key1}
                             onChange={onChange}
                           />
                         </div>
@@ -5996,8 +5996,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
+                            name="key2"
+                            value={formData.details.key2}
                             onChange={onChange}
                           />
                         </div>
@@ -6017,8 +6017,8 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
+                            name="key3"
+                            value={formData.details.key3}
                             onChange={onChange}
                           />
                         </div>
