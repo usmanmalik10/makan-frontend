@@ -19,6 +19,7 @@ export const Adminbuildingmaterials = () => {
             limit: 12,
             page: 1,
             sortBy: "createdAt:desc",
+            category: "buildingmaterial"
             
           },
           headers: {

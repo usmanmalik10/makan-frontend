@@ -88,7 +88,30 @@ export const Servicesprof = () => {
                           {serviceProvider.category}
                         </span>
                       </p>
-                      {/* Add other fields here */}
+                      <p className="service_profile_inner">
+                        Contractor Name :{" "}
+                        <span>{serviceProvider.contractorName}</span>
+                      </p>
+                      <p className="service_profile_inner">
+                        Conact Number :{" "}
+                        <span>{serviceProvider.contectNumber}</span>
+                      </p>
+                      <p className="service_profile_inner">
+                        Address : <span>{serviceProvider.address}</span>
+                      </p>
+                      <p className="service_profile_inner">
+                        Area of Service :{" "}
+                        <span>{serviceProvider.areaOfService.join(", ")}</span>
+                      </p>
+                      <p className="service_profile_inner">
+                        Charging Schedule :{" "}
+                        <span>{serviceProvider.chargingSchedule}</span>{" "}
+                      </p>
+                      <p className="service_profile_inner">
+                        Labor Rate : Rs/{" "}
+                        <span>{serviceProvider.laborRates}</span>{" "}
+                      </p>
+                    
                     </Card.Text>
                     <Card.Text>
                       <div className="card_lower_buttons">

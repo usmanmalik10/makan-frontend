@@ -104,7 +104,7 @@ h2::after {
 	}
     
 }
-@media screen and (min-width: 300px) and (max-width: 424px) {
+@media screen and (min-width: 200px) and (max-width: 424px) {
 	.carousel{
 		width: auto !important;
 	}
