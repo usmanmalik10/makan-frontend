@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import "./Stores.scss"
+// import "./Stores.scss"
 
 export const Herostores = () => {
   return (
@@ -9,7 +9,7 @@ export const Herostores = () => {
             <Container>
                 <Row>
                     <Col>
-                        <h1 className='all_store_heading'>All Store's</h1>
+                        <h1 className='all_store_heading'>All Stores</h1>
                     </Col>
                 </Row>
             </Container>

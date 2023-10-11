@@ -14,20 +14,42 @@ export const Newad = () => {
   const token = localStorage.getItem("accessToken");
   // console.log('checktoken', token)
 
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const handleDropdownClick = (id) => {
-    if (openDropdown === id) {
-      setOpenDropdown(null);
-    } else {
-      setOpenDropdown(id);
-    }
-  };
+//   const [openDropdown, setOpenDropdown] = useState(null);
+//   // const handleDropdownClick = (id) => {
+//   //   if (openDropdown === id) {
+//   //     setOpenDropdown(null);
+//   //   } else {
+//   //     setOpenDropdown(id);
+//   //   }
+//   // };
 
+//   // Add a new state variable for the selected category
+// const [selectedCategory, setSelectedCategory] = useState("");
+
+// // ...
+
+// // Update the selectedCategory state when the user selects a category
+// const handleDropdownClick = (value) => {
+//   setSelectedCategory(value);
+// };
  
+const [openDropdown, setOpenDropdown] = useState(""); // Initialize it as an empty string
+
+// Add a new state variable for the selected category
+const [selectedCategory, setSelectedCategory] = useState("");
+
+// ...
+
+// Update the selectedCategory state when the user selects a category
+const handleDropdownClick = (value) => {
+  setSelectedCategory(value);
+  setOpenDropdown(value); // Set openDropdown to the selected category
+};
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
     areaOfService: "",
+    category:"",
     shopName: "",
     productName: "",
     address:"",
@@ -38,7 +60,7 @@ export const Newad = () => {
     details: { key1: "", key2:"", key3: ""},
   });
   console.log(formData);
-  const { areaOfService, shopName, productName, address, contectNumber, companyName, price, NTN, details,} = formData;
+  const { areaOfService, category, shopName, productName, address, contectNumber, companyName, price, NTN, details,} = formData;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -73,6 +95,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -95,6 +118,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -117,6 +141,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -139,6 +164,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -161,6 +187,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -183,6 +210,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -205,6 +233,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -227,6 +256,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -249,6 +279,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -270,6 +301,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -291,6 +323,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -312,6 +345,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -333,6 +367,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -355,6 +390,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -377,6 +413,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -399,6 +436,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -420,6 +458,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -442,6 +481,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -464,6 +504,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -486,6 +527,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -507,6 +549,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -528,6 +571,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -550,6 +594,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -572,6 +617,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -594,6 +640,7 @@ export const Newad = () => {
     const shopdata = {
     
       areaOfService:[areaOfService],
+      category: selectedCategory,
       shopName,
       productName,
       address,
@@ -632,42 +679,42 @@ export const Newad = () => {
                 </label>
                 <br />
                 <select
-                  value={openDropdown}
+                  value={selectedCategory}
                   onChange={(e) => handleDropdownClick(e.target.value)}
                   className="business-inputs"
                 >
                   <option value="">Select Category</option>
-                  <option value="dropdown1">Building Material</option>
-                  <option value="dropdown2">Bricks</option>
-                  <option value="dropdown3">Marble/Tiles</option>
-                  <option value="dropdown4">Ceramics</option>
-                  <option value="dropdown5">Sanitary</option>
-                  <option value="dropdown6">Boring Material</option>
-                  <option value="dropdown7">Wood </option>
-                  <option value="dropdown8">Timber</option>
-                  <option value="dropdown9">Paint</option>
-                  <option value="dropdown10">Steel</option>
-                  <option value="dropdown11">Iron</option>
-                  <option value="dropdown12">Aluminum</option>
-                  <option value="dropdown13">Glass</option>
-                  <option value="dropdown14">Hardware</option>
-                  <option value="dropdown15">Electronics</option>
-                  <option value="dropdown16">Electric</option>
-                  <option value="dropdown17">Wall Panelling</option>
-                  <option value="dropdown18">Solar System</option>
-                  <option value="dropdown19">Nursery</option>
-                  <option value="dropdown20">Concrete Plant</option>
-                  <option value="dropdown21">Interior Decoration</option>
-                  <option value="dropdown22">Lights</option>
-                  <option value="dropdown23">Furniture</option>
-                  <option value="dropdown24">Security</option>
-                  <option value="dropdown25">Termite Protection</option>
+                  <option value="buildingmaterial">Building Material</option>
+                  <option value="brick">Bricks</option>
+                  <option value="marbleandtilestore">Marble/Tiles</option>
+                  <option value="ceramic">Ceramics</option>
+                  <option value="sanitary">Sanitary</option>
+                  <option value="boringmaterial">Boring Material</option>
+                  <option value="wood">Wood </option>
+                  <option value="timber">Timber</option>
+                  <option value="paintstore">Paint</option>
+                  <option value="steelstore">Steel</option>
+                  <option value="iron">Iron</option>
+                  <option value="aluminumstore">Aluminum</option>
+                  <option value="glassstore">Glass</option>
+                  <option value="hardware">Hardware</option>
+                  <option value="electronic">Electronics</option>
+                  <option value="electric">Electric</option>
+                  <option value="wallpanelling">Wall Panelling</option>
+                  <option value="solarsystem">Solar System</option>
+                  <option value="nursery">Nursery</option>
+                  <option value="concreteplant">Concrete Plant</option>
+                  <option value="interiordecoration">Interior Decoration</option>
+                  <option value="light">Lights</option>
+                  <option value="furniture">Furniture</option>
+                  <option value="security">Security</option>
+                  <option value="termiteprotection">Termite Protection</option>
                 </select>
               </div>
             </Col>
           </Row>
           <Row>
-            {openDropdown === "dropdown1" && (
+            {openDropdown === "buildingmaterial" && (
               <div>
                 <form onSubmit={handleSubmitbuildingmaterial}>
                   {/* Dropdown Content for Building Material */}
@@ -905,7 +952,7 @@ export const Newad = () => {
               </div>
             )}
 
-            {openDropdown === "dropdown2" && (
+            {openDropdown === "brick" && (
               <div>
                 {/* Dropdown Content for Bricks */}
                 <form onSubmit={handleSubmitbricks}>
@@ -1083,9 +1130,9 @@ export const Newad = () => {
                           type="text"
                           placeholder="Quantity"
                           required
-                          name="deatils.key1"
-                          value={details.key1}
-                          onChange={onChange}
+                          name="key1"
+                          value={formData.details.key1}
+                          onChange={handleDetailsInputChange }
                         />
                       </div>
                     </Col>
@@ -1100,9 +1147,9 @@ export const Newad = () => {
                           type="text"
                           placeholder="Size"
                           required
-                          name="details.key2"
-                          value={details.key2}
-                          onChange={onChange}
+                          name="key2"
+                          value={formData.details.key2}
+                          onChange={handleDetailsInputChange }
                         />
                       </div>
                     </Col>
@@ -1119,7 +1166,7 @@ export const Newad = () => {
               </div>
             )}
 
-            {openDropdown === "dropdown3" && (
+            {openDropdown === "marbleandtilestore" && (
               <div>
                 {/* Dropdown Content for Marble & Tiles */}
                 <section className="pt-4">
@@ -1140,7 +1187,7 @@ export const Newad = () => {
                             placeholder="Shop Name"
                             required
                             value={shopName}
-                            name="shopname"
+                            name="shopName"
                             onChange={onChange}
                           />
                         </div>
@@ -1178,6 +1225,9 @@ export const Newad = () => {
                             className="business-inputs"
                             type="text"
                             placeholder="Shop Address"
+                            value={address}
+                            name="address"
+                            onChange={onChange}
                             required
                           />
                         </div>
@@ -1190,7 +1240,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs">
+                          <select className="business-inputs" value={areaOfService} name="areaOfService" onChange={onChange}>
                             <option>Area of services</option>
                             <option>Sahiwal City</option>
                             <option>Sahiwal Division</option>
@@ -1289,7 +1339,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key1" value={details.key1} onChange={onchange}>
+                          <select className="business-inputs" name="key1" value={formData.details.key1} onChange={handleDetailsInputChange }>
                             <option>Thickness</option>
                             <option>3MM</option>
                             <option>4MM</option>
@@ -1314,9 +1364,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange }
                           />
                         </div>
                       </Col>
@@ -1335,9 +1385,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="deatails.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange }
                           />
                         </div>
                       </Col>
@@ -1354,9 +1404,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Grade"
                             required
-                            value={details.key4}
-                            name="details.key4"
-                            onChange={onChange}
+                            value={formData.details.key4}
+                            name="key4"
+                            onChange={handleDetailsInputChange }
                           />
                         </div>
                       </Col>
@@ -1373,7 +1423,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown4" && (
+            {openDropdown === "ceramic" && (
               <div>
                 {/* Dropdown Content for Ceramics */}
                 <section className="pt-4">
@@ -1394,7 +1444,7 @@ export const Newad = () => {
                             placeholder="Shop Name"
                             required
                             value={shopName}
-                            name="shopname"
+                            name="shopName"
                             onChange={onChange}
                           />
                         </div>
@@ -1552,9 +1602,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -1571,9 +1621,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Grade"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -1590,7 +1640,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown5" && (
+            {openDropdown === "sanitary" && (
               <div>
                 {/* Dropdown Content for Sanitary */}
                 <section className="pt-4">
@@ -1769,9 +1819,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -1788,9 +1838,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -1809,9 +1859,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -1828,9 +1878,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            value={details.key4}
-                            name="details.key4"
-                            onChange={onChange}
+                            value={formData.details.key4}
+                            name="key4"
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -1847,7 +1897,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown6" && (
+            {openDropdown === "boringmaterial" && (
               <div>
                 {/* Dropdown Content for Boring Material */}
                 <section className="pt-4">
@@ -2025,9 +2075,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2044,9 +2094,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dia"
                             required
-                            name="deatils.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={ formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2065,9 +2115,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Depth"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2084,7 +2134,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown7" && (
+            {openDropdown === "wood" && (
               <div>
                 {/* Dropdown Content for wood */}
                 <section className="pt-4">
@@ -2262,9 +2312,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
 
                           />
                         </div>
@@ -2282,9 +2332,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2303,9 +2353,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2322,7 +2372,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown8" && (
+            {openDropdown === "timber" && (
               <div>
                 {/* Dropdown Content for TImber */}
                 <section className="pt-4">
@@ -2460,9 +2510,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Wood Name"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2481,7 +2531,7 @@ export const Newad = () => {
                             required
                             name="price"
                             value={price}
-                            onChange={onChange}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2500,9 +2550,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2519,9 +2569,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2538,7 +2588,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown9" && (
+            {openDropdown === "paintstore" && (
               <div>
                 {/* Dropdown Content for Paint */}
                 <section className="pt-4">
@@ -2712,7 +2762,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key1" value={details.key1} onChange={onChange}>
+                          <select className="business-inputs" name="key1" value={formData.details.key1} onChange={handleDetailsInputChange}>
                             <option>Size</option>
                             <option>Quarter</option>
                             <option>Liter</option>
@@ -2731,7 +2781,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key2" value={details.key2} onChange={onChange}>
+                          <select className="business-inputs" name="key2" value={formData.details.key2} onChange={handleDetailsInputChange}>
                             <option>Category</option>
                             <option>Emulsion</option>
                             <option>Weather Sheet</option>
@@ -2768,7 +2818,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key3" value={details.key3} onChange={onChange}>
+                          <select className="business-inputs" name="key3" value={formData.details.key3} onChange={handleDetailsInputChange}>
                             <option>Type</option>
                             <option>Matt</option>
                             <option>High Gross</option>
@@ -2786,7 +2836,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown10" && (
+            {openDropdown === "steelstore" && (
               <div>
                 {/* Dropdown Content for Steel */}
                 <section className="pt-4">
@@ -2964,9 +3014,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Quantity"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -2978,7 +3028,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key2" value={details.key2} onChange={onChange}>
+                          <select className="business-inputs" name="key2" value={formData.details.key2} onChange={handleDetailsInputChange}>
                             <option>Category</option>
                             <option>Stainless Steel</option>
                             <option>Magnet Steel</option>
@@ -3000,9 +3050,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3019,9 +3069,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key4"
-                            value={details.key4}
-                            onChange={onChange}
+                            name="key4"
+                            value={formData.details.key4}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3038,7 +3088,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown11" && (
+            {openDropdown === "iron" && (
               <div>
                 {/* Dropdown Content for Iron */}
                 <section className="pt-4">
@@ -3216,9 +3266,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3235,9 +3285,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3256,9 +3306,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3273,7 +3323,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown12" && (
+            {openDropdown === "aluminumstore" && (
               <div>
                 {/* Dropdown Content for Aluminum */}
                 <section className="pt-4">
@@ -3451,9 +3501,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3470,9 +3520,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3491,9 +3541,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3510,9 +3560,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Weight"
                             required
-                            name="details.key4"
-                            value={details.key4}
-                            onChange={onChange}
+                            name="key4"
+                            value={formData.details.key4}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3531,9 +3581,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key5"
-                            value={details.key5}
-                            onChange={onChange}
+                            name="key5"
+                            value={formData.details.key5}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3550,9 +3600,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Fitting"
                             required
-                            name="details.key6"
-                            value={details.key6}
-                            onChange={onChange}
+                            name="key6"
+                            value={formData.details.key6}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3569,7 +3619,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown13" && (
+            {openDropdown === "glassstore" && (
               <div>
                 {/* Dropdown Content for Glass */}
                 
@@ -3750,7 +3800,7 @@ export const Newad = () => {
                             required
                             name="details.key1"
                             value={details.key1}
-                            onChange={onChange}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3767,9 +3817,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3788,9 +3838,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -3802,7 +3852,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key4" value={details.key4} onChange={onChange}>
+                          <select className="business-inputs" name="key4" value={formData.details.key4} onChange={handleDetailsInputChange}>
                             <option>Tempered</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -3822,7 +3872,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown14" && (
+            {openDropdown === "hardware" && (
               <div>
                 {/* Dropdown Content for Hardware */}
                 <section className="pt-4">
@@ -4000,9 +4050,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4019,9 +4069,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4040,9 +4090,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4059,9 +4109,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Weight"
                             required
-                            name="details.key4"
-                            value={details.key4}
-                            onChange={onChange}
+                            name="key4"
+                            value={formData.details.key4}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4080,9 +4130,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
-                            name="details.key5"
-                            value={details.key5}
-                            onChange={onChange}
+                            name="key5"
+                            value={formData.details.key5}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4099,9 +4149,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Quantity"
                             required
-                            name="details.key6"
-                            value={details.key6}
-                            onChange={onChange}
+                            name="key6"
+                            value={formData.details.key6}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4118,7 +4168,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown15" && (
+            {openDropdown === "electronic" && (
               <div>
                 {/* Dropdown Content for Electronics */}
                 <section className="pt-4">
@@ -4297,9 +4347,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4316,9 +4366,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Warranty"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
 
                           />
                         </div>
@@ -4333,7 +4383,7 @@ export const Newad = () => {
                             </span>
                           </label>
                           <br />
-                          <select className="business-inputs" name="details.key3" value={details.key3} onChange={onChange}>
+                          <select className="business-inputs" name="key3" value={formData.details.key3} onChange={handleDetailsInputChange}>
                             <option>After sale services</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -4351,7 +4401,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown16" && (
+            {openDropdown === "electric" && (
               <div>
                 {/* Dropdown Content for Electric */}
                 <section className="pt-4">
@@ -4529,9 +4579,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4548,9 +4598,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4569,9 +4619,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Length"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4588,9 +4638,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Material"
                             required
-                            name="details.key4"
-                            value={details.key4}
-                            onChange={onChange}
+                            name="key4"
+                            value={formData.details.key4}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4607,7 +4657,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown17" && (
+            {openDropdown === "wallpanelling" && (
               <div>
                 {/* Dropdown Content for Wall Panelling */}
                 <section className="pt-4">
@@ -4785,9 +4835,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4804,9 +4854,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -4823,7 +4873,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown18" && (
+            {openDropdown === "solarsystem" && (
               <div>
                 {/* Dropdown Content for Solar System */}
                 <section className="pt-4">
@@ -5002,9 +5052,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5019,7 +5069,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown19" && (
+            {openDropdown === "nursery" && (
               <div>
                 {/* Dropdown Content for Nursery */}
                 <section className="pt-4">
@@ -5136,9 +5186,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Plant Name"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5157,9 +5207,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Plant Size"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5178,7 +5228,7 @@ export const Newad = () => {
                             required
                             name="price"
                             value={price}
-                            onChange={onChange}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5197,9 +5247,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5214,7 +5264,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown20" && (
+            {openDropdown === "concreteplant" && (
               <div>
                 {/* Dropdown Content for Concrete Plant */}
                 <section className="pt-4">
@@ -5352,9 +5402,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5392,9 +5442,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5409,7 +5459,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown21" && (
+            {openDropdown === "interiordecoration" && (
               <div>
                 {/* Dropdown Content for Interior Decoration */}
                 <section className="pt-4">
@@ -5547,9 +5597,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Size"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5588,9 +5638,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5605,7 +5655,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown22" && (
+            {openDropdown === "light" && (
               <div>
                 {/* Dropdown Content for Lights */}
                 <section className="pt-4">
@@ -5742,9 +5792,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Type"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5783,9 +5833,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5799,7 +5849,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown23" && (
+            {openDropdown === "furniture" && (
               <div>
                 {/* Dropdown Content for Furniture */}
                 <section className="pt-4">
@@ -5977,9 +6027,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Dimension"
                             required
-                            name="details.key1"
-                            value={details.key1}
-                            onChange={onChange}
+                            name="key1"
+                            value={formData.details.key1}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -5996,9 +6046,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Thickness"
                             required
-                            name="details.key2"
-                            value={details.key2}
-                            onChange={onChange}
+                            name="key2"
+                            value={formData.details.key2}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -6017,9 +6067,9 @@ export const Newad = () => {
                             type="text"
                             placeholder="Color"
                             required
-                            name="details.key3"
-                            value={details.key3}
-                            onChange={onChange}
+                            name="key3"
+                            value={formData.details.key3}
+                            onChange={handleDetailsInputChange}
                           />
                         </div>
                       </Col>
@@ -6034,7 +6084,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown24" && (
+            {openDropdown === "security" && (
               <div>
                 {/* Dropdown Content for Security */}
                 <section className="pt-4">
@@ -6211,7 +6261,7 @@ export const Newad = () => {
                 </section>
               </div>
             )}
-            {openDropdown === "dropdown25" && (
+            {openDropdown === "termiteprotection" && (
               <div>
                 {/* Dropdown Content for Termite Protection */}
                 <section className="pt-4">

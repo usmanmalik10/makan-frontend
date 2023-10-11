@@ -13,8 +13,8 @@
 
     .store_lower_buttons{
         display: flex;
-        flex-direction: row;
-       gap: 30%;
+       justify-content: space-around;
+       align-items: center;
       }
       .store_update_button > button{
         width: 100px;

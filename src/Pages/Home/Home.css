@@ -292,3 +292,46 @@ home_store_section{
   
 
 }
+@media screen and (min-width: 200px) and (max-width: 299px) {
+  .hero-image1{
+    height: 170px !important;
+  }
+
+  .hero-text{
+    font-size: 10px !important;
+    margin-left: 20px;
+  }
+  .store-sideimage{
+    width: 40px;
+    height: 40px;
+  }
+  .home_store_heading{
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .real_home_heading{
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .our_project_home{
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .home_completed_heading{
+    font-size: 11px;
+    margin-top: 9px;
+  }
+  .viewall-div{
+    margin-top: 10px;
+    text-align: center;
+  }
+  .team-viewall{
+    font-size: 8px;
+    font-style: italic;
+  }
+  .store-card{
+    width: 100% !important;
+  }
+
+}
+
