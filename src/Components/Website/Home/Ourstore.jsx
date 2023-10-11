@@ -56,7 +56,7 @@ export const Ourstore = () => {
           </Col>
           <Col lg={5} md={5} sm={4} xs={4}>
             
-              <h1 className="home_store_heading">Our Store's</h1>
+              <h1 className="home_store_heading">Stores</h1>
               
             
           </Col>

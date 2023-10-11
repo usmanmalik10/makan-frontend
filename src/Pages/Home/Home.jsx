@@ -22,7 +22,7 @@ const Hero = () => {
       {/* <Mmhomes /> */}
       <Ourstore />
       <Realestate />
-      <Ourprojects />
+      {/* <Ourprojects /> */}
       {/* <Ourteam /> */}
       <Completedprojects /> 
       {/* <Dailyrates /> */}
