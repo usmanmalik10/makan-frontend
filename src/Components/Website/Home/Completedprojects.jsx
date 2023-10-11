@@ -20,7 +20,7 @@ export const Completedprojects = () => {
           </Col>
           <Col lg={5} md={5} sm={5} xs={5}>
             <div>
-              <h1 className="home_completed_heading">Completed Projects</h1>
+              <h1 className="home_completed_heading">Featured Stores</h1>
             </div>
           </Col>
           <Col lg={2} md={2} sm={4} xs={4}>

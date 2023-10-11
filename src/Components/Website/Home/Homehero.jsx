@@ -1,8 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
-import img1 from "../../../images/homehero1.jpg";
-import img2 from "../../../images/homehero2.jpg";
-import img3 from "../../../images/homehero3.jpg";
+import img1 from "../../../images/home1.jpeg";
+import img2 from "../../../images/home2.jpeg";
+import img3 from "../../../images/home3.jpeg";
 import { Container, Row, Col } from "react-bootstrap";
 
 
@@ -26,23 +26,24 @@ const Hero = () => {
               <Slider {...settings}>
                 <div>
                   <img className="hero-image1" alt="her" src={img1} />
-                  <div className="hero-text-div">
+                  {/* <div className="hero-text-div">
                       <h1 className="hero-text">Let’s start with your house</h1>
                       <h6 className="hero-text">If you are building a House, we are your key partners</h6>
-                  </div>
+                  </div> */}
                 </div>
                 <div>
                   <img className="hero-image1" alt="her" src={img2} />
-                  <div className="hero-text-div">
+                  {/* <div className="hero-text-div">
                       <h1 className="hero-text">You Think we deliver</h1>
                       <h6 className="hero-text">You just think of a house, we will build it</h6>
-                  </div>
+                  </div> */}
                 </div>
                 <div>
-                  <img className="hero-image1" alt="her" src={img3} />  <div className="hero-text-div">
+                  <img className="hero-image1" alt="her" src={img3} />  
+                  {/* <div className="hero-text-div">
                       <h1 className="hero-text">We Care for your House</h1>
                       <h6 className="hero-text">If you need an idea for your house, try us</h6>
-                  </div>
+                  </div> */}
                 </div>
               </Slider>
             </div>
