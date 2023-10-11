@@ -1,8 +1,8 @@
 const host = window.location.origin;
 
-// export const USERS_BASE_URL = "http://www.makanmanager.com:4000";
+export const USERS_BASE_URL = "http://www.makanmanager.com";
 
-export const USERS_BASE_URL = "/api/";
+// export const USERS_BASE_URL = "/api";
 
 
 
