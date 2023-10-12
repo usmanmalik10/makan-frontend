@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
+import { toast } from "react-toastify";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -15,21 +16,17 @@ const initialState = {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (userData, {rejectWithValue}) => {
+  async ({userData, onSuccess}, {rejectWithValue , fulfillWithValue}) => {
     try {
       // Call API to subscribe user
-      const response = await authService.register(userData);
+      const response = await authService.register({userData, onSuccess});
       console.log({response})
-      return response.data;
+     
+
+      return  fulfillWithValue(response.data);
     } catch (error) {
-      console.log({error});
-      const message =
-              (error.response &&
-                error.response.data &&
-                error.response.data.message) ||
-              error.message ||
-              error.toString();
-              console.log({message});
+    const message =error.response.data.message;
+      
       return rejectWithValue(message);
       
     }
@@ -38,22 +35,14 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
   'auth/login',
-  async (loginData, { rejectWithValue }) => {
-    try {
-      // Call API to install user
-      const response = await authService.login(loginData);
-      return response.data;
-    } catch (error) {
-      console.log({error});
-      const message =
-              (error.response &&
-                error.response.data &&
-                error.response.data.message) ||
-              error.message ||
-              error.toString();
-              console.log({message});
-      return rejectWithValue(message);
+  async ({ response, success }, { rejectWithValue }) => {
+    if (!success) {
+      // If success is false, reject the promise with the response data
+      throw rejectWithValue(response);
     }
+
+    // If success is true, return the response data
+    return response;
   }
 );
 
@@ -115,11 +104,15 @@ export const authSlice = createSlice({
         console.log({action})
         state.isLoading = false;
         state.isSuccess = true;
+        state.isError = false ;
+        state.message  = null;
         state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
+        state.isSuccess = false;
+
         state.message = action.payload;
         state.user = null
       })
@@ -130,12 +123,15 @@ export const authSlice = createSlice({
         console.log({action})
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = action.meta.arg;
+        state.isError = false ;
+        state.message = null;
+        state.user = action.meta.arg.response.user;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload;
+        state.isSuccess =  false ;
+        state.message = action.payload.message;
         state.user = null
       })
       .addCase(refreshtoken.pending, (state) => {

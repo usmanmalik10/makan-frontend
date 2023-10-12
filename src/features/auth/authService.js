@@ -8,13 +8,18 @@ const API_URL_2 = `${USERS_BASE_URL}/v1/auth/login`;
 
 const API_URL_3 = `${USERS_BASE_URL}/v1/auth/refresh-tokens`;
 
-const register = async (userData) => {
+const register = async ({userData, onSuccess}) => {
   try {
     const response = await axios.post(API_URL_1, userData);
-   if(response.data.code === "400") return toast.error("User already exist!")
+     toast.success('Successfully Reistered 🎉');
+     onSuccess()
     return response.data;
   } catch (error) {
-    console.log("error",error)
+    console.log('I got a error')
+
+    const message =error.response.data.message;
+
+    toast.error(message);
     return error;
   }
 };
@@ -26,11 +31,10 @@ const login = async (loginData) => {
     if (response.data) {
       localStorage.setItem("user", JSON.stringify(response.data));
     }
-console.log("response",response.data)
+    console.log("response", response.data);
     return response.data;
   } catch (error) {
-    console.log("error",error)
-    return error;
+    throw error; // Re-throw the original Axios error
   }
 };
 

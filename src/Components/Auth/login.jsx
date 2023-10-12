@@ -17,58 +17,94 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import google_logo from "../../Assets/Auth-Screen/Group 46060.png";
 import facebook_logo from "../../Assets/Auth-Screen/Group 46061.png";
 
+import { useForm, Controller } from 'react-hook-form';
+import { toast } from "react-toastify";
 // const LOGIN_URL = '/auth';
 
 export const Login = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const { email, password } = formData;
-  const [eye, setEye] = useState();
-  const [username, setUsername] = useState('');
-  const [pwd, setPwd] = useState('');
-  const [roles, setRoles] = useState('');
-  const [accessToken, setAccessToken] = useState('');
 
+
+  const [eye, setEye] = useState();
+
+ 
   const { setAuth } = useAuth();
   console.log()
   const navigate = useNavigate();
-  const location = useLocation();
-  // const from = location.state?.from?.pathname || "/";
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
-  // useEffect(() => {
-  //   if (isSuccess || user) {
-  //     navigate(from, { replace: true });
-  //   }
-  // }, [user, isError, isSuccess, message, navigate, dispatch, from]);
 
-  const onChange = (e) => {
-    console.log(e.target.name);
-    setFormData((preState) => ({
-      ...preState,
-      [e.target.name]: e.target.value,
-    }));
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    const loginData = {
-      email,
-      password,
-    };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const roleroute = {
+  //   const loginData = {
+  //     email,
+  //     password,
+  //   };
+
+  //   const roleroute = {
+  //     admin:'/admin-profile',
+  //     user: '/user-profile',
+  //     realEstate:'/estatealldata',
+  //     serviceProvider:'/services-profile',
+  //     shopKeeper:'/stores-profile',
+  //   };
+    
+  //   authService.login(loginData).then((response) => {
+  //     console.log("responselogin", response)
+  //     const username = response?.user?.username;
+  //     console.log("username",username);
+  //     localStorage.setItem('username', username);
+
+  //     const Userid = response?.user?.id;
+  //     console.log("Userid",Userid);
+  //     localStorage.setItem('Userid', Userid);
+  //     // setUsername(username);
+  //     const password = response?.user?.password;
+  //     console.log("password",password);
+  //     localStorage.setItem('password', password);
+  //     // setPwd(pwd);
+  //     const roles = response?.user?.role;
+  //     console.log("roles",roles);
+  //     localStorage.setItem('roles', roles);
+  //     // setRoles(roles);
+  //     const accessToken = response?.tokens?.access?.token;
+  //     console.log("accessToken",accessToken);
+  //     localStorage.setItem('accessToken', accessToken);
+  //     // setAccessToken(accessToken);
+  //     setAuth({ username, password, roles, accessToken });
+  //     navigate(roleroute[roles], { replace: true });
+  //     console.log("rolesafter",roles);
+  //   });
+
+  //   await dispatch(login(loginData)).unwrap();
+  // }
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+       const roleroute = {
       admin:'/admin-profile',
       user: '/user-profile',
       realEstate:'/estatealldata',
       serviceProvider:'/services-profile',
       shopKeeper:'/stores-profile',
     };
-    
-    authService.login(loginData).then((response) => {
+
+    // Determine if the input is an email or a  phone number
+    const isEmail = /\S+@\S+\.\S+/.test(data.emailOrPhone);
+    const loginType = isEmail ? 'email' : 'phoneNumber';
+   authService.login({
+    [loginType] : data.emailOrPhone , 
+    password : data.password
+  }).then((response) => {
       console.log("responselogin", response)
       const username = response?.user?.username;
       console.log("username",username);
@@ -93,18 +129,36 @@ export const Login = () => {
       setAuth({ username, password, roles, accessToken });
       navigate(roleroute[roles], { replace: true });
       console.log("rolesafter",roles);
-    });
+      dispatch(login({
+        success : true , 
+        response 
 
-    await dispatch(login(loginData)).unwrap();
+      }))
+
+      toast.success('Logged In 😆') ;
+    }).catch((err) => {
+      dispatch(login({
+        success: false,
+        response: err,
+      }))
+    
+      let message;
+      if (err.response && err.response.status === 401) {
+        message = 'Authentication failed. Please check your credentials.';
+      } else {
+        message = err.response?.data?.message || err.message || 'An error occurred.';
+      }
+      toast.error(message);
+    })
+
   }
-
   if (isLoading) {
     return <Spinner />;
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="login-wrapper">
           <Grid container>
             <Grid item xs={12} sm={12} md={6} lg={6} className="left-wrapper">
@@ -133,43 +187,67 @@ export const Login = () => {
                 </div>
 
                 <div className="login-input_container">
-                  <div className="login-inputfield-container-2">
-                    <img src={Inbox} className="login-inputicon" alt="icon" />
-                    <input
-                      className="login-inputfield-1"
-                      required
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={email}
-                      onChange={onChange}
-                      placeholder="Email Address"
-                    />
-                  </div>
-                  <div className="login-inputfield-container-2">
-                    <img src={Lock} className="login-inputicon" alt="icon" />
-                    <input
-                      className="login-inputfield-1"
-                      required
-                      type={eye ? "text" : "password"}
-                      id="password"
-                      name="password"
-                      value={password}
-                      onChange={onChange}
-                      placeholder="Password"
-                    />
-                    {eye ? (
-                      <AiOutlineEye
-                        className="login-inputicon-eye"
-                        onClick={() => setEye(!eye)}
-                      />
-                    ) : (
-                      <AiOutlineEyeInvisible
-                        className="login-inputicon-eye"
-                        onClick={() => setEye(!eye)}
-                      />
-                    )}
-                  </div>
+                <div className="login-inputfield-container-2">
+        <img src={Inbox} className="login-inputicon" alt="icon" />
+        <Controller
+          name="emailOrPhone"
+          control={control}
+          defaultValue=""
+          rules={{
+            required: 'Email/Phone is required',
+            validate: (value) =>
+              /\S+@\S+\.\S+/.test(value) || /^03[0-9]{9}$/.test(value)
+                ? true
+                : 'Please enter a valid email or  phone number',
+          }}
+          render={({ field }) => (
+            <input
+              {...field}
+              className="login-inputfield-1"
+              type="text"
+              placeholder="Email/Phone No"
+            />
+          )}
+        />
+        {errors.emailOrPhone && (
+          <p className="error-message">{errors.emailOrPhone.message}</p>
+        )}
+      </div>
+
+      {/* Password Input */}
+      <div className="login-inputfield-container-2">
+        <img src={Lock} className="login-inputicon" alt="icon" />
+        <Controller
+          name="password"
+          control={control}
+          defaultValue=""
+          rules={{ required: 'Password is required' }}
+          render={({ field }) => (
+            <>
+              <input
+                {...field}
+                className="login-inputfield-1"
+                type={eye ? 'text' : 'password'}
+                placeholder="Password"
+              />
+              {eye ? (
+                <AiOutlineEye
+                  className="login-inputicon-eye"
+                  onClick={() => setEye(!eye)}
+                />
+              ) : (
+                <AiOutlineEyeInvisible
+                  className="login-inputicon-eye"
+                  onClick={() => setEye(!eye)}
+                />
+              )}
+            </>
+          )}
+        />
+        {errors.password && (
+          <p className="error-message">{errors.password.message}</p>
+        )}
+      </div>
                   <div className="description">
                     <div className="signup_text">Don't have an account? </div>
                     <div className="signup_link">
@@ -187,7 +265,7 @@ export const Login = () => {
                   </div>
                
                 </div>
-                <div className="social_buttons">
+                {/* <div className="social_buttons">
                 <div className="google_button">
                   <div className="google_logo">
                     <img src={google_logo} alt="google_logo" />
@@ -200,7 +278,7 @@ export const Login = () => {
                   </div>
                   <div className="facebook_des">continue with facebook</div>
                 </div>
-              </div>
+              </div> */}
               </div>
             </Grid>
           </Grid>

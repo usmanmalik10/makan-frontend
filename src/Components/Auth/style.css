@@ -303,6 +303,17 @@
       color: #585858;
     }
 
+  
+.error-message {
+  font-size: 10px;
+  color : red;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-inline-start: 4px;
+  max-width: 300px;
+  margin-block:5px ;
+}
 @media screen and (max-width: 900px) {
   .right-form-wrapper {
     border-top-left-radius: 0px;
@@ -331,3 +342,6 @@
     display: none;
   }
 }
+
+
+

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,10 +7,57 @@ import { createshop } from "../../../features/shop/shopSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import shopService from "../../../features/shop/shopService";
 
+import { BsImage } from "react-icons/bs";
+import { useDropzone } from "react-dropzone";
+import classNames from "classnames";
+import { toast } from "react-toastify";
 
+
+
+const isImageSizeValid = (file, maxImageSizeInMb) => {
+  const maxSizeInBytes = maxImageSizeInMb * 1024 * 1024; // maxImageSizeInMb in bytes
+ if(file){
+  return file.size > maxSizeInBytes ? false  : true ;
+ }else {
+  return false;
+ }
+}
 
 export const Newad = () => {
-  
+  const maxImageSize = 5;
+  let initialProfileState = useMemo(
+    () => ({
+      file: null,
+      src: null,
+    }),
+    []
+  );
+  const onDrop = useCallback((acceptedFiles) => {
+    if (acceptedFiles.length === 0) {
+      // No files were dropped, handle this case if needed
+      return;
+    }
+
+    const blogImage = acceptedFiles[0];
+
+    if (blogImage.type.startsWith("image/")) {
+      const isValid = isImageSizeValid(blogImage, maxImageSize);
+      if (isValid) {
+        const fileSource = URL.createObjectURL(blogImage);
+        console.log("Source URL of the image file:", fileSource);
+
+        setFile({ file: blogImage, src: fileSource });
+      } else {
+        toast.error(`Sorry Image Size is greater than ${maxImageSize}Mb`);
+        return;
+      }
+    } else {
+      toast.error("Please upload a image");
+    }
+  }, []);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+ 
+  const [file, setFile] = useState(initialProfileState);
   const token = localStorage.getItem("accessToken");
   // console.log('checktoken', token)
 
@@ -46,7 +93,7 @@ const handleDropdownClick = (value) => {
   setOpenDropdown(value); // Set openDropdown to the selected category
 };
 
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
     areaOfService: "",
     category:"",
@@ -656,6 +703,12 @@ const handleDropdownClick = (value) => {
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
   };
+  function clearProfile() {
+    setFile({
+      file : null , 
+      src : '',
+    });
+  }
   if (isLoading) {
     return <Spinner2 />;
   }
@@ -664,11 +717,7 @@ const handleDropdownClick = (value) => {
     <>
       <section>
         <Container>
-          <Row>
-            <Col>
-              <h4>Product Images</h4>
-            </Col>
-          </Row>
+          
           <Row className="pt-4">
             <Col lg={6} md={6} sm={12}>
               <div>
@@ -713,6 +762,58 @@ const handleDropdownClick = (value) => {
               </div>
             </Col>
           </Row>
+       {
+        openDropdown.length > 2  && 
+  
+       ( file.src ? (
+          <div>
+            <div className="inner-image-upload ">
+              <img
+  
+              
+                alt="Blog"
+                src={file.src}
+              />
+            </div>
+  
+            <div class="d-flex justify-content-end">
+              <button onClick={clearProfile}>Clear Image</button>
+            </div>
+          </div>
+        )
+        :
+        (
+          <section className="image-div-upload">
+            <div {...getRootProps()} >
+              <input {...getInputProps()} />
+  
+              <div
+                className={
+                  classNames(
+                    "inner-image-div-upload",
+                    isDragActive ? "is-dragging" : ""
+                  )
+                }
+              >
+                {!isDragActive && (
+                  <>
+                    <BsImage fontSize={"50px"} />
+                    <span>Click to Select or Drop Blog Cover Image</span>
+                  </>
+                )}
+  
+                {isDragActive && (
+                  <>
+                    <BsImage fontSize={"50px"} />
+                    <span>Yeah Yeah Exactly Drop it 😃</span>
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+        ))
+        }
+       
           <Row>
             {openDropdown === "buildingmaterial" && (
               <div>
@@ -798,7 +899,7 @@ const handleDropdownClick = (value) => {
                           </div>
                         </Col>
                       </Row>
-                      <Row>
+                      {/* <Row>
                         <Col lg={6} md={6} sm={12}>
                           <div>
                             <label className="business-labels">
@@ -940,12 +1041,13 @@ const handleDropdownClick = (value) => {
                             />
                           </div>
                         </Col>
-                        <Col>
+                        
+                      </Row> */}
+                      <Col>
                           <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                         </Col>
-                      </Row>
                     </Container>
                   </section>
                 </form>
@@ -1035,7 +1137,7 @@ const handleDropdownClick = (value) => {
                           </div>
                         </Col>
                       </Row>
-                      <Row>
+                      {/* <Row>
                         <Col lg={6} md={6} sm={12}>
                           <div>
                             <label className="business-labels">
@@ -1154,13 +1256,13 @@ const handleDropdownClick = (value) => {
                       </div>
                     </Col>
                   </Row>
-                  <Row>
+                   */<Row>
                   <Col>
                           <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                         </Col>
-                  </Row>
+                  </Row>}
                 </Container>
                 </form>
               </div>
@@ -1250,7 +1352,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -1411,7 +1513,10 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    */
+                    
+                    }
+                     <Row>
                       <Col>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -1507,7 +1612,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -1627,7 +1732,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -1724,7 +1829,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -1884,7 +1989,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -1981,7 +2086,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -2121,14 +2226,15 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                      <Col lg={6} md={6} sm={12}>
+                     
+                    </Row> */}
+                     <Col lg={6} md={6} sm={12}>
                         <Col>
                         <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                         </Col>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -2218,7 +2324,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -2359,7 +2465,10 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                      <Col lg={6} md={6} sm={12}>
+                     
+                    </Row> */}
+                    <Row>
+                    <Col lg={6} md={6} sm={12}>
                         <Col>
                         <div className="login-button">
                             <button type="submit">Submit</button>
@@ -2456,7 +2565,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -2575,7 +2684,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -2673,7 +2782,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -2825,12 +2934,12 @@ const handleDropdownClick = (value) => {
                           </select>
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -2920,7 +3029,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -3075,7 +3184,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -3172,7 +3281,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -3312,12 +3421,12 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -3407,7 +3516,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -3606,7 +3715,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -3704,7 +3813,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -3859,7 +3968,7 @@ const handleDropdownClick = (value) => {
                           </select>
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -3956,7 +4065,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -4155,7 +4264,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -4252,7 +4361,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -4390,12 +4499,12 @@ const handleDropdownClick = (value) => {
                           </select>
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -4485,7 +4594,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -4644,7 +4753,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -4741,7 +4850,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -4860,7 +4969,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -4958,7 +5067,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -5058,12 +5167,12 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -5153,7 +5262,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -5253,12 +5362,12 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -5348,7 +5457,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -5448,12 +5557,12 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -5543,7 +5652,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -5644,12 +5753,12 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -5738,7 +5847,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -5839,12 +5948,12 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                 </section>
               </div>
@@ -5933,7 +6042,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -6073,12 +6182,12 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
+                    </Row> */}
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
-                    </Row>
                   </Container>
                   </form>
                 </section>
@@ -6168,7 +6277,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -6247,7 +6356,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
 
                     <Row>
                       <Col lg={6} md={6} sm={12}>
@@ -6345,7 +6454,7 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
                           <label className="business-labels">
@@ -6424,7 +6533,7 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row>
+                    </Row> */}
 
                     <Row>
                       <Col lg={6} md={6} sm={12}>

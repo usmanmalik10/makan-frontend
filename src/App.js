@@ -158,7 +158,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          /* public routes */
+          {/* /* public routes  */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/" element={<Home />} />
@@ -201,14 +201,14 @@ function App() {
           <Route path="/all-termitetreatment" element={<Servtermite />} />
           <Route path="/all-stores" element={<Allstores />} />
 
-          /* we want to protect these routes */
+          {/* /* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
             <Route path="/admin-profile" element={<Adminprofile />} />
             <Route path="/user-list" element={<Users />} />
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
-            /* Admin services routes starts */
+            {/* /* Admin services routes starts */}
             <Route path="/admin-mason" element={<Adminmason />}/>
             <Route path="/admin-marble-tile-fixer" element={<Adminmarbleortile />}/>
             <Route path="/admin-plumber" element={<Adminplumber />}/>
@@ -239,9 +239,9 @@ function App() {
             <Route path="/admin-gardener" element={<Admingardener />}/>
             <Route path="/admin-landscape-architect" element={<Adminlandscapearchitect />}/>
             <Route path="/admin-house-cleaner" element={<Adminhousecleaner />}/>
-            /* Admin services routes ends */
+            {/* /* Admin services routes ends */ }
 
-            /* Admin stores routes starts */
+            {/* /* Admin stores routes starts */}
             <Route path="/admin-building-material" element={<Adminbuildingmaterial />}/>
             <Route path="/admin-bricks" element={<Adminbrick />}/>
             <Route path="/admin-marble-tile" element={<Adminmarbleandtilestore />}/>
@@ -267,7 +267,7 @@ function App() {
             <Route path="/admin-furniture" element={<Adminfurniture />}/>
             <Route path="/admin-security" element={<Adminsecurity />}/>
             <Route path="/admin-termite-protection" element={<Admintermiteprotection />}/>
-            /* Admin stores routes ends */
+            {/* /* Admin stores routes ends */}
           </Route>
 
           <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
@@ -296,7 +296,7 @@ function App() {
             <Route path="/active-adds-stores" element={<ActiveaddStores />} />
           </Route>
 
-          /* catch all */
+          {/* /* catch all */}
           <Route path="*" element={<Missing />} />
         </Route>
       </Routes>
