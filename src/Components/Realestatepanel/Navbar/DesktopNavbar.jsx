@@ -27,7 +27,7 @@ const DesktopNavbar = (props) => {
           </div>
           <div className="nav-links">
             {props.navList.map((item) => (
-              <div className="sub-nav-link" key={item.route}>
+              <div className="sub-nav-link mt-4" key={item.route}>
                 <item.icon className="nav-icon" />
                 <p
                   className="nav-text-R"

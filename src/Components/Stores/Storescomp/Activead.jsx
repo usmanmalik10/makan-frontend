@@ -51,6 +51,7 @@ export const Activead = () => {
   return (
     <>
     <section className="active_sec">
+    
       <Container>
         <Row>
           <Col>

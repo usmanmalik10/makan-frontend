@@ -225,6 +225,18 @@
   cursor: pointer;
 }
 
+.btn-pm-sm {
+ 
+  background: transparent
+    linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+    no-repeat padding-box;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 5px;
+}
 .signup-right-form-wrapper {
   z-index: 1;
   background-color: #ffffff;

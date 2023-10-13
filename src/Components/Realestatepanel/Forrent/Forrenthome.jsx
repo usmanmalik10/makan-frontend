@@ -7,6 +7,7 @@ import { createrealestate } from "../../../features/realestate/realestateSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import realestateService from "../../../features/realestate/realestateService";
 import { homeforrent } from "../../constants/config/config.dev";
+import ImageUploader from "../../Common/ImageUploader/ImageUploader";
 // import serviceproviderService from "../../../features/serviceprovider/serviceproviderService";
 
 export const Forrenthome = () => {
@@ -62,7 +63,8 @@ export const Forrenthome = () => {
       realestateService.createrealestate(propertydescription, token)
     );
   };
-
+  const [images, setImages] = React.useState([]);
+  const maxNumber = 5;
 
 
   return (
@@ -78,7 +80,7 @@ export const Forrenthome = () => {
               </Row>
               <Row>
                 <Col>
-                  <h2>Upload Images</h2>
+                <ImageUploader images={images} setImages={setImages} maxNumber={maxNumber}/>
                 </Col>
               </Row>
               <Row className="pt-4">

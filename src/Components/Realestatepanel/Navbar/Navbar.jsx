@@ -1,11 +1,12 @@
 import React from "react";
 import { BiHomeSmile } from "react-icons/bi";
-import { TbUsers } from "react-icons/tb";
+import { GiHomeGarage } from "react-icons/gi";
 import { RiNewspaperLine } from "react-icons/ri";
 import { RiSettingsLine } from "react-icons/ri";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 import "./style.css";
+import { BsCashCoin } from "react-icons/bs";
 
 const Navbar = () => {
   const navList = [
@@ -15,7 +16,7 @@ const Navbar = () => {
       route: "/estatealldata",
     },
     {
-      icon: TbUsers,
+      icon: GiHomeGarage,
       text: "House For Rent",
       route: "/forrent",
     },
@@ -25,7 +26,7 @@ const Navbar = () => {
       route: "/forsale",
     },
     {
-      icon: RiSettingsLine,
+      icon: BsCashCoin,
       text: "Plots For Sale",
       route: "/plotssale",
     },

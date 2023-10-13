@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import "./Newad.scss";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,13 +6,68 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { createservice } from "../../../features/serviceprovider/serviceproviderSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import serviceproviderService from "../../../features/serviceprovider/serviceproviderService";
+import { toast } from "react-toastify";
+import { useDropzone } from "react-dropzone";
+import classNames from "classnames";
+import { BsImage } from "react-icons/bs";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+
+
+
+const isImageSizeValid = (file, maxImageSizeInMb) => {
+  const maxSizeInBytes = maxImageSizeInMb * 1024 * 1024;
+ if(file){
+  return file.size > maxSizeInBytes ? false  : true ;
+ }else {
+  return false;
+ }
+}
+
 
 export const Newad = () => {
 
   const token = localStorage.getItem("accessToken");
-  // console.log('checktoken', token)
+  
+  const maxImageSize = 5;
+  let initialProfileState = useMemo(
+    () => ({
+      file: null,
+      src: null,
+    }),
+    []
+  );
+  const onDrop = useCallback((acceptedFiles) => {
+    if (acceptedFiles.length === 0) {
+      // No files were dropped, handle this case if needed
+      return;
+    }
 
-  const [selectedFile, setSelectedFile] = useState(null);
+    const blogImage = acceptedFiles[0];
+
+    if (blogImage.type.startsWith("image/")) {
+      const isValid = isImageSizeValid(blogImage, maxImageSize);
+      if (isValid) {
+        const fileSource = URL.createObjectURL(blogImage);
+        console.log("Source URL of the image file:", fileSource);
+
+        setFile({ file: blogImage, src: fileSource });
+      } else {
+        toast.error(`Sorry Image Size is greater than ${maxImageSize}Mb`);
+        return;
+      }
+    } else {
+      toast.error("Please upload a image");
+    }
+  }, []);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+ 
+  const [file, setFile] = useState(initialProfileState);
+  function clearProfile() {
+    setFile({
+      file : null , 
+      src : '',
+    });
+  }
   const [formData, setFormData] = useState({
     category: "",
     contractorName: "",
@@ -70,13 +125,38 @@ export const Newad = () => {
 
   };
 
-    const handleImageUpload = (event) => {
-      // Here, you can handle the uploaded image(s).
-      const files = event.target.files;
-      console.log(files); // This will log the FileList object, which contains the selected image(s).
-      // You can now perform any further processing, such as uploading the image to a server, displaying a preview, etc.
+    const [userLocation, setUserLocation] = useState(null);
+    const [markerLocation, setMarkerLocation] = useState(null);
+    const [center, setCenter] = useState([51.505, -0.09]); // Default to London
+  
+    useEffect(() => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const coords = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          setUserLocation(coords);
+          setMarkerLocation(coords);
+          setCenter([coords.lat, coords.lng]);
+        },
+        () => {
+          let coords  = {"lat":30.670104900043903,"lng":73.11058044433595}
+          setUserLocation(coords);
+          setMarkerLocation(coords);
+          setCenter([coords.lat, coords.lng]);
+          console.error("Location access denied");
+          alert("Please enable location for a better experience");
+        }
+      );
+    }, []);
+  
+    const updateMarkerLocation = (event) => {
+      console.log('Updating Marker locatin');
+  
+      const newCoords = event.target.getLatLng();
+      setMarkerLocation({ lat: newCoords.lat, lng: newCoords.lng });
     };
-
 
   if (isLoading) {
     return <Spinner2 />;
@@ -89,17 +169,57 @@ export const Newad = () => {
         <div>
           <section>
             <Container>
-              <Row>
-                <Col lg={6} md={6} sm={12}>
-                  <h4>Product Images</h4>
-                  <Form.Group controlId="formFileMultiple" className="mb-3 image-inner-field"> 
-                    <label className="business-labels">
-                      <span className="business-label-headings">Choose image(s) to Upload</span>
-                    </label>
-                    <Form.Control className="image-inputfield-select" type="file" multiple onChange={handleImageUpload} />
-                  </Form.Group>
-                </Col>
-              </Row>
+          
+                {
+                   ( file.src ? (
+          <div>
+            <div className="inner-image-upload ">
+              <img
+  
+              
+                alt="Blog"
+                src={file.src}
+              />
+            </div>
+  
+            <div class="d-flex justify-content-center ">
+              <button onClick={clearProfile} className='btn-pm-sm'>Delete Image</button>
+            </div>
+          </div>
+        )
+        :
+        (
+          <section className="image-div-upload">
+            <div {...getRootProps()} >
+              <input {...getInputProps()} />
+  
+              <div
+                className={
+                  classNames(
+                    "inner-image-div-upload",
+                    isDragActive ? "is-dragging" : ""
+                  )
+                }
+              >
+                {!isDragActive && (
+                  <>
+                    <BsImage fontSize={"50px"} />
+                    <span>Click to Select or Drop  Image</span>
+                  </>
+                )}
+  
+                {isDragActive && (
+                  <>
+                    <BsImage fontSize={"50px"} />
+                    <span>Yeah Yeah Exactly Drop it 😃</span>
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+        ))
+                }
+            
               <Row className="pt-4">
                 <Col lg={6} md={6} sm={12}>
                   <div>
@@ -284,12 +404,40 @@ export const Newad = () => {
                     />
                   </div>
                 </Col>
+                <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                 <Col lg={6} md={6} sm={12}>
                   <div className="login-button">
                     <button type="submit" >Submit</button>
                   </div>
                 </Col>
               </Row>
+              
             </Container>
           </section>
         </div>

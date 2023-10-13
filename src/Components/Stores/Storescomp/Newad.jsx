@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,11 +11,11 @@ import { BsImage } from "react-icons/bs";
 import { useDropzone } from "react-dropzone";
 import classNames from "classnames";
 import { toast } from "react-toastify";
-
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 
 const isImageSizeValid = (file, maxImageSizeInMb) => {
-  const maxSizeInBytes = maxImageSizeInMb * 1024 * 1024; // maxImageSizeInMb in bytes
+  const maxSizeInBytes = maxImageSizeInMb * 1024 * 1024;
  if(file){
   return file.size > maxSizeInBytes ? false  : true ;
  }else {
@@ -59,26 +59,7 @@ export const Newad = () => {
  
   const [file, setFile] = useState(initialProfileState);
   const token = localStorage.getItem("accessToken");
-  // console.log('checktoken', token)
-
-//   const [openDropdown, setOpenDropdown] = useState(null);
-//   // const handleDropdownClick = (id) => {
-//   //   if (openDropdown === id) {
-//   //     setOpenDropdown(null);
-//   //   } else {
-//   //     setOpenDropdown(id);
-//   //   }
-//   // };
-
-//   // Add a new state variable for the selected category
-// const [selectedCategory, setSelectedCategory] = useState("");
-
-// // ...
-
-// // Update the selectedCategory state when the user selects a category
-// const handleDropdownClick = (value) => {
-//   setSelectedCategory(value);
-// };
+  
  
 const [openDropdown, setOpenDropdown] = useState(""); // Initialize it as an empty string
 
@@ -703,12 +684,51 @@ const handleDropdownClick = (value) => {
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
   };
+
+
+
+
+
   function clearProfile() {
     setFile({
       file : null , 
       src : '',
     });
   }
+  const [userLocation, setUserLocation] = useState(null);
+  const [markerLocation, setMarkerLocation] = useState(null);
+  const [center, setCenter] = useState([51.505, -0.09]); // Default to London
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const coords = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        setUserLocation(coords);
+        setMarkerLocation(coords);
+        setCenter([coords.lat, coords.lng]);
+      },
+      () => {
+        let coords  = {"lat":30.670104900043903,"lng":73.11058044433595}
+        setUserLocation(coords);
+        setMarkerLocation(coords);
+        setCenter([coords.lat, coords.lng]);
+        console.error("Location access denied");
+        alert("Please enable location for a better experience");
+      }
+    );
+  }, []);
+
+  const updateMarkerLocation = (event) => {
+    console.log('Updating Marker locatin');
+
+    const newCoords = event.target.getLatLng();
+    setMarkerLocation({ lat: newCoords.lat, lng: newCoords.lng });
+  };
+
+
   if (isLoading) {
     return <Spinner2 />;
   }
@@ -776,8 +796,8 @@ const handleDropdownClick = (value) => {
               />
             </div>
   
-            <div class="d-flex justify-content-end">
-              <button onClick={clearProfile}>Clear Image</button>
+            <div class="d-flex justify-content-center ">
+              <button onClick={clearProfile} className='btn-pm-sm'>Delete Image</button>
             </div>
           </div>
         )
@@ -813,7 +833,8 @@ const handleDropdownClick = (value) => {
           </section>
         ))
         }
-       
+
+  
           <Row>
             {openDropdown === "buildingmaterial" && (
               <div>
@@ -1043,6 +1064,33 @@ const handleDropdownClick = (value) => {
                         </Col>
                         
                       </Row> */}
+                      <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col>
                           <div className="login-button">
                             <button type="submit">Submit</button>
@@ -1256,13 +1304,42 @@ const handleDropdownClick = (value) => {
                       </div>
                     </Col>
                   </Row>
-                   */<Row>
+                   */
+            }
+            <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
+                   <Row>
                   <Col>
                           <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                         </Col>
-                  </Row>}
+                  </Row>
                 </Container>
                 </form>
               </div>
@@ -1516,6 +1593,33 @@ const handleDropdownClick = (value) => {
                     */
                     
                     }
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                      <Row>
                       <Col>
                       <div className="login-button">
@@ -1733,6 +1837,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -1990,6 +2121,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -2228,6 +2386,33 @@ const handleDropdownClick = (value) => {
                       </Col>
                      
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                      <Col lg={6} md={6} sm={12}>
                         <Col>
                         <div className="login-button">
@@ -2467,6 +2652,33 @@ const handleDropdownClick = (value) => {
                       </Col>
                      
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                     <Col lg={6} md={6} sm={12}>
                         <Col>
@@ -2685,6 +2897,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -2935,6 +3174,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -3185,6 +3451,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -3422,6 +3715,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -3716,6 +4036,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -3969,6 +4316,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -4264,7 +4638,33 @@ const handleDropdownClick = (value) => {
                           />
                         </div>
                       </Col>
-                    </Row> */}
+                    </Row> */}<Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -4500,6 +4900,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -4754,6 +5181,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col>
                       <div className="login-button">
@@ -4970,6 +5424,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -5168,6 +5649,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -5363,6 +5871,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -5558,6 +6093,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -5754,6 +6316,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -5949,6 +6538,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -6183,6 +6799,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
+                    <Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
                             <button type="submit">Submit</button>
@@ -6357,7 +7000,33 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
-
+<Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                       <div className="login-button">
@@ -6534,20 +7203,50 @@ const handleDropdownClick = (value) => {
                         </div>
                       </Col>
                     </Row> */}
-
+<Row className="mt-4">
+                    <div className='map-container'>
+                    <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+      {userLocation && markerLocation  && (
+        <MapContainer
+          center={center}
+          zoom={13}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker
+            position={[markerLocation.lat, markerLocation.lng]}
+            draggable={true}
+          eventHandlers={{dragend : updateMarkerLocation}}
+          >
+            <Popup>Current Marker Position</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+      </div>
+                    </Row>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
+                        
                       <div className="login-button">
                             <button type="submit">Submit</button>
                           </div>
                       </Col>
                     </Row>
+                    
                   </Container>
                   </form>
                 </section>
               </div>
             )}
           </Row>
+              
+      
         </Container>
       </section>
     </>

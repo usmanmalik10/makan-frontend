@@ -6,6 +6,7 @@ import { RiSettingsLine } from "react-icons/ri";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 import "./style.css";
+import { AiFillFolderAdd, AiOutlineCheck } from "react-icons/ai";
 
 const ServicesNavbar = () => {
   const navList = [
@@ -15,12 +16,12 @@ const ServicesNavbar = () => {
       route: "/services-profile",
     },
     {
-      icon: TbUsers,
+      icon: AiFillFolderAdd,
       text: "New Add",
       route: "/new-add-services",
     },
     {
-      icon: RiNewspaperLine,
+      icon: AiOutlineCheck,
       text: "Active Adds",
       route: "/active-adds-services",
     },

@@ -7,6 +7,7 @@ import { createrealestate } from "../../../features/realestate/realestateSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import realestateService from "../../../features/realestate/realestateService";
 import { homeforsale } from "../../constants/config/config.dev";
+import ImageUploader from "../../Common/ImageUploader/ImageUploader";
 
 
 export const Forsalehome = () => {
@@ -64,6 +65,9 @@ export const Forsalehome = () => {
     );
   };
    
+  const [images, setImages] = React.useState([]);
+  const maxNumber = 5;
+
   return (
     <>
     <form onSubmit={handleSubmit}>
@@ -76,9 +80,7 @@ export const Forsalehome = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
-              <h2>Upload Images</h2>
-            </Col>
+          <ImageUploader images={images} setImages={setImages} maxNumber={maxNumber}/>
           </Row>
           <Row className="pt-4">
             <Col lg={6} md={6} sm={12}>

@@ -128,7 +128,7 @@ export const Servicesprof = () => {
               </Col>
             ))}
           </Row>
-          <Row className="pt-3">
+          {/* <Row className="pt-3">
             <Col>
               <Pagination>
                 <Pagination.First
@@ -160,7 +160,7 @@ export const Servicesprof = () => {
                 />
               </Pagination>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
     </div>

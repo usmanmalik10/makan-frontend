@@ -7,12 +7,15 @@ import { createrealestate } from "../../../features/realestate/realestateSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import realestateService from "../../../features/realestate/realestateService";
 import { plotforrent } from "../../constants/config/config.dev";
+import ImageUploader from "../../Common/ImageUploader/ImageUploader";
 
 
 export const Plotforrent = () => {
 
   const token = localStorage.getItem("accessToken");
   console.log('checktoken', token)
+  const [images, setImages] = React.useState([]);
+  const maxNumber = 5;
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
@@ -78,7 +81,7 @@ export const Plotforrent = () => {
           </Row>
           <Row>
             <Col>
-              <h2>Upload Images</h2>
+            <ImageUploader images={images} setImages={setImages} maxNumber={maxNumber}/>
             </Col>
           </Row>
           <Row className="pt-4">
