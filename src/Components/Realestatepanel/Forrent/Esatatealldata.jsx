@@ -151,7 +151,7 @@ export const Esatatealldata = () => {
             </Col>
           </Row>
           <Row>
-          {plotForSaleData.data.docs.length === 0 && <div>No Plots For Sale</div>}
+          {plotForSaleData.data.docs.length === 0 && <div>No Plo For Rent</div>}
 
           {plotForSaleData.data.docs.map((houseData) => (
             <Col lg={4} md={4} sm={12} xs={12}>

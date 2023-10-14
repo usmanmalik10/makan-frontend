@@ -13,9 +13,9 @@ const rootReducer = combineReducers({
   serviceprovider: serviceproviderReducer,
   realestate: realestateReducer,
   shop: shopReducer,
-  [estateApi.reducerPath]: estateApi.reducer, // Include the RTK Query reducer
   [serviceApi.reducerPath]: serviceApi.reducer,
   [storesApi.reducerPath]: storesApi.reducer,
+  [estateApi.reducerPath]: estateApi.reducer, // Include the RTK Query reducer
 
 
 });
