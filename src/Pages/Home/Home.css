@@ -18,13 +18,20 @@
 
 .homepage-allsection{
   padding: 30px 0px;
+
 }
+
 
 
 /* store section */
 
-home_store_section{
-  padding: 25px 0px;
+.home-store-section{
+  padding: 30px 0px;
+  /* background-color: #f0090d ; */
+  height: 750px;
+}
+.stores-container{
+  width: 100%;
 }
  .side-img-div{
      margin: auto;
@@ -45,29 +52,116 @@ home_store_section{
      border: 0px !important;
      /* background-color: red; */
    }
-   .store-names{
+   /* .home-store-card{
+    width: 800px !important;
+    border: 0px !important;
+    padding: 20px;
+   }
+   .home-store-img{
+    width: 100% !important;
+   } */
+   .home-store-labels{
      text-align: center;
      font-size: 28px !important;
      font-family: 'Times New Roman', Times, serif;
      font-style: italic;
+     margin: 20px 0px;
    }
+
+   .mainContainerSlider{
+    width: 100%;
+    height: auto;
+    background-color: red;
+   text-align: center;
+    
+}
+   .slickSlider1Bandi{
+    width: 110%;
+    height: 500px;
+    border-radius: 30px;
+}
+.sliderContent{
+  width: 80% !important;
+  height: 500px;
+}
+.slick-next:before, .slick-prev:before {
+  font-size: 300px !important;
+  line-height: 1;
+
+}
+.slick-next:before{
+  cursor: url('../../images/arrow-right.svg'), auto;
+  position: absolute;
+
+  width: 6000%;
+  height: 4000%;
+  left: 370px;
+  top: -191px;
+  font-size: 1px !important;
+
+
+
+
+}
+.slick-prev:before {
+  font-size: 1px !important;
+  position: absolute;
+  bottom: -160px;
+  left: 30px;
+  cursor: url('../../images/arrow-left.svg'), auto;
+  width: 6000%;
+  height: 4000%;
+  left: -845px;
+  top: -192px;
+
+
+}
+.slick-next, .slick-prev {
+  top: 200px !important;
+  z-index: 9999;
+  left: 400px;
+}
+
+.slick-dots li button:before, .slick-next:before, .slick-prev:before{
+  font-family: none !important;
+
+}
+
   /* End */
 
  /* RealEstate */
+ .home-real-con{
+  background-color: #f0090d ;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px 10px #f0090d;
+  width: 100% !important;
+ }
  .estate-card{
   width: 100%;
   padding-top: 20px;
   border: 0px !important;
+  margin: 30px 0px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px 2px black;
+ }
+ .estate-sideimage{
+  width: 100px;
+  margin: 30px 0;
+  border-radius: 50%;
  }
  .real_home_heading{
-  margin-top: 14px;
+  margin-top: 10%;
   font-style: oblique;
  }
 .estate_ineer_text{
   font-weight: 600;
   margin-bottom: 2px;
   font-style: italic;
+  font-size: 13px;
   
+}
+.real-card-image{
+  width: 100% !important;
 }
 
  /* End */
