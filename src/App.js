@@ -143,6 +143,7 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
+import { Adminallstrategicsalepartners } from "./Pages/Adminportal/Adminallstrategicsalepartners";
 
 
 
@@ -210,6 +211,7 @@ function App() {
             <Route path="/admin-profile" element={<Adminprofile />} />
             <Route path="/user-list" element={<Users />} />
             <Route path="/strategic-sale-partner" element={<Adminstrategicsalepartner/>} />
+            <Route path="/all-strategic-sale-partner" element={<Adminallstrategicsalepartners/>} />
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
