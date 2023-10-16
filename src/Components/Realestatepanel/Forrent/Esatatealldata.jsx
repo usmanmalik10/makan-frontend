@@ -7,129 +7,42 @@ import { getservicebyuserid } from "../../../features/serviceprovider/servicepro
 import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../constants/config/config.dev";
+import { useFetchHomeForRentDataQuery, useFetchHomeForSaleDataQuery, useFetchPlotForRentDataQuery, useFetchPlotForSaleDataQuery } from "../../../Redux/RtkQuery/EstateAllData";
 
 export const Esatatealldata = () => {
-  const token = localStorage.getItem("accessToken");
-  const [data, setData] = useState([]);
-  const [homeforrentdata, sethomeforrentData] =useState([]);
-  const [homeforsaledata, sethomeforsaleData] =useState([]);
-  const [plotforrentdata, setplotforrentData] =useState([]);
-  const [plotforsaledata, setplotforsaleData] =useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const userId = localStorage.getItem('Userid');
+
+  const {
+    data: homeForRentData,
+    isLoading: isHomeForRentLoading,
+  } = useFetchHomeForRentDataQuery(userId);
+
+  const {
+    data: homeForSaleData,
+    isLoading: isHomeForSaleLoading,
+  } = useFetchHomeForSaleDataQuery(userId);
+
+  const {
+    data: plotForRentData,
+    isLoading: isPlotForRentLoading,
+  } = useFetchPlotForRentDataQuery(userId);
+
+  const {
+    data: plotForSaleData,
+    isLoading: isPlotForSaleLoading,
+  } = useFetchPlotForSaleDataQuery(userId);
+
+  // Use the fetched data here
 
   useEffect(() => {
-    const fetchDatahomeforrent = async () => {
-      try {
-        const response = await axios.get(
-          `${USERS_BASE_URL}/v1/real-estate/userId`,
-          {
-            params: {
-              limit: 10,
-              page: 1,
-              sortBy: "createdAt:desc",
-              userId: localStorage.getItem("Userid"),
-              category: "house",
-              subCategory: "rent",
-            },
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        sethomeforrentData(response.data?.data?.docs);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-        // Handle the error here, such as displaying an error message
-      }
-    };
+    // Do something when data changes, or use data directly
+    console.log('Home for Rent Data:', homeForRentData);
+    // console.log('Home for Sale Data:', homeForSaleData);
+    // console.log('Plot for Rent Data:', plotForRentData);
+    // console.log('Plot for Sale Data:', plotForSaleData);
+  }, [homeForRentData, homeForSaleData, plotForRentData, plotForSaleData]);
 
-    console.log({homeforrentdata})
-    fetchDatahomeforrent();
-
-    const fetchDatahomeforsale = async () => {
-      try {
-        const response = await axios.get(`${USERS_BASE_URL}/v1/real-estate/userId`, {
-          params: {
-            limit: 10,
-            page: 1,
-            sortBy: "createdAt:desc",
-            userId: localStorage.getItem("Userid"),
-            category: "house",
-            subCategory: "sale",
-          },
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
-        sethomeforsaleData(response.data?.data?.docs);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-        // Handle the error here, such as displaying an error message
-      }
-    };
-  
-    fetchDatahomeforsale();
-  
-    const fetchDataplotforrent = async () => {
-      try {
-        const response = await axios.get(`${USERS_BASE_URL}/v1/real-estate/userId`, {
-          params: {
-            limit: 10,
-            page: 1,
-            sortBy: "createdAt:desc",
-            userId: localStorage.getItem("Userid"),
-            category: "plot",
-            subCategory: "rent",
-          },
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
-        setplotforrentData(response.data?.data?.docs);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-        // Handle the error here, such as displaying an error message
-      }
-    };
-  
-    fetchDataplotforrent();
-  
-  
-    const fetchDataplotforsale = async () => {
-      try {
-        const response = await axios.get(`${USERS_BASE_URL}/v1/real-estate/userId`, {
-          params: {
-            limit: 10,
-            page: 1,
-            sortBy: "createdAt:desc",
-            userId: localStorage.getItem("Userid"),
-            category: "plot",
-            subCategory: "sale",
-          },
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
-        setplotforsaleData(response.data?.data?.docs);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-        // Handle the error here, such as displaying an error message
-      }
-    };
-  
-    fetchDataplotforsale();
-  
-  }, [token]);
-
-  if (isLoading) {
+  if ( isHomeForRentLoading ||  isHomeForSaleLoading || isPlotForRentLoading || isPlotForSaleLoading) {
     return <Spinner2 />;
   }
 
@@ -143,7 +56,8 @@ export const Esatatealldata = () => {
             </Col>
           </Row>
           <Row>
-          {homeforrentdata.map((houseData) => (
+            {homeForRentData.data.docs.length === 0 && <div>No House For Rent</div>}
+          {homeForRentData.data.docs.map((houseData) => (
             <Col lg={4} md={4} sm={12} xs={12}>
              
                 <Card key={houseData._id} className="">
@@ -196,7 +110,9 @@ export const Esatatealldata = () => {
             </Col>
           </Row>
           <Row>
-          {homeforsaledata.map((houseData) => (
+          {homeForSaleData.data.docs.length === 0 && <div>No House For Sale</div>}
+
+          {homeForSaleData.data.docs.map((houseData) => (
             <Col lg={4} md={4} sm={12} xs={12}>
               <Card key={houseData._id}  className="">
                 <Card.Img src={houseData.images[0]} alt="House Image" />
@@ -235,7 +151,9 @@ export const Esatatealldata = () => {
             </Col>
           </Row>
           <Row>
-          {plotforsaledata.map((houseData) => (
+          {plotForSaleData.data.docs.length === 0 && <div>No Plo For Rent</div>}
+
+          {plotForSaleData.data.docs.map((houseData) => (
             <Col lg={4} md={4} sm={12} xs={12}>
               <Card key={houseData._id}  className="">
                 <Card.Img src={houseData.images[0]} alt="House Image"/>
@@ -272,7 +190,9 @@ export const Esatatealldata = () => {
             </Col>
           </Row>
           <Row>
-          {plotforrentdata.map((houseData) => (
+          {plotForRentData.data.docs.length === 0 && <div>No Plots For Rent</div>}
+
+          {plotForRentData.data.docs.map((houseData) => (
             <Col lg={4} md={4} sm={12} xs={12}>
               <Card key={houseData._id}  className="">
                 <Card.Img src={houseData.images[0]} alt="House Image" />

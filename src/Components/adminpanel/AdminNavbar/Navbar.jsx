@@ -20,6 +20,11 @@ const Navbar = () => {
       route: "/user-list",
     },
     {
+      icon: TbUsers,
+      text: "Create SSL",
+      route: "/strategic-sale-partner",
+    },
+    {
       icon: RiNewspaperLine,
       text: "Services",
       route: "",

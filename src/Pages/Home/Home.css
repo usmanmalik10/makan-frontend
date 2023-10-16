@@ -137,12 +137,13 @@
   width: 100% !important;
  }
  .estate-card{
-  width: 100%;
-  padding-top: 20px;
+  width: 95%;
+  padding-top: 20px ;
   border: 0px !important;
-  margin: 30px 0px;
+  margin: 30px 15px;
   border-radius: 30px;
   box-shadow: 2px 2px 2px 2px black;
+  
  }
  .estate-sideimage{
   width: 100px;
