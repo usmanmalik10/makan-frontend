@@ -120,6 +120,8 @@ export const Newad = () => {
     // navigate(from, { replace: true });
     // console.log("serviceData here", serviceData);
     dispatch(createservice(serviceData, token)).then(()=> serviceproviderService.createservice(serviceData, token));
+    navigate('/services-profile');
+
     // Success: The service was created, you can handle the fulfilled state if needed.
     // navigate(from, { replace: true });
 

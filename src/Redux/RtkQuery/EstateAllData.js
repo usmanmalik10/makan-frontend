@@ -5,6 +5,7 @@ import { USERS_BASE_URL } from '../../Components/constants/config/config.dev';
 
 // Define your API endpoint
 const estateApi = createApi({
+  reducerPath :'estatePath',
   baseQuery: fetchBaseQuery({ baseUrl: USERS_BASE_URL , prepareHeaders: (headers, { getState }) => {
     // Get the token from your Redux store or localStorage
     const token =  localStorage.getItem('accessToken');

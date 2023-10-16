@@ -62,6 +62,7 @@ export const Forrenthome = () => {
     dispatch(createrealestate(propertydescription, token)).then(() =>
       realestateService.createrealestate(propertydescription, token)
     );
+    navigate('/estatealldata');
   };
   const [images, setImages] = React.useState([]);
   const maxNumber = 5;

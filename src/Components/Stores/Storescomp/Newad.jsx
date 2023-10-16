@@ -138,6 +138,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitbricks = async (e) => {
@@ -161,6 +163,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitmarbletiles = async (e) => {
@@ -184,6 +188,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitceramics = async (e) => {
@@ -207,6 +213,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitsanitary = async (e) => {
@@ -230,6 +238,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitboringmaterial = async (e) => {
@@ -253,6 +263,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitwood = async (e) => {
@@ -276,6 +288,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmittimber = async (e) => {
@@ -299,6 +313,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitpaint = async (e) => {
@@ -322,6 +338,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
   const handleSubmitsteel = async (e) => {
     e.preventDefault();
@@ -344,6 +362,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
   const handleSubmitiron = async (e) => {
     e.preventDefault();
@@ -366,6 +386,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
   const handleSubmitaluminum = async (e) => {
     e.preventDefault();
@@ -388,6 +410,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
   const handleSubmitglass = async (e) => {
     e.preventDefault();
@@ -410,6 +434,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmithardware = async (e) => {
@@ -433,6 +459,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitelectronics = async (e) => {
@@ -456,6 +484,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitelectric = async (e) => {
@@ -479,6 +509,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
   const handleSubmitwallpanelling = async (e) => {
     e.preventDefault();
@@ -501,6 +533,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitsolarsytem = async (e) => {
@@ -524,6 +558,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitnursery = async (e) => {
@@ -547,6 +583,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitconcreteplant = async (e) => {
@@ -570,6 +608,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
   const handleSubmitinteriordecoration = async (e) => {
     e.preventDefault();
@@ -592,6 +632,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
   const handleSubmitlights = async (e) => {
     e.preventDefault();
@@ -614,6 +656,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitfurniture = async (e) => {
@@ -637,6 +681,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmitsecurity = async (e) => {
@@ -660,6 +706,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
   const handleSubmittermiteprotection = async (e) => {
@@ -683,6 +731,8 @@ const handleDropdownClick = (value) => {
     // await dispatch(createshop(shopdata, token)).unwrap();
 
     dispatch(createshop(shopdata, token)).then(() => shopService.createshop(shopdata, token));
+      navigate('/stores-profile');
+
   };
 
 
@@ -839,7 +889,9 @@ const handleDropdownClick = (value) => {
             {openDropdown === "buildingmaterial" && (
               <div>
                 <form onSubmit={handleSubmitbuildingmaterial}>
-                  {/* Dropdown Content for Building Material */}
+                      
+{/* Dropdown Content for
+                   Building Material */}
                   <section className="pt-4">
                     <Container>
                       <Row>
@@ -1106,7 +1158,8 @@ const handleDropdownClick = (value) => {
               <div>
                 {/* Dropdown Content for Bricks */}
                 <form onSubmit={handleSubmitbricks}>
-                <Container>
+                    
+<Container>
                 <Row>
                         <Col lg={6} md={6} sm={12}>
                           <div>
@@ -1350,7 +1403,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Marble & Tiles */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitmarbletiles}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -1637,7 +1691,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Ceramics */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitceramics}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -1881,7 +1936,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Sanitary */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitsanitary}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -2165,7 +2221,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Boring Material */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitboringmaterial}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -2430,7 +2487,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for wood */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitwood}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -2698,7 +2756,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for TImber */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmittimber}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -2941,7 +3000,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Paint */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitpaint}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -3216,7 +3276,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Steel */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitsteel}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -3495,7 +3556,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Iron */}
                 <section className="pt-4">
                   <form onSubmit={handleSubmitiron}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -3757,7 +3819,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Aluminum */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitaluminum}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -4081,7 +4144,8 @@ const handleDropdownClick = (value) => {
                 
                 <section className="pt-4">
                 <form onSubmit={handleSubmitglass}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -4360,7 +4424,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Hardware */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmithardware}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -4682,7 +4747,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Electronics */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitelectronics}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -4942,7 +5008,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Electric */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitelectric}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -5225,7 +5292,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Wall Panelling */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitwallpanelling}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -5469,7 +5537,8 @@ const handleDropdownClick = (value) => {
                 <section className="pt-4">
 
                 <form onSubmit={handleSubmitsolarsytem}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -5691,7 +5760,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Nursery */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitnursery}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -5913,7 +5983,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Concrete Plant */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitconcreteplant}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -6135,7 +6206,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Interior Decoration */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitinteriordecoration}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -6579,7 +6651,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Furniture */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitfurniture}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -6841,7 +6914,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Security */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmitsecurity}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
@@ -7044,7 +7118,8 @@ const handleDropdownClick = (value) => {
                 {/* Dropdown Content for Termite Protection */}
                 <section className="pt-4">
                 <form onSubmit={handleSubmittermiteprotection}>
-                  <Container>
+                      
+<Container>
                     <Row>
                       <Col lg={6} md={6} sm={12}>
                         <div>
