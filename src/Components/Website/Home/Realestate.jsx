@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import logo from "../../../images/sidelogo.png";
+import logo from "../../../images/makanlogo1.jpg";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Spinner2 from "../../Common/spinner2/spinner2";
@@ -134,11 +134,11 @@ export const Realestate = () => {
 
   return (
     <section className="homepage-allsection">
-      <Container>
+      <Container  className="home-real-con">
         <Row>
           <Col lg={5} md={5} sm={4} xs={4}>
             <div className="side-img-div">
-              <img className="store-sideimage" src={logo} alt="log" />
+              <img className="estate-sideimage" src={logo} alt="log" />
             </div>
           </Col>
           <Col lg={5} md={5} sm={4} xs={4}>
@@ -161,7 +161,7 @@ export const Realestate = () => {
             
              
                 <Card key={houseData._id} className="estate-card">
-                  <Card.Img src={img1} alt="House Image" />
+                  <Card.Img src={img1} alt="House Image" className="real-card-image" />
                   <Card.Body>
                     <Card.Text>
                       <p className="estate_ineer_text">
@@ -196,7 +196,7 @@ export const Realestate = () => {
           {homeforsaledata.map((houseData) => (
             
               <Card key={houseData._id}  className="estate-card">
-                <Card.Img src={img2} alt="House Image" />
+                <Card.Img src={img2} alt="House Image" className="real-card-image"/>
                 <Card.Body>
                   <Card.Text>
                     <p className="estate_ineer_text">House # : {houseData.address}</p>
@@ -218,7 +218,7 @@ export const Realestate = () => {
           {plotforsaledata.map((houseData) => (
             
               <Card key={houseData._id}  className="estate-card">
-                <Card.Img src={img1} alt="House Image"/>
+                <Card.Img src={img1} alt="House Image" className="real-card-image"/>
                 <Card.Body>
                   <Card.Text>
                     <p className="estate_ineer_text">Plot # : {houseData.address}</p>
@@ -238,7 +238,7 @@ export const Realestate = () => {
           {plotforrentdata.map((houseData) => (
             
               <Card key={houseData._id}  className="estate-card">
-                <Card.Img src={img2} alt="House Image" />
+                <Card.Img src={img2} alt="House Image" className="real-card-image" />
                 <Card.Body>
                   <Card.Text>
                     <p className="estate_ineer_text">Plot # : {houseData.address}</p>

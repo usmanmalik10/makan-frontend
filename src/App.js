@@ -53,6 +53,8 @@ import { Businesses } from "./Pages/Adminportal/Businesses";
 import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
+import { Adminstrategicsalepartner } from "./Pages/Adminportal/Adminstrategicsalepartner";
+
 /* Admin services imports starts */
 import { Adminmason } from "./Pages/Adminportal/Adminmason";
 import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
@@ -144,6 +146,8 @@ import Missing from "./Routes/Missing";
 
 
 
+
+
 const ROLES = {
   'Admin': 5150,
   'User': 2001,
@@ -205,6 +209,7 @@ function App() {
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
             <Route path="/admin-profile" element={<Adminprofile />} />
             <Route path="/user-list" element={<Users />} />
+            <Route path="/strategic-sale-partner" element={<Adminstrategicsalepartner/>} />
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
