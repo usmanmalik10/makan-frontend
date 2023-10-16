@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { createshop } from "../../../features/shop/shopSlice";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import shopService from "../../../features/shop/shopService";
@@ -92,7 +91,7 @@ const handleDropdownClick = (value) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading, isError, isSuccess, message } = useSelector(
+  const { isLoading } = useSelector(
     (state) => state.shop
   );
 

@@ -14,37 +14,6 @@ import { Realestate } from "./Pages/Realestate/Realestate";
 import { Contactus } from "./Pages/Contactus/Contactus";
 import { Login } from "./Components/Auth/login";
 import { Signup } from "./Components/Auth/signup";
-import { Servicearchitecture } from "./Components/Website/Servicedetails/Servicearchitecture/Servicearchitecture";
-import { Servicesplumberone } from "./Components/Website/Servicedetails/Serviceplumb/Servicesplumberone";
-import { Serviceengineer } from "./Components/Website/Servicedetails/Serviceengineer/Serviceengineer";
-import { Servicecontractor } from "./Components/Website/Servicedetails/Servicecontractors/Servicecontractor";
-import { Servicecarpenter } from "./Components/Website/Servicedetails/Servicecarpenter/Servicecarpenter";
-import { Servicepainter } from "./Components/Website/Servicedetails/Servicepainter/Servicepainter";
-import { Servicesteel } from "./Components/Website/Servicedetails/Servicesteelwelder/Servicesteel";
-import { Serviceglassfixer } from "./Components/Website/Servicedetails/Serviceglassfixer/Serviceglassfixer";
-import { Servicealuminum } from "./Components/Website/Servicedetails/Servicealuminum/Servicealuminum";
-import { Servicemarble } from "./Components/Website/Servicedetails/Servicemarble/Servicemarble";
-import { Servaccleaner } from "./Components/Website/Servicedetails/Serviceaccleaner/Servaccleaner";
-import { Servactechnician } from "./Components/Website/Servicedetails/Serviceactechnician/Servactechnician";
-import { Servboringworker } from "./Components/Website/Servicedetails/Serviceboringworkers/Servboringworker";
-import { Servelectricengineer } from "./Components/Website/Servicedetails/Serviceelectricengineer/Servelectricengineer";
-import { Servelectrician } from "./Components/Website/Servicedetails/Serviceelectrcian/Servelectrician";
-import { Servgardener } from "./Components/Website/Servicedetails/Servicegardner/Servgardener";
-import { Servglasscutting } from "./Components/Website/Servicedetails/Serviceglasscuttingpolish/Servglasscutting";
-import { Servglasspainter } from "./Components/Website/Servicedetails/Serviceglasspainter/Servglasspainter";
-import { Servglasspaper } from "./Components/Website/Servicedetails/Serviceglasspaperdesigner/Servglasspaper";
-import { Servhousecleaner } from "./Components/Website/Servicedetails/Servicehousecleaner/Servhousecleaner";
-import { Servinteriordesigner } from "./Components/Website/Servicedetails/Serviceinteriordesigner/Servinteriordesigner";
-import { Servlandscape } from "./Components/Website/Servicedetails/Servicelandscape/Servlandscape";
-import { Servleithmachine } from "./Components/Website/Servicedetails/Serviceleithmachine/Servleithmachine";
-import { Servmarblepolish } from "./Components/Website/Servicedetails/Servicemarblepolish/Servmarblepolish";
-import { Servmoldingworker } from "./Components/Website/Servicedetails/Servicemoldingworker/Servmoldingworker";
-import { Servmason } from "./Components/Website/Servicedetails/Servicemason/Servmason";
-import { Servpolishman } from "./Components/Website/Servicedetails/Servicepolishman/Servpolishman";
-import { Servsteelpolish } from "./Components/Website/Servicedetails/Servicesteelpolish/Servsteelpolish";
-import { Servwoodcutter } from "./Components/Website/Servicedetails/Servicewoodcutter/Servwoodcutter";
-import { Servsolarinstaller } from "./Components/Website/Servicedetails/Servicesolarinstaller/Servsolarinstaller";
-import { Servtermite } from "./Components/Website/Servicedetails/Servicetermite/Servtermite";
 import { Allstores } from "./Pages/Stores/Allstores";
 
 /* Admin Routes*/
@@ -143,6 +112,7 @@ import Layout from "./Routes/Layout";
 import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
+import { ServiceDetailsGeneralComponent } from "./Components/Website/Servicedetails/ServiceDetailsGeneralComponent/ServiceDetailsGeneralComponent";
 
 
 
@@ -172,37 +142,8 @@ function App() {
           <Route path="/realestate" element={<Realestate />} />
           <Route path="/contactus" element={<Contactus />} />
           <Route path="unauthorized" element={<Unauthorized />} />
-          <Route path="/service-architecture" element={<Servicearchitecture />}/>
-          <Route path="/service-plumber" element={<Servicesplumberone />} />
-          <Route path="/all-engineers" element={<Serviceengineer />} />
-          <Route path="/all-contractors" element={<Servicecontractor />} />
-          <Route path="/all=carpenter" element={<Servicecarpenter />} />
-          <Route path="/all-painters" element={<Servicepainter />} />
-          <Route path="/all-steelwelder" element={<Servicesteel />} />
-          <Route path="/all-glassfixer" element={<Serviceglassfixer />} />
-          <Route path="/all-aluminums" element={<Servicealuminum />} />
-          <Route path="/all-marbles" element={<Servicemarble /> } />
-          <Route path="/all-accleaner" element={<Servaccleaner />} />
-          <Route path="/all-actechnician" element={<Servactechnician />} />
-          <Route path="/all-boring" element={<Servboringworker />} />
-          <Route path="/all-electricengineer" element={<Servelectricengineer />} />
-          <Route path="/all-electrician" element={<Servelectrician />} />
-          <Route path="/all-gardener" element={<Servgardener />} />
-          <Route path="/all-glasscutting" element={<Servglasscutting />} />
-          <Route path="/all-glasspainter" element={<Servglasspainter />} />
-          <Route path="/all-glasspaper" element={<Servglasspaper />} />
-          <Route path="/all-housecleaner" element={<Servhousecleaner />} />
-          <Route path="/all-interiordesigners" element={<Servinteriordesigner />} />
-          <Route path="/all-landscapearchitecture" element={<Servlandscape />} />
-          <Route path="/all-leithmachine" element={<Servleithmachine />} />
-          <Route path="/all-marblepolish" element={<Servmarblepolish/>} />
-          <Route path="/all-moldingworker" element={<Servmoldingworker />} />
-          <Route path="/all-masons" element={<Servmason />} />
-          <Route path="/all-polishman" element={<Servpolishman />} />
-          <Route path="/all-steelpolish" element={<Servsteelpolish />} />
-          <Route path="/all-woodcutter" element={<Servwoodcutter />} />
-          <Route path="/all-solarinstaller" element={<Servsolarinstaller />} />
-          <Route path="/all-termitetreatment" element={<Servtermite />} />
+          
+          <Route path="/service/:serviceSlug" element={<ServiceDetailsGeneralComponent/>} />
           <Route path="/all-stores" element={<Allstores />} />
 
           {/* /* we want to protect these routes */}

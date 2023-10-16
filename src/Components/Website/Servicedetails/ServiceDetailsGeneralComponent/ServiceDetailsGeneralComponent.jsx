@@ -1,67 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Col, Container, Row } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
-import "./serviceall.css";
-import { Link } from 'react-router-dom';
-import Spinner2 from "../../Common/spinner2/spinner2";
-import axios from "axios";
-import { USERS_BASE_URL } from "../../constants/config/config.dev";
-import service_image from "../../../Assets/Services-Screen/Group 46137.png";
+import { useParams } from 'react-router-dom';
+import Spinner2 from "../../../Common/spinner2/spinner2";
+import service_image from "../../../../Assets/Services-Screen/Group 46137.png";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
+import { services } from "../../../../lib/servicesData";
+import { useGetServicesDataQuery } from "../../../../Redux/RtkQuery/MainPageService";
 
-export const Glasspaperdesigner = () => {
-
-  const token = localStorage.getItem("accessToken");
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${USERS_BASE_URL}/v1/service`,
-          {
-            params: {
-              limit: 3,
-              page: 1,
-              sortBy: "createdAt:desc",
-              category: "glasspaperdesigner",
-            },
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setData(response.data?.data?.docs);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-        // Handle the error here, such as displaying an error message
+export const ServiceDetailsGeneralComponent = () => {
+    const {serviceSlug : category} = useParams();
+    const title  =  services.find((service)=>service.category === category).title;
+    const { data, error, isLoading } = useGetServicesDataQuery({
+        category,
+        limit :  12 ,
+      });
+    
+      if (isLoading) {
+        return <Spinner2 />;
       }
-    };
-
-    fetchData();
-  }, [token]);
-
-  if (isLoading) {
-    return <Spinner2 />;
-  }
+    
+      if (error) {
+        return <div>Error loading {title} data</div>;
+      }
+    
+  
+  
   return (
     <div>
+        <Header />
     <Container>
       <Row>
         <Col>
-          <h1 className="service_all_main_headings">Glass Paper & Designer</h1>
+          <h1 className="service_all_main_headings">{title}</h1>
         </Col>
-        <Col>
-              <div className='service_all_see_div'>
-              <Link to="/all-glasspaper" className='service_all_see'>see all</Link>
-              </div>
-              </Col>
+      
       </Row>
      
       <Row>
-          {data.map((serviceProvider) => (
+        {data.data.docs.length === 0 && <p className="ml-4">No {title} Data to Show</p>}
+          {data.data.docs.map((serviceProvider) => (
             <Col lg={4} md={4} sm={12} xs={12}>
               <Card key={serviceProvider._id} className="services_card">
                 <Card.Img src={service_image} alt="service image" />
@@ -116,6 +95,7 @@ export const Glasspaperdesigner = () => {
           ))}
         </Row>
     </Container>
+    <Footer />
   </div>
   )
 }
