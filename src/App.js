@@ -113,6 +113,7 @@ import RequireAuth from "./Routes/RequireAuth";
 import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
 import { ServiceDetailsGeneralComponent } from "./Components/Website/Servicedetails/ServiceDetailsGeneralComponent/ServiceDetailsGeneralComponent";
+import { RealEstateDetailsGeneralComponent } from "./Components/Website/Realestate/RealEstateDetailsComponent";
 
 
 
@@ -140,6 +141,8 @@ function App() {
           <Route path="/services" element={<Services />} />
            {/* <Route path="/ourteam" element={<Ourteam/>} />  */}
           <Route path="/realestate" element={<Realestate />} />
+          <Route path="/realestate/:category/:subCategory" element={<RealEstateDetailsGeneralComponent/>} />
+
           <Route path="/contactus" element={<Contactus />} />
           <Route path="unauthorized" element={<Unauthorized />} />
           

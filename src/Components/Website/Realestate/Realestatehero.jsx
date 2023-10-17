@@ -10,47 +10,50 @@ import { USERS_BASE_URL } from "../../constants/config/config.dev";
 import img1 from "../../../images/realestate1.png";
 import img2 from "../../../images/realestate2.png";
 import { useGetRealEstateDataQuery } from "../../../Redux/RtkQuery/MainPageRealEstate";
+import { Link } from "react-router-dom";
+import { realEstateData } from "../../../lib/realEstateData";
+import RealEstateGeneralComponent from "./RealEstateGeneralComponent";
 
 export const Realestatehero = () => {
-  const {
-    data: houseRentData,
-    error: homeForRentError,
-    isLoading: isHomeForRentLoading,
-  } = useGetRealEstateDataQuery({ category: 'house', subCategory: 'rent' });
+  // const {
+  //   data: houseRentData,
+  //   error: homeForRentError,
+  //   isLoading: isHomeForRentLoading,
+  // } = useGetRealEstateDataQuery({ category: 'house', subCategory: 'rent' , limit:6 });
 
-  const {
-    data: houseSaleData,
+  // const {
+  //   data: houseSaleData,
 
-    error: homeForSaleError,
-    isLoading: isHomeForSaleLoading,
-  } = useGetRealEstateDataQuery({ category: 'house', subCategory: 'sale' });
+  //   error: homeForSaleError,
+  //   isLoading: isHomeForSaleLoading,
+  // } = useGetRealEstateDataQuery({ category: 'house', subCategory: 'sale' , limit:6 });
 
-  const {
-    data: plotRentData,
+  // const {
+  //   data: plotRentData,
 
-    error: plotForRentError,
-    isLoading: isPlotForRentLoading,
-  } = useGetRealEstateDataQuery({ category: 'plot', subCategory: 'rent' });
+  //   error: plotForRentError,
+  //   isLoading: isPlotForRentLoading,
+  // } = useGetRealEstateDataQuery({ category: 'plot', subCategory: 'rent' , limit:6 });
 
-  const {
-    data: plotSaleData,
+  // const {
+  //   data: plotSaleData,
 
-    error: plotForSaleError,
-    isLoading: isPlotForSaleLoading,
-  } = useGetRealEstateDataQuery({ category: 'plot', subCategory: 'sale' });
+  //   error: plotForSaleError,
+  //   isLoading: isPlotForSaleLoading,
+  // } = useGetRealEstateDataQuery({ category: 'plot', subCategory: 'sale' , limit:6 });
 
-  // Add loading and error handling logic here
-  const isLoading = isHomeForRentLoading || isHomeForSaleLoading || isPlotForRentLoading || isPlotForSaleLoading;
-  const error = homeForRentError || homeForSaleError || plotForRentError || plotForSaleError;
+  // // Add loading and error handling logic here
+  // const isLoading = isHomeForRentLoading || isHomeForSaleLoading || isPlotForRentLoading || isPlotForSaleLoading;
+  // const error = homeForRentError || homeForSaleError || plotForRentError || plotForSaleError;
 
   
-  if (isLoading) {
-    return <Spinner2 />;
-  }
+  // if (isLoading) {
+  //   return <Spinner2 />;
+  // }
 
-  if (error) {
-    return <div>Error loading data</div>;
-  }
+  // if (error) {
+  //   return <div>Error loading data</div>;
+  // }
 
   return (
     <div>
@@ -71,158 +74,13 @@ export const Realestatehero = () => {
               </div>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <h1 className="home_estate_all_heading">House For Rent</h1>
-            </Col>
-          </Row>
-
-          <Row>
-            {houseRentData.data.docs.length === 0  && <p>No Data</p>}
-            {houseRentData.data.docs.map((houseData) => (
-              <Col lg={4} md={4} sm={12} xs={12}>
-                <Card key={houseData._id} className="home_estate_card">
-                  <Card.Img src={img1} alt="House Image" className="img" />
-                  <Card.Body>
-                    <Card.Text>
-                      <p className="estate_rent">
-                        House # : {houseData.address}
-                      </p>
-                      <p className="estate_rent">
-                        Location : {houseData.location}
-                      </p>
-                      <p className="estate_rent">Size : {houseData.size}</p>
-                      <p className="estate_rent">
-                        Bedrooms : {houseData.bedRooms}
-                      </p>
-                      <p className="estate_rent">
-                        Detail : {houseData.details.story}
-                      </p>
-                      <p className="estate_rent">
-                        Rent : Rs/ {houseData.price}
-                      </p>
-                      <p className="estate_rent">
-                        Contact Number : {houseData.contectNumber}
-                      </p>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
+  
+         
         </Container>
-        <Container>
-          <Row>
-            <Col>
-              <h1 className="home_estate_all_heading">House For Sale</h1>
-            </Col>
-          </Row>
-
-          <Row>
-          {houseSaleData.data.docs.length === 0  && <p>No Data</p>}
-
-            {houseSaleData.data.docs.map((houseData) => (
-              <Col lg={4} md={4} sm={12} xs={12}>
-                <Card key={houseData._id} className="home_estate_card">
-                  <Card.Img src={img2} alt="House Image" className="img" />
-                  <Card.Body>
-                    <Card.Text>
-                      <p className="estate_rent">
-                        House # : {houseData.address}
-                      </p>
-                      <p className="estate_rent">
-                        Location : {houseData.location}
-                      </p>
-                      <p className="estate_rent">Size : {houseData.size}</p>
-                      <p className="estate_rent">
-                        Bedrooms : {houseData.bedRooms}
-                      </p>
-                      <p className="estate_rent">
-                        Detail : {houseData.details.story}
-                      </p>
-                      <p className="estate_rent">
-                        Price : Rs/ {houseData.price}
-                      </p>
-                      <p className="estate_rent">
-                        Contact Number : {houseData.contectNumber}{" "}
-                      </p>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-        <Container>
-          <Row>
-            <Col>
-              <h1 className="home_estate_all_heading">Plots For Sale</h1>
-            </Col>
-          </Row>
-          <Row>
-          {plotSaleData.data.docs.length === 0  && <p>No Data</p>}
-
-            {plotSaleData.data.docs.map((houseData) => (
-              <Col lg={4} md={4} sm={12} xs={12}>
-                <Card key={houseData._id} className="home_estate_card">
-                  <Card.Img src={img1} alt="House Image" className="img" />
-                  <Card.Body>
-                    <Card.Text>
-                      <p className="estate_rent">
-                        Plot # : {houseData.address}
-                      </p>
-                      <p className="estate_rent">
-                        Location : {houseData.location}
-                      </p>
-                      <p className="estate_rent">Size : {houseData.size}</p>
-                      <p className="estate_rent">
-                        Price : Rs/ {houseData.price}
-                      </p>
-                      <p className="estate_rent">
-                        Contact Number : {houseData.contectNumber}{" "}
-                      </p>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-        <Container>
-          <Row>
-            <Col>
-              <h1 className="home_estate_all_heading">Plots For Rent</h1>
-            </Col>
-          </Row>
-          <Row>
-          {plotRentData.data.docs.length === 0  && <p>No Data</p>}
-
-            {plotRentData.data.docs.map((houseData) => (
-              <Col lg={4} md={4} sm={12} xs={12}>
-                <Card key={houseData._id} className="home_estate_card">
-                  <Card.Img src={img2} alt="House Image" className="img" />
-                  <Card.Body>
-                    <Card.Text>
-                      <p className="estate_rent">
-                        Plot # : {houseData.address}
-                      </p>
-                      <p className="estate_rent">
-                        Location : {houseData.location}
-                      </p>
-                      <p className="estate_rent">Size : {houseData.size}</p>
-                      <p className="estate_rent">
-                        Rent : Rs/ {houseData.price}
-                      </p>
-                      <p className="estate_rent">
-                        Contact Number : {houseData.contectNumber}
-                      </p>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Container>
+        {
+          realEstateData.map((data)=><RealEstateGeneralComponent title={data.title} category={data.category} subCategory={data.subCategory}></RealEstateGeneralComponent>)
+        }
+      
       </section> 
     </div>
   );
