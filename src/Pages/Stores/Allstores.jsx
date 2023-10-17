@@ -37,7 +37,7 @@ export const Allstores = () => {
 
   // Create an array of all your store components
   const storeComponents = [
-       <Herostores />,
+      
        <Marblestore />,
        <Bricksstore />,
        <Buildingmaterialstore />,
@@ -80,6 +80,7 @@ export const Allstores = () => {
   return (
     <>
       <Header />
+      <Herostores />
       {currentStoreComponents.map((component, index) => (
         <div key={index}>{component}</div>
       ))}

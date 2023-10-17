@@ -5,6 +5,7 @@ import { USERS_BASE_URL } from '../../Components/constants/config/config.dev';
 
 // Define your API endpoint
 const serviceApi = createApi({
+  reducerPath :'serviceApi',
   baseQuery: fetchBaseQuery({
     baseUrl: USERS_BASE_URL, // Adjust the base URL accordingly
     prepareHeaders: (headers, { getState }) => {

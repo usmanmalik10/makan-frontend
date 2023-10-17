@@ -65,6 +65,8 @@ export const Plotsforsale = () => {
     dispatch(createrealestate(propertydescription, token)).then(() =>
       realestateService.createrealestate(propertydescription, token)
     );
+    navigate('/estatealldata');
+
   };
 
   return (

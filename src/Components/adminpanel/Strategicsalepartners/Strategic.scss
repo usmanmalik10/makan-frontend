@@ -50,3 +50,25 @@
   }
 
 }
+.profile-pic {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid black;
+  .camera-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  img {
+    height: 100%;
+    width : 100%;
+    object-fit: cover;
+  }
+
+}

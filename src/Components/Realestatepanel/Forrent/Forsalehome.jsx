@@ -63,6 +63,7 @@ export const Forsalehome = () => {
     dispatch(createrealestate(propertydescription, token)).then(() =>
       realestateService.createrealestate(propertydescription, token)
     );
+    navigate('/estatealldata');
   };
    
   const [images, setImages] = React.useState([]);

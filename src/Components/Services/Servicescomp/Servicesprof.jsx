@@ -11,7 +11,7 @@ export const Servicesprof = () => {
   const token = localStorage.getItem("accessToken");
   const userId = localStorage.getItem('Userid');
   
-  const { data : {data :  {docs}}, isLoading } = useFetchServicesDataQuery(userId);
+  const { data , isLoading } = useFetchServicesDataQuery(userId);
 
 
  
@@ -30,8 +30,8 @@ export const Servicesprof = () => {
             </Col>
           </Row>
           <Row className="pt-3">
-            {docs.length === 0 && <p>No Services</p>}
-          {docs.map((serviceProvider) => (
+            {data.data.docs.length === 0 && <p>No Services</p>}
+          {data.data.docs.map((serviceProvider) => (
               <Col lg={4} md={4} sm={12} xs={12} key={serviceProvider._id}>
                 <Card className="service_card">
                   <Card.Img src={service_image} alt="service image" />

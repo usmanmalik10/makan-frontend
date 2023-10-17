@@ -5,6 +5,7 @@ import { USERS_BASE_URL } from '../../Components/constants/config/config.dev';
 
 // Define your API endpoint
 const storeApi = createApi({
+  reducerPath : 'storesDashbaord',
   baseQuery: fetchBaseQuery({
     baseUrl: USERS_BASE_URL, 
     prepareHeaders: (headers, { getState }) => {
