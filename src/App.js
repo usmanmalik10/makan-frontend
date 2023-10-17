@@ -23,7 +23,7 @@ import { Users } from "./Pages/Adminportal/Users";
 import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
 import { Adminstrategicsalepartner } from "./Pages/Adminportal/Adminstrategicsalepartner";
-
+import { Adminallstrategicsalepartners } from "./Pages/Adminportal/Adminallstrategicsalepartners";
 /* Admin services imports starts */
 import { Adminmason } from "./Pages/Adminportal/Adminmason";
 import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
@@ -119,6 +119,7 @@ import { RealEstateDetailsGeneralComponent } from "./Components/Website/Realesta
 
 
 
+
 const ROLES = {
   'Admin': 5150,
   'User': 2001,
@@ -154,6 +155,7 @@ function App() {
             <Route path="/admin-profile" element={<Adminprofile />} />
             <Route path="/user-list" element={<Users />} />
             <Route path="/strategic-sale-partner" element={<Adminstrategicsalepartner/>} />
+            <Route path="/all-strategic-sale-partner" element={<Adminallstrategicsalepartners/>} />
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />

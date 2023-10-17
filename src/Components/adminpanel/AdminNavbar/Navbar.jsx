@@ -21,8 +21,13 @@ const Navbar = () => {
     },
     {
       icon: TbUsers,
-      text: "Create SSL",
+      text: "Create SSP",
       route: "/strategic-sale-partner",
+    },
+    {
+      icon: TbUsers,
+      text: "All SSP",
+      route: "/all-strategic-sale-partner",
     },
     {
       icon: RiNewspaperLine,
