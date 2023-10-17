@@ -13,28 +13,26 @@ import MainPageService from '../Redux/RtkQuery/MainPageService'
 
 
 
-const rootReducer = combineReducers({
-  [MainPageRealEstate.reducerPath]: MainPageRealEstate.reducer,
-  [MainPageStore.reducerPath]: MainPageStore.reducer,
-  [MainPageRealEstate.reducerPath]: MainPageRealEstate.reducer,
-  [serviceApi.reducerPath]: serviceApi.reducer,
-  [estateApi.reducerPath]: estateApi.reducer,
-  [storesApi.reducerPath]: storesApi.reducer,
-  [MainPageService.reducerPath]: MainPageService.reducer,
-
-  auth: authReducer,
-  serviceprovider: serviceproviderReducer,
-  realestate: realestateReducer,
-  shop: shopReducer,
-
-
-
-
-
-});
-
 export default configureStore({
-  reducer: rootReducer,
+  reducer: {
+    [MainPageRealEstate.reducerPath]: MainPageRealEstate.reducer,
+    [MainPageStore.reducerPath]: MainPageStore.reducer,
+    [MainPageRealEstate.reducerPath]: MainPageRealEstate.reducer,
+    [serviceApi.reducerPath]: serviceApi.reducer,
+    [estateApi.reducerPath]: estateApi.reducer,
+    [storesApi.reducerPath]: storesApi.reducer,
+    [MainPageService.reducerPath]: MainPageService.reducer,
+  
+    auth: authReducer,
+    serviceprovider: serviceproviderReducer,
+    realestate: realestateReducer,
+    shop: shopReducer,
+  
+  
+  
+  
+  
+  },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(estateApi.middleware).concat(serviceApi.middleware).concat(storesApi.middleware).concat(MainPageRealEstate.middleware).concat(MainPageStore.middleware).concat(MainPageService.middleware), // Add RTK Query middleware
+    getDefaultMiddleware().concat(estateApi.middleware , serviceApi.middleware , storesApi.middleware , MainPageRealEstate.middleware , MainPageStore.middleware , MainPageService.middleware)
 });

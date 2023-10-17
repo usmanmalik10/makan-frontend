@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { USERS_BASE_URL } from '../../Components/constants/config/config.dev';
 
 export const storeApi = createApi({
-  reducerPath: 'storeApi',
+  reducerPath: 'storeMainPageApi',
   baseQuery: fetchBaseQuery({
     baseUrl: USERS_BASE_URL,
     prepareHeaders: (headers, { getState }) => {
