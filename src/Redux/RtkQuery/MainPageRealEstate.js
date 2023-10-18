@@ -17,11 +17,17 @@ export const mainPageRealEstateApi = createApi({
     getRealEstateData: builder.query({
       query: ({ category, subCategory, limit = 3, page = 1, sortBy = 'createdAt:desc' }) => ({
         url: `v1/real-estate`,
-        params: { category, subCategory, limit, page, sortBy },
+        params: { category, subCategory, limit, page, sortBy  },
+      }),
+    }),
+    getRealEstateUserData: builder.query({
+      query: ({ category, subCategory, limit = 3, page = 1, sortBy = 'createdAt:desc' , userId }) => ({
+        url: `v1/real-estate/userId`,
+        params: { category, subCategory, limit, page, sortBy ,    userId: localStorage.getItem("Userid") },
       }),
     }),
   }),
 });
 
-export const { useGetRealEstateDataQuery } = mainPageRealEstateApi;
+export const { useGetRealEstateDataQuery , useGetRealEstateUserDataQuery } = mainPageRealEstateApi;
 export default mainPageRealEstateApi;

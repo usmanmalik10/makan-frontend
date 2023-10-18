@@ -5,136 +5,14 @@ import Spinner2 from "../../../Common/spinner2/spinner2";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../../constants/config/config.dev";
 import Card from "react-bootstrap/Card";
-
+import {realEstateData} from '../../../../lib/realEstateData'
+import AdminRealEstateGeneralComponent from "./AdminRealEstateGeneralComponent";
 export const Adminrealestate = () => {
-    const token = localStorage.getItem("accessToken");
-    const [data, setData] = useState([]);
-    const [homeforrentdata, sethomeforrentData] =useState([]);
-    const [homeforsaledata, sethomeforsaleData] =useState([]);
-    const [plotforrentdata, setplotforrentData] =useState([]);
-    const [plotforsaledata, setplotforsaleData] =useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-  
-    useEffect(() => {
-      const fetchDatahomeforrent = async () => {
-        try {
-          const response = await axios.get(
-            `${USERS_BASE_URL}/v1/real-estate/userId`,
-            {
-              params: {
-                limit: 10,
-                page: 1,
-                sortBy: "createdAt:desc",
-                userId: localStorage.getItem("Userid"),
-                category: "house",
-                subCategory: "rent",
-              },
-              headers: {
-                authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          sethomeforrentData(response.data?.data?.docs);
-          setIsLoading(false);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setIsLoading(false);
-          // Handle the error here, such as displaying an error message
-        }
-      };
-  
-      console.log({homeforrentdata})
-      fetchDatahomeforrent();
-  
-      const fetchDatahomeforsale = async () => {
-        try {
-          const response = await axios.get(`${USERS_BASE_URL}/v1/real-estate/userId`, {
-            params: {
-              limit: 10,
-              page: 1,
-              sortBy: "createdAt:desc",
-              userId: localStorage.getItem("Userid"),
-              category: "house",
-              subCategory: "sale",
-            },
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          });
-          sethomeforsaleData(response.data?.data?.docs);
-          setIsLoading(false);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setIsLoading(false);
-          // Handle the error here, such as displaying an error message
-        }
-      };
-    
-      fetchDatahomeforsale();
-    
-      const fetchDataplotforrent = async () => {
-        try {
-          const response = await axios.get(`${USERS_BASE_URL}/v1/real-estate/userId`, {
-            params: {
-              limit: 10,
-              page: 1,
-              sortBy: "createdAt:desc",
-              userId: localStorage.getItem("Userid"),
-              category: "plot",
-              subCategory: "rent",
-            },
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          });
-          setplotforrentData(response.data?.data?.docs);
-          setIsLoading(false);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setIsLoading(false);
-          // Handle the error here, such as displaying an error message
-        }
-      };
-    
-      fetchDataplotforrent();
-    
-    
-      const fetchDataplotforsale = async () => {
-        try {
-          const response = await axios.get(`${USERS_BASE_URL}/v1/real-estate/userId`, {
-            params: {
-              limit: 10,
-              page: 1,
-              sortBy: "createdAt:desc",
-              userId: localStorage.getItem("Userid"),
-              category: "plot",
-              subCategory: "sale",
-            },
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          });
-          setplotforsaleData(response.data?.data?.docs);
-          setIsLoading(false);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setIsLoading(false);
-          // Handle the error here, such as displaying an error message
-        }
-      };
-    
-      fetchDataplotforsale();
-    
-    }, [token]);
-  
-    if (isLoading) {
-      return <Spinner2 />;
-    }
-
+   
   return (
 <>
     <section className="admin_real_sec">
-        <Container>
+        {/* <Container>
             <Row>
                 <Col>
                     <h3>House For Sale</h3>
@@ -291,7 +169,12 @@ export const Adminrealestate = () => {
             </Col>
             ))}
           </Row>
-        </Container>
+        </Container> */}
+
+        {
+          realEstateData.map((data)=><AdminRealEstateGeneralComponent category={data.category} subCategory={data.subCategory} title={data.title}></AdminRealEstateGeneralComponent>)
+          
+        }
     </section>
 </>
   )

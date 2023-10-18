@@ -7,7 +7,7 @@ import Inbox from "../../images/Inbox.png";
 import homelogo from "../../Assets/Home-Screen/homelogo.png";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
-import { FaUserAlt } from "react-icons/fa";
+import { FaRegAddressCard, FaUserAlt } from "react-icons/fa";
 import { ImUsers } from "react-icons/im";
 import { FiPhone } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
@@ -287,7 +287,7 @@ export const Signup = () => {
 
                   {/* Address Input */}
                   <div className="login-inputfield-container-2">
-                    <FiPhone className="login-inputicon" />
+                    <FaRegAddressCard className="login-inputicon" />
                     <Controller
                       name="address"
                       control={control}

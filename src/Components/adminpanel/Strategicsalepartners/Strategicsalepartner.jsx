@@ -1,7 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row, Form } from 'react-bootstrap'
 import "./Strategic.scss"
 import OneImageCustomUploader from '../../Common/OneImageCustomUploader/OneImageCustomUploader'
+import { provAndCities } from '../../../lib/pakProvAndCities'
+import { setSelectionRange } from '@testing-library/user-event/dist/utils'
+import { useForm, Controller } from "react-hook-form";
+
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { toast } from 'react-toastify'
+
+const emailSchema = z.string()
+    .refine(value => value.includes('@'), "Expected an email format");
+
+const phoneSchema = z.string()
+    .refine(value => /^[0-9+]{9,15}$/.test(value), "Expected a valid phone number format");
+
+const passwordSchema = z.string()
+    .min(8, "Password should be at least 8 characters long")
+    .refine(value => /[A-Z]/.test(value), "Password must contain at least one uppercase character")
+    .refine(value => /[a-z]/.test(value), "Password must contain at least one lowercase character")
+    .refine(value => /[0-9]/.test(value), "Password must contain at least one number")
+    .refine(value => /[^a-zA-Z0-9]/.test(value), "Password must contain at least one special character");
+
+
+  
+const formSchema = z.object({
+  
+  userName: z.string().min(1 , "Username is required"),
+  emailOrPhone: z.string().refine(value => 
+    value.includes('@') ? emailSchema.safeParse(value).success : phoneSchema.safeParse(value).success, 
+    "Expected a valid email or phone number format"),
+
+
+  password: passwordSchema,
+  cnicNumber: z.string().refine(value => /^\d{5}-\d{7}-\d{1}$/.test(value), "Invalid CNIC format. Expected format: XXXXX-XXXXXXX-X"),
+  contactNumber: z.string().refine(value => /^(?:\+92|0092|0)?3[0-9]{2}-?[0-9]{7}$/.test(value), "Invalid contact number format. Expected format: 03XX-XXXXXXX or +923XX-XXXXXXX"),
+
+  address: z.string().min(10, "Address must be at least 10 characters long"),
+});
+
+
+
 
 export const Strategicsalepartner = () => {
   const [fileProfile, setFileProfile] = useState({
@@ -16,9 +57,27 @@ export const Strategicsalepartner = () => {
     file : null , 
     src : '',
   });
+  const [selectedProvince, setSelectedProvince] = useState('Punjab');
+  const [selectedCity, setSelectedCity] = useState(provAndCities[selectedProvince][0]);
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(formSchema)
+  });
+
+  const onSubmit = (data) => {
+    if(!fileProfile.file) {toast.error('Please Select your profile'); return ;}
+    if(!fileIdCardFront.file) {toast.error('Please Select your Id Card Front Picture'); return ;}
+
+    if(!fileIdCardBack.file) {toast.error('Please Select your Id Card Back Picture'); return ;}
+
+
+    console.log(data);
+  };
   return (
     
     <>
+     <Form onSubmit={handleSubmit(onSubmit)}>
+
         <section className='strategic-sale-section'>
             <Container>
                 <Row>
@@ -68,117 +127,82 @@ export const Strategicsalepartner = () => {
 
                
                 <Row>
-                    <Col lg={6} md={6} sm={12} xs={12}>
-                        <div className='strategic_divs'>
-                            <label className='strategic_labels'>User Name :</label> <br/>
-                            <input className='strategic_inputs' type='text' placeholder='User Name'/>
-                        </div>
-                    </Col>
-                    <Col lg={6} md={6} sm={12} xs={12}>
-                        <div className='strategic_divs'>
-                            <label className='strategic_labels'>Email/Phone Number :</label><br/>
-                            <input className='strategic_inputs' type='text' placeholder='Email/Phone Number'/>
-                        </div>
-                    </Col>
+                <Col lg={6} md={6} sm={12} xs={12}>
+            <div className='strategic_divs'>
+              <label className='strategic_labels'>User Name :</label> <br/>
+              <input className='strategic_inputs' type='text' placeholder='User Name' {...register('userName')} />
+              {errors.userName && <p style={{ color: 'red', fontSize: 'small' }}>{errors.userName.message}</p>}
+            </div>
+          </Col>
+          <Col lg={6} md={6} sm={12} xs={12}>
+            <div className='strategic_divs'>
+              <label className='strategic_labels'>Email/Phone Number :</label><br/>
+              <input className='strategic_inputs' type='text' placeholder='Email/Phone Number' {...register('emailOrPhone')} />
+{errors.emailOrPhone && <p style={{ color: 'red', fontSize: 'small' }}>{errors.emailOrPhone.message}</p>}
+
+            </div>
+          </Col>
                 </Row>
-                <Row>
-                    <Col lg={6} md={6} sm={12} xs={12}>
-                    <div className='strategic_divs'>
-                        <label className='strategic_labels'>
-                            Password :
-                        </label><br/>
-                        <input className='strategic_inputs' type='text' placeholder='Password' />
-                        </div>
-                    </Col>
-                    <Col lg={6} md={6} sm={12} xs={12}>   
-                    <div className='strategic_divs'>
-                        <label className='strategic_labels'>
-                            CNIC Number :
-                        </label><br/>
-                        <input className='strategic_inputs' type='text' placeholder='CNIC Number' />
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg={6} md={6} sm={12} xs={12}>
-                    <div className='strategic_divs'> 
-                        <label className='strategic_labels'>Contact Number :</label><br/>
-                        <input className='strategic_inputs' type='text' placeholder='Contact Number' />
-                        </div>
-                    </Col>
-                    <Col lg={6} md={6} sm={12} xs={12}>
-                    <div className='strategic_divs'>
-                    <label className='strategic_labels'> Address :</label><br/>
-                       <input className='strategic_inputs' type='text' placeholder='Address'/>
-                       </div>
-                    </Col>
-                </Row>
+              
+<Row>
+  <Col lg={6} md={6} sm={12} xs={12}>
+    <div className='strategic_divs'>
+      <label className='strategic_labels'>Password :</label><br/>
+      <input className='strategic_inputs' type='password' placeholder='Password' {...register('password')} />
+      {errors.password && <p style={{ color: 'red', fontSize: 'small' }}>{errors.password.message}</p>}
+    </div>
+  </Col>
+  <Col lg={6} md={6} sm={12} xs={12}>
+    <div className='strategic_divs'>
+      <label className='strategic_labels'>CNIC Number :</label><br/>
+      <input className='strategic_inputs' type='text' placeholder='CNIC Number' {...register('cnicNumber')} />
+{errors.cnicNumber && <p style={{ color: 'red', fontSize: 'small' }}>{errors.cnicNumber.message}</p>}
+
+    </div>
+  </Col>
+</Row>
+<Row>
+  <Col lg={6} md={6} sm={12} xs={12}>
+    <div className='strategic_divs'>
+      <label className='strategic_labels'>Contact Number :</label><br/>
+      <input className='strategic_inputs' type='text' placeholder='Contact Number' {...register('contactNumber')} />
+{errors.contactNumber && <p style={{ color: 'red', fontSize: 'small' }}>{errors.contactNumber.message}</p>}
+
+    </div>
+  </Col>
+  <Col lg={6} md={6} sm={12} xs={12}>
+    <div className='strategic_divs'>
+      <label className='strategic_labels'>Address :</label><br/>
+      <input className='strategic_inputs' type='text' placeholder='Address' {...register('address')} />
+      {errors.address && <p style={{ color: 'red', fontSize: 'small' }}>{errors.address.message}</p>}
+    </div>
+  </Col>
+</Row>
                 <Row>
                     <Col lg={6} md={6} sm={12} xs={12}>
                     <div className='strategic_divs'>
                     <label className='strategic_labels'> Select Province :</label><br/>
-                       <Form.Select className='strategic_inputs' type='text' placeholder='Select Province'>
-                       <option>Select Province</option>
-                       <option>Punjab</option>
-                       <option>Sindh</option>
-                       <option>KPK</option>
-                       <option>Azad jammu & Kasmir</option>
+                       <Form.Select className='strategic_inputs' type='text' placeholder='Select Province' value={selectedProvince} onChange={(e)=>setSelectedProvince(e.currentTarget.value)}>
+                       
+                    {
+                        Object.keys(provAndCities).map((prov)=><option value={prov}>{prov}</option>)
+                    }
                      
                        </Form.Select>
                        </div>
                     </Col>
                     <Col lg={6} md={6} sm={12} xs={12}>
                     <div className='strategic_divs'>
+                  
                     <label className='strategic_labels'> Select City :</label><br/>
-                       <Form.Select className='strategic_inputs' type='text' placeholder='Select City'>
-                       <option>Select City</option>
-                       <option>Lahore</option>
-                       <option>Faisalabad</option>
-                       <option>Sialkot</option>
-                       <option>Sheikhupura</option>
-                       <option>Jarranwala</option>
-                       <option>Toba Tek Singh</option>
-                       <option>Nankana</option>
-                       <option>Gujranwala</option>
-                       <option>Gujrat</option>
-                       <option>Rawalpindi</option>
-                       <option>Islamabad</option>
-                       <option>Multan</option>
-                       <option>Bhawalpur</option>
-                       <option>Hasilpur</option>
-                       <option>Rahim yar Khan</option>
-                       <option>Chistian</option>
-                       <option>Bhawalnagar</option>
-                       <option>Melsi</option>
-                       <option>Vehari</option>
-                       <option>Burewala</option>
-                       <option>Sahiwal</option>
-                       <option>Pakpattan</option>
-                       <option>Chichawatni</option>
-                       <option>Arifwala</option>
-                       <option>Okara</option>
-                       <option>Pattoki</option>
-                       <option>Texla</option>
-                       <option>Kasur</option>
-                       <option>Khanewal</option>
-                       <option>Layyah</option>
-                       <option>Lodhran</option>
-                       <option>DG Khan</option>
-                       <option>Attock</option>
-                       <option>Jhelum</option>
-                       <option>Chakwal</option>
-                       <option>Kharian</option>
-                       <option>Gujar Khan</option>
-                       <option>Kahota</option>
-                       <option>hassan Abdal</option>
-                       <option>Johrabad</option>
-                       <option>Jhang</option>
-                       <option>Mianwali</option>
-                       <option>Bhakkar</option>
-                       <option>Mandi Bahaudin</option>
-                       <option>Chiniot</option>
-
+                       <Form.Select className='strategic_inputs' type='text' placeholder='Select City' value={selectedCity} onChange={(e)=>setSelectedCity(e.currentTarget.value)}> 
                        
+                     
+
+                       {
+                 provAndCities[selectedProvince].map((city)=><option value={city}>{city}</option>)
+                        
+                       }
                        </Form.Select>
                        </div>
                     </Col>
@@ -192,6 +216,8 @@ export const Strategicsalepartner = () => {
                 </Row>
             </Container>
         </section>
+     </Form>
+
     </>
   )
 }

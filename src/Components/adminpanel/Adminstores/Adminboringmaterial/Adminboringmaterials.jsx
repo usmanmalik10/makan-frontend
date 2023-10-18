@@ -5,42 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner2 from "../../../Common/spinner2/spinner2";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../../constants/config/config.dev";
+import { useGetShopsDataQuery } from "../../../../Redux/RtkQuery/MainPageStore";
 export const Adminboringmaterials = () => {
-  const token = localStorage.getItem("accessToken");
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${USERS_BASE_URL}/v1/shop`,
-          {
-            params: {
-              limit: 12,
-              page: 1,
-              sortBy: "createdAt:desc",
-              category: "boringmaterial"
-            },
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setData(response.data?.data?.docs);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-        // Handle the error here, such as displaying an error message
-      }
-    };
-
-    fetchData();
-  }, [token]);
+  const { data, isLoading, isError } = useGetShopsDataQuery({
+    category: "boringmaterial"
+  });
 
   if (isLoading) {
     return <Spinner2 />;
+  }
+  
+  if (isError) {
+    // You can also handle errors here, e.g., return an error message or component.
+    return <div>Error fetching data!</div>;
+
   }
 
 
@@ -54,7 +32,8 @@ export const Adminboringmaterials = () => {
           </Col>
         </Row>
         <Row>
-        {data.map((ad) => (
+        {data.data.docs.length === 0  && <p>No Data</p>}
+        {data.data.docs.map((ad) => (
           <Col lg={4} md={4} sm={12} xs={12}>
             <Card key={ad._id} >
             <Card.Img   />

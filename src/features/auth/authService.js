@@ -11,7 +11,7 @@ const API_URL_3 = `${USERS_BASE_URL}/v1/auth/refresh-tokens`;
 const register = async ({userData, onSuccess}) => {
   try {
     const response = await axios.post(API_URL_1, userData);
-     toast.success('Successfully Reistered 🎉');
+     toast.success('Successfully Registered 🎉');
      onSuccess()
     return response.data;
   } catch (error) {

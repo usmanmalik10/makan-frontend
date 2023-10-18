@@ -24,38 +24,6 @@ import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
 import { Adminstrategicsalepartner } from "./Pages/Adminportal/Adminstrategicsalepartner";
 import { Adminallstrategicsalepartners } from "./Pages/Adminportal/Adminallstrategicsalepartners";
-/* Admin services imports starts */
-import { Adminmason } from "./Pages/Adminportal/Adminmason";
-import { Adminmarbleortile } from "./Pages/Adminportal/Adminmarbleortile";
-import { Adminplumber } from "./Pages/Adminportal/Adminplumber";
-import { Admincontractor } from "./Pages/Adminportal/Admincontractor";
-import { Adminengineer } from "./Pages/Adminportal/Adminengineers";
-import { Adminarchitect } from "./Pages/Adminportal/Adminarchitect";
-import { Admincarpenter } from "./Pages/Adminportal/Admincarpenter";
-import { Adminwoodcutter } from "./Pages/Adminportal/Adminwoodcutter";
-import { Adminpainter } from "./Pages/Adminportal/Adminpainter";
-import { Adminpolishman } from "./Pages/Adminportal/Adminpolishman";
-import { Adminsteelfixer } from "./Pages/Adminportal/Adminsteelfixer";
-import { Adminsteelpolish } from "./Pages/Adminportal/Adminsteelpolish";
-import { Adminwelder } from "./Pages/Adminportal/Adminwelder";
-import { Adminmoldingworker } from "./Pages/Adminportal/Adminmoldingworker";
-import { Adminleithmachineoperator } from "./Pages/Adminportal/Adminleithmachineoperator";
-import { Adminaluminumfixer } from "./Pages/Adminportal/Adminaluminumfixer";
-import { Adminglassfixer } from "./Pages/Adminportal/Adminglassfixer";
-import { Adminglasscutterandpolish } from "./Pages/Adminportal/Adminglasscuttingandpolish";
-import { Adminglasspainter } from "./Pages/Adminportal/Adminglasspainter";
-import { Adminglasspaperanddesign } from "./Pages/Adminportal/Adminglasspaperanddesign";
-import { Adminelectrician } from "./Pages/Adminportal/AdminElectrician";
-import { Adminactechnician } from "./Pages/Adminportal/Adminactechnician";
-import { Adminelectricengineer } from "./Pages/Adminportal/Adminelectricengineer";
-import { Adminsolarinstaller } from "./Pages/Adminportal/Adminsolarinstaller";
-import { Adminboringworker } from "./Pages/Adminportal/Adminboringworker";
-import { Admininteriordesigner } from "./Pages/Adminportal/Admininteriordesigner";
-import { Admintermitetreatment } from "./Pages/Adminportal/Admintermitetreatment";
-import { Admingardener } from "./Pages/Adminportal/Admingardener";
-import { Adminlandscapearchitect } from "./Pages/Adminportal/Adminlandscapearchitect";
-import { Adminhousecleaner } from "./Pages/Adminportal/Adminhousecleaner";
-/* Admin services imports ends */
 
 /* Admin stores imports starts */
 import { Adminbuildingmaterial } from "./Pages/Adminportal/Adminbuildingmaterial";
@@ -114,6 +82,7 @@ import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
 import { ServiceDetailsGeneralComponent } from "./Components/Website/Servicedetails/ServiceDetailsGeneralComponent/ServiceDetailsGeneralComponent";
 import { RealEstateDetailsGeneralComponent } from "./Components/Website/Realestate/RealEstateDetailsComponent";
+import { AdminServiceDetailsGeneralComponent } from "./Components/adminpanel/Adminservices/AdminServicesGeneralComponent/AdminServicesGeneralComponent";
 
 
 
@@ -159,38 +128,7 @@ function App() {
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/real-estate" element={<RealEstate />} />
             <Route path="/settings" element={<Settings />} />
-            {/* /* Admin services routes starts */}
-            <Route path="/admin-mason" element={<Adminmason />}/>
-            <Route path="/admin-marble-tile-fixer" element={<Adminmarbleortile />}/>
-            <Route path="/admin-plumber" element={<Adminplumber />}/>
-            <Route path="/admin-contractor" element={<Admincontractor />}/>
-            <Route path="/admin-engineer" element={<Adminengineer />}/>
-            <Route path="/admin-architect" element={<Adminarchitect />}/>
-            <Route path="/admin-carpenter" element={<Admincarpenter />}/>
-            <Route path="/admin-wood-cutter" element={<Adminwoodcutter />}/>
-            <Route path="/admin-painter" element={<Adminpainter />}/>
-            <Route path="/admin-polish-man" element={<Adminpolishman />}/>
-            <Route path="/admin-steel-fixer" element={<Adminsteelfixer />}/>
-            <Route path="/admin-steel-polish" element={<Adminsteelpolish />}/>
-            <Route path="/admin-welder" element={<Adminwelder />}/>
-            <Route path="/admin-molding-worker" element={<Adminmoldingworker />}/>
-            <Route path="/admin-Leith-machine-operator" element={<Adminleithmachineoperator />}/>
-            <Route path="/admin-aluminum-fixer" element={<Adminaluminumfixer />}/>
-            <Route path="/admin-glass-fixer" element={<Adminglassfixer />}/>
-            <Route path="/admin-glass-cutting-polish" element={<Adminglasscutterandpolish />}/>
-            <Route path="/admin-glass-painter" element={<Adminglasspainter />}/>
-            <Route path="/admin-glass-designer" element={<Adminglasspaperanddesign />}/>
-            <Route path="/admin-electrician" element={<Adminelectrician />}/>
-            <Route path="/admin-ac-technician" element={<Adminactechnician />}/>
-            <Route path="/admin-electric-engineer" element={<Adminelectricengineer />}/>
-            <Route path="/admin-solar-installer" element={<Adminsolarinstaller />}/>
-            <Route path="/admin-boring-workers" element={<Adminboringworker />}/>
-            <Route path="/admin-interior-designer" element={<Admininteriordesigner />}/>
-            <Route path="/admin-termite-treatment" element={<Admintermitetreatment />}/>
-            <Route path="/admin-gardener" element={<Admingardener />}/>
-            <Route path="/admin-landscape-architect" element={<Adminlandscapearchitect />}/>
-            <Route path="/admin-house-cleaner" element={<Adminhousecleaner />}/>
-            {/* /* Admin services routes ends */ }
+            <Route path="/admin-service/:category" element={<AdminServiceDetailsGeneralComponent />}/>
 
             {/* /* Admin stores routes starts */}
             <Route path="/admin-building-material" element={<Adminbuildingmaterial />}/>

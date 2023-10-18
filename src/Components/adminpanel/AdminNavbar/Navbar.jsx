@@ -6,6 +6,7 @@ import { RiSettingsLine } from "react-icons/ri";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 import "./style.css";
+import {services} from '../../../lib/servicesData';
 
 const Navbar = () => {
   const navList = [
@@ -33,128 +34,130 @@ const Navbar = () => {
       icon: RiNewspaperLine,
       text: "Services",
       route: "",
-      submenu: [ // Add submenu for the "Users" menu item
-      {
-        text: "Mason",
-        route: "/admin-mason",
-      },
-      {
-        text: "Marble/Tile Fixer",
-        route: "/admin-marble-tile-fixer",
-      },
-      {
-        text: "Plumber",
-        route: "/admin-plumber",
-      },
-      {
-        text: "Contractor",
-        route: "/admin-contractor",
-      },
-      {
-        text: "Engineer",
-        route: "/admin-engineer",
-      },
-      {
-        text: "Architect",
-        route: "/admin-architect",
-      },
-      {
-        text: "Carpenter",
-        route: "/admin-carpenter",
-      },
-      {
-        text: "Wood Cutter",
-        route: "/admin-wood-cutter",
-      },
-      {
-        text: "Painter",
-        route: "/admin-painter",
-      },
-      {
-        text: "Polish Man (Furnture)",
-        route: "/admin-polish-man",
-      },
-      {
-        text: "Steel Fixer/Welder",
-        route: "/admin-steel-fixer",
-      },
-      {
-        text: "Steel Polish",
-        route: "/admin-steel-polish",
-      },
-      {
-        text: "Welder",
-        route: "/admin-welder",
-      },
-      {
-        text: "Molding Worker",
-        route: "/admin-molding-worker",
-      },
-      {
-        text: "Leith Machine Operator",
-        route: "/admin-Leith-machine-operator",
-      },
-      {
-        text: "Aluminum Fixer",
-        route: "/admin-aluminum-fixer",
-      },
-      {
-        text: "Glass Fixer",
-        route: "/admin-glass-fixer",
-      },
-      {
-        text: "Glass Cutting & Polish",
-        route: "/admin-glass-cutting-polish",
-      },
-      {
-        text: "Glass Painter",
-        route: "/admin-glass-painter",
-      },
-      {
-        text: "Glass Paper and Designer",
-        route: "/admin-glass-designer",
-      },
-      {
-        text: "Electrician",
-        route: "/admin-electrician",
-      },
-      {
-        text: "AC Technician",
-        route: "/admin-ac-technician",
-      },
-      {
-        text: "Electric Engineer",
-        route: "/admin-electric-engineer",
-      },
-      {
-        text: "Solar Installer",
-        route: "/admin-solar-installer",
-      },
-      {
-        text: "Boring Workers",
-        route: "/admin-boring-workers",
-      },
-      {
-        text: "Interior Designer",
-        route: "/admin-interior-designer",
-      },
-      {
-        text: "Termite Treatment",
-        route: "/admin-termite-treatment",
-      },
-      {
-        text: "Gardener",
-        route: "/admin-gardener",
-      },
-      {
-        text: "Landscape Architect",
-        route: "/admin-landscape-architect",
-      },
-      {
-        text: "House Cleaner",
-        route: "/admin-house-cleaner",
-      },
-    ],
+    //   submenu: [ 
+    //   {
+    //     text: "Mason",
+    //     route: "/admin-mason",
+    //   },
+    //   {
+    //     text: "Marble/Tile Fixer",
+    //     route: "/admin-marble-tile-fixer",
+    //   },
+    //   {
+    //     text: "Plumber",
+    //     route: "/admin-plumber",
+    //   },
+    //   {
+    //     text: "Contractor",
+    //     route: "/admin-contractor",
+    //   },
+    //   {
+    //     text: "Engineer",
+    //     route: "/admin-engineer",
+    //   },
+    //   {
+    //     text: "Architect",
+    //     route: "/admin-architect",
+    //   },
+    //   {
+    //     text: "Carpenter",
+    //     route: "/admin-carpenter",
+    //   },
+    //   {
+    //     text: "Wood Cutter",
+    //     route: "/admin-wood-cutter",
+    //   },
+    //   {
+    //     text: "Painter",
+    //     route: "/admin-painter",
+    //   },
+    //   {
+    //     text: "Polish Man (Furnture)",
+    //     route: "/admin-polish-man",
+    //   },
+    //   {
+    //     text: "Steel Fixer/Welder",
+    //     route: "/admin-steel-fixer",
+    //   },
+    //   {
+    //     text: "Steel Polish",
+    //     route: "/admin-steel-polish",
+    //   },
+    //   {
+    //     text: "Welder",
+    //     route: "/admin-welder",
+    //   },
+    //   {
+    //     text: "Molding Worker",
+    //     route: "/admin-molding-worker",
+    //   },
+    //   {
+    //     text: "Leith Machine Operator",
+    //     route: "/admin-Leith-machine-operator",
+    //   },
+    //   {
+    //     text: "Aluminum Fixer",
+    //     route: "/admin-aluminum-fixer",
+    //   },
+    //   {
+    //     text: "Glass Fixer",
+    //     route: "/admin-glass-fixer",
+    //   },
+    //   {
+    //     text: "Glass Cutting & Polish",
+    //     route: "/admin-glass-cutting-polish",
+    //   },
+    //   {
+    //     text: "Glass Painter",
+    //     route: "/admin-glass-painter",
+    //   },
+    //   {
+    //     text: "Glass Paper and Designer",
+    //     route: "/admin-glass-designer",
+    //   },
+    //   {
+    //     text: "Electrician",
+    //     route: "/admin-electrician",
+    //   },
+    //   {
+    //     text: "AC Technician",
+    //     route: "/admin-ac-technician",
+    //   },
+    //   {
+    //     text: "Electric Engineer",
+    //     route: "/admin-electric-engineer",
+    //   },
+    //   {
+    //     text: "Solar Installer",
+    //     route: "/admin-solar-installer",
+    //   },
+    //   {
+    //     text: "Boring Workers",
+    //     route: "/admin-boring-workers",
+    //   },
+    //   {
+    //     text: "Interior Designer",
+    //     route: "/admin-interior-designer",
+    //   },
+    //   {
+    //     text: "Termite Treatment",
+    //     route: "/admin-termite-treatment",
+    //   },
+    //   {
+    //     text: "Gardener",
+    //     route: "/admin-gardener",
+    //   },
+    //   {
+    //     text: "Landscape Architect",
+    //     route: "/admin-landscape-architect",
+    //   },
+    //   {
+    //     text: "House Cleaner",
+    //     route: "/admin-house-cleaner",
+    //   },
+    // ],
+    submenu : services.map(service=>({text : service.title ,route : `/admin-service/${service.category}`}))
+    
     },
     {
       icon: RiNewspaperLine,
