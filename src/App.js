@@ -25,33 +25,7 @@ import { Settings } from "./Pages/Adminportal/Settings";
 import { Adminstrategicsalepartner } from "./Pages/Adminportal/Adminstrategicsalepartner";
 import { Adminallstrategicsalepartners } from "./Pages/Adminportal/Adminallstrategicsalepartners";
 
-/* Admin stores imports starts */
-import { Adminbuildingmaterial } from "./Pages/Adminportal/Adminbuildingmaterial";
-import { Adminbrick } from "./Pages/Adminportal/Adminbrick";
-import { Adminmarbleandtilestore } from "./Pages/Adminportal/Adminmarbleandtilestore";
-import { Adminceramic } from "./Pages/Adminportal/Adminceramic";
-import { Adminsanitary } from "./Pages/Adminportal/Adminsanitary";
-import { Adminboringmaterial } from "./Pages/Adminportal/Adminboringmaterial";
-import { Adminwood } from "./Pages/Adminportal/Adminwood";
-import { Admintimber } from "./Pages/Adminportal/Admintimber";
-import { Adminpaintstore } from "./Pages/Adminportal/Adminpaintstore";
-import { Adminsteelstore } from "./Pages/Adminportal/Adminsteelstore";
-import { Adminiron } from "./Pages/Adminportal/Adminiron";
-import { Adminaluminumstore } from "./Pages/Adminportal/Adminaluminumstore";
-import { Adminglassstore } from "./Pages/Adminportal/Adminglassstore";
-import { Adminhardware } from "./Pages/Adminportal/Adminhardware";
-import { Adminelectronic } from "./Pages/Adminportal/Adminelectronic";
-import { Adminelectric } from "./Pages/Adminportal/Adminelectric";
-import { Adminwallpanelling } from "./Pages/Adminportal/Adminwallpanelling";
-import { Adminsolarsystem } from "./Pages/Adminportal/Adminsolarsystem";
-import { Adminnursery } from "./Pages/Adminportal/Adminnursery";
-import { Adminconcreteplant } from "./Pages/Adminportal/Adminconcreteplant";
-import { Admininteriordecoration } from "./Pages/Adminportal/Admininteriordecoration";
-import { Adminlight } from "./Pages/Adminportal/Adminlight";
-import { Adminfurniture } from "./Pages/Adminportal/Adminfurniture";
-import { Adminsecurity } from "./Pages/Adminportal/Adminsecurity";
-import { Admintermiteprotection } from "./Pages/Adminportal/Admintermiteprotection";
-/* Admin stores imports ends */
+
 
 /* Real Estate Routes*/
 import { Alldata } from "./Pages/Realestatedashboard/Alldata";
@@ -82,12 +56,11 @@ import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
 import { ServiceDetailsGeneralComponent } from "./Components/Website/Servicedetails/ServiceDetailsGeneralComponent/ServiceDetailsGeneralComponent";
 import { RealEstateDetailsGeneralComponent } from "./Components/Website/Realestate/RealEstateDetailsComponent";
-<<<<<<< HEAD
 import { AdminServiceDetailsGeneralComponent } from "./Components/adminpanel/Adminservices/AdminServicesGeneralComponent/AdminServicesGeneralComponent";
-=======
 import { Strategicsaleprofile } from "./Pages/Strategicsaleportal/Strategicsaleprofile";
 import { Strategicsalestores } from "./Pages/Strategicsaleportal/Strategicsalestores";
->>>>>>> 72419434f7967727d6397845afb19567ffad1757
+import { AdminStoresGeneralComponent } from "./Components/adminpanel/Adminstores/AdminStoresGeneralComponent/AdminStoresGeneralComponent";
+import { NewadCopy } from "./Components/Stores/Storescomp/Newadcopy";
 
 //  Strategic Sales partners Routes  
 
@@ -137,32 +110,10 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/admin-service/:category" element={<AdminServiceDetailsGeneralComponent />}/>
 
-            {/* /* Admin stores routes starts */}
-            <Route path="/admin-building-material" element={<Adminbuildingmaterial />}/>
-            <Route path="/admin-bricks" element={<Adminbrick />}/>
-            <Route path="/admin-marble-tile" element={<Adminmarbleandtilestore />}/>
-            <Route path="/admin-ceramics" element={<Adminceramic />}/>
-            <Route path="/admin-sanitary" element={<Adminsanitary />}/>
-            <Route path="/admin-boring-material" element={<Adminboringmaterial />}/>
-            <Route path="/admin-wood" element={<Adminwood />}/>
-            <Route path="/admin-timber" element={<Admintimber />}/>
-            <Route path="/admin-paint" element={<Adminpaintstore />}/>
-            <Route path="/admin-steel" element={<Adminsteelstore />}/>
-            <Route path="/admin-iron" element={<Adminiron />}/>
-            <Route path="/admin-aluminum" element={<Adminaluminumstore />}/>
-            <Route path="/admin-glass" element={<Adminglassstore />}/>
-            <Route path="/admin-hardware" element={<Adminhardware />}/>
-            <Route path="/admin-electronics" element={<Adminelectronic />}/>
-            <Route path="/admin-electric" element={<Adminelectric />}/>
-            <Route path="/admin-wall-panelling" element={<Adminwallpanelling />}/>
-            <Route path="/admin-solar-system" element={<Adminsolarsystem />}/>
-            <Route path="/admin-nursery" element={<Adminnursery />}/>
-            <Route path="/admin-concrete-plant" element={<Adminconcreteplant />}/>
-            <Route path="/admin-interior-decoration" element={<Admininteriordecoration />}/>
-            <Route path="/admin-lights" element={<Adminlight />}/>
-            <Route path="/admin-furniture" element={<Adminfurniture />}/>
-            <Route path="/admin-security" element={<Adminsecurity />}/>
-            <Route path="/admin-termite-protection" element={<Admintermiteprotection />}/>
+            {/* /* Admin stores routes starts */} 
+            <Route path="/admin-store/:category" element={<AdminStoresGeneralComponent />}/>
+
+           
             {/* /* Admin stores routes ends */}
           </Route>
 
@@ -189,6 +140,8 @@ function App() {
           <Route element={<RequireAuth allowedRoles={[ROLES.Stores]} />}>
             <Route path="/stores-profile" element={<Storesprofile />} />
             <Route path="/new-add-stores" element={<NewaddStores />} />
+            <Route path="/new-add-stores-copy" element={<NewadCopy />} />
+
             <Route path="/active-adds-stores" element={<ActiveaddStores />} />
           </Route>
 

@@ -11,7 +11,7 @@ export const storeApi = createApi({
         headers.set('authorization', `Bearer ${token}`);
       }
       return headers;
-    },
+    }, 
   }),
   endpoints: (builder) => ({
     getShopsData: builder.query({

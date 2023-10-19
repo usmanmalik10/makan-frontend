@@ -28,6 +28,8 @@ import { Securitystore } from '../../Components/Website/Stores/Securitystore'
 import Header from '../../Components/Website/Header/Header'
 import Footer from '../../Components/Website/Footer/Footer'
 import Pagination from '@mui/material/Pagination';
+import { storesData } from '../../lib/storesData'
+import { MainPageStoresGeneralComponent } from '../../Components/Website/Stores/MainPageStoresGeneralComponent'
 
 
 
@@ -36,34 +38,7 @@ export const Allstores = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Create an array of all your store components
-  const storeComponents = [
-      
-       <Marblestore />,
-       <Bricksstore />,
-       <Buildingmaterialstore />,
-       <Ceramicstore />,
-       <Sanitarystore />,
-       <Boringstore />,
-       <Woodstore />,
-       <Timberstore />,
-       <Paintstore />,
-       <Steelstore />,
-       <Ironstore />,
-       <Aluminumstore />,
-       <Glassstore />,
-       <Hardwarestore />,
-       <Electronicsstore />,
-       <Electricstore />,
-       <Wallpanellingstore />,
-       <Solarsystemstore />,
-       <Nurserystore />,
-       <Concreteplantstore />,
-       <Interiordecorationstore />,
-       <Termiteprotectionstore />,
-       <Lightsstore />,
-       <Furniturestore />,
-       <Securitystore />
-  ];
+  const storeComponents = storesData.map((store)=><MainPageStoresGeneralComponent title={store.title} category={store.category}></MainPageStoresGeneralComponent>);
 
   // Calculate the start and end index for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;

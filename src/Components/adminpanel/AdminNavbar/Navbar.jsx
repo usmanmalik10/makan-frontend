@@ -7,6 +7,7 @@ import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 import "./style.css";
 import {services} from '../../../lib/servicesData';
+import { storesData } from "../../../lib/storesData";
 
 const Navbar = () => {
   const navList = [
@@ -163,108 +164,109 @@ const Navbar = () => {
       icon: RiNewspaperLine,
       text: "Stores",
       route: '',
-      submenu: [ // Add submenu for the "Users" menu item
-      {
-        text: "Building Material",
-        route: "/admin-building-material",
-      },
-      {
-        text: "Bricks",
-        route: "/admin-bricks",
-      },
-      {
-        text: "Marble/Tile",
-        route: "/admin-marble-tile",
-      },
-      {
-        text: "Ceramics",
-        route: "/admin-ceramics",
-      },
-      {
-        text: "Sanitary",
-        route: "/admin-sanitary",
-      },
-      {
-        text: "Boring Material",
-        route: "/admin-boring-material",
-      },
-      {
-        text: "Wood",
-        route: "/admin-wood",
-      },
-      {
-        text: "Timber",
-        route: "/admin-timber",
-      },
-      {
-        text: "Paint",
-        route: "/admin-paint",
-      },
-      {
-        text: "Steel",
-        route: "/admin-steel",
-      },
-      {
-        text: "Iron",
-        route: "/admin-iron",
-      },
-      {
-        text: "Aluminum",
-        route: "/admin-aluminum",
-      },
-      {
-        text: "Glass",
-        route: "/admin-glass",
-      },
-      {
-        text: "Hardware",
-        route: "/admin-hardware",
-      },
-      {
-        text: "Electronics",
-        route: "/admin-electronics",
-      },
-      {
-        text: "Electric",
-        route: "/admin-electric",
-      },
-      {
-        text: "Wall Panelling",
-        route: "/admin-wall-panelling",
-      },
-      {
-        text: "Solar System",
-        route: "/admin-solar-system",
-      },
-      {
-        text: "Nursery",
-        route: "/admin-nursery",
-      },
-      {
-        text: "Concrete Plant",
-        route: "/admin-concrete-plant",
-      },
-      {
-        text: "Interior Decoration",
-        route: "/admin-interior-decoration",
-      },
-      {
-        text: "Lights",
-        route: "/admin-lights",
-      },
-      {
-        text: "Furniture",
-        route: "/admin-furniture",
-      },
-      {
-        text: "Security",
-        route: "/admin-security",
-      },
-      {
-        text: "Termite Protection",
-        route: "/admin-termite-protection",
-      },
-    ],
+    //   submenu: [ // Add submenu for the "Users" menu item
+    //   {
+    //     text: "Building Material",
+    //     route: "/admin-building-material",
+    //   },
+    //   {
+    //     text: "Bricks",
+    //     route: "/admin-bricks",
+    //   },
+    //   {
+    //     text: "Marble/Tile",
+    //     route: "/admin-marble-tile",
+    //   },
+    //   {
+    //     text: "Ceramics",
+    //     route: "/admin-ceramics",
+    //   },
+    //   {
+    //     text: "Sanitary",
+    //     route: "/admin-sanitary",
+    //   },
+    //   {
+    //     text: "Boring Material",
+    //     route: "/admin-boring-material",
+    //   },
+    //   {
+    //     text: "Wood",
+    //     route: "/admin-wood",
+    //   },
+    //   {
+    //     text: "Timber",
+    //     route: "/admin-timber",
+    //   },
+    //   {
+    //     text: "Paint",
+    //     route: "/admin-paint",
+    //   },
+    //   {
+    //     text: "Steel",
+    //     route: "/admin-steel",
+    //   },
+    //   {
+    //     text: "Iron",
+    //     route: "/admin-iron",
+    //   },
+    //   {
+    //     text: "Aluminum",
+    //     route: "/admin-aluminum",
+    //   },
+    //   {
+    //     text: "Glass",
+    //     route: "/admin-glass",
+    //   },
+    //   {
+    //     text: "Hardware",
+    //     route: "/admin-hardware",
+    //   },
+    //   {
+    //     text: "Electronics",
+    //     route: "/admin-electronics",
+    //   },
+    //   {
+    //     text: "Electric",
+    //     route: "/admin-electric",
+    //   },
+    //   {
+    //     text: "Wall Panelling",
+    //     route: "/admin-wall-panelling",
+    //   },
+    //   {
+    //     text: "Solar System",
+    //     route: "/admin-solar-system",
+    //   },
+    //   {
+    //     text: "Nursery",
+    //     route: "/admin-nursery",
+    //   },
+    //   {
+    //     text: "Concrete Plant",
+    //     route: "/admin-concrete-plant",
+    //   },
+    //   {
+    //     text: "Interior Decoration",
+    //     route: "/admin-interior-decoration",
+    //   },
+    //   {
+    //     text: "Lights",
+    //     route: "/admin-lights",
+    //   },
+    //   {
+    //     text: "Furniture",
+    //     route: "/admin-furniture",
+    //   },
+    //   {
+    //     text: "Security",
+    //     route: "/admin-security",
+    //   },
+    //   {
+    //     text: "Termite Protection",
+    //     route: "/admin-termite-protection",
+    //   },
+    // ],
+    submenu : storesData.map(store=>({text : store.title , route : `/admin-store/${store.category}`}))
     },
     {
       icon: RiNewspaperLine,
