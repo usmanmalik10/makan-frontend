@@ -82,8 +82,14 @@ import Unauthorized from "./Routes/Unauthorized";
 import Missing from "./Routes/Missing";
 import { ServiceDetailsGeneralComponent } from "./Components/Website/Servicedetails/ServiceDetailsGeneralComponent/ServiceDetailsGeneralComponent";
 import { RealEstateDetailsGeneralComponent } from "./Components/Website/Realestate/RealEstateDetailsComponent";
+<<<<<<< HEAD
 import { AdminServiceDetailsGeneralComponent } from "./Components/adminpanel/Adminservices/AdminServicesGeneralComponent/AdminServicesGeneralComponent";
+=======
+import { Strategicsaleprofile } from "./Pages/Strategicsaleportal/Strategicsaleprofile";
+import { Strategicsalestores } from "./Pages/Strategicsaleportal/Strategicsalestores";
+>>>>>>> 72419434f7967727d6397845afb19567ffad1757
 
+//  Strategic Sales partners Routes  
 
 
 
@@ -95,6 +101,7 @@ const ROLES = {
   'Realestate': 123,
   'Services': 1346,
   'Stores': 1447,
+  'Strategicsale' : 1570,
 }
 
 function App() {
@@ -184,6 +191,9 @@ function App() {
             <Route path="/new-add-stores" element={<NewaddStores />} />
             <Route path="/active-adds-stores" element={<ActiveaddStores />} />
           </Route>
+
+          <Route path="/strategic-sale-partner-profile" element={<Strategicsaleprofile/>}/>
+          <Route path="/strategic-stores-data" element={<Strategicsalestores/>} />
 
           {/* /* catch all */}
           <Route path="*" element={<Missing />} />
