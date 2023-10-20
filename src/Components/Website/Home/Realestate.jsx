@@ -133,7 +133,9 @@ export const Realestate = () => {
   }
 
   return (
+    
     <section className="homepage-allsection">
+     
       <Container  className="home-real-con">
         <Row>
           <Col lg={5} md={5} sm={4} xs={4}>
@@ -157,6 +159,7 @@ export const Realestate = () => {
         <Row>
           <Col lg={3} md={3} sm={12} xs={12}>
           <Row>
+            
           {homeforrentdata.map((houseData) => (
             
              
@@ -174,9 +177,16 @@ export const Realestate = () => {
                       <p className="estate_ineer_text">
                         Bedrooms : {houseData.bedRooms}
                       </p>
-                      <p className="estate_ineer_text">
+                      {/* <p className="estate_ineer_text">
                         Detail : {houseData.details.story}
-                      </p>
+                      </p> */}
+                       {Object.keys(houseData.details).map(key => (
+      
+          
+           <p  key={key} className="estate_ineer_text">
+           {key}: {houseData.details[key]}
+         </p>
+        ))}
                       <p className="estate_ineer_text">
                         Rent : Rs/ {houseData.price}
                       </p>
@@ -203,7 +213,14 @@ export const Realestate = () => {
                     <p className="estate_ineer_text">Location : {houseData.location}</p>
                     <p className="estate_ineer_text">Size : {houseData.size}</p>
                     <p className="estate_ineer_text">Bedrooms : {houseData.bedRooms}</p>
-                    <p className="estate_ineer_text">Detail : {houseData.details.story}</p>
+                    {Object.keys(houseData.details).map(key => (
+      
+          
+      <p  key={key} className="estate_ineer_text">
+      {key}: {houseData.details[key]}
+    </p>
+   ))}
+                    {/* <p className="estate_ineer_text">Detail : {houseData.details.story}</p> */}
                     <p className="estate_ineer_text">Price : Rs/ {houseData.price}</p>
                     <p className="estate_ineer_text">Contact Number : {houseData.contectNumber} </p>
                   </Card.Text>

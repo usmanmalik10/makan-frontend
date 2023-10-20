@@ -44,7 +44,9 @@
         border:  2px solid red;
         outline: none;
         padding: 0px 15px;
+        padding-right: 40px; 
     }
+    
 }
 
 .pagination {
@@ -57,3 +59,31 @@
   .pagination select {
     margin-left: 10px;
   }
+
+  .input-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .icon-eye {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    right: 0px; 
+    margin-right: 5px; 
+  }
+  
+  .icon-copy {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    right: 30px; 
+    margin-right: 5px; 
+  }
+  
