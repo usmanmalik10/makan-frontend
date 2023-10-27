@@ -971,6 +971,14 @@ const handleDropdownClick = (value) => {
                           </div>
                         </Col>
                       </Row>
+                      <Row>
+                        <Col>
+                            <div>
+                              <label className="business-labels"> <span className="business-label-headings">SSP Referral Key :</span></label> <br/>
+                              <input className="business-inputs" type="text" placeholder="SSP Referral Key" />
+                            </div>
+                        </Col>
+                      </Row>
                       {/* <Row>
                         <Col lg={6} md={6} sm={12}>
                           <div>
