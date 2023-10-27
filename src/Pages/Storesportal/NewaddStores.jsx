@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import StoresNavbar from '../../Components/Stores/StoresNavbar/StoresNavbar';
 import "../../Components/Userdashboard/UserNavbar/userstyle.css"
 import "../../App.css"
+import { NewadCopy } from '../../Components/Stores/Storescomp/Newadcopy';
 
 export const NewaddStores = () => {
   return (
@@ -20,7 +21,8 @@ export const NewaddStores = () => {
                     lg={9.3}
                     className="right-panel-wrapper"
                   >
-                    <Newad/>
+                    <NewadCopy />
+                    {/* <Newad/> */}
                   </Grid>
                 </Grid>
     </div>

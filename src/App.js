@@ -140,7 +140,6 @@ function App() {
           <Route element={<RequireAuth allowedRoles={[ROLES.Stores]} />}>
             <Route path="/stores-profile" element={<Storesprofile />} />
             <Route path="/new-add-stores" element={<NewaddStores />} />
-            <Route path="/new-add-stores-copy" element={<NewadCopy />} />
 
             <Route path="/active-adds-stores" element={<ActiveaddStores />} />
           </Route>

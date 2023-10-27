@@ -33,8 +33,9 @@ const isImageSizeValid = (file, maxImageSizeInMb) => {
 
 const SignupSchema = z.object({
   shopName: z.string().min(1, 'Shop Name is required'),
-  contactNumber: z.string().min(10, 'Contact Number should be at least 10 characters long'),
+  contactNumber: z.string().min(10, 'Contact Number should be at least 10 digits long'),
   address: z.string().min(1, 'Address is required'),
+  referalKey: z.string().min(1, 'Referal Key is required'),
   areaOfService: z.string().nonempty('Area of Service must be selected')
 });
 export const NewadCopy = () => {
@@ -97,7 +98,7 @@ export const NewadCopy = () => {
   }
   const [userLocation, setUserLocation] = useState(null);
   const [markerLocation, setMarkerLocation] = useState(null);
-  const [center, setCenter] = useState([51.505, -0.09]); // Default to London
+  const [center, setCenter] = useState([51.505, -0.09]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -301,7 +302,26 @@ console.log(errors)
 </Col>
 
                       </Row> 
+                      <Row>
+                      <Col lg={6} md={6} sm={12}  className="mt-4" > 
+  <div>
+    <label className="business-labels">
+      <span className="business-label-headings">
+        Referal Key:
+      </span>
+    </label>
+    <br />
+    <input
+      className="business-inputs"
+      type="text"
+      placeholder="Referal Key"
+      {...register('referalKey')}
+    />
+    {errors?.referalKey?.message && <p className="error-text">{errors.referalKey.message}</p>}
+  </div>
+</Col>
 
+                      </Row>
                       <Row className="mt-4">
                         <div className="map-container">
                           <label className="business-labels">
@@ -332,6 +352,7 @@ console.log(errors)
                           )}
                         </div>
                       </Row>
+                      
                       <Col>
                         <div className="login-button">
                           <button onClick={handleSubmit(onSubmit)} >Submit</button>
