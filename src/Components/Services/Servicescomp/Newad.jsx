@@ -406,6 +406,10 @@ export const Newad = () => {
                     />
                   </div>
                 </Col>
+                <Col lg={6} md={6} sm={12} xs={12}>
+                  <label className="business-labels">  <span className="business-label-headings">Store Referral Key : </span></label> <br/>
+                  <input className="business-inputs"  type="text" placeholder="Store Referral key"/>
+                </Col>
                 <Row className="mt-4">
                     <div className='map-container'>
                     <label className="business-labels">
