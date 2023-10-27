@@ -234,3 +234,10 @@ margin-block:30px ;
   
   overflow: hidden;
 }
+
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}

@@ -9,7 +9,7 @@ import storesApi from '../Redux/RtkQuery/StoresDashboard'
 import MainPageRealEstate from '../Redux/RtkQuery/MainPageRealEstate'
 import MainPageStore from '../Redux/RtkQuery/MainPageStore'
 import MainPageService from '../Redux/RtkQuery/MainPageService'
-
+import StrategicSalesPartner from '../Redux/RtkQuery/StrategicSalesPartner';
 
 
 
@@ -22,6 +22,8 @@ export default configureStore({
     [estateApi.reducerPath]: estateApi.reducer,
     [storesApi.reducerPath]: storesApi.reducer,
     [MainPageService.reducerPath]: MainPageService.reducer,
+    [StrategicSalesPartner.reducerPath]: StrategicSalesPartner.reducer,
+
   
     auth: authReducer,
     serviceprovider: serviceproviderReducer,
@@ -34,5 +36,5 @@ export default configureStore({
   
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(estateApi.middleware , serviceApi.middleware , storesApi.middleware , MainPageRealEstate.middleware , MainPageStore.middleware , MainPageService.middleware)
+    getDefaultMiddleware().concat(estateApi.middleware , serviceApi.middleware , storesApi.middleware , MainPageRealEstate.middleware , MainPageStore.middleware , MainPageService.middleware, StrategicSalesPartner.middleware)
 });

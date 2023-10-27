@@ -22,17 +22,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-const schema = z.object({
-  shopName: z.string().min( 1 , "Shop Name is required"),
-  contactNumber: z.string().nonempty({ message: "Contact Number is required" }),
-  address: z.string().nonempty({ message: "Shop Address is required" }),
-  areaOfService: z
-    .string()
-    .nonempty({ message: "Area of services must be selected" })
-    .refine((value) => value !== "Area of services", {
-      message: "Area of services must be selected",
-    }),
-});
 const isImageSizeValid = (file, maxImageSizeInMb) => {
   const maxSizeInBytes = maxImageSizeInMb * 1024 * 1024;
   if (file) {
@@ -42,6 +31,12 @@ const isImageSizeValid = (file, maxImageSizeInMb) => {
   }
 };
 
+const SignupSchema = z.object({
+  shopName: z.string().min(1, 'Shop Name is required'),
+  contactNumber: z.string().min(10, 'Contact Number should be at least 10 characters long'),
+  address: z.string().min(1, 'Address is required'),
+  areaOfService: z.string().nonempty('Area of Service must be selected')
+});
 export const NewadCopy = () => {
   const maxImageSize = 5;
   let initialProfileState = useMemo(
@@ -125,24 +120,25 @@ export const NewadCopy = () => {
       }
     );
   }, []);
+  const { register, handleSubmit,  formState: { errors } , setValue, trigger  } = useForm({
+    resolver: zodResolver(SignupSchema)
+  });
+  useEffect(()=>{
+console.log(errors)
+  },[errors])
 
+  const onSubmit = (data) => {
+    if(!file.file) return toast.error('Please add image first');
+    console.log({data, markerLocation, file});
+  };
   const updateMarkerLocation = (event) => {
     console.log("Updating Marker locatin");
 
     const newCoords = event.target.getLatLng();
     setMarkerLocation({ lat: newCoords.lat, lng: newCoords.lng });
   };
-  const { register, handleSubmit, errors } = useForm({
-    resolver: zodResolver(schema),
-  });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
-  if (isLoading) {
-    return <Spinner2 />;
-  }
+  
 
   return (
     <>
@@ -206,7 +202,7 @@ export const NewadCopy = () => {
                     {isDragActive && (
                       <>
                         <BsImage fontSize={"50px"} />
-                        <span>Yeah Yeah Exactly Drop it 😃</span>
+                        <span>Yeah Yeah Exactl`y Drop it 😃</span>
                       </>
                     )}
                   </div>
@@ -217,105 +213,94 @@ export const NewadCopy = () => {
           <Row>
             {openDropdown.length > 2 && (
               <div>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                 
                   <section className="pt-4">
                     <Container>
                       <Row>
-                        <Col lg={6} md={6} sm={12}>
-                          <div>
-                            <label className="business-labels">
-                              <span className="business-label-headings">
-                                Shop Name:
-                              </span>
-                            </label>
-                            <br />
-                            <input
-                              className="business-inputs"
-                              type="text"
-                              placeholder="Shop Name"
-                              name="shopName"
-                              ref={register}
-                            />
-                            {errors.shopName && (
-                              <small style={{ color: "red" }}>
-                                {errors.shopName.message}
-                              </small>
-                            )}
-                          </div>
-                        </Col>
-                        {/* <Col lg={6} md={6} sm={12}>
-                          <div>
-                            <label className="business-labels">
-                              <span className="business-label-headings">
-                                Contact Number:
-                              </span>
-                            </label>
-                            <br />
-                            <input
-                              className="business-inputs"
-                              type="text"
-                              placeholder="Contact Number"
-                              name="contactNumber"
-                              ref={register}
-                            />
-                            {errors && errors?.contactNumber && (
-                              <small style={{ color: "red" }}>
-                                {errors.contactNumber.message}
-                              </small>
-                            )}
-                          </div>
-                        </Col> */}
+                     
+      <Col lg={6} md={6} sm={12}>
+        <div>
+          <label className="business-labels">
+            <span className="business-label-headings">
+              Shop Name:
+            </span>
+          </label>
+          <br />
+          <input
+  className="business-inputs"
+  type="text"
+  placeholder="Shop Name"
+  {...register('shopName')}
+/>
+        
+          {errors?.shopName?.message && <p className="error-text">{errors.shopName.message}</p>}
+
+        </div>
+      </Col>
+      <Col lg={6} md={6} sm={12} >
+  <div>
+    <label className="business-labels">
+      <span className="business-label-headings">
+        Contact Number:
+      </span>
+    </label>
+    <br />
+    <input
+      className="business-inputs"
+      type="text"
+      placeholder="Contact Number"
+      {...register('contactNumber')}
+    />
+    {errors?.contactNumber?.message && <p className="error-text">{errors.contactNumber.message}</p>}
+  </div>
+</Col>
+
                       </Row>
-                      {/* <Row>
-                        <Col lg={6} md={6} sm={12}>
-                          <div>
-                            <label className="business-labels">
-                              <span className="business-label-headings">
-                                Shop Address:
-                              </span>
-                            </label>
-                            <br />
-                            <input
-                              className="business-inputs"
-                              type="text"
-                              placeholder="Shop Address"
-                              name="address"
-                              ref={register}
-                            />
-                            {errors && errors.address && (
-                              <small style={{ color: "red" }}>
-                                {errors.address.message}
-                              </small>
-                            )}
-                          </div>
-                        </Col>
-                        <Col lg={6} md={6} sm={12}>
-                          <div>
-                            <label className="business-labels">
-                              <span className="business-label-headings">
-                                Area of services :
-                              </span>
-                            </label>
-                            <br />
-                            <Form.Select
-                              className="business-inputs"
-                              name="areaOfService"
-                              ref={register}
-                            >
-                              <option>Area of services</option>
-                              <option>Sahiwal City</option>
-                              <option>Sahiwal Division</option>
-                              <option>Punjab</option>
-                              <option>Pakistan</option>
-                            </Form.Select>
-                            {errors && errors.areaOfService && (
-                              <small style={{ color: "red" }}>
-                                {errors.areaOfService.message}
-                              </small>
-                            )}
-                          </div>
-                        </Col>
-                      </Row> */}
+                    <Row>
+                    <Col lg={6} md={6} sm={12}  className="mt-4" > 
+  <div>
+    <label className="business-labels">
+      <span className="business-label-headings">
+        Shop Address:
+      </span>
+    </label>
+    <br />
+    <input
+      className="business-inputs"
+      type="text"
+      placeholder="Shop Address"
+      {...register('address')}
+    />
+    {errors?.address?.message && <p className="error-text">{errors.address.message}</p>}
+  </div>
+</Col>
+
+<Col lg={6} md={6} sm={12}  className="mt-4" >
+  <div>
+    <label className="business-labels">
+      <span className="business-label-headings">
+        Area of services :
+      </span>
+    </label>
+    <br />
+    <Form.Select
+      className="business-inputs"
+      name="areaOfService"
+      onChange={(e) => setValue('areaOfService', e.target.value)}
+      onBlur={() => trigger('areaOfService')}
+      defaultValue="Area of services"
+    >
+      <option>Area of services</option>
+      <option>Sahiwal City</option>
+      <option>Sahiwal Division</option>
+      <option>Punjab</option>
+      <option>Pakistan</option>
+    </Form.Select>
+    {errors?.areaOfService?.message && <span className="error-text">{errors.areaOfService.message}</span>}
+  </div>
+</Col>
+
+                      </Row> 
 
                       <Row className="mt-4">
                         <div className="map-container">
@@ -349,12 +334,12 @@ export const NewadCopy = () => {
                       </Row>
                       <Col>
                         <div className="login-button">
-                          <button type="submit">Submit</button>
+                          <button onClick={handleSubmit(onSubmit)} >Submit</button>
                         </div>
                       </Col>
                     </Container>
                   </section>
-                </form>
+            
               </div>
             )}
           </Row>
