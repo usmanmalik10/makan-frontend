@@ -1,5 +1,3 @@
-// shopsAPI.js
-
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { USERS_BASE_URL } from '../../Components/constants/config/config.dev';
 
@@ -33,10 +31,18 @@ const storeApi = createApi({
         },
       }),
     }),
+    createStores: builder.mutation({
+      query: (data) => ({
+        url: `/v1/shop`,
+        method: 'POST',
+        body: data,
+     
+      }),
+    }),
   }),
 });
 
 // Export the API and endpoints
-export const { useFetchStoresDataQuery } = storeApi;
+export const { useFetchStoresDataQuery, useCreateStoresMutation } = storeApi;
 
 export default storeApi;
