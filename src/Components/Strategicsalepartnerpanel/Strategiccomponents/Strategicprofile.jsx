@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Card } from 'react-bootstrap'
 import "./Strategicsalepartners.scss"
 import { FiEye, FiEyeOff, FiCopy } from 'react-icons/fi';
 import { toast } from 'react-toastify';
@@ -30,7 +30,22 @@ export const Strategicprofile = () => {
           </Row>
           <Row>
               <Col lg={6} md={6} sm={12} xs={12}>
-
+              <Card  className='Strategic_profile_card' >
+            <Card.Img className='Strategic_profile_pic'  />
+              <Card.Body>
+              <Card.Text>
+                  <p className="strategic_card_text">Name : </p>
+                  <p className="strategic_card_text"> Contact Number : </p>
+                  <p className="strategic_card_text"> Address : </p>
+                  <p className="strategic_card_text">Area of Service : </p>
+                  <p className="strategic_card_text"> Location : </p>
+                  
+                  
+                  
+                </Card.Text>
+               
+              </Card.Body>
+            </Card>
               </Col>
               <Col lg={6} md={6} sm={12} xs={12}>
   <div className='strat_div'>

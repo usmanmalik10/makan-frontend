@@ -2,13 +2,13 @@ import React from 'react';
 import { useTable, useSortBy, usePagination, useFilters } from 'react-table';
 import './Strategicsalepartners.scss'
 const COLUMNS = [
-  { Header: 'Column 1', accessor: 'col1' },
-  { Header: 'Column 1', accessor: 'col2' },
-  { Header: 'Column 2', accessor: 'col3' },
-  { Header: 'Column 3', accessor: 'col4' },
-  { Header: 'Column 4', accessor: 'col5' },
-  { Header: 'Column 2', accessor: 'col6' },
-  { Header: 'Column 3', accessor: 'col7' },
+  { Header: 'Sr #', accessor: 'col1' },
+  { Header: 'Shop Name', accessor: 'col2' },
+  { Header: 'Contact Number', accessor: 'col3' },
+  { Header: 'Shop Address', accessor: 'col4' },
+  { Header: 'Area of Service', accessor: 'col5' },
+  { Header: 'Category', accessor: 'col6' },
+  { Header: 'Location', accessor: 'col7' },
   { Header: 'Column 4', accessor: 'col8' },
   // ... add more columns up to 12
 ];
@@ -149,10 +149,11 @@ function Table({ columns, data }) {
       {/* Filter input */}
       <input
         type="text"
-        placeholder="Filter..."
+        placeholder="Search Shop Name"
         onChange={e => {
           setFilter("col1", e.target.value); // adjust if you want to filter by another column
         }}
+        className='strategic_search_field'
       />
 
 <table {...getTableProps()} className="table">
@@ -213,7 +214,7 @@ function Table({ columns, data }) {
 export function Strategicstoresdata() {
   return (
     <div className="App">
-      <h1>Strategic Stores Data</h1>
+      <h1 className='str_heading'> Stores Data</h1>
       <Table columns={COLUMNS} data={SAMPLE_DATA} />
     </div>
   );
