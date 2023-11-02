@@ -11,6 +11,7 @@ import { z } from "zod";
 import { toast } from "react-toastify";
 import { useCreateStrategicSalePartnerMutation } from "../../../Redux/RtkQuery/StrategicSalesPartner";
 import Spinner2 from "../../Common/spinner2/spinner2";
+import { useNavigate } from "react-router-dom";
 
 const emailSchema = z
   .string()
@@ -44,8 +45,8 @@ const passwordSchema = z
   );
 
 const formSchema = z.object({
-  userName: z.string().min(1, "Username is required"),
-  emailOrPhone: z
+  username: z.string().min(1, "username is required"),
+  email_phoneNumber: z
     .string()
     .refine(
       (value) =>
@@ -78,6 +79,7 @@ const formSchema = z.object({
 export const Strategicsalepartner = () => {
   const [createStrategicSalePartner, { isLoading, isError }] =
     useCreateStrategicSalePartnerMutation();
+    let navigate = useNavigate()	
   const [fileProfile, setFileProfile] = useState({
     file: null,
     src: "",
@@ -94,7 +96,9 @@ export const Strategicsalepartner = () => {
   const [selectedCity, setSelectedCity] = useState(
     provAndCities[selectedProvince][0]
   );
-
+useEffect(()=>{
+console.log({fileProfile, fileIdCardBack})
+},[fileProfile , fileIdCardBack])
   const {
     register,
     handleSubmit,
@@ -117,19 +121,14 @@ export const Strategicsalepartner = () => {
       toast.error("Please Select your Id Card Back Picture");
       return;
     }
-
-    // Combine data and files for the request payload
-    const formData = new FormData();
-    Object.keys(data).forEach((key) => {
-      formData.append(key, data[key]);
-    });
-    formData.append("fileProfile", fileProfile.file);
-    formData.append("fileIdCardFront", fileIdCardFront.file);
-    formData.append("fileIdCardBack", fileIdCardBack.file);
+data = {
+  ...data , profilePic : fileProfile.base64 , idCardFront:fileIdCardFront.base64 , idCardBack:fileIdCardBack.base64 , 
+}
 
     try {
-      const response = await createStrategicSalePartner(formData).unwrap();
+      const response = await createStrategicSalePartner(data).unwrap();
       toast.success("Data submitted successfully!");
+      navigate('/all-strategic-sale-partner');
       console.log(response);
     } catch (error) {
       toast.error("Submission failed. Please try again.");
@@ -226,11 +225,11 @@ export const Strategicsalepartner = () => {
                       className="strategic_inputs"
                       type="text"
                       placeholder="User Name"
-                      {...register("userName")}
+                      {...register("username")}
                     />
-                    {errors.userName && (
+                    {errors.username && (
                       <p style={{ color: "red", fontSize: "small" }}>
-                        {errors.userName.message}
+                        {errors.username.message}
                       </p>
                     )}
                   </div>
@@ -245,11 +244,11 @@ export const Strategicsalepartner = () => {
                       className="strategic_inputs"
                       type="text"
                       placeholder="Email/Phone Number"
-                      {...register("emailOrPhone")}
+                      {...register("email_phoneNumber")}
                     />
-                    {errors.emailOrPhone && (
+                    {errors.email_phoneNumber && (
                       <p style={{ color: "red", fontSize: "small" }}>
-                        {errors.emailOrPhone.message}
+                        {errors.email_phoneNumber.message}
                       </p>
                     )}
                   </div>

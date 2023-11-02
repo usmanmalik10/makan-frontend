@@ -16,3 +16,11 @@
     margin: 2px;
 }
 }
+
+.profile-pic-user {
+    width: 100px;
+    height: 100px; // or whatever you want
+    object-fit: cover;
+    margin:10px auto;
+    
+}

@@ -43,9 +43,16 @@ const OneImageCustomUploader = ( { file , setFile , children , isCustom}) => {
           const isValid = isImageSizeValid(blogImage, maxImageSize);
           if (isValid) {
             const fileSource = URL.createObjectURL(blogImage);
-            console.log("Source URL of the image file:", fileSource);
+         
     
-            setFile({ file: blogImage, src: fileSource });
+            const reader = new FileReader();
+            reader.readAsDataURL(blogImage);
+            reader.onload = () => {
+              setFile({ file: blogImage, src: fileSource, base64: reader.result });
+            };
+            reader.onerror = (error) => {
+              console.error("Error converting to base64: ", error);
+            };
           } else {
             toast.error(`Sorry Image Size is greater than ${maxImageSize}Mb`);
             return;

@@ -16,19 +16,28 @@ const strategicSalesPartnerApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['StrategicSalePartner'], // Define a tag for the strategicSalesPartner
   endpoints: (builder) => ({
-    // Adding a createStrategicSalePartner endpoint for POST request
+    // Fetch data from /endpoint
+    fetchStrategicSalePartner: builder.query({
+      query: () => 'v1/strategic-sale-partners', 
+      providesTags: (result) => 
+        result.data ? result.data.docs.map(({ id }) => ({ type: 'StrategicSalePartner', id })) : [], 
+    }),
+    // Create a new strategic sale partner
     createStrategicSalePartner: builder.mutation({
       query: (data) => ({
         url: 'v1/strategic-sale-partners',
         method: 'POST',
-        body: data
+        body: data,
       }),
+      // Invalidate the fetched data after creating a new strategic sale partner
+      invalidatesTags: [{ type: 'StrategicSalePartner' }],
     }),
   }),
 });
 
-// Destructure the useCreateStrategicSalePartnerMutation hook for component use
-export const { useCreateStrategicSalePartnerMutation } = strategicSalesPartnerApi;
+// Destructure the useCreateStrategicSalePartnerMutation and useFetchDataQuery hooks for component use
+export const { useCreateStrategicSalePartnerMutation, useFetchStrategicSalePartnerQuery } = strategicSalesPartnerApi;
 
 export default strategicSalesPartnerApi;
