@@ -12,7 +12,7 @@ const StrategicNavbar = () => {
   const navList = [
     {
       icon: BiHomeSmile,
-      text: "Dashboard",
+      text: "Profile",
       route: "/strategic-sale-partner-profile",
     },
     {
