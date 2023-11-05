@@ -149,10 +149,8 @@ export const NewadCopy = () => {
         longitude: markerLocation["lng"].toString(),
         latitude: markerLocation["lat"].toString(),
         category: selectedCategory,
-        productName: "N/A",
-        price: "N/A",
-        details: {}, // Empty object
-        companyName: "N/A",
+       
+       
       };
 
       // Remove the 'referalKey' property
