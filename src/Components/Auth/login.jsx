@@ -36,53 +36,6 @@ export const Login = () => {
   );
 
 
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const loginData = {
-  //     email,
-  //     password,
-  //   };
-
-  //   const roleroute = {
-  //     admin:'/admin-profile',
-  //     user: '/user-profile',
-  //     realEstate:'/estatealldata',
-  //     serviceProvider:'/services-profile',
-  //     shopKeeper:'/stores-profile',
-  //   };
-    
-  //   authService.login(loginData).then((response) => {
-  //     console.log("responselogin", response)
-  //     const username = response?.user?.username;
-  //     console.log("username",username);
-  //     localStorage.setItem('username', username);
-
-  //     const Userid = response?.user?.id;
-  //     console.log("Userid",Userid);
-  //     localStorage.setItem('Userid', Userid);
-  //     // setUsername(username);
-  //     const password = response?.user?.password;
-  //     console.log("password",password);
-  //     localStorage.setItem('password', password);
-  //     // setPwd(pwd);
-  //     const roles = response?.user?.role;
-  //     console.log("roles",roles);
-  //     localStorage.setItem('roles', roles);
-  //     // setRoles(roles);
-  //     const accessToken = response?.tokens?.access?.token;
-  //     console.log("accessToken",accessToken);
-  //     localStorage.setItem('accessToken', accessToken);
-  //     // setAccessToken(accessToken);
-  //     setAuth({ username, password, roles, accessToken });
-  //     navigate(roleroute[roles], { replace: true });
-  //     console.log("rolesafter",roles);
-  //   });
-
-  //   await dispatch(login(loginData)).unwrap();
-  // }
   const {
     handleSubmit,
     control,
@@ -96,6 +49,7 @@ export const Login = () => {
       realEstate:'/estatealldata',
       serviceProvider:'/services-profile',
       shopKeeper:'/stores-profile',
+      strategicSalePartner : '/strategic-sale-partner-profile',
     };
 
     // Determine if the input is an email or a  phone number
@@ -127,6 +81,7 @@ export const Login = () => {
       localStorage.setItem('accessToken', accessToken);
       // setAccessToken(accessToken);
       setAuth({ username, password, roles, accessToken });
+      console.log(roleroute[roles])
       navigate(roleroute[roles], { replace: true });
       console.log("rolesafter",roles);
       dispatch(login({

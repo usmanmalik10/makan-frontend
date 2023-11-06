@@ -186,31 +186,8 @@ export const NewadCopy = () => {
           <Spinner2 />
         ) : (
           <Container>
-            <Row className="pt-4">
-              <Col lg={6} md={6} sm={12}>
-                <div>
-                  <label className="business-labels">
-                    <span className="business-label-headings">
-                      Select Catergory :
-                    </span>
-                  </label>
-                  <br />
-                  <select
-                    value={selectedCategory}
-                    onChange={(e) => handleDropdownClick(e.target.value)}
-                    className="business-inputs"
-                  >
-                    <option value="">Select Category</option>
-                    {storesData.map((store) => (
-                      <option value={store.category}>
-                        {store.title.replace("Stores", "")}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </Col>
-            </Row>
-            {openDropdown.length > 2 &&
+       
+            {true &&
               (file.src ? (
                 <div>
                   <div className="inner-image-upload ">
@@ -253,7 +230,7 @@ export const NewadCopy = () => {
               ))}
 
             <Row>
-              {openDropdown.length > 2 && (
+              {true && (
                 <div>
                   <section className="pt-4">
                     <Container>
@@ -357,6 +334,28 @@ export const NewadCopy = () => {
                         </Col>
                       </Row>
                       <Row>
+                      <Col lg={6} md={6} sm={12}>
+                <div>
+                  <label className="business-labels">
+                    <span className="business-label-headings">
+                      Select Catergory :
+                    </span>
+                  </label>
+                  <br />
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => handleDropdownClick(e.target.value)}
+                    className="business-inputs"
+                  >
+                    <option value="">Select Category</option>
+                    {storesData.map((store) => (
+                      <option value={store.category}>
+                        {store.title.replace("Stores", "")}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </Col>
                         <Col lg={6} md={6} sm={12} className="mt-4">
                           <div>
                             <label className="business-labels">

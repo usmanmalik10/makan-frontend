@@ -72,9 +72,9 @@ export const Activead = () => {
                   <p className="active_card_text">Area of Service: {ad.areaOfService.join(", ")}</p>
                   <p className="active_card_text"> Contact Number: {ad.contectNumber}</p>
                   <p className="active_card_text">Company Name: {ad.companyName}</p>
-                  <p className="active_card_text">Details Key1: {ad.details.key1}</p>
+                  {/* <p className="active_card_text">Details Key1: {ad.details.key1}</p>
                       <p className="active_card_text">Details Key2: {ad.details.key2}</p>
-                      <p className="active_card_text">Details Key3: {ad.details.key3}</p>
+                      <p className="active_card_text">Details Key3: {ad.details.key3}</p> */}
                   
                   
                 </Card.Text>

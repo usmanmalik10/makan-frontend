@@ -20,16 +20,7 @@ const StrategicNavbar = () => {
       text: "Stores Data",
       route: "/strategic-stores-data",
     },
-    {
-      icon: AiOutlineCheck,
-      text: "Active Adds",
-      route: "/active-adds-services",
-    },
-    // {
-    //   icon: RiSettingsLine,
-    //   text: "Plots For Sale",
-    //   route: "/plotssale",
-    // },
+ 
   ];
   return (
     <div>

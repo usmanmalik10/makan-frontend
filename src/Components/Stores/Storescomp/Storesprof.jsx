@@ -40,23 +40,11 @@ export const Storesprof = () => {
               <Card.Body>
                 <Card.Text>
                   <p className="store_card_text">Shop Name : {ad.shopName}</p>
-                  <p className="store_card_text"> Product Name : {ad.productName}</p>
-                  <p className="store_card_text">Price: {ad.price}</p>
                   <p className="store_card_text">Address: {ad.address}</p>
                   <p className="store_card_text">Area of Service: {ad.areaOfService.join(", ")}</p>
                   <p className="store_card_text"> Contact Number: {ad.contectNumber}</p>
-                  <p className="store_card_text">Company Name: {ad.companyName}</p>
                 </Card.Text>
-                <Card.Text>
-                      <div className="store_lower_buttons">
-                    <div className="store_update_button">
-                    <button type="submit" >Update</button>
-                  </div>
-                  <div className="store_update_button">
-                    <button type="submit" >Delete</button>
-                  </div>
-                  </div>
-                    </Card.Text>
+              
               
               </Card.Body>
             </Card>

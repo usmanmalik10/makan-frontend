@@ -3,7 +3,9 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 import "./Strategicsalepartners.scss"
 import { FiEye, FiEyeOff, FiCopy } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+import useAuth from '../../../hooks/useAuth';
 export const Strategicprofile = () => {
+  const data = useAuth();
   const [isRevealed, setIsRevealed] = useState(false);
   const apiKey = "hidden referal key";
   const copyToClipboard = (text) => {
@@ -17,7 +19,7 @@ export const Strategicprofile = () => {
     toast.info('Copied')
     // Optionally show a notification/toast saying "Copied to Clipboard"
   };
-
+console.log(data)
 
   return (
     <>

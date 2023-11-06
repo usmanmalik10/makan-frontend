@@ -74,7 +74,7 @@ const ROLES = {
   'Realestate': 123,
   'Services': 1346,
   'Stores': 1447,
-  'Strategicsale' : 1570,
+  'StrategicSalePartner' : 1570,
 }
 
 function App() {
@@ -143,10 +143,12 @@ function App() {
 
             <Route path="/active-adds-stores" element={<ActiveaddStores />} />
           </Route>
-
+          <Route element={<RequireAuth allowedRoles={[ROLES.StrategicSalePartner]} />}>
           <Route path="/strategic-sale-partner-profile" element={<Strategicsaleprofile/>}/>
           <Route path="/strategic-stores-data" element={<Strategicsalestores/>} />
 
+          </Route>
+         
           {/* /* catch all */}
           <Route path="*" element={<Missing />} />
         </Route>
