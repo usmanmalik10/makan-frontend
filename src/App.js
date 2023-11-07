@@ -69,14 +69,13 @@ import { NewadCopy } from "./Components/Stores/Storescomp/Newadcopy";
 
 
 const ROLES = {
-  'Admin': 5150,
-  'User': 2001,
-  'Realestate': 123,
-  'Services': 1346,
-  'Stores': 1447,
-  'StrategicSalePartner' : 1570,
-}
-
+  Admin: 'admin',
+  User: 'user',
+  Realestate: 'realEstate',
+  Services: 'serviceProvider',
+  Stores: 'shopKeeper',
+  StrategicSalePartner: 'strategicSalePartner',
+};
 function App() {
 
   return (
