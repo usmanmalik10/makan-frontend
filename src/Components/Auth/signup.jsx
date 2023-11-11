@@ -13,7 +13,7 @@ import { FiPhone } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { register, reset } from "../../features/auth/authSlice";
+import { register, reset } from "../../Redux/Slices/authSlice";
 import Spinner from "../Common/spinner/spinner";
 import "./style.css";
 import Form from "react-bootstrap/Form";
@@ -21,6 +21,7 @@ import { Link } from "react-router-dom";
 import google_logo from "../../Assets/Auth-Screen/Group 46060.png";
 import facebook_logo from "../../Assets/Auth-Screen/Group 46061.png";
 import { useForm, Controller } from "react-hook-form";
+import { roleRouteMap } from "../../lib/roleRouteMap";
 
 export const Signup = () => {
   
@@ -32,14 +33,7 @@ export const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const roleRouteMap = {
-    admin:'/admin-profile',
-    user: '/user-profile',
-    realEstate:'/estatealldata',
-    serviceProvider:'/services-profile',
-    shopKeeper:'/stores-profile',
-    strategicSalePartner : '/strategic-sale-partner-profile',
-  };
+ 
   const onSubmit = async (data) => {
     dispatch(register(data))
       .unwrap()

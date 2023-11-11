@@ -8,11 +8,14 @@ const strategicSalesPartnerApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: USERS_BASE_URL,
     prepareHeaders: (headers, { getState }) => {
-      const token = localStorage.getItem('accessToken');
-      if (token) {
-        // Include the Bearer token in the headers
-        headers.set('authorization', `Bearer ${token}`);
-      }
+      let tokens =  localStorage.getItem('tokens');
+    if(!tokens ) return headers;
+    let accessToken =  JSON.parse(tokens).access.token
+    
+    if (accessToken) {
+      // Include the Bearer token in the headers
+      headers.set('authorization', `Bearer ${accessToken}`);
+    }
       return headers;
     },
   }),

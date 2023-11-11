@@ -61,6 +61,7 @@ import { Strategicsaleprofile } from "./Pages/Strategicsaleportal/Strategicsalep
 import { Strategicsalestores } from "./Pages/Strategicsaleportal/Strategicsalestores";
 import { AdminStoresGeneralComponent } from "./Components/adminpanel/Adminstores/AdminStoresGeneralComponent/AdminStoresGeneralComponent";
 import { NewadCopy } from "./Components/Stores/Storescomp/Newadcopy";
+import NotRequiredAuth from "./Routes/NotRequireAuth";
 
 //  Strategic Sales partners Routes  
 
@@ -83,8 +84,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* /* public routes  */}
+          <Route element={<NotRequiredAuth />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
+            </Route>
+     
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<About />} />
           <Route path="/services" element={<Services />} />

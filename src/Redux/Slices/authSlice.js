@@ -9,7 +9,7 @@ const REGISTER_URL = `${USERS_BASE_URL}/v1/auth/register`;
 const LOGIN_URL = `${USERS_BASE_URL}/v1/auth/login`;
 const REFRESH_TOKEN_URL = `${USERS_BASE_URL}/v1/auth/refresh-tokens`;
 const LOGOUT_URL = `${USERS_BASE_URL}/v1/auth/logout`;
-
+const GET_USER = `${USERS_BASE_URL}/v1/users/me`;
 // Async thunks to handle registration, login, token refresh, and logout
 export const register = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
   try {
@@ -19,7 +19,25 @@ export const register = createAsyncThunk('auth/register', async (userData, thunk
     return thunkAPI.rejectWithValue(error.response.data);
   }
 });
+export const fetchCurrentUser = createAsyncThunk('auth/fetchCurrentUser', async (_, thunkAPI) => {
+  try {
+    // Get the token from localStorage
+    const tokens = localStorage.getItem('tokens');
+    if (!tokens) {
+      return thunkAPI.rejectWithValue('No token found');
+    }
 
+    const accessToken = JSON.parse(tokens).access.token;
+    const headers = {
+      Authorization: `Bearer ${accessToken}`
+    };
+
+    const response = await axios.get(GET_USER, { headers });
+    return response.data.user; // Assuming the response will have a user object
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data);
+  }
+});
 export const login = createAsyncThunk('auth/login', async (loginData, thunkAPI) => {
   try {
     const response = await axios.post(LOGIN_URL, loginData);
@@ -89,6 +107,8 @@ const authSlice = createSlice({
         state.status = 'succeeded';
         state.user = action.payload.user;
         state.tokens = action.payload.tokens;
+        localStorage.setItem('tokens' , JSON.stringify(action.payload.tokens))
+
       })
       .addCase(register.rejected, (state, action) => {
         state.status = 'failed';
@@ -103,6 +123,7 @@ const authSlice = createSlice({
         state.status = 'succeeded';
         state.user = action.payload.user;
         state.tokens = action.payload.tokens;
+        localStorage.setItem('tokens' , JSON.stringify(action.payload.tokens))
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
@@ -127,6 +148,19 @@ const authSlice = createSlice({
         state.user = null;
         state.tokens = { access: null, refresh: null };
         state.status = 'idle';
+      }).addCase(fetchCurrentUser.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.user = action.payload; // Setting the fetched user to state
+        state.tokens = JSON.parse(localStorage.getItem('tokens'))
+      })
+      .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+        state.user = null;
+        state.tokens =  { access: null, refresh: null };
       });
   },
 });

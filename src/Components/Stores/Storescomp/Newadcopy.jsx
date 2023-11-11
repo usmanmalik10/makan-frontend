@@ -6,12 +6,9 @@ import React, {
   useState,
 } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { createshop } from "../../../features/shop/shopSlice";
-import Spinner2 from "../../Common/spinner2/spinner2";
-import shopService from "../../../features/shop/shopService";
 
+import Spinner2 from "../../Common/spinner2/spinner2";
+import { provAndCities } from "../../../lib/pakProvAndCities.js";
 import { BsImage } from "react-icons/bs";
 import { useDropzone } from "react-dropzone";
 import classNames from "classnames";
@@ -22,6 +19,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useCreateStoresMutation } from "../../../Redux/RtkQuery/StoresDashboard";
+import { useNavigate } from "react-router-dom";
+import { fetchCurrentUser } from "../../../Redux/Slices/authSlice.js";
+import { useDispatch } from "react-redux";
 
 const isImageSizeValid = (file, maxImageSizeInMb) => {
   const maxSizeInBytes = maxImageSizeInMb * 1024 * 1024;
@@ -39,7 +39,8 @@ const SignupSchema = z.object({
     .min(10, "Contact Number should be at least 10 digits long"),
   address: z.string().min(1, "Address is required"),
   referalKey: z.string().min(1, "Referal Key is required"),
-  areaOfService: z.string().nonempty("Area of Service must be selected"),
+  province: z.string().min(1, "Province is required"),
+  areaOfService: z.string().min(1, "AreaOfService is required"),
 });
 export const NewadCopy = () => {
   const maxImageSize = 5;
@@ -73,7 +74,7 @@ export const NewadCopy = () => {
     }
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-
+const naivgate  = useNavigate();
   const [file, setFile] = useState(initialProfileState);
   const token = localStorage.getItem("accessToken");
 
@@ -99,7 +100,8 @@ export const NewadCopy = () => {
   const [userLocation, setUserLocation] = useState(null);
   const [markerLocation, setMarkerLocation] = useState(null);
   const [center, setCenter] = useState([51.505, -0.09]);
-
+const dispatch = useDispatch()
+const navigate= useNavigate()
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -127,17 +129,22 @@ export const NewadCopy = () => {
     formState: { errors },
     setValue,
     trigger,
+    watch
   } = useForm({
     resolver: zodResolver(SignupSchema),
   });
 
+  
+  const provinceValue = watch("province");
+
   const [createStrategicSalePartner, { isLoading }] = useCreateStoresMutation();
   const onSubmit = async (data) => {
     if (!file.file) return toast.error("Please add image first");
-    data.areaOfService = [data.areaOfService, "waleed", "tahir"];
-    console.log(data);
+    data.areaOfService = [data.areaOfService];
+    data.province = [data.province];
 
     const reader = new FileReader();
+
     reader.readAsDataURL(file.file);
     reader.onload = async () => {
       const base64Image = reader.result; // This contains the base64 encoded image.
@@ -152,18 +159,31 @@ export const NewadCopy = () => {
        
        
       };
+      payload.referralKeySSP = payload.referalKey;
 
       // Remove the 'referalKey' property
       delete payload.referalKey;
 
+
       try {
         const response = await createStrategicSalePartner(payload);
-
-        // Handle success or error responses as needed
+    
         if (response.error) {
           toast.error("Error creating strategic sale partner");
         } else {
-          toast.success("Strategic sale partner created successfully");
+          
+          // Fetch current user details after successful creation
+          dispatch(fetchCurrentUser())
+          .unwrap()
+          .then((userResponse) => {
+            
+            toast.success("Strategic sale partner created successfully");
+              navigate('/stores-profile');
+            })
+            .catch((fetchError) => {
+              toast.error(fetchError.message || 'Failed to fetch profile information.');
+              // Handle the error case for fetching user details
+            });
         }
       } catch (error) {
         toast.error("Error occurred while sending request");
@@ -302,7 +322,36 @@ export const NewadCopy = () => {
                           </div>
                         </Col>
 
-                        <Col lg={6} md={6} sm={12} className="mt-4">
+                        <Col lg={6} md={6} sm={12} xs={12} className="mt-4">
+                  <div className="strategic_divs">
+                    <label className="strategic_labels">
+                      Select Province :
+                    </label>
+                    <br />
+                    <Form.Select
+                     
+                      className="business-inputs"
+                      {...register("province")}
+                    >
+                      <option value="">Select Value</option>
+                      {Object.keys(provAndCities).map((prov) => (
+                        <option key={prov} value={prov}>
+                          {prov}
+                        </option>
+                      ))}
+                    </Form.Select>
+                    {errors.province && (
+                      <p style={{ color: "red", fontSize: "small" }}>
+                        {errors.province.message}
+                      </p>
+                    )}
+                  </div>
+                </Col>
+              
+               
+                      </Row>
+                      <Row>
+                      <Col lg={6} md={6} sm={12} className="mt-4">
                           <div>
                             <label className="business-labels">
                               <span className="business-label-headings">
@@ -319,11 +368,10 @@ export const NewadCopy = () => {
                               onBlur={() => trigger("areaOfService")}
                               defaultValue="Area of services"
                             >
-                              <option>Area of services</option>
-                              <option>Sahiwal City</option>
-                              <option>Sahiwal Division</option>
-                              <option>Punjab</option>
-                              <option>Pakistan</option>
+                              <option value="">Select Value</option>
+                      {provAndCities[provinceValue]?.map((city) => (
+                        <option value={city}>{city}</option>
+                      ))}
                             </Form.Select>
                             {errors?.areaOfService?.message && (
                               <span className="error-text">
@@ -332,9 +380,7 @@ export const NewadCopy = () => {
                             )}
                           </div>
                         </Col>
-                      </Row>
-                      <Row>
-                      <Col lg={6} md={6} sm={12}>
+                        <Col lg={6} md={6} sm={12} className="mt-4">
                 <div>
                   <label className="business-labels">
                     <span className="business-label-headings">
@@ -356,6 +402,9 @@ export const NewadCopy = () => {
                   </select>
                 </div>
               </Col>
+                      </Row>
+                      <Row>
+               
                         <Col lg={6} md={6} sm={12} className="mt-4">
                           <div>
                             <label className="business-labels">

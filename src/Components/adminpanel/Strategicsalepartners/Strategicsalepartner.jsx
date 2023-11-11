@@ -371,7 +371,7 @@ data = {
                       </p>
                     )}
                   </div>
-                </Col>
+                </Col> 
               </Row>
               <Row>
                 <Col>

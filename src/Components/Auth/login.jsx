@@ -9,7 +9,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../features/auth/authSlice";
+import { login } from "../../Redux/Slices/authSlice";
 import useAuth from "../../hooks/useAuth";
 import authService from "../../features/auth/authService";
 import Spinner from "../Common/spinner/spinner";
@@ -19,6 +19,7 @@ import facebook_logo from "../../Assets/Auth-Screen/Group 46061.png";
 
 import { useForm, Controller } from 'react-hook-form';
 import { toast } from "react-toastify";
+import { roleRouteMap } from "../../lib/roleRouteMap";
 // const LOGIN_URL = '/auth';
 
 export const Login = () => {
@@ -43,15 +44,7 @@ export const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const roleroute = {
-      admin:'/admin-profile',
-      user: '/user-profile',
-      realEstate:'/estatealldata',
-      serviceProvider:'/services-profile',
-      shopKeeper:'/stores-profile',
-      strategicSalePartner : '/strategic-sale-partner-profile',
-    };
-
+  
     
     const isEmail = /\S+@\S+\.\S+/.test(data.emailOrPhone);
     const loginData = {
@@ -65,7 +58,7 @@ export const Login = () => {
         .then((response) => {
             const role = response.user.role;
           
-            navigate(roleroute[role] || '/', { replace: true });
+            navigate(roleRouteMap[role] || '/', { replace: true });
             toast.success('Logged In 😆');
         })
         .catch((error) => {

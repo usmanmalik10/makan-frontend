@@ -4,7 +4,7 @@ import "./Strategicsalepartners.scss"
 import { FiEye, FiEyeOff, FiCopy } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import useAuth from '../../../hooks/useAuth';
-import { selectCurrentUser } from '../../../features/auth/authSlice';
+import { selectCurrentUser } from '../../../Redux/Slices/authSlice';
 import { useSelector } from 'react-redux';
 export const Strategicprofile = () => {
   const  user =  useSelector(selectCurrentUser)

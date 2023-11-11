@@ -12,19 +12,19 @@ const StoresNavbar = () => {
   const navList = [
     {
       icon: BiHomeSmile,
-      text: "Dashboard",
+      text: "Profile",
       route: "/stores-profile",
     },
-    {
-      icon: AiOutlineFolderAdd,
-      text: "New Add",
-      route: "/new-add-stores",
-    },
-    {
-      icon: BiNews,
-      text: "Active Adds",
-      route: "/active-adds-stores",
-    },
+    // {
+    //   icon: AiOutlineFolderAdd,
+    //   text: "New Add",
+    //   route: "/new-add-stores",
+    // },
+    // {
+    //   icon: BiNews,
+    //   text: "Active Adds",
+    //   route: "/active-adds-stores",
+    // },
     // {
     //   icon: RiSettingsLine,
     //   text: "Plots For Sale",
