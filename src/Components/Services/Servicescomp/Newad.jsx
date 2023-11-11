@@ -18,6 +18,7 @@ import { services } from "../../../lib/servicesData";
 import { provAndCities } from "../../../lib/pakProvAndCities";
 import OneImageCustomUploader from "../../Common/OneImageCustomUploader/OneImageCustomUploader";
 import { useAddServiceMutation } from "../../../Redux/RtkQuery/ServiceDashboard";
+import { fetchCurrentUser } from "../../../Redux/Slices/authSlice";
 
 const serviceSchema = z.object({
   category: z.string().min(1, "Category is required"),
@@ -90,7 +91,9 @@ export const Newad = () => {
     const [userLocation, setUserLocation] = useState(null);
     const [markerLocation, setMarkerLocation] = useState(null);
     const [center, setCenter] = useState([51.505, -0.09]); // Default to London
-  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
     useEffect(() => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -140,18 +143,23 @@ async function onSubmit(data){
   data.latitude = markerLocation.lat;
   data.longitude = markerLocation.lng;
 data.serviceImage=  file.base64;
+data.province = [data.province];
+data.areaOfService = [data.areaOfService];
 try {
   // Execute the mutation and wait for the response
   const response = await addService(data).unwrap();
-
-  // Check if the response is okay
-  if (response?.ok) {
-    toast.success('Service added successfully');
-    // Handle successful submission, like clearing form or redirecting
-  } else {
-    // Handle non-OK responses here
-    toast.error('Service addition failed: ' + (response?.data?.message || 'Unknown error'));
-  }
+     dispatch(fetchCurrentUser())
+     .unwrap()
+     .then((userResponse) => {
+      toast.success('Service added successfully');
+         navigate('/services-profile');
+       })
+       .catch((fetchError) => {
+         toast.error(fetchError.message || 'Failed to fetch profile information.');
+         // Handle the error case for fetching user details
+       });
+  
+  
 } catch (error) {
   // Handle errors in the request itself, like network issues
   toast.error(`Error adding service: ${error.message || 'Unknown error'}`);

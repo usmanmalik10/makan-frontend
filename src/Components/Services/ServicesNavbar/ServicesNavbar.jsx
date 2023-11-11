@@ -12,19 +12,19 @@ const ServicesNavbar = () => {
   const navList = [
     {
       icon: BiHomeSmile,
-      text: "Dashboard",
+      text: "Profile",
       route: "/services-profile",
     },
-    {
-      icon: AiFillFolderAdd,
-      text: "New Add",
-      route: "/new-add-services",
-    },
-    {
-      icon: AiOutlineCheck,
-      text: "Active Adds",
-      route: "/active-adds-services",
-    },
+    // {
+    //   icon: AiFillFolderAdd,
+    //   text: "New Add",
+    //   route: "/new-add-services",
+    // },
+    // {
+    //   icon: AiOutlineCheck,
+    //   text: "Active Adds",
+    //   route: "/active-adds-services",
+    // },
     // {
     //   icon: RiSettingsLine,
     //   text: "Plots For Sale",

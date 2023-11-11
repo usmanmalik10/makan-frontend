@@ -22,7 +22,7 @@ export const Servicesprof = () => {
         <Row className="mb-4">
           <Col>
             {/* Banner Image */}
-            <div className="banner-image" style={{ backgroundImage: `url(${user.shop.shopImage })` }}>
+            <div className="banner-image" style={{ backgroundImage: `url(${user.service.serviceImage })` }}>
               {/* You can add styles for this div in SCSS */}
             </div>
           </Col>

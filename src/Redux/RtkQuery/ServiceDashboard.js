@@ -34,12 +34,12 @@ const serviceApi = createApi({
         },
         
       }),
-      addService: builder.mutation({
-        query: (serviceData) => ({
-          url: '/v1/service',
-          method: 'POST',
-          body: serviceData,
-        }),
+    }),
+    addService: builder.mutation({
+      query: (serviceData) => ({
+        url: '/v1/service',
+        method: 'POST',
+        body: serviceData,
       }),
     }),
 
