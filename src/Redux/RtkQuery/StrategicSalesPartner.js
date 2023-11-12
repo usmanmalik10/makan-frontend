@@ -37,10 +37,13 @@ const strategicSalesPartnerApi = createApi({
       // Invalidate the fetched data after creating a new strategic sale partner
       invalidatesTags: [{ type: 'StrategicSalePartner' }],
     }),
+    fetchStrategicSalePartnerByReferral: builder.query({
+      query: (referralKey) => `v1/strategic-sale-partners/referral-shop?referralKey=${referralKey}`, 
+    }),
   }),
 });
 
 // Destructure the useCreateStrategicSalePartnerMutation and useFetchDataQuery hooks for component use
-export const { useCreateStrategicSalePartnerMutation, useFetchStrategicSalePartnerQuery } = strategicSalesPartnerApi;
+export const { useCreateStrategicSalePartnerMutation, useFetchStrategicSalePartnerQuery  , useFetchStrategicSalePartnerByReferralQuery} = strategicSalesPartnerApi;
 
 export default strategicSalesPartnerApi;

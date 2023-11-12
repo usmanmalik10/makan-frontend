@@ -8,8 +8,9 @@ import { selectCurrentUser } from '../../../Redux/Slices/authSlice';
 import { useSelector } from 'react-redux';
 export const Strategicprofile = () => {
   const  user =  useSelector(selectCurrentUser)
+  const ssp = user.ssp;
   const [isRevealed, setIsRevealed] = useState(false);
-  const apiKey = user.referralKey;
+  const apiKey = ssp.referralKeySSP;
   const copyToClipboard = (text) => {
     toast.dismiss()
     const el = document.createElement('textarea');
@@ -34,13 +35,13 @@ export const Strategicprofile = () => {
           <Row>
               <Col lg={6} md={6} sm={12} xs={12}>
               <Card  className='Strategic_profile_card' >
-            <Card.Img className='Strategic_profile_pic'  src={user.profilePic}  />
+            <Card.Img className='Strategic_profile_pic'  src={ssp.profilePic}  />
               <Card.Body>
               <Card.Text>
-                  <p className="strategic_card_text">Name : {user.username} </p>
-                  <p className="strategic_card_text"> Contact Number : {user.contactNumber} </p>
-                  <p className="strategic_card_text"> Address :{user.address}  </p>
-                  <p className="strategic_card_text"> Location : {user.city} </p>
+                  <p className="strategic_card_text">Name : {ssp.username} </p>
+                  <p className="strategic_card_text"> Contact Number : {ssp.contactNumber} </p>
+                  <p className="strategic_card_text"> Address :{ssp.address}  </p>
+                  <p className="strategic_card_text"> Location : {ssp.city} </p>
                   
                   
                   

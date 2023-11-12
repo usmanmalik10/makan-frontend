@@ -409,7 +409,7 @@ const navigate= useNavigate()
                           <div>
                             <label className="business-labels">
                               <span className="business-label-headings">
-                                Referal Key:
+                                Ssp Referral Key:
                               </span>
                             </label>
                             <br />
