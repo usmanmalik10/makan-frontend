@@ -23,7 +23,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useCreateStoresMutation } from "../../../Redux/RtkQuery/StoresDashboard";
 
-
 const isImageSizeValid = (file, maxImageSizeInMb) => {
   const maxSizeInBytes = maxImageSizeInMb * 1024 * 1024;
   if (file) {
@@ -34,11 +33,13 @@ const isImageSizeValid = (file, maxImageSizeInMb) => {
 };
 
 const SignupSchema = z.object({
-  shopName: z.string().min(1, 'Shop Name is required'),
-  contectNumber: z.string().min(10, 'Contact Number should be at least 10 digits long'),
-  address: z.string().min(1, 'Address is required'),
-  referalKey: z.string().min(1, 'Referal Key is required'),
-  areaOfService: z.string().nonempty('Area of Service must be selected')
+  shopName: z.string().min(1, "Shop Name is required"),
+  contectNumber: z
+    .string()
+    .min(10, "Contact Number should be at least 10 digits long"),
+  address: z.string().min(1, "Address is required"),
+  referalKey: z.string().min(1, "Referal Key is required"),
+  areaOfService: z.string().nonempty("Area of Service must be selected"),
 });
 export const NewadCopy = () => {
   const maxImageSize = 5;
@@ -61,7 +62,7 @@ export const NewadCopy = () => {
       const isValid = isImageSizeValid(blogImage, maxImageSize);
       if (isValid) {
         const fileSource = URL.createObjectURL(blogImage);
-      
+
         setFile({ file: blogImage, src: fileSource });
       } else {
         toast.error(`Sorry Image Size is greater than ${maxImageSize}Mb`);
@@ -88,7 +89,6 @@ export const NewadCopy = () => {
     setSelectedCategory(value);
     setOpenDropdown(value); // Set openDropdown to the selected category
   };
-
 
   function clearProfile() {
     setFile({
@@ -121,295 +121,311 @@ export const NewadCopy = () => {
       }
     );
   }, []);
-  const { register, handleSubmit,  formState: { errors } , setValue, trigger  } = useForm({
-    resolver: zodResolver(SignupSchema)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    trigger,
+  } = useForm({
+    resolver: zodResolver(SignupSchema),
   });
 
-  const [createStrategicSalePartner , { isLoading} ] = useCreateStoresMutation();
+  const [createStrategicSalePartner, { isLoading }] = useCreateStoresMutation();
   const onSubmit = async (data) => {
-    
-    if(!file.file) return toast.error('Please add image first');
-    data.areaOfService = [data.areaOfService , 'waleed' , 'tahir'];
-    console.log(data)
-   
+    if (!file.file) return toast.error("Please add image first");
+    data.areaOfService = [data.areaOfService, "waleed", "tahir"];
+    console.log(data);
 
-
-  const reader = new FileReader();
-  reader.readAsDataURL(file.file);
-  reader.onload = async () => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file.file);
+    reader.onload = async () => {
       const base64Image = reader.result; // This contains the base64 encoded image.
-  
+
       // Construct your payload
       const payload = {
-          ...data,
-          shopImage: base64Image, // Note: This is not the binary file, but a base64 string representation.
-          longitude: markerLocation['lng'].toString(),
-          latitude: markerLocation['lat'].toString(),
-          category: selectedCategory,
-          productName: 'N/A',
-          price: 'N/A',
-          details: {}, // Empty object
-          companyName: 'N/A',
+        ...data,
+        shopImage: base64Image, // Note: This is not the binary file, but a base64 string representation.
+        longitude: markerLocation["lng"].toString(),
+        latitude: markerLocation["lat"].toString(),
+        category: selectedCategory,
+        productName: "N/A",
+        price: "N/A",
+        details: {}, // Empty object
+        companyName: "N/A",
       };
-  
+
       // Remove the 'referalKey' property
       delete payload.referalKey;
-  
+
       try {
-    
         const response = await createStrategicSalePartner(payload);
-  
+
         // Handle success or error responses as needed
         if (response.error) {
-          toast.error('Error creating strategic sale partner');
+          toast.error("Error creating strategic sale partner");
         } else {
-          toast.success('Strategic sale partner created successfully');
+          toast.success("Strategic sale partner created successfully");
         }
       } catch (error) {
-        toast.error('Error occurred while sending request');
+        toast.error("Error occurred while sending request");
       }
-  };
-  
-  reader.onerror = (error) => {
-      console.log('Error reading the file:', error);
-  };
-  
+    };
+
+    reader.onerror = (error) => {
+      console.log("Error reading the file:", error);
+    };
   };
   const updateMarkerLocation = (event) => {
-
     const newCoords = event.target.getLatLng();
     setMarkerLocation({ lat: newCoords.lat, lng: newCoords.lng });
   };
 
-  
-
   return (
     <>
       <section>
-        {
-        isLoading ? <Spinner2/> :  <Container>
-        <Row className="pt-4">
-          <Col lg={6} md={6} sm={12}>
-            <div>
-              <label className="business-labels">
-                <span className="business-label-headings">
-                  Select Catergory :
-                </span>
-              </label>
-              <br />
-              <select
-                value={selectedCategory}
-                onChange={(e) => handleDropdownClick(e.target.value)}
-                className="business-inputs"
-              >
-                <option value="">Select Category</option>
-                {storesData.map((store) => (
-                  <option value={store.category}>
-                    {store.title.replace("Stores", "")}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </Col>
-        </Row>
-        {openDropdown.length > 2 &&
-          (file.src ? (
-            <div>
-              <div className="inner-image-upload ">
-                <img alt="Blog" src={file.src} />
-              </div>
-
-              <div class="d-flex justify-content-center ">
-                <button onClick={clearProfile} className="btn-pm-sm">
-                  Delete Image
-                </button>
-              </div>
-            </div>
-          ) : (
-            <section className="image-div-upload">
-              <div {...getRootProps()}>
-                <input {...getInputProps()} />
-
-                <div
-                  className={classNames(
-                    "inner-image-div-upload",
-                    isDragActive ? "is-dragging" : ""
-                  )}
-                >
-                  {!isDragActive && (
-                    <>
-                      <BsImage fontSize={"50px"} />
-                      <span>Click to Select or Drop Blog Cover Image</span>
-                    </>
-                  )}
-
-                  {isDragActive && (
-                    <>
-                      <BsImage fontSize={"50px"} />
-                      <span>Yeah Yeah Exactl`y Drop it 😃</span>
-                    </>
-                  )}
+        {isLoading ? (
+          <Spinner2 />
+        ) : (
+          <Container>
+            <Row className="pt-4">
+              <Col lg={6} md={6} sm={12}>
+                <div>
+                  <label className="business-labels">
+                    <span className="business-label-headings">
+                      Select Catergory :
+                    </span>
+                  </label>
+                  <br />
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => handleDropdownClick(e.target.value)}
+                    className="business-inputs"
+                  >
+                    <option value="">Select Category</option>
+                    {storesData.map((store) => (
+                      <option value={store.category}>
+                        {store.title.replace("Stores", "")}
+                      </option>
+                    ))}
+                  </select>
                 </div>
-              </div>
-            </section>
-          ))}
+              </Col>
+            </Row>
+            {openDropdown.length > 2 &&
+              (file.src ? (
+                <div>
+                  <div className="inner-image-upload ">
+                    <img alt="Blog" src={file.src} />
+                  </div>
 
-        <Row>
-          {openDropdown.length > 2 && (
-            <div>
-               
-                <section className="pt-4">
-                  <Container>
-                    <Row>
-                   
-    <Col lg={6} md={6} sm={12}>
-      <div>
-        <label className="business-labels">
-          <span className="business-label-headings">
-            Shop Name:
-          </span>
-        </label>
-        <br />
-        <input
-className="business-inputs"
-type="text"
-placeholder="Shop Name"
-{...register('shopName')}
-/>
-      
-        {errors?.shopName?.message && <p className="error-text">{errors.shopName.message}</p>}
+                  <div class="d-flex justify-content-center ">
+                    <button onClick={clearProfile} className="btn-pm-sm">
+                      Delete Image
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <section className="image-div-upload">
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
 
-      </div>
-    </Col>
-    <Col lg={6} md={6} sm={12} >
-<div>
-  <label className="business-labels">
-    <span className="business-label-headings">
-      Contact Number:
-    </span>
-  </label>
-  <br />
-  <input
-    className="business-inputs"
-    type="text"
-    placeholder="Contact Number"
-    {...register('contectNumber')}
-  />
-  {errors?.contectNumber?.message && <p className="error-text">{errors.contectNumber.message}</p>}
-</div>
-</Col>
+                    <div
+                      className={classNames(
+                        "inner-image-div-upload",
+                        isDragActive ? "is-dragging" : ""
+                      )}
+                    >
+                      {!isDragActive && (
+                        <>
+                          <BsImage fontSize={"50px"} />
+                          <span>Click to Select or Drop Blog Cover Image</span>
+                        </>
+                      )}
 
-                    </Row>
-                  <Row>
-                  <Col lg={6} md={6} sm={12}  className="mt-4" > 
-<div>
-  <label className="business-labels">
-    <span className="business-label-headings">
-      Shop Address:
-    </span>
-  </label>
-  <br />
-  <input
-    className="business-inputs"
-    type="text"
-    placeholder="Shop Address"
-    {...register('address')}
-  />
-  {errors?.address?.message && <p className="error-text">{errors.address.message}</p>}
-</div>
-</Col>
-
-<Col lg={6} md={6} sm={12}  className="mt-4" >
-<div>
-  <label className="business-labels">
-    <span className="business-label-headings">
-      Area of services :
-    </span>
-  </label>
-  <br />
-  <Form.Select
-    className="business-inputs"
-    name="areaOfService"
-    onChange={(e) => setValue('areaOfService', e.target.value)}
-    onBlur={() => trigger('areaOfService')}
-    defaultValue="Area of services"
-  >
-    <option>Area of services</option>
-    <option>Sahiwal City</option>
-    <option>Sahiwal Division</option>
-    <option>Punjab</option>
-    <option>Pakistan</option>
-  </Form.Select>
-  {errors?.areaOfService?.message && <span className="error-text">{errors.areaOfService.message}</span>}
-</div>
-</Col>
-
-                    </Row> 
-                    <Row>
-                    <Col lg={6} md={6} sm={12}  className="mt-4" > 
-<div>
-  <label className="business-labels">
-    <span className="business-label-headings">
-      Referal Key:
-    </span>
-  </label>
-  <br />
-  <input
-    className="business-inputs"
-    type="text"
-    placeholder="Referal Key"
-    {...register('referalKey')}
-  />
-  {errors?.referalKey?.message && <p className="error-text">{errors.referalKey.message}</p>}
-</div>
-</Col>
-
-                    </Row>
-                    <Row className="mt-4">
-                      <div className="map-container">
-                        <label className="business-labels">
-                          <span className="business-label-headings">
-                            Location :
-                          </span>
-                        </label>
-                        {userLocation && markerLocation && (
-                          <MapContainer
-                            center={center}
-                            zoom={13}
-                            style={{ height: "100%", width: "100%" }}
-                          >
-                            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                            <Marker
-                              position={[
-                                markerLocation.lat,
-                                markerLocation.lng,
-                              ]}
-                              draggable={true}
-                              eventHandlers={{
-                                dragend: updateMarkerLocation,
-                              }}
-                            >
-                              <Popup>Current Marker Position</Popup>
-                            </Marker>
-                          </MapContainer>
-                        )}
-                      </div>
-                    </Row>
-                    
-                    <Col>
-                      <div className="login-button">
-                        <button onClick={handleSubmit(onSubmit)} >Submit</button>
-                      </div>
-                    </Col>
-                  </Container>
+                      {isDragActive && (
+                        <>
+                          <BsImage fontSize={"50px"} />
+                          <span>Yeah Yeah Exactl`y Drop it 😃</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </section>
-          
-            </div>
-          )}
-        </Row>
-      </Container>
-        }
-       
+              ))}
+
+            <Row>
+              {openDropdown.length > 2 && (
+                <div>
+                  <section className="pt-4">
+                    <Container>
+                      <Row>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Shop Name:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Shop Name"
+                              {...register("shopName")}
+                            />
+
+                            {errors?.shopName?.message && (
+                              <p className="error-text">
+                                {errors.shopName.message}
+                              </p>
+                            )}
+                          </div>
+                        </Col>
+                        <Col lg={6} md={6} sm={12}>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Contact Number:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Contact Number"
+                              {...register("contectNumber")}
+                            />
+                            {errors?.contectNumber?.message && (
+                              <p className="error-text">
+                                {errors.contectNumber.message}
+                              </p>
+                            )}
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} md={6} sm={12} className="mt-4">
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Shop Address:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Shop Address"
+                              {...register("address")}
+                            />
+                            {errors?.address?.message && (
+                              <p className="error-text">
+                                {errors.address.message}
+                              </p>
+                            )}
+                          </div>
+                        </Col>
+
+                        <Col lg={6} md={6} sm={12} className="mt-4">
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Area of services :
+                              </span>
+                            </label>
+                            <br />
+                            <Form.Select
+                              className="business-inputs"
+                              name="areaOfService"
+                              onChange={(e) =>
+                                setValue("areaOfService", e.target.value)
+                              }
+                              onBlur={() => trigger("areaOfService")}
+                              defaultValue="Area of services"
+                            >
+                              <option>Area of services</option>
+                              <option>Sahiwal City</option>
+                              <option>Sahiwal Division</option>
+                              <option>Punjab</option>
+                              <option>Pakistan</option>
+                            </Form.Select>
+                            {errors?.areaOfService?.message && (
+                              <span className="error-text">
+                                {errors.areaOfService.message}
+                              </span>
+                            )}
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} md={6} sm={12} className="mt-4">
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Referal Key:
+                              </span>
+                            </label>
+                            <br />
+                            <input
+                              className="business-inputs"
+                              type="text"
+                              placeholder="Referal Key"
+                              {...register("referalKey")}
+                            />
+                            {errors?.referalKey?.message && (
+                              <p className="error-text">
+                                {errors.referalKey.message}
+                              </p>
+                            )}
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="mt-4">
+                        <div className="map-container">
+                          <label className="business-labels">
+                            <span className="business-label-headings">
+                              Location :
+                            </span>
+                          </label>
+                          {userLocation && markerLocation && (
+                            <MapContainer
+                              center={center}
+                              zoom={13}
+                              style={{ height: "100%", width: "100%" }}
+                            >
+                              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                              <Marker
+                                position={[
+                                  markerLocation.lat,
+                                  markerLocation.lng,
+                                ]}
+                                draggable={true}
+                                eventHandlers={{
+                                  dragend: updateMarkerLocation,
+                                }}
+                              >
+                                <Popup>Current Marker Position</Popup>
+                              </Marker>
+                            </MapContainer>
+                          )}
+                        </div>
+                      </Row>
+
+                      <Col>
+                        <div className="login-button">
+                          <button onClick={handleSubmit(onSubmit)}>
+                            Submit
+                          </button>
+                        </div>
+                      </Col>
+                    </Container>
+                  </section>
+                </div>
+              )}
+            </Row>
+          </Container>
+        )}
       </section>
     </>
   );
