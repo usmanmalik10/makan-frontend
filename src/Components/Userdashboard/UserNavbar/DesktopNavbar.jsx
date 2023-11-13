@@ -4,7 +4,7 @@ import logoicon from "../../../images/logoicon.png";
 import { BiLogOut } from "react-icons/bi";
 import "./userstyle.css";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, reset } from "../../../features/auth/authSlice";
+import { logout, reset } from "../../../Redux/Slices/authSlice";
 
 const DesktopNavbar = (props) => {
   

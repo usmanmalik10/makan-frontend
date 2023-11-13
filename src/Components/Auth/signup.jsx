@@ -13,7 +13,7 @@ import { FiPhone } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { register, reset } from "../../features/auth/authSlice";
+import { register, reset } from "../../Redux/Slices/authSlice";
 import Spinner from "../Common/spinner/spinner";
 import "./style.css";
 import Form from "react-bootstrap/Form";
@@ -21,77 +21,41 @@ import { Link } from "react-router-dom";
 import google_logo from "../../Assets/Auth-Screen/Group 46060.png";
 import facebook_logo from "../../Assets/Auth-Screen/Group 46061.png";
 import { useForm, Controller } from "react-hook-form";
+import { roleRouteMap } from "../../lib/roleRouteMap";
 
 export const Signup = () => {
+  
+  const location = useLocation(); // Use useLocation to access location object
+  const navigate = useNavigate();
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm();
 
+ 
   const onSubmit = async (data) => {
-    const onSuccess = () =>{
-      console.log('I am called')
-      navigate('/login')
-      
-    }
-    dispatch(register({userData : data, onSuccess} ));
+    dispatch(register(data))
+      .unwrap()
+      .then((response) => {
+        toast.success('Registration successful. Redirecting to your profile...');
+        const role = response.user.role // assuming the role is returned in the response
+       
+        navigate(roleRouteMap[role] , { replace: true });
+      })
+      .catch((error) => {
+        toast.error(error.message || 'Registration failed. Please try again.');
+      });
   };
 
-  // const [formData, setFormData] = useState({
-  //   username: "",
-  //   email: "",
-  //   password: "",
-  //   role: "",
-  //   phoneNumber: "",
-  //   address: "",
-  // });
-  // console.log(formData);
-  // const { username, email, password, role, phoneNumber, address } = formData;
   const [eye, setEye] = useState();
 
-  const location = useLocation(); // Use useLocation to access location object
-  const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/login";
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
-  // useEffect(() => {
-  //   if (isError) {
-  //     toast.error(message);
-  //   }
-  //   if (isSuccess || user) {
-  //     // navigate("/login");
-  //   }
-  //   dispatch(reset())
-  // }, [user, isError, isSuccess, message, navigate, dispatch]);
-
-  // const onChange = (e) => {
-  //   console.log(e.target.name);
-  //   setFormData((preState) => ({
-  //     ...preState,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const userData = {
-  //     username,
-  //     email,
-  //     password,
-  //     role,
-  //     phoneNumber,
-  //     address,
-  //   };
-  //   console.log("userData", userData);
-
-  //   // await dispatch(register(userData)).unwrap();
-  //   // navigate(from, { replace: true });
-  // };
 
 
   if (isLoading) {

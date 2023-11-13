@@ -61,6 +61,7 @@ import { Strategicsaleprofile } from "./Pages/Strategicsaleportal/Strategicsalep
 import { Strategicsalestores } from "./Pages/Strategicsaleportal/Strategicsalestores";
 import { AdminStoresGeneralComponent } from "./Components/adminpanel/Adminstores/AdminStoresGeneralComponent/AdminStoresGeneralComponent";
 import { NewadCopy } from "./Components/Stores/Storescomp/Newadcopy";
+import NotRequiredAuth from "./Routes/NotRequireAuth";
 
 //  Strategic Sales partners Routes  
 
@@ -69,14 +70,13 @@ import { NewadCopy } from "./Components/Stores/Storescomp/Newadcopy";
 
 
 const ROLES = {
-  'Admin': 5150,
-  'User': 2001,
-  'Realestate': 123,
-  'Services': 1346,
-  'Stores': 1447,
-  'Strategicsale' : 1570,
-}
-
+  Admin: 'admin',
+  User: 'user',
+  Realestate: 'realEstate',
+  Services: 'serviceProvider',
+  Stores: 'shopKeeper',
+  StrategicSalePartner: 'strategicSalePartner',
+};
 function App() {
 
   return (
@@ -84,8 +84,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* /* public routes  */}
+          <Route element={<NotRequiredAuth />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
+            </Route>
+     
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<About />} />
           <Route path="/services" element={<Services />} />
@@ -143,10 +146,12 @@ function App() {
 
             <Route path="/active-adds-stores" element={<ActiveaddStores />} />
           </Route>
-
+          <Route element={<RequireAuth allowedRoles={[ROLES.StrategicSalePartner]} />}>
           <Route path="/strategic-sale-partner-profile" element={<Strategicsaleprofile/>}/>
           <Route path="/strategic-stores-data" element={<Strategicsalestores/>} />
 
+          </Route>
+         
           {/* /* catch all */}
           <Route path="*" element={<Missing />} />
         </Route>

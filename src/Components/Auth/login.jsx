@@ -9,7 +9,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../features/auth/authSlice";
+import { login } from "../../Redux/Slices/authSlice";
 import useAuth from "../../hooks/useAuth";
 import authService from "../../features/auth/authService";
 import Spinner from "../Common/spinner/spinner";
@@ -19,6 +19,7 @@ import facebook_logo from "../../Assets/Auth-Screen/Group 46061.png";
 
 import { useForm, Controller } from 'react-hook-form';
 import { toast } from "react-toastify";
+import { roleRouteMap } from "../../lib/roleRouteMap";
 // const LOGIN_URL = '/auth';
 
 export const Login = () => {
@@ -36,53 +37,6 @@ export const Login = () => {
   );
 
 
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const loginData = {
-  //     email,
-  //     password,
-  //   };
-
-  //   const roleroute = {
-  //     admin:'/admin-profile',
-  //     user: '/user-profile',
-  //     realEstate:'/estatealldata',
-  //     serviceProvider:'/services-profile',
-  //     shopKeeper:'/stores-profile',
-  //   };
-    
-  //   authService.login(loginData).then((response) => {
-  //     console.log("responselogin", response)
-  //     const username = response?.user?.username;
-  //     console.log("username",username);
-  //     localStorage.setItem('username', username);
-
-  //     const Userid = response?.user?.id;
-  //     console.log("Userid",Userid);
-  //     localStorage.setItem('Userid', Userid);
-  //     // setUsername(username);
-  //     const password = response?.user?.password;
-  //     console.log("password",password);
-  //     localStorage.setItem('password', password);
-  //     // setPwd(pwd);
-  //     const roles = response?.user?.role;
-  //     console.log("roles",roles);
-  //     localStorage.setItem('roles', roles);
-  //     // setRoles(roles);
-  //     const accessToken = response?.tokens?.access?.token;
-  //     console.log("accessToken",accessToken);
-  //     localStorage.setItem('accessToken', accessToken);
-  //     // setAccessToken(accessToken);
-  //     setAuth({ username, password, roles, accessToken });
-  //     navigate(roleroute[roles], { replace: true });
-  //     console.log("rolesafter",roles);
-  //   });
-
-  //   await dispatch(login(loginData)).unwrap();
-  // }
   const {
     handleSubmit,
     control,
@@ -90,68 +44,29 @@ export const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-       const roleroute = {
-      admin:'/admin-profile',
-      user: '/user-profile',
-      realEstate:'/estatealldata',
-      serviceProvider:'/services-profile',
-      shopKeeper:'/stores-profile',
+  
+    
+    const isEmail = /\S+@\S+\.\S+/.test(data.emailOrPhone);
+    const loginData = {
+      [isEmail ? 'email' : 'phoneNumber']: data.emailOrPhone,
+      password: data.password,
     };
 
-    // Determine if the input is an email or a  phone number
-    const isEmail = /\S+@\S+\.\S+/.test(data.emailOrPhone);
-    const loginType = isEmail ? 'email' : 'phoneNumber';
-   authService.login({
-    [loginType] : data.emailOrPhone , 
-    password : data.password
-  }).then((response) => {
-      console.log("responselogin", response)
-      const username = response?.user?.username;
-      console.log("username",username);
-      localStorage.setItem('username', username);
+  
+    dispatch(login(loginData))
+        .unwrap()
+        .then((response) => {
+            const role = response.user.role;
+          
+            navigate(roleRouteMap[role] || '/', { replace: true });
+            toast.success('Logged In 😆');
+        })
+        .catch((error) => {
+            const errorMessage = error?.data?.message || error?.message || 'An error occurred.';
+            toast.error(errorMessage);
+        });
 
-      const Userid = response?.user?.id;
-      console.log("Userid",Userid);
-      localStorage.setItem('Userid', Userid);
-      // setUsername(username);
-      const password = response?.user?.password;
-      console.log("password",password);
-      localStorage.setItem('password', password);
-      // setPwd(pwd);
-      const roles = response?.user?.role;
-      console.log("roles",roles);
-      localStorage.setItem('roles', roles);
-      // setRoles(roles);
-      const accessToken = response?.tokens?.access?.token;
-      console.log("accessToken",accessToken);
-      localStorage.setItem('accessToken', accessToken);
-      // setAccessToken(accessToken);
-      setAuth({ username, password, roles, accessToken });
-      navigate(roleroute[roles], { replace: true });
-      console.log("rolesafter",roles);
-      dispatch(login({
-        success : true , 
-        response 
-
-      }))
-
-      toast.success('Logged In 😆') ;
-    }).catch((err) => {
-      dispatch(login({
-        success: false,
-        response: err,
-      }))
-    
-      let message;
-      if (err.response && err.response.status === 401) {
-        message = 'Authentication failed. Please check your credentials.';
-      } else {
-        message = err.response?.data?.message || err.message || 'An error occurred.';
-      }
-      toast.error(message);
-    })
-
-  }
+  };
   if (isLoading) {
     return <Spinner />;
   }

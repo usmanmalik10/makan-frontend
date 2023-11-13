@@ -3,9 +3,13 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 import "./Strategicsalepartners.scss"
 import { FiEye, FiEyeOff, FiCopy } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+import useAuth from '../../../hooks/useAuth';
+import { selectCurrentUser } from '../../../Redux/Slices/authSlice';
+import { useSelector } from 'react-redux';
 export const Strategicprofile = () => {
+  const  user =  useSelector(selectCurrentUser)
   const [isRevealed, setIsRevealed] = useState(false);
-  const apiKey = "hidden referal key";
+  const apiKey = user.referralKey;
   const copyToClipboard = (text) => {
     toast.dismiss()
     const el = document.createElement('textarea');
@@ -17,7 +21,6 @@ export const Strategicprofile = () => {
     toast.info('Copied')
     // Optionally show a notification/toast saying "Copied to Clipboard"
   };
-
 
   return (
     <>
@@ -31,14 +34,13 @@ export const Strategicprofile = () => {
           <Row>
               <Col lg={6} md={6} sm={12} xs={12}>
               <Card  className='Strategic_profile_card' >
-            <Card.Img className='Strategic_profile_pic'  />
+            <Card.Img className='Strategic_profile_pic'  src={user.profilePic}  />
               <Card.Body>
               <Card.Text>
-                  <p className="strategic_card_text">Name : </p>
-                  <p className="strategic_card_text"> Contact Number : </p>
-                  <p className="strategic_card_text"> Address : </p>
-                  <p className="strategic_card_text">Area of Service : </p>
-                  <p className="strategic_card_text"> Location : </p>
+                  <p className="strategic_card_text">Name : {user.username} </p>
+                  <p className="strategic_card_text"> Contact Number : {user.contactNumber} </p>
+                  <p className="strategic_card_text"> Address :{user.address}  </p>
+                  <p className="strategic_card_text"> Location : {user.city} </p>
                   
                   
                   

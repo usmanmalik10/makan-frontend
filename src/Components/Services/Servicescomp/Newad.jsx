@@ -11,7 +11,26 @@ import { useDropzone } from "react-dropzone";
 import classNames from "classnames";
 import { BsImage } from "react-icons/bs";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
+import { services } from "../../../lib/servicesData";
+import { provAndCities } from "../../../lib/pakProvAndCities";
+import OneImageCustomUploader from "../../Common/OneImageCustomUploader/OneImageCustomUploader";
+import { useAddServiceMutation } from "../../../Redux/RtkQuery/ServiceDashboard";
+import { fetchCurrentUser } from "../../../Redux/Slices/authSlice";
 
+const serviceSchema = z.object({
+  category: z.string().min(1, "Category is required"),
+  contractorName: z.string().min(1, "Contractor Name is required"),
+  province: z.string().min(1, "Province is required"),
+  areaOfService: z.string().min(1, "AreaOfService is required"),
+  contectNumber: z.string().min(10, "Contact Number should be at least 10 digits long"),
+  address: z.string().min(1, "Address is required"),
+  laborRates: z.string().min(1, "Labor Rates are required"),
+  chargingSchedule: z.string().min(1, "Charging Schedule is required"),
+  referralKeyShop: z.string().min(1, "Referal Key is required"),
+});
 
 
 const isImageSizeValid = (file, maxImageSizeInMb) => {
@@ -25,17 +44,10 @@ const isImageSizeValid = (file, maxImageSizeInMb) => {
 
 
 export const Newad = () => {
+  const [addService, { isLoading }] = useAddServiceMutation();
 
-  const token = localStorage.getItem("accessToken");
-  
   const maxImageSize = 5;
-  let initialProfileState = useMemo(
-    () => ({
-      file: null,
-      src: null,
-    }),
-    []
-  );
+
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length === 0) {
       // No files were dropped, handle this case if needed
@@ -61,76 +73,27 @@ export const Newad = () => {
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
  
-  const [file, setFile] = useState(initialProfileState);
+  const [file, setFile] = useState({
+    file: null,
+    src: null,
+  });
   function clearProfile() {
     setFile({
       file : null , 
       src : '',
     });
   }
-  const [formData, setFormData] = useState({
-    category: "",
-    contractorName: "",
-    areaOfService: "",
-    contectNumber: "",
-    address: "",
-    laborRates: "",
-    chargingSchedule: "",
-  });
-  console.log(formData);
-  const {
-    category,
-    contractorName,
-    areaOfService,
-    contectNumber,
-    address,
-    laborRates,
-    chargingSchedule,
-  } = formData;
+  
 
-  const location = useLocation(); // Use useLocation to access location object
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { isLoading, isError, isSuccess, message } = useSelector((state) => state.serviceprovider);
+ 
 
-  const onChange = (e) => {
-    console.log(e.target.name);
-    setFormData((preState) => ({
-      ...preState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const serviceData = {
-      category,
-      contractorName,
-      areaOfService: [areaOfService],
-      contectNumber,
-      address,
-      laborRates,
-      chargingSchedule,
-    };
-    console.log("serviceData", serviceData);
-
-    // await dispatch(createservice(serviceData, token)).unwrap();
-    // navigate(from, { replace: true });
-    // console.log("serviceData here", serviceData);
-    dispatch(createservice(serviceData, token)).then(()=> serviceproviderService.createservice(serviceData, token));
-    navigate('/services-profile');
-
-    // Success: The service was created, you can handle the fulfilled state if needed.
-    // navigate(from, { replace: true });
-
-  };
-
+  
     const [userLocation, setUserLocation] = useState(null);
     const [markerLocation, setMarkerLocation] = useState(null);
     const [center, setCenter] = useState([51.505, -0.09]); // Default to London
-  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
     useEffect(() => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -159,257 +122,283 @@ export const Newad = () => {
       const newCoords = event.target.getLatLng();
       setMarkerLocation({ lat: newCoords.lat, lng: newCoords.lng });
     };
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+      setValue,
+      trigger,
+      control,
+      watch
+    } = useForm({
+      resolver: zodResolver(serviceSchema),
+    });
+    
+  const provinceValue = watch("province");
 
-  if (isLoading) {
-    return <Spinner2 />;
+async function onSubmit(data){
+  if(!file.file){
+    toast.error('Add Image First')
   }
+  data.latitude = markerLocation.lat;
+  data.longitude = markerLocation.lng;
+data.serviceImage=  file.base64;
+data.province = [data.province];
+data.areaOfService = [data.areaOfService];
+try {
+  // Execute the mutation and wait for the response
+  const response = await addService(data).unwrap();
+     dispatch(fetchCurrentUser())
+     .unwrap()
+     .then((userResponse) => {
+      toast.success('Service added successfully');
+         navigate('/services-profile');
+       })
+       .catch((fetchError) => {
+         toast.error(fetchError.message || 'Failed to fetch profile information.');
+         // Handle the error case for fetching user details
+       });
+  
+  
+} catch (error) {
+  // Handle errors in the request itself, like network issues
+  toast.error(`Error adding service: ${error.message || 'Unknown error'}`);
+}
 
-
+}
+if(isLoading) {
+  return <Spinner2></Spinner2>
+}
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <section>
             <Container>
           
-                {
-                   ( file.src ? (
-          <div>
-            <div className="inner-image-upload ">
-              <img
-  
-              
-                alt="Blog"
-                src={file.src}
-              />
-            </div>
-  
-            <div class="d-flex justify-content-center ">
-              <button onClick={clearProfile} className='btn-pm-sm'>Delete Image</button>
-            </div>
-          </div>
-        )
-        :
-        (
-          <section className="image-div-upload">
-            <div {...getRootProps()} >
-              <input {...getInputProps()} />
-  
-              <div
-                className={
-                  classNames(
-                    "inner-image-div-upload",
-                    isDragActive ? "is-dragging" : ""
-                  )
-                }
-              >
-                {!isDragActive && (
-                  <>
-                    <BsImage fontSize={"50px"} />
-                    <span>Click to Select or Drop  Image</span>
-                  </>
-                )}
-  
-                {isDragActive && (
-                  <>
-                    <BsImage fontSize={"50px"} />
-                    <span>Yeah Yeah Exactly Drop it 😃</span>
-                  </>
-                )}
-              </div>
-            </div>
-          </section>
-        ))
-                }
+            <OneImageCustomUploader file={file} setFile={setFile} isCustom={false}></OneImageCustomUploader>
             
-              <Row className="pt-4">
-                <Col lg={6} md={6} sm={12}>
-                  <div>
-                    <label className="business-labels">
-                      <span className="business-label-headings">
-                        Select Catergory :
-                      </span>
+            <Row className="pt-4">
+        <Col lg={6} md={6} sm={12}>
+          <div>
+            <label className="business-labels">
+              <span className="business-label-headings">
+                Select Category :
+              </span>
+            </label>
+            <br />
+            <Controller
+              name="category"
+              control={control}
+              render={({ field }) => (
+                <Form.Select
+                  className="select-inputfield-select"
+                  {...field}
+                  isInvalid={!!errors.category}
+                >
+                  <option value="">Select Category</option>
+                  {services.map((service, index) => (
+                    <option key={index} value={service.category}>
+                      {service.title}
+                    </option>
+                  ))}
+                </Form.Select>
+              )}
+            />
+            {errors.category && (
+              <p className="error-text">{errors.category.message}</p>
+            )}
+          </div>
+        </Col>
+        <Col lg={6} md={6} sm={12}>
+          <div>
+            <label className="business-labels">
+              <span className="business-label-headings">
+                Contractor Name:
+              </span>
+            </label>
+            <br />
+            <input
+              className="business-inputs"
+              type="text"
+              placeholder="Contractor Name"
+              {...register("contractorName")}
+              isInvalid={!!errors.contractorName}
+            />
+            {errors.contractorName && (
+              <p className="error-text">{errors.contractorName.message}</p>
+            )}
+          </div>
+        </Col>
+      </Row>
+      <Row className="pt-4">
+  <Col lg={6} md={6} sm={12}>
+    <div>
+      <label className="business-labels">
+        <span className="business-label-headings">
+          Contact Number :
+        </span>
+      </label>
+      <br />
+      <input
+        className="business-inputs"
+        type="text"
+        placeholder="Contact number"
+        {...register("contectNumber")}
+        isInvalid={!!errors.contectNumber}
+      />
+      {errors.contectNumber && (
+        <p className="error-text">{errors.contectNumber.message}</p>
+      )}
+    </div>
+  </Col>
+  <Col lg={6} md={6} sm={12}>
+    <div>
+      <label className="business-labels">
+        <span className="business-label-headings">
+          Address :
+        </span>
+      </label>
+      <br />
+      <input
+        className="business-inputs"
+        type="text"
+        placeholder="Address"
+        {...register("address")}
+        isInvalid={!!errors.address}
+      />
+      {errors.address && (
+        <p className="error-text">{errors.address.message}</p>
+      )}
+    </div>
+  </Col>
+</Row>
+<Row className="pt-4">
+  
+<Col lg={6} md={6} sm={12} xs={12}>
+                  <div className="strategic_divs">
+                    <label className="strategic_labels">
+                      Select Province :
                     </label>
                     <br />
                     <Form.Select
                       className="select-inputfield-select"
-                      value={category}
-                      onChange={onChange}
-                      name="category"
-                      placeholder="Select Category"
+                      {...register("province")}
                     >
-                      <option>Select Category</option>
-                      <option value="mason">Mason</option>
-                      <option value="marble">Marble & Tiles Fixer</option>
-                      <option value="plumber">Plumber</option>
-                      <option value="contractor">Contractor</option>
-                      <option value="engineer">Engineer</option>
-                      <option value="architect">Architect</option>
-                      <option value="carpenter">Carpenter</option>
-                      <option value="woodcutter">Wood Cutter</option>
-                      <option value="painter">Painter</option>
-                      <option value="polishman">Polish Man (Furniture)</option>
-                      <option>Steel Fixer / Welder</option>
-                      <option value="steelpolish">Steel Polish</option>
-                      <option value="steelwelder">Welder</option>
-                      <option value="moldingworker">Molding Worker</option>
-                      <option value="leathmachineoperator">Leith Machine Operator</option>
-                      <option value="aluminium">Aluminum Fixer</option>
-                      <option value="glassfixer">Glass Fixer</option>
-                      <option value="glasscuttingpolish">Glass Cutting & Polish</option>
-                      <option value="glasspainter">Glass Painter</option>
-                      <option value="glasspaperdesigner">Glass Paper & Designer</option>
-                      <option value="electrician">Electrician</option>
-                      <option value="actechnician">AC Technician</option>
-                      <option value="electricengineer">Electric Engineer</option>
-                      <option value="solarinstaller">Solar Installer</option>
-                      <option value="boringworker">Boring Workers</option>
-                      <option value="interiordesigner">Interior Designer</option>
-                      <option value="termitetreatment">Termite Treatment</option>
-                      <option value="gardener">Gardener</option>
-                      <option value="landscapearchitecture">Landscape Architect</option>
-                      <option value="housecleaner">House Cleaner</option>
-                      <option value="accleaner">AC Cleaner</option>
-                      <option value="marblepolish">Marble Polish</option>
+                      <option value="">Select Value</option>
+                      {Object.keys(provAndCities).map((prov) => (
+                        <option key={prov} value={prov}>
+                          {prov}
+                        </option>
+                      ))}
                     </Form.Select>
+                    {errors.province && (
+                      <p style={{ color: "red", fontSize: "small" }}>
+                        {errors.province.message}
+                      </p>
+                    )}
                   </div>
                 </Col>
+              
                 <Col lg={6} md={6} sm={12}>
-                  <div>
-                    <label className="business-labels">
-                      <span className="business-label-headings">
-                        Contractor Name:
-                      </span>
-                    </label>
-                    <br />
-                    <input
-                      className="business-inputs"
-                      type="text"
-                      placeholder="Contractor Name"
-                      required
-                      name="contractorName"
-                      value={contractorName}
-                      id="contractorName"
-                      onChange={onChange}
-                    />
-                  </div>
-                </Col>
+                          <div>
+                            <label className="business-labels">
+                              <span className="business-label-headings">
+                                Area of services :
+                              </span>
+                            </label>
+                            <br />
+                            <Form.Select
+                             className="select-inputfield-select"
+                              name="areaOfService"
+                              onChange={(e) =>
+                                setValue("areaOfService", e.target.value)
+                              }
+                              onBlur={() => trigger("areaOfService")}
+                              defaultValue="Area of services"
+                            >
+                              <option value="">Select Value</option>
+                      {provAndCities[provinceValue]?.map((city) => (
+                        <option value={city}>{city}</option>
+                      ))}
+                            </Form.Select>
+                            {errors?.areaOfService?.message && (
+                              <span className="error-text">
+                                {errors.areaOfService.message}
+                              </span>
+                            )}
+                          </div>
+                        </Col>
+</Row>
+              <Row className="pt-4">
+                
+              <Col lg={6} md={6} sm={12}>
+    <div>
+      <label className="business-labels">
+        <span className="business-label-headings">
+          Charging Schedule :
+        </span>
+      </label>
+      <br />
+      <Controller
+        name="chargingSchedule"
+        control={control}
+        render={({ field }) => (
+          <Form.Select
+            className="select-inputfield-select"
+            {...field}
+            isInvalid={!!errors.chargingSchedule}
+          >
+            <option value="">Charging Schedule</option>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+            <option value="contract">Contract</option>
+            <option value="squareFeet">Square Feet</option>
+          </Form.Select>
+        )}
+      />
+      {errors.chargingSchedule && (
+        <p className="error-text">{errors.chargingSchedule.message}</p>
+      )}
+    </div>
+  </Col>
               </Row>
               <Row className="pt-4">
-                <Col lg={6} md={6} sm={12}>
-                  <div>
-                    <label className="business-labels">
-                      <span className="business-label-headings">
-                        Contact Number :
-                      </span>
-                    </label>
-                    <br />
-                    <input
-                      className="business-inputs"
-                      type="text"
-                      placeholder="Contact number"
-                      required
-                      name="contectNumber"
-                      value={contectNumber}
-                      id="contectNumber"
-                      onChange={onChange}
-                    />
-                  </div>
-                </Col>
-                <Col lg={6} md={6} sm={12}>
-                  <div>
-                    <label className="business-labels">
-                      <span className="business-label-headings">
-                        Address :{" "}
-                      </span>
-                    </label>
-                    <br />
-                    <input
-                      className="business-inputs"
-                      type="text"
-                      placeholder="Address"
-                      required
-                      name="address"
-                      value={address}
-                      id="address"
-                      onChange={onChange}
-                    />
-                  </div>
-                </Col>
-              </Row>
-              <Row className="pt-4">
-                <Col lg={6} md={6} sm={12}>
-                  <div>
-                    <label className="business-labels">
-                      <span className="business-label-headings">
-                        Area of services :
-                      </span>
-                    </label>
-                    <br />
-                    <Form.Select
-                      className="select-inputfield-select"
-                      value={areaOfService}
-                      onChange={onChange}
-                      name="areaOfService"
-                      placeholder="Area of services"
-                    >
-                      <option>Area of services</option>
-                      <option>Sahiwal City</option>
-                      <option>Sahiwal Division</option>
-                      <option>Punjab</option>
-                      <option>Pakistan</option>
-                    </Form.Select>
-                  </div>
-                </Col>
-                <Col lg={6} md={6} sm={12}>
-                  <div>
-                    <label className="business-labels">
-                      <span className="business-label-headings">
-                        Charging Schedule :
-                      </span>
-                    </label>
-                    <br />
-                    <Form.Select
-                      className="select-inputfield-select"
-                      value={chargingSchedule}
-                      onChange={onChange}
-                      name="chargingSchedule"
-                      placeholder="Charging Schedule"
-                    >
-                      <option>Charging Schedule</option>
-                      <option>hourly</option>
-                      <option>daily</option>
-                      <option>contract</option>
-                      <option>squareFeet</option>
-                    </Form.Select>
-                  </div>
-                </Col>
-              </Row>
-              <Row className="pt-4">
-                <Col lg={6} md={6} sm={12}>
-                  <div>
-                    <label className="business-labels">
-                      <span className="business-label-headings">
-                        Labor Rate :
-                      </span>
-                    </label>{" "}
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="Labor Rate"
-                      className="business-inputs"
-                      required
-                      name="laborRates"
-                      value={laborRates}
-                      id="laborRates"
-                      onChange={onChange}
-                    />
-                  </div>
-                </Col>
-                <Col lg={6} md={6} sm={12} xs={12}>
-                  <label className="business-labels">  <span className="business-label-headings">Store Referral Key : </span></label> <br/>
-                  <input className="business-inputs"  type="text" placeholder="Store Referral key"/>
-                </Col>
+              <Col lg={6} md={6} sm={12}>
+    <div>
+      <label className="business-labels">
+        <span className="business-label-headings">
+          Labor Rate :
+        </span>
+      </label>
+      <br />
+      <input
+        type="text"
+        placeholder="Labor Rate"
+        className="business-inputs"
+        {...register("laborRates")}
+        isInvalid={!!errors.laborRates}
+      />
+      {errors.laborRates && (
+        <p className="error-text">{errors.laborRates.message}</p>
+      )}
+    </div>
+  </Col>
+  <Col lg={6} md={6} sm={12} xs={12}>
+  <label className="business-labels">
+    <span className="business-label-headings">Store Referral Key :</span>
+  </label>
+  <br />
+  <input
+    className="business-inputs"
+    type="text"
+    placeholder="Store Referral key"
+    {...register("referralKeyShop")} // Use the register function to connect the input to react-hook-form
+  />
+   {errors.referralKeyShop && (
+        <p className="error-text">{errors.referralKeyShop.message}</p>
+      )}
+</Col>
                 <Row className="mt-4">
                     <div className='map-container'>
                     <label className="business-labels">

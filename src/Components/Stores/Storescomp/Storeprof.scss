@@ -30,3 +30,46 @@
           font-weight: 600;
       }
 }
+
+.banner-image {
+  height: 250px; // Adjust height as needed
+  background-size: cover;
+  background-position: center;
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-eye {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  right: 0px; 
+  margin-right: 5px; 
+}
+
+.icon-copy {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  right: 30px; 
+  margin-right: 5px; 
+}
+.strat_refr_input{
+  width: 350px;
+  height: 40px;
+  border-radius: 20px;
+  border:  2px solid red;
+  outline: none;
+  padding: 0px 15px;
+  padding-right: 40px; 
+}
+

@@ -8,11 +8,13 @@ const estateApi = createApi({
   reducerPath :'estatePath',
   baseQuery: fetchBaseQuery({ baseUrl: USERS_BASE_URL , prepareHeaders: (headers, { getState }) => {
     // Get the token from your Redux store or localStorage
-    const token =  localStorage.getItem('accessToken');
+    let tokens =  localStorage.getItem('tokens');
+    if(!tokens ) return headers;
+    let accessToken =  JSON.parse(tokens).access.token
     
-    if (token) {
+    if (accessToken) {
       // Include the Bearer token in the headers
-      headers.set('authorization', `Bearer ${token}`);
+      headers.set('authorization', `Bearer ${accessToken}`);
     }
     
     return headers;

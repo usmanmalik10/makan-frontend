@@ -6,7 +6,7 @@ import { BiLogOut } from "react-icons/bi";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import "./style.css";
 import { useDispatch } from "react-redux";
-import { logout, reset } from "../../../features/auth/authSlice";
+import { logout, reset } from "../../../Redux/Slices/authSlice";
 
 const DesktopNavbar = (props) => {
   const dispatch = useDispatch();

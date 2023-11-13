@@ -1,15 +1,15 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-// import "./Stores.scss"
-
+import "./stores.css"
+import storeimg from "../../../images/storesmain.jpeg"
 export const Herostores = () => {
   return (
     <>
-        <section className='hero_sec'>
-            <Container>
+        <section >
+            <Container fluid>
                 <Row>
                     <Col>
-                        <h1 className='all_store_heading'>All Stores</h1>
+                        <img className='store_main-Img' src={storeimg} alt='s3' />
                     </Col>
                 </Row>
             </Container>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import img from "../../../images/abouthero.png";
+import img from "../../../images/contactusmain.jpeg";
 import { Link } from "react-router-dom";
 import "./Contactus.scss";
 

@@ -10,11 +10,13 @@ const serviceApi = createApi({
     baseUrl: USERS_BASE_URL, // Adjust the base URL accordingly
     prepareHeaders: (headers, { getState }) => {
       // Get the token from your Redux store or localStorage
-      const token = localStorage.getItem('accessToken');
-
-      if (token) {
+      let tokens =  localStorage.getItem('tokens');
+      if(!tokens ) return headers;
+      let accessToken =  JSON.parse(tokens).access.token
+      
+      if (accessToken) {
         // Include the Bearer token in the headers
-        headers.set('authorization', `Bearer ${token}`);
+        headers.set('authorization', `Bearer ${accessToken}`);
       }
 
       return headers;
@@ -33,11 +35,18 @@ const serviceApi = createApi({
         
       }),
     }),
+    addService: builder.mutation({
+      query: (serviceData) => ({
+        url: '/v1/service',
+        method: 'POST',
+        body: serviceData,
+      }),
+    }),
 
   }),
 });
 
 // Export the API and endpoints
-export const { useFetchServicesDataQuery } = serviceApi;
+export const { useFetchServicesDataQuery  , useAddServiceMutation} = serviceApi;
 
 export default serviceApi;

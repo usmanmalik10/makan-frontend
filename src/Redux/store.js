@@ -1,19 +1,17 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import authReducer from '../features/auth/authSlice';
+import authReducer, { fetchCurrentUser } from './Slices/authSlice';
 import serviceproviderReducer from '../features/serviceprovider/serviceproviderSlice';
 import realestateReducer from '../features/realestate/realestateSlice';
 import shopReducer from '../features/shop/shopSlice';
-import estateApi from '../Redux/RtkQuery/EstateAllData'
-import serviceApi from '../Redux/RtkQuery/ServiceDashboard'
-import storesApi from '../Redux/RtkQuery/StoresDashboard'
-import MainPageRealEstate from '../Redux/RtkQuery/MainPageRealEstate'
-import MainPageStore from '../Redux/RtkQuery/MainPageStore'
-import MainPageService from '../Redux/RtkQuery/MainPageService'
-import StrategicSalesPartner from '../Redux/RtkQuery/StrategicSalesPartner';
+import estateApi from './RtkQuery/EstateAllData'
+import serviceApi from './RtkQuery/ServiceDashboard'
+import storesApi from './RtkQuery/StoresDashboard'
+import MainPageRealEstate from './RtkQuery/MainPageRealEstate'
+import MainPageStore from './RtkQuery/MainPageStore'
+import MainPageService from './RtkQuery/MainPageService'
+import StrategicSalesPartner from './RtkQuery/StrategicSalesPartner';
 
-
-
-export default configureStore({
+const store =  configureStore({
   reducer: {
     [MainPageRealEstate.reducerPath]: MainPageRealEstate.reducer,
     [MainPageStore.reducerPath]: MainPageStore.reducer,
@@ -38,3 +36,6 @@ export default configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(estateApi.middleware , serviceApi.middleware , storesApi.middleware , MainPageRealEstate.middleware , MainPageStore.middleware , MainPageService.middleware, StrategicSalesPartner.middleware)
 });
+
+store.dispatch(fetchCurrentUser());
+export default store;

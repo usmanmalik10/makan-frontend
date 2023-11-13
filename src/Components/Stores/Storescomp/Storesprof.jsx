@@ -1,69 +1,97 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from 'react-bootstrap'
-import Card from "react-bootstrap/Card";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../constants/config/config.dev";
 import "./Storeprof.scss"
 import { useFetchStoresDataQuery } from "../../../Redux/RtkQuery/StoresDashboard";
+import { Container, Card, Row, Col } from 'react-bootstrap';
+import { selectCurrentUser } from "../../../Redux/Slices/authSlice";
+import { Link } from "react-router-dom";
+import { FiEye, FiEyeOff, FiCopy } from 'react-icons/fi';
+import { toast } from "react-toastify";
 
 export const Storesprof = () => {
-
-
-  const token = localStorage.getItem('accessToken');
-  const userId = localStorage.getItem('Userid');
-
-  // Use the RTK Query hook to fetch stores data
-  const { data , isLoading } = useFetchStoresDataQuery(userId);
- 
-  if (isLoading) {
-    return <div>Loading...</div>; 
-  }
-
- 
+const user = useSelector(selectCurrentUser)
+const shop = user.shop;
+  const [isRevealed, setIsRevealed] = useState(false);
+  const apiKey = shop.referralKeyShop;
+  const copyToClipboard = (text) => {
+    toast.dismiss()
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    toast.info('Copied')
+    // Optionally show a notification/toast saying "Copied to Clipboard"
+  };
   return (
     <>
     <section className="store_profile_sec">
-      <Container>
-        <Row>
-          <Col>
-            <h1 className="prof_all_head">All Add's</h1>
-          </Col>
-        </Row>
-         <Row>
-          {data.data.docs.length === 0 && <p>No Stores</p>}
-        {data.data.docs.map((ad) => (
-          <Col lg={4} md={4} sm={12} xs={12}>
-            <Card key={ad._id} >
-            <Card.Img   />
-              <Card.Body>
-                <Card.Text>
-                  <p className="store_card_text">Shop Name : {ad.shopName}</p>
-                  <p className="store_card_text"> Product Name : {ad.productName}</p>
-                  <p className="store_card_text">Price: {ad.price}</p>
-                  <p className="store_card_text">Address: {ad.address}</p>
-                  <p className="store_card_text">Area of Service: {ad.areaOfService.join(", ")}</p>
-                  <p className="store_card_text"> Contact Number: {ad.contectNumber}</p>
-                  <p className="store_card_text">Company Name: {ad.companyName}</p>
-                </Card.Text>
-                <Card.Text>
-                      <div className="store_lower_buttons">
-                    <div className="store_update_button">
-                    <button type="submit" >Update</button>
-                  </div>
-                  <div className="store_update_button">
-                    <button type="submit" >Delete</button>
-                  </div>
-                  </div>
-                    </Card.Text>
-              
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-        </Row> 
-      </Container>
+    {shop.active ==="true" ? <Container>
+      <Row className="mb-4">
+        <Col>
+          {/* Banner Image */}
+          <div className="banner-image" style={{ backgroundImage: `url(${user.shop.shopImage })` }}>
+            {/* You can add styles for this div in SCSS */}
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {/* Store Information */}
+          <Card>
+            <Card.Body>
+              <Card.Title>{shop.shopName}</Card.Title>
+              <Card.Text>
+                <strong>Category:</strong> {shop.category}
+              </Card.Text>
+              <Card.Text>
+                <strong>Area of Service:</strong> {shop.areaOfService}
+              </Card.Text>
+              {/* Add more fields as needed */}
+            </Card.Body>
+          </Card>
+          
+        </Col>
+        <Col lg={6} md={6} sm={12} xs={12}>
+  <div className='strat_div'>
+    <label className='strat_refr_label'> Referral key :</label><br />
+    <div className="input-container">
+      <input 
+        className='strat_refr_input' 
+        type={isRevealed ? 'text' : 'password'} 
+        value={apiKey} 
+        readOnly
+      />
+      {isRevealed ? 
+        <FiEyeOff height={20} width={20}  className="icon-eye" onClick={() => setIsRevealed(false)} /> : 
+        <FiEye height={20} width={20}   className="icon-eye" onClick={() => setIsRevealed(true)} />
+      }
+      <FiCopy height={20} width={20}   className="icon-copy" onClick={() => copyToClipboard(apiKey)} />
+    </div>
+  </div>
+</Col>
+      </Row>
+    </Container> : <Container>
+      <Row>
+      <Card>
+            <Card.Body>
+              <Card.Title>{user.username}</Card.Title>
+              <Card.Text>
+                <strong>Email:</strong> {user.email}
+              </Card.Text>
+             <Link to='/new-add-stores'>
+             <button className="estate-button">
+Activate
+             </button>
+             </Link>
+            </Card.Body>
+          </Card>
+      </Row>
+    </Container>  }
     </section>
     </>
   )
