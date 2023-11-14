@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTable, useSortBy, usePagination, useFilters } from 'react-table';
 import './Strategicsalepartners.scss'
+import { useFetchStrategicSalePartnerByReferralQuery, useFetchStrategicSalePartnerQuery } from '../../../Redux/RtkQuery/StrategicSalesPartner';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../../Redux/Slices/authSlice';
 const COLUMNS = [
   { Header: 'Sr #', accessor: 'col1' },
   { Header: 'Shop Name', accessor: 'col2' },
@@ -212,10 +215,34 @@ function Table({ columns, data }) {
   );
 }
 export function Strategicstoresdata() {
+  const {ssp} = useSelector(selectCurrentUser)
+  const { data , error, isLoading } = useFetchStrategicSalePartnerByReferralQuery(ssp.referralKeySSP);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  const COLUMNS = [
+    { Header: 'Sr #', accessor: 'col1' },
+    { Header: 'Shop Name', accessor: 'col2' },
+    { Header: 'Contact Number', accessor: 'col3' },
+    { Header: 'Shop Address', accessor: 'col4' },
+    { Header: 'Area Of Service', accessor: 'col5' },
+
+    // ... add more columns up to 12
+  ];
+
+  const transformedData = data.map((item, index) => ({
+    col1: index + 1, // Assuming you want Sr # to be the index + 1
+    col2: item.shopName,
+    col3: item.contectNumber
+,
+    col4: item.address,
+    col5: item.areaOfService[0], // Assuming areaOfService is an array
+  
+  }));
+ 
   return (
     <div className="App">
       <h1 className='str_heading'> Stores Data</h1>
-      <Table columns={COLUMNS} data={SAMPLE_DATA} />
+      <Table columns={COLUMNS} data={transformedData} />
     </div>
   );
 }
