@@ -24,6 +24,7 @@ import { RealEstate } from "./Pages/Adminportal/Realestate";
 import { Settings } from "./Pages/Adminportal/Settings";
 import { Adminstrategicsalepartner } from "./Pages/Adminportal/Adminstrategicsalepartner";
 import { Adminallstrategicsalepartners } from "./Pages/Adminportal/Adminallstrategicsalepartners";
+import { Rates } from "./Pages/Adminportal/Rates";
 
 
 
@@ -62,6 +63,7 @@ import { Strategicsalestores } from "./Pages/Strategicsaleportal/Strategicsalest
 import { AdminStoresGeneralComponent } from "./Components/adminpanel/Adminstores/AdminStoresGeneralComponent/AdminStoresGeneralComponent";
 import { NewadCopy } from "./Components/Stores/Storescomp/Newadcopy";
 import NotRequiredAuth from "./Routes/NotRequireAuth";
+
 
 //  Strategic Sales partners Routes  
 
@@ -105,6 +107,7 @@ function App() {
           {/* /* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
             <Route path="/admin-profile" element={<Adminprofile />} />
+            <Route path="/daily-rates" element={<Rates/>} />
             <Route path="/user-list" element={<Users />} />
             <Route path="/strategic-sale-partner" element={<Adminstrategicsalepartner/>} />
             <Route path="/all-strategic-sale-partner" element={<Adminallstrategicsalepartners/>} />

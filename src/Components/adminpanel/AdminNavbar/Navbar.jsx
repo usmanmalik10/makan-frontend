@@ -17,6 +17,11 @@ const Navbar = () => {
       route: "/admin-profile",
     },
     {
+      icon: BiHomeSmile,
+      text: "Daily Rates",
+      route: "/daily-rates",
+    },
+    {
       icon: TbUsers,
       text: "Users",
       route: "/user-list",

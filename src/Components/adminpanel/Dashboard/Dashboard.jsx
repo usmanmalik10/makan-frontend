@@ -32,6 +32,12 @@ const Dashboard = () => {
       description: "Real Estate",
       backgroundColor: "#8884d8",
     },
+    {
+      icon: FiUsers,
+      stats: 0,
+      description: "Strategic Sales Partner",
+      backgroundColor: "#636C79",
+    },
   ];
   return (
     <div className="dashboard_wrapper">
