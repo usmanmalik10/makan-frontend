@@ -38,7 +38,7 @@ const strategicSalesPartnerApi = createApi({
       invalidatesTags: [{ type: 'StrategicSalePartner' }],
     }),
     fetchStrategicSalePartnerByReferral: builder.query({
-      query: (referralKey) => `v1/strategic-sale-partners/referral-shop?referralKey=${referralKey}`, 
+      query: (referralKey) => `v1/strategic-sale-partners/referral-shop?referralKeySSP=${referralKey}`, 
     }),
   }),
 });
