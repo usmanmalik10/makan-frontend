@@ -2,8 +2,8 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Footer.scss'
-import logo from "../../../Assets/Home-Screen/Group 46112.png";
-
+// import logo from "../../../Assets/Home-Screen/Group 46112.png";
+import logo from "../../../images/makanlogo1.jpg"
 const Footer = () => {
   return (
     <div>
@@ -20,7 +20,7 @@ const Footer = () => {
                             <h4 className='footer-heading'>Services</h4>
                             <ul className='footerlist-type'>
                                 <li className='footer-list'>
-                                    <Link className='list-text' to="/"> Architects </Link>
+                                    <Link className='list-text' to="/architect"> Architects </Link>
                                 </li>
                                 <li>
                                     <Link className='list-text' to="/"> Plumber</Link>
@@ -69,19 +69,19 @@ const Footer = () => {
                                     <Link className='list-text' to="/"> Home </Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Aboutus</Link>
+                                    <Link className='list-text' to="/aboutus"> Aboutus</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Contactus</Link>
+                                    <Link className='list-text' to="/contactus"> Contactus</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Faq's</Link>
+                                    <Link className='list-text' to="/realestate"> Real Estate</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Stores</Link>
+                                    <Link className='list-text' to="/all-stores">Stores</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Services</Link>
+                                    <Link className='list-text' to="/services">Services</Link>
                                 </li>
                                 
                                 </ul>
@@ -92,7 +92,7 @@ const Footer = () => {
                         <h4 className='footer-heading'>Connect With Us</h4>
                         <ul className='footerlist-type'>
                                 <li className='footer-list'>
-                                    <Link className='list-text' to="/"> Facebook </Link>
+                                    <Link className='list-text' to="https://www.facebook.com/makanmanager?mibextid=LQQJ4d"> Facebook </Link>
                                 </li>
                                 <li>
                                     <Link className='list-text' to="/"> Twitter</Link>
