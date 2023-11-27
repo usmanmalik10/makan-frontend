@@ -20,43 +20,43 @@ const Footer = () => {
                             <h4 className='footer-heading'>Services</h4>
                             <ul className='footerlist-type'>
                                 <li className='footer-list'>
-                                    <Link className='list-text' to="/"> Architects </Link>
+                                    <Link className='list-text' to="/services"> Architects </Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Plumber</Link>
+                                    <Link className='list-text' to="/services"> Plumber</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Engineers</Link>
+                                    <Link className='list-text' to="/services"> Engineers</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Suppliers</Link>
+                                    <Link className='list-text' to="/services"> Suppliers</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Contractors</Link>
+                                    <Link className='list-text' to="/services">Contractors</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Masons</Link>
+                                    <Link className='list-text' to="/services">Masons</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Carpenters</Link>
+                                    <Link className='list-text' to="/services"> Carpenters</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Painters</Link>
+                                    <Link className='list-text' to="/services">Painters</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Steel Welders</Link>
+                                    <Link className='list-text' to="/services">Steel Welders</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">GLass Fixers</Link>
+                                    <Link className='list-text' to="/services">GLass Fixers</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Aluminium Workers</Link>
+                                    <Link className='list-text' to="/services">Aluminium Workers</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Marble</Link>
+                                    <Link className='list-text' to="/services">Marble</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Legal Services</Link>
+                                    <Link className='list-text' to="/services">Legal Services</Link>
                                 </li>
                             </ul>
                         </div>
@@ -69,19 +69,19 @@ const Footer = () => {
                                     <Link className='list-text' to="/"> Home </Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Aboutus</Link>
+                                    <Link className='list-text' to="/aboutus"> Aboutus</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Contactus</Link>
+                                    <Link className='list-text' to="/contactus"> Contactus</Link>
                                 </li>
                                 <li>
                                     <Link className='list-text' to="/"> Faq's</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Stores</Link>
+                                    <Link className='list-text' to="/all-stores">Stores</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/">Services</Link>
+                                    <Link className='list-text' to="/services">Services</Link>
                                 </li>
                                 
                                 </ul>
@@ -92,19 +92,24 @@ const Footer = () => {
                         <h4 className='footer-heading'>Connect With Us</h4>
                         <ul className='footerlist-type'>
                                 <li className='footer-list'>
-                                    <Link className='list-text' to="/"> Facebook </Link>
+                                    <a className='list-text' rel="noreferrer" target='_blank' href="https://www.facebook.com/makanmanager"> Facebook </a>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Twitter</Link>
+                                <a className='list-text' rel="noreferrer" target='_blank' href="https://twitter.com/makanmanager?lang=en"> Twitter </a>
+
+
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Linkedin</Link>
+                                <a className='list-text' rel="noreferrer" target='_blank' href="https://www.linkedin.com/company/makan-manager/?originalSubdomain=pk"> Linkedin </a>
+
                                 </li>
                                 <li>
-                                     <Link className='list-text' to="/"> Instagram</Link>
+                                <a className='list-text' rel="noreferrer" target='_blank' href="https://www.instagram.com/makanmanager/"> Instagram </a>
+
                                 </li>
                                 <li>
-                                  <Link className='list-text' to="/">Youtube</Link>
+                                <a className='list-text' rel="noreferrer" target='_blank' href="https://www.youtube.com/c/MakanManager"> Youtube </a>
+
                                 </li>
                                 
                                 

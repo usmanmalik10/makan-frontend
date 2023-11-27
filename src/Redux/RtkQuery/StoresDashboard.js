@@ -40,9 +40,12 @@ const storeApi = createApi({
       }),
       invalidatesTags: [{ type: 'Store' }], // Invalidate the tags, causing a refetch of stores
     }),
+    fetchServicesByReferral: builder.query({
+      query: (referralKey) => `v1/shop/referral-service?referralKeyShop=${referralKey}`, 
+    }),
   }),
 });
 
-export const { useFetchStoresDataQuery, useCreateStoresMutation } = storeApi;
+export const { useFetchStoresDataQuery, useCreateStoresMutation , useFetchServicesByReferralQuery } = storeApi;
 
 export default storeApi;

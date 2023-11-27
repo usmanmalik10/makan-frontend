@@ -241,3 +241,5 @@ margin-block:30px ;
   font-size: 12px;
   margin-top: 4px;
 }
+
+iframe#webpack-dev-server-client-overlay{display:none!important}
