@@ -14,13 +14,13 @@ export const Dailyrates = () => {
     if (error) return <p>Error loading rates</p>;
 
     const rates = [
-        `Bricks Price: ${data?.data.bricksPrice}`,
-        `Sand Per Sqft: ${data?.data.sandPerSqft}`,
-        `Crush Per Sqft: ${data?.data.crushPerSqft}`,
-        `Plastic Pipes: ${data?.data.plasticPipes}`,
-        `Cement Price: ${data?.data.cementPrice}`,
-        `Iron Bar Per Ton: ${data?.data.ironBarPerTon}`,
-        `PVC Pipes: ${data?.data.pvcPipes}`
+        { label: 'Bricks Price', value: data?.data.bricksPrice },
+        { label: 'Sand Per Sqft', value: data?.data.sandPerSqft },
+        { label: 'Crush Per Sqft', value: data?.data.crushPerSqft },
+        { label: 'Plastic Pipes', value: data?.data.plasticPipes },
+        { label: 'Cement Price', value: data?.data.cementPrice },
+        { label: 'Iron Bar Per Ton', value: data?.data.ironBarPerTon },
+        { label: 'PVC Pipes', value: data?.data.pvcPipes }
     ];
 
     return (
@@ -32,7 +32,7 @@ export const Dailyrates = () => {
                             <h1 className='daily_rates_heading'>Daily Rates</h1>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className='daily-rates-slides'>
                         <Col>
                             <div className='rates_display'>
                                 <Swiper
@@ -40,18 +40,20 @@ export const Dailyrates = () => {
                                     spaceBetween={30}
                                     slidesPerView={3}
                                     loop={true}
-                                    speed={1000} // Adjust speed for smoother scrolling
+                                    speed={1000}
                                     autoplay={{
-                                        delay: 0, // Set delay to 0 for continuous movement
+                                        delay: 0,
                                         disableOnInteraction: false,
                                         reverseDirection: false
                                     }}
-                                    freeMode={true} // Enables free mode for non-fixed slides positions
-                                    freeModeMomentum={false} // Disables momentum to keep constant speed
+                                    freeMode={true}
+                                    freeModeMomentum={false}
                                 >
                                     {rates.map((rate, index) => (
                                         <SwiperSlide key={index}>
-                                            <p>{rate}</p>
+                                            <p>
+                                                {rate.label}: <span className="rate">₨ {rate.value}</span> 
+                                            </p>
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>

@@ -19,13 +19,14 @@ const Hero = () => {
     <>
       <Header/>
       <Homehero />
+      <Dailyrates />
+
       {/* <Mmhomes /> */}
       <Ourstore />
       <Realestate />
       {/* <Ourprojects /> */}
       {/* <Ourteam /> */}
       <Completedprojects /> 
-      <Dailyrates />
       {/* <Costestimation/> */}
       <Testimoninals/>
       <Footer/>

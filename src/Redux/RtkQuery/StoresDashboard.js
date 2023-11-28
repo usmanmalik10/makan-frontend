@@ -43,9 +43,13 @@ const storeApi = createApi({
     fetchServicesByReferral: builder.query({
       query: (referralKey) => `v1/shop/referral-service?referralKeyShop=${referralKey}`, 
     }),
+    fetchStoresBySale: builder.query({
+      query: () => `v1/shop/sale`, 
+    }),
   }),
 });
 
-export const { useFetchStoresDataQuery, useCreateStoresMutation , useFetchServicesByReferralQuery } = storeApi;
+export const { useFetchStoresDataQuery, useCreateStoresMutation , useFetchServicesByReferralQuery , useFetchStoresBySaleQuery } = storeApi;
 
 export default storeApi;
+

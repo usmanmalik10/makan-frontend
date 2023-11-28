@@ -41,6 +41,11 @@ const SignupSchema = z.object({
   referalKey: z.string().min(1, "Referal Key is required"),
   province: z.string().min(1, "Province is required"),
   areaOfService: z.string().min(1, "AreaOfService is required"),
+  sale: z
+    .number()
+    .min(0, "Sale percentage must be at least 0%")
+    .max(100, "Sale percentage cannot be more than 100%")
+    .optional()
 });
 export const NewadCopy = () => {
   const maxImageSize = 5;
@@ -142,7 +147,7 @@ const navigate= useNavigate()
     if (!file.file) return toast.error("Please add image first");
     data.areaOfService = [data.areaOfService];
     data.province = [data.province];
-
+data.sale = String(data.sale);
     const reader = new FileReader();
 
     reader.readAsDataURL(file.file);
@@ -404,7 +409,29 @@ const navigate= useNavigate()
               </Col>
                       </Row>
                       <Row>
-               
+                      <Col lg={6} md={6} sm={12} className="mt-4">
+      <div>
+        <label className="business-labels">
+          <span className="business-label-headings">
+            Sale Percentage:
+          </span>
+        </label>
+        <br />
+        <input
+  className="business-inputs"
+  type="number"
+  placeholder="Enter Sale Percentage (0-100)"
+  {...register("sale", {
+    valueAsNumber: true, // Ensures the value is treated as a number
+  })}
+/>
+        {errors?.sale?.message && (
+          <p className="error-text">
+            {errors.sale.message}
+          </p>
+        )}
+      </div>
+    </Col>
                         <Col lg={6} md={6} sm={12} className="mt-4">
                           <div>
                             <label className="business-labels">

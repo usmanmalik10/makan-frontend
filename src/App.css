@@ -243,3 +243,33 @@ margin-block:30px ;
 }
 
 iframe#webpack-dev-server-client-overlay{display:none!important}
+
+.daily-rates-slides {
+  margin-block:20px ;
+  margin-top: 50px;
+  padding: 10px 0px 5px 0px;
+  background: transparent
+  linear-gradient(180deg, #ff0007 0%, #f0090d 50%, #850000 100%) 0% 0%
+  no-repeat padding-box;
+  color: white;
+  font-size: 20px;
+}
+.daily-rates-slides .rate {
+  font-weight: 700;
+}
+.with-ribbon {
+  position: relative;
+  overflow: hidden;
+}
+.with-ribbon .ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  z-index: 1;
+  transform: rotate(45deg) translate(14px);
+  font-size: 14px;
+  white-space: nowrap;
+}

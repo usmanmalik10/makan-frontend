@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import logo from "../../../images/sidelogo.png";
 import p1 from "../../../images/pj1.png";
 import p2 from "../../../images/pj2.png";
@@ -8,8 +8,15 @@ import p4 from "../../../images/pj4.png";
 import p5 from "../../../images/pj5.png";
 import p6 from "../../../images/pj6.png";
 import { Link } from "react-router-dom";
+import { useFetchStoresBySaleQuery } from "../../../Redux/RtkQuery/StoresDashboard";
+import Spinner2 from "../../Common/spinner2/spinner2";
 export const Completedprojects = () => {
+  const {data , isLoading , isSuccess , isError} = useFetchStoresBySaleQuery();
+  if(isLoading) return (<Spinner2></Spinner2>)
+  if(isError) return (<p>Error Fetching data</p>)
+
   return (
+
     <section className="homepage-allsection">
       <Container>
         <Row>
@@ -32,43 +39,49 @@ export const Completedprojects = () => {
             </div>
           </Col>
         </Row>
+        <Row>
+        {
+  isSuccess && data.data.map(shop => {
+    return (
+      <Col  lg={4} md={6} sm={12} xs={12} >
+          <Card key={shop._id} className="estate-card with-ribbon">
+          {shop.sale && <div className="ribbon">{`${shop.sale} Sale`}</div>}
+                  <Card.Img src={shop.shopImage} style={{height : '140px' , width : '140px' , borderRadius:'50%'  , objectFit:'contain'}} alt="House Image" className="real-card-image" />
+                  <Card.Body>
+                    <Card.Text>
+                    <p className="estate_ineer_text">
+                        Name : {shop.shopName}
+                      </p>
+                      <p className="estate_ineer_text">
+                        Area of service : {shop.areaOfService[0]}
+                      </p>
+                      
+                      <p className="estate_ineer_text">
+                        Province : {shop.province[0]}
+                      </p>
+                         
+                      <p className="estate_ineer_text">
+                        category : {shop.category}
+                      </p>
+                         
+                      <p className="estate_ineer_text">
+                        Contact Number : {shop.contectNumber}
+                      </p>
+         
+                     
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+      </Col>
+    )
+  })
+}
+    
 
-        <Row className="pt-5">
-          <Col lg={4} md={4} sm={12}>
-            <div>
-              <img className="home-project-image" alt="im" src={p1} />
-            </div>
-          </Col>
-          <Col lg={4} md={4} sm={12}>
-            <div>
-              <img className="home-project-image" alt="im" src={p2} />
-            </div>
-          </Col>
-          <Col lg={4} md={4} sm={12}>
-            <div>
-              <img className="home-project-image" alt="im" src={p3} />
-            </div>
-          </Col>
+
         </Row>
-        <div className="pt-4">
-          <Row>
-            <Col lg={4} md={4} sm={12}>
-              <div>
-                <img className="home-project-image" alt="im" src={p4} />
-              </div>
-            </Col>
-            <Col lg={4} md={4} sm={12}>
-              <div>
-                <img className="home-project-image" alt="im" src={p5} />
-              </div>
-            </Col>
-            <Col lg={4} md={4} sm={12}>
-              <div>
-                <img className="home-project-image" alt="im" src={p6} />
-              </div>
-            </Col>
-          </Row>
-        </div>
+
+ 
       </Container>
     </section>
   );

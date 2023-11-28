@@ -133,7 +133,7 @@ centerPadding: '20%',
           <h3 className="home-store-labels">Paint Stores</h3>
           </div>
           <div className="sliderContent">
-          <img src={pic5} alt="" className="slickSlider1Bandi" />
+          <img src={'/wood.jpg'} alt="" className="slickSlider1Bandi" />
           <h3 className="home-store-labels">Wood Stores</h3>
           </div>
         
