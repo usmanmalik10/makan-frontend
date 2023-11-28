@@ -10,6 +10,8 @@ import MainPageRealEstate from './RtkQuery/MainPageRealEstate'
 import MainPageStore from './RtkQuery/MainPageStore'
 import MainPageService from './RtkQuery/MainPageService'
 import StrategicSalesPartner from './RtkQuery/StrategicSalesPartner';
+import Dailyrates from './RtkQuery/DailyRates';
+
 
 const store =  configureStore({
   reducer: {
@@ -21,6 +23,7 @@ const store =  configureStore({
     [storesApi.reducerPath]: storesApi.reducer,
     [MainPageService.reducerPath]: MainPageService.reducer,
     [StrategicSalesPartner.reducerPath]: StrategicSalesPartner.reducer,
+    [Dailyrates.reducerPath]: Dailyrates.reducer,
 
   
     auth: authReducer,
@@ -34,7 +37,7 @@ const store =  configureStore({
   
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(estateApi.middleware , serviceApi.middleware , storesApi.middleware , MainPageRealEstate.middleware , MainPageStore.middleware , MainPageService.middleware, StrategicSalesPartner.middleware)
+    getDefaultMiddleware().concat(estateApi.middleware , serviceApi.middleware , storesApi.middleware , MainPageRealEstate.middleware , MainPageStore.middleware , MainPageService.middleware, StrategicSalesPartner.middleware, Dailyrates.middleware)
 });
 
 store.dispatch(fetchCurrentUser());

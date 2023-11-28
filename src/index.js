@@ -7,7 +7,8 @@ import { AuthProvider } from './context/AuthProvider';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import store from './Redux/store';
-
+import 'swiper/css';
+import 'swiper/css/autoplay';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

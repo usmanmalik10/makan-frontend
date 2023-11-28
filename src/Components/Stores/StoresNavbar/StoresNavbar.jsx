@@ -15,6 +15,11 @@ const StoresNavbar = () => {
       text: "Profile",
       route: "/stores-profile",
     },
+    {
+      icon: AiOutlineFolderAdd,
+      text: "Services Data",
+      route: "/stores-services-data",
+    },
     // {
     //   icon: AiOutlineFolderAdd,
     //   text: "New Add",

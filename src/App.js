@@ -63,6 +63,7 @@ import { Strategicsalestores } from "./Pages/Strategicsaleportal/Strategicsalest
 import { AdminStoresGeneralComponent } from "./Components/adminpanel/Adminstores/AdminStoresGeneralComponent/AdminStoresGeneralComponent";
 import { NewadCopy } from "./Components/Stores/Storescomp/Newadcopy";
 import NotRequiredAuth from "./Routes/NotRequireAuth";
+import { ServicesDataMain } from "./Pages/Storesportal/ServicesData";
 
 
 //  Strategic Sales partners Routes  
@@ -146,6 +147,7 @@ function App() {
           <Route element={<RequireAuth allowedRoles={[ROLES.Stores]} />}>
             <Route path="/stores-profile" element={<Storesprofile />} />
             <Route path="/new-add-stores" element={<NewaddStores />} />
+            <Route path="/stores-services-data" element={<ServicesDataMain/>} />
 
             <Route path="/active-adds-stores" element={<ActiveaddStores />} />
           </Route>
