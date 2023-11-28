@@ -40,7 +40,7 @@ export const Contact = () => {
               <div>
                 <h2>Contact Us</h2>
                 <p className="contact_query">For any query or complaint, please feel free to contact us; <br/>
-                Location: 	23-C First Floor, Fateh Sher Road, Sahiwal <br/>
+                Location: 	House # 65 Block K-1 Wapda Town Lahore <br/>
                 Phone:		+92 3 111 444 666 <br/>
                 Email Address:	info@makanmanager.com
                 </p>

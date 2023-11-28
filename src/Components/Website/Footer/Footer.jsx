@@ -2,8 +2,8 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Footer.scss'
-import logo from "../../../Assets/Home-Screen/Group 46112.png";
-
+// import logo from "../../../Assets/Home-Screen/Group 46112.png";
+import logo from "../../../images/makanlogo1.jpg"
 const Footer = () => {
   return (
     <div>
@@ -75,7 +75,7 @@ const Footer = () => {
                                     <Link className='list-text' to="/contactus"> Contactus</Link>
                                 </li>
                                 <li>
-                                    <Link className='list-text' to="/"> Faq's</Link>
+                                    <Link className='list-text' to="/realestate"> Real Estate</Link>
                                 </li>
                                 <li>
                                     <Link className='list-text' to="/all-stores">Stores</Link>

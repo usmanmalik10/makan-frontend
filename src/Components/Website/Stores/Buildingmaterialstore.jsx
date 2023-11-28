@@ -6,6 +6,7 @@ import Spinner2 from "../../Common/spinner2/spinner2";
 import axios from "axios";
 import { USERS_BASE_URL } from "../../constants/config/config.dev";
 import { useGetShopsDataQuery } from "../../../Redux/RtkQuery/MainPageStore";
+import "./stores.css";
 
 export const Buildingmaterialstore = () => {
   const { data: materialData, error: materialError, isLoading: isMaterialLoading } = useGetShopsDataQuery({

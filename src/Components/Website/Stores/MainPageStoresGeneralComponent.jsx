@@ -9,6 +9,7 @@ import { useGetShopsDataQuery } from "../../../Redux/RtkQuery/MainPageStore";
 import { useParams } from "react-router-dom";
 import { stepConnectorClasses } from "@mui/material";
 import { storesData } from "../../../lib/storesData";
+import "./stores.css";
 
 export const MainPageStoresGeneralComponent = ({category , title}) => {
 
@@ -41,15 +42,15 @@ export const MainPageStoresGeneralComponent = ({category , title}) => {
 
         {data.data.docs.map((ad) => (
           <Col lg={4} md={4} sm={12} xs={12}>
-            <Card key={ad._id} >
+            <Card key={ad._id} className="wstores-card" >
             <Card.Img   />
               <Card.Body>
               <Card.Text>
-                  <p className="active_card_text">Shop Name : {ad.shopName}</p>
+                  <p className="wstores_card_text">Shop Name : {ad.shopName}</p>
              
-                  <p className="active_card_text">Address: {ad.address}</p>
-                  <p className="active_card_text">Area of Service: {ad.areaOfService.join(", ")}</p>
-                  <p className="active_card_text"> Contact Number: {ad.contectNumber}</p>
+                  <p className="wstores_card_text">Address: {ad.address}</p>
+                  <p className="wstores_card_text">Area of Service: {ad.areaOfService.join(", ")}</p>
+                  <p className="wstores_card_text"> Contact Number: {ad.contectNumber}</p>
                   {/* <p className="active_card_text">Company Name: {ad.companyName}</p>
                   <p className="active_card_text">Details Key1: {ad.details.key1}</p>
                       <p className="active_card_text">Details Key2: {ad.details.key2}</p>
