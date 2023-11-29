@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2f8d86ab.css",
-    "main.js": "/static/js/main.2811a6b6.js",
+    "main.js": "/static/js/main.d8bdef52.js",
     "static/js/787.db078a46.chunk.js": "/static/js/787.db078a46.chunk.js",
     "static/media/companyvideo.mp4": "/static/media/companyvideo.a6dbcf132657cb82d9e8.mp4",
     "static/media/mmhomes.jpg": "/static/media/mmhomes.eeeea66fdacf92764f30.jpg",
@@ -43,11 +43,11 @@
     "static/media/arrow-right.svg": "/static/media/arrow-right.f312c9f413e66dff3c78.svg",
     "static/media/arrow-left.svg": "/static/media/arrow-left.303724bc0abadb26e315.svg",
     "main.2f8d86ab.css.map": "/static/css/main.2f8d86ab.css.map",
-    "main.2811a6b6.js.map": "/static/js/main.2811a6b6.js.map",
+    "main.d8bdef52.js.map": "/static/js/main.d8bdef52.js.map",
     "787.db078a46.chunk.js.map": "/static/js/787.db078a46.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f8d86ab.css",
-    "static/js/main.2811a6b6.js"
+    "static/js/main.d8bdef52.js"
   ]
 }
