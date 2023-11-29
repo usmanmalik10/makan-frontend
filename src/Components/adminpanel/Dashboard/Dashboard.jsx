@@ -5,36 +5,43 @@ import { MdOutlineBusinessCenter } from "react-icons/md";
 import { FaStore } from "react-icons/fa";
 import { BiHomeSmile } from "react-icons/bi";
 import "./style.css";
+import { useFetchCountsQuery } from "../../../Redux/RtkQuery/Dashboard";
+import Spinner2 from "../../Common/spinner2/spinner2";
 
 const Dashboard = () => {
+
+  const {data , isLoading , isSuccess , isError} = useFetchCountsQuery();
+  if(isLoading) return (<Spinner2></Spinner2>)
+  if(isError) return (<p>Error Data</p>)
+  const counts = data;
   const dummyCards = [
     {
       icon: FiUsers,
-      stats: 0,
+      stats: counts.users,
       description: "Active Users",
       backgroundColor: "#8BB7A2",
     },
     {
       icon: MdOutlineBusinessCenter,
-      stats: 0,
-      description: "Active Business",
+      stats: counts.ServiceProviders,
+      description: "Active Service Providers",
       backgroundColor: "#4D4E8D ",
     },
     {
       icon: FaStore,
-      stats: 0,
+      stats: counts.shops,
       description: "Active Store",
       backgroundColor: "#636C79",
     },
     {
       icon: BiHomeSmile,
-      stats: 0,
+      stats: counts.realState,
       description: "Real Estate",
       backgroundColor: "#8884d8",
     },
     {
       icon: FiUsers,
-      stats: 0,
+      stats: counts.strategicSalePartners,
       description: "Strategic Sales Partner",
       backgroundColor: "#636C79",
     },
